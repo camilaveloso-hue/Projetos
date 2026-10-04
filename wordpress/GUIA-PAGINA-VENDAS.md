@@ -14,8 +14,8 @@ Arquivos: `aldeia-vendas.css` (visual) · `aldeia-vendas.js` (abas, contadores, 
 |---|---|---|
 | Barra de aviso | `av-notice` | Texto |
 | Menu | `av-header` > `av-wrap`; links `av-nav`; botão `av-btn` | Nav Menu + Botão (4 âncoras: Jornada, Para quem é, Investimento, Dúvidas) |
-| I Hero | `av-hero` > `av-wrap av-hero__grid` (55/45) | Rótulo `av-label`, H1 `av-h1`, botão `av-btn`, imagem em `av-art` |
-| II Números | `av-stats` + `av-meander av-meander--top`; `av-stats__grid` | 4× Counter (`av-stat`) |
+| I Hero | `av-hero` > `av-wrap av-hero__grid` (texto à esquerda; a imagem entra por CSS, variável `--av-hero-img` = a imagem atual do site) | Selo `av-badge`, H1 `av-h1` (uma linha por `span`), subtítulo `av-sub`, botão `av-btn`, nota `av-hero__pay` |
+| II Números | `av-stats` (sobe sobre o hero) > `av-stats__card` > `av-stats__grid` | 4× Counter (`av-stat`) |
 | III Espelho | `av-section` > `av-mirror` | Heading + Icon List `av-quill` (ícone pena, bronze) |
 | IV Jornada | `av-section av-section--navy`; `av-tabs` | Tabs (vira acordeão no celular); título da aba com numeral romano |
 | V O que você leva | `av-include`; lista `av-check`; cartão `av-sum` | Icon List (check bronze) |
@@ -31,6 +31,11 @@ Arquivos: `aldeia-vendas.css` (visual) · `aldeia-vendas.js` (abas, contadores, 
 
 Botão de compra repetido em 4 pontos (hero, após "O que você leva", oferta, chamado final), sempre `av-btn`, mesmo texto e cor.
 
+## 2b. Toques modernos (opcionais)
+- **Revelação ao rolar:** adicione `av-reveal` em qualquer bloco (cartões, colunas, tabs). Só esconde o bloco se o JS estiver ativo; respeita "reduzir movimento".
+- **Cantos arredondados, vidro fosco nos painéis azuis, meandro como marca sob os títulos e cartão de números flutuante** já vêm no CSS.
+- **Cabeçalho branco translúcido** (igual ao atual do site), com o botão "Garantir minha vaga".
+
 ## 3. Conferido no preview
 Contraste: botão branco/terracota 4,9:1; texto/pergaminho passa AA; bronze nunca em texto pequeno. Alvos de toque ≥ 44 px. Sem rolagem horizontal em 390 px. Respeita "reduzir movimento".
 
@@ -38,7 +43,7 @@ Contraste: botão branco/terracota 4,9:1; texto/pergaminho passa AA; bronze nunc
 Número de alunos · preço, parcelas, à vista, taxa de matrícula e formas de pagamento · entregável de cada módulo · se as aulas ficam gravadas e por quanto tempo · tipo de retorno das atividades e critérios de avaliação · bônus · garantia (veja a nota jurídica no blueprint) · multa de cancelamento e link do contrato · depoimentos reais (nome, cidade, foto) · foto da Camila · número do WhatsApp · gêneros/escopo do curso · logo e meandro oficiais.
 
 ## 5. Divergências entre o blueprint e o site atual (decidir antes de publicar)
-- **Vagas:** blueprint diz ~50 por módulo; o site hoje diz 30.
+- **Vagas:** blueprint diz ~50 por módulo; o site e o hero escolhido dizem 30. A prévia usa **30** em toda a página (aviso, números, FAQ, chamado final). Confirme.
 - **Parcelas:** blueprint prevê 12x; o site hoje cobra 11x (R$ 177 / R$ 270).
 - **Gravação:** o site hoje diz "gravação em até 48h"; o blueprint deixa em aberto.
 - **Atividades:** o site fala em nota mínima em 75% das atividades (requisito do MEC); no blueprint isso está em aberto.

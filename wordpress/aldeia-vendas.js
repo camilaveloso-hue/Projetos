@@ -3,6 +3,14 @@
    ou use Elementor Pro > Custom Code. Os widgets nativos (Tabs, Counter, Accordion) dispensam as partes correspondentes. */
 (function(){
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('av-js');
+
+  /* Revelação ao rolar: adicione a classe av-reveal em qualquer bloco */
+  var rv=document.querySelectorAll('.av-reveal');
+  if('IntersectionObserver' in window){
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');ro.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    rv.forEach(function(e){ro.observe(e)});
+  } else rv.forEach(function(e){e.classList.add('is-in')});
 
   /* Tabs no desktop / acordeão no celular */
   document.querySelectorAll('[data-av-tabs]').forEach(function(w){

@@ -1,7 +1,6 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aldeia Literária — Prévia da página de vendas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts.css">
 <style>body{margin:0}/* ==========================================================================
    ALDEIA LITERÁRIA — Página de vendas (Blueprint v1, turma jan/2027)
    Identidade greco-romana: Cinzel + EB Garamond + Montserrat
@@ -25,6 +24,8 @@
   --av-body:"EB Garamond",Georgia,serif;
   --av-ui:"Montserrat",system-ui,sans-serif;
   --av-wrap:1160px;
+  --av-r:20px;
+  --av-hero-img:url("https://aaldeialiteraria.com.br/wp-content/uploads/2026/09/Encerramento-scaled.png");
   --av-meander:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23A67C37' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
 }
 
@@ -34,12 +35,14 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-page p{max-width:70ch}
 .av-wrap{max-width:var(--av-wrap);margin-inline:auto;padding-inline:24px}
 .av-section{padding:96px 0;position:relative}
-.av-section--navy{background:var(--av-navy);color:var(--av-parch)}
+.av-section--navy{background:radial-gradient(760px 380px at 100% 0,rgba(166,124,55,.17),transparent 62%),var(--av-navy);color:var(--av-parch)}
 .av-section--dark{background:var(--av-navy-dark);color:var(--av-parch)}
 
 /* Divisória com meandro grego (SVG < 1 KB, repetido) */
 .av-meander{height:14px;background:var(--av-meander) repeat-x center/28px 14px;opacity:.9}
-.av-meander--top{position:absolute;left:0;right:0;top:0}
+.av-meander--top{position:absolute;left:0;right:0;top:0;opacity:.55}
+.av-h2::after{content:"";display:block;width:84px;height:14px;margin-top:18px;background:var(--av-meander) repeat-x left center/28px 14px}
+.av-center .av-h2::after,.av-final .av-h2::after{margin-inline:auto}
 
 /* Rótulo de seção: numeral romano + nome (Montserrat caixa alta) */
 .av-label{font:600 13px/1 var(--av-ui);letter-spacing:.18em;text-transform:uppercase;color:var(--av-terra-dark);margin:0 0 18px;display:flex;align-items:center;gap:12px}
@@ -57,7 +60,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 /* ---------- Botão de compra: terracota SÓ aqui (efeito de isolamento) ---------- */
 .av-btn,.av-page .elementor-button.av-btn{
   display:inline-flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;max-width:100%;
-  min-height:52px;padding:16px 34px;background:var(--av-terra);color:#fff;border:0;border-radius:3px;
+  min-height:52px;padding:16px 34px;background:var(--av-terra);color:#fff;border:0;border-radius:12px;
   font:600 14px/1.2 var(--av-ui);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;cursor:pointer;
   box-shadow:0 8px 22px rgba(181,83,60,.35);transition:transform .15s,background .15s,box-shadow .15s}
 .av-btn:hover{background:var(--av-terra-dark);color:#fff;transform:translateY(-2px)}
@@ -68,33 +71,41 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* ---------- Barra de aviso + menu enxuto ---------- */
 .av-notice{background:var(--av-navy-dark);color:var(--av-parch);font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:10px 16px;border-bottom:1px solid var(--av-line)}
-.av-header{background:var(--av-navy);color:var(--av-parch);position:sticky;top:0;z-index:900;border-bottom:1px solid var(--av-line)}
+.av-header{background:rgba(255,255,255,.9);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);color:var(--av-navy);position:sticky;top:0;z-index:900;border-bottom:1px solid rgba(27,42,65,.08)}
 .av-header .av-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
-.av-logo{font:700 20px var(--av-display);letter-spacing:.06em;color:var(--av-parch);text-decoration:none;display:flex;align-items:center;gap:12px}
+.av-logo{font:500 26px var(--av-body);letter-spacing:.01em;color:var(--av-navy);text-decoration:none;display:flex;align-items:center;gap:12px}
 .av-logo img{width:42px;height:42px;object-fit:contain}
 .av-nav{display:flex;gap:6px}
-.av-nav a{font:600 12px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-parch);text-decoration:none;padding:14px 14px;min-height:44px;display:inline-flex;align-items:center;opacity:.85;border-bottom:2px solid transparent}
-.av-nav a:hover{opacity:1;border-color:var(--av-bronze)}
+.av-nav a{font:600 12px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-navy);text-decoration:none;padding:14px 14px;min-height:44px;display:inline-flex;align-items:center;border-bottom:3px solid transparent}
+.av-nav a:hover{border-color:var(--av-bronze)}
 .av-header .av-btn{min-height:44px;padding:11px 22px;font-size:12px;box-shadow:none}
 
-/* ---------- I · Hero (55/45) ---------- */
-.av-hero{background:radial-gradient(900px 500px at 90% 0,rgba(166,124,55,.22),transparent 60%),var(--av-navy);color:var(--av-parch);padding:88px 0 104px;position:relative}
-.av-hero__grid{display:grid;grid-template-columns:55fr 45fr;gap:56px;align-items:center}
-.av-hero p{font-size:1.1em}
-.av-hero .av-label{font-size:13px}
-.av-hero .av-hero__pay{font-size:14px}
-.av-hero__pay{font:500 14px var(--av-ui);opacity:.82;margin:0}
-.av-art{border:1px solid var(--av-bronze);padding:12px;background:rgba(244,235,221,.04);position:relative}
-.av-art::before,.av-art::after{content:"";position:absolute;width:26px;height:26px;border:2px solid var(--av-bronze)}
-.av-art::before{top:-7px;left:-7px;border-right:0;border-bottom:0}
-.av-art::after{bottom:-7px;right:-7px;border-left:0;border-top:0}
-.av-art svg,.av-art img{display:block;width:100%;height:auto}
-.av-art figcaption{font:500 11px var(--av-ui);opacity:.65;padding:10px 4px 0;letter-spacing:.04em}
+/* ---------- I · Hero (imagem de fundo + overlay azul-marinho) ---------- */
+.av-hero{background:linear-gradient(90deg,#090F1C 0%,#0D1629 45%,#12203E 100%);color:var(--av-parch);min-height:min(92vh,840px);display:flex;align-items:center;padding:96px 0 160px;position:relative;overflow:hidden}
+.av-hero::before{content:"";position:absolute;top:0;bottom:0;right:0;width:64%;background:var(--av-hero-img) center/cover no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40%);mask-image:linear-gradient(90deg,transparent 0,#000 40%)}
+.av-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,15,28,.35),transparent 30%,rgba(9,15,28,.55));pointer-events:none}
+.av-hero>.av-wrap{position:relative;z-index:2}
+.av-hero>.av-wrap{width:100%}
+.av-hero__grid{display:block;max-width:var(--av-wrap)}
+.av-hero__grid>div{max-width:720px}
+.av-badge{display:inline-flex;align-items:center;gap:10px;font:600 12px/1.3 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;color:#E8CB91;
+  padding:9px 18px;border:1px solid rgba(232,203,145,.4);border-radius:999px;background:rgba(232,203,145,.08);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);margin:0 0 26px}
+.av-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--av-bronze);box-shadow:0 0 0 4px rgba(166,124,55,.28)}
+.av-hero .av-h1{font-size:clamp(1.7rem,3.2vw,2.55rem);margin-bottom:24px;white-space:nowrap}
+.av-hero .av-h1 span{display:block}
+.av-hero .av-sub{font-size:1.18em;max-width:34em;margin:0 0 6px}
+.av-hero .av-hero__pay{font:500 13px/1.6 var(--av-ui);letter-spacing:.02em;opacity:.85;margin:0;display:flex;gap:10px;align-items:flex-start}
+.av-hero .av-hero__pay::before{content:"";flex:none;width:18px;height:10px;margin-top:5px;background:var(--av-meander) no-repeat center/auto 10px}
 
-/* ---------- II · Faixa de números ---------- */
-.av-stats{background:var(--av-parch);padding:64px 0 56px;position:relative;border-bottom:1px solid var(--av-line)}
+/* ---------- II · Faixa de números (cartão flutuante) ---------- */
+.av-stats{background:transparent;padding:0;margin-top:-84px;position:relative;z-index:3}
+.av-stats__card{background:#fff;border-radius:24px;padding:48px 24px 40px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
+.av-stats__card::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--av-meander) repeat-x center/28px 14px;opacity:.75}
 .av-stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-.av-stat strong{display:block;font:700 clamp(2.2rem,4vw,3.2rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:10px}
+.av-stat{position:relative}
+.av-stat+.av-stat::before{content:"";position:absolute;left:-12px;top:12%;bottom:12%;width:1px;background:var(--av-line)}
+.av-stat strong{display:block;font:700 clamp(2.4rem,4.4vw,3.6rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:12px}
 .av-stat span{font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite)}
 
 /* ---------- III · Espelho ---------- */
@@ -107,12 +118,12 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 /* ---------- IV · Jornada (tabs no desktop, acordeão no celular) ---------- */
 .av-tabs{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;column-gap:40px;margin-top:40px;align-items:start}
 .av-tab{grid-column:1;display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:transparent;color:var(--av-parch);
-  border:1px solid rgba(166,124,55,.45);border-radius:3px;padding:16px 20px;margin-bottom:10px;min-height:56px;cursor:pointer;font:600 13px/1.35 var(--av-ui);letter-spacing:.08em;text-transform:uppercase;transition:background .15s}
+  border:1px solid rgba(166,124,55,.45);border-radius:14px;padding:16px 20px;margin-bottom:10px;min-height:56px;cursor:pointer;font:600 13px/1.35 var(--av-ui);letter-spacing:.08em;text-transform:uppercase;transition:background .15s}
 .av-tab:hover{background:rgba(244,235,221,.06)}
 .av-tab b{font:700 22px var(--av-display);color:var(--av-bronze);min-width:2.2ch;letter-spacing:.02em}
 .av-tab.is-active{background:var(--av-parch);color:var(--av-navy);border-color:var(--av-parch)}
 .av-tab.is-active b{color:var(--av-terra-dark)}
-.av-panel{display:none;grid-column:2;grid-row:1/span 8;background:rgba(244,235,221,.06);border:1px solid rgba(166,124,55,.45);padding:40px;border-radius:3px}
+.av-panel{display:none;grid-column:2;grid-row:1/span 8;background:rgba(244,235,221,.07);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(166,124,55,.45);padding:40px;border-radius:var(--av-r)}
 .av-panel.is-active{display:block}
 .av-panel h3{font:700 clamp(1.4rem,2.4vw,2rem) var(--av-display);margin:0 0 16px;color:var(--av-parch)}
 .av-panel dt{font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:22px}
@@ -126,14 +137,15 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-check li::before{content:"";position:absolute;left:0;top:19px;width:26px;height:26px;border-radius:50%;border:2px solid var(--av-bronze);
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A67C37' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center/70% no-repeat}
 .av-check strong{color:var(--av-navy)}
-.av-sum{background:#fff;border:1px solid var(--av-bronze);padding:36px;box-shadow:0 14px 40px rgba(27,42,65,.12);position:relative}
-.av-sum::before{content:"";position:absolute;inset:6px;border:1px solid var(--av-line);pointer-events:none}
+.av-sum{background:#fff;border:1px solid var(--av-bronze);border-radius:var(--av-r);padding:36px;box-shadow:0 14px 40px rgba(27,42,65,.12);position:relative}
+.av-sum::before{content:"";position:absolute;inset:6px;border:1px solid var(--av-line);border-radius:calc(var(--av-r) - 5px);pointer-events:none}
 .av-sum h3{font:700 13px var(--av-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--av-terra-dark);margin:0 0 14px}
 .av-sum .av-big{font:700 2.4rem/1.1 var(--av-display);color:var(--av-navy);margin:0 0 8px}
 
 /* ---------- VI · Para quem é ---------- */
 .av-fit{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
-.av-fit__card{background:#fff;padding:36px;border:2px solid var(--av-bronze)}
+.av-fit__card{background:#fff;padding:36px;border:2px solid var(--av-bronze);border-radius:var(--av-r);transition:transform .25s,box-shadow .25s}
+.av-fit__card:hover,.av-quote:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(18,28,45,.14)}
 .av-fit__card--no{border:2px solid #C9C2B6;background:rgba(255,255,255,.55)}
 .av-fit__card h3{font:700 1.35rem var(--av-display);color:var(--av-navy);margin:0 0 18px}
 .av-fit__card ul{list-style:none;margin:0;padding:0}
@@ -143,33 +155,34 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* ---------- VII · Quem conduz ---------- */
 .av-author{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:center}
-.av-portrait{border:2px solid var(--av-bronze);padding:12px;background:#fff}
+.av-portrait{border:2px solid var(--av-bronze);padding:12px;background:#fff;border-radius:28px;overflow:hidden}
 .av-portrait svg,.av-portrait img{display:block;width:100%;height:auto}
 .av-team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
-.av-team__item{border-top:2px solid var(--av-bronze);padding-top:16px}
+.av-team__item{background:#fff;border:1px solid var(--av-line);border-top:3px solid var(--av-bronze);border-radius:16px;padding:20px 22px}
 .av-team__item h4{font:700 1.05rem var(--av-display);color:var(--av-navy);margin:0 0 6px}
 .av-team__item p{font-size:.85em;margin:0}
 
 /* ---------- VIII · Depoimentos ---------- */
 .av-testi{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.av-quote{background:var(--av-parch);color:var(--av-graphite);padding:32px;border-top:4px solid var(--av-bronze);display:flex;flex-direction:column;gap:20px}
+.av-quote{background:var(--av-parch);color:var(--av-graphite);padding:32px;border-top:4px solid var(--av-bronze);border-radius:var(--av-r);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;gap:20px}
 .av-quote blockquote{margin:0;font-size:1.05em;font-style:italic}
 .av-quote footer{display:flex;align-items:center;gap:14px;font:600 12px var(--av-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--av-navy)}
 .av-face{width:52px;height:52px;border-radius:50%;background:var(--av-parch-dark);border:2px solid var(--av-bronze);flex:none}
-.av-video{margin-top:32px;aspect-ratio:16/7;background:rgba(244,235,221,.06);border:1px dashed rgba(166,124,55,.6);display:grid;place-items:center;font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.av-video{margin-top:32px;aspect-ratio:16/7;background:rgba(244,235,221,.06);border:1px dashed rgba(166,124,55,.6);border-radius:var(--av-r);display:grid;place-items:center;font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
 
 /* ---------- IX · Oferta e garantia (moldura mais forte da página) ---------- */
-.av-offer{max-width:600px;margin:40px auto 0;background:#fff;border:3px solid var(--av-bronze);outline:1px solid var(--av-bronze);outline-offset:6px;padding:48px 44px;text-align:center;box-shadow:0 24px 60px rgba(27,42,65,.18)}
+.av-offer{max-width:600px;margin:40px auto 0;background:#fff;border:3px solid var(--av-bronze);outline:1px solid var(--av-bronze);outline-offset:6px;border-radius:28px;padding:48px 44px;text-align:center;box-shadow:0 24px 60px rgba(27,42,65,.18)}
 .av-offer .av-class{font:600 13px var(--av-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--av-terra-dark);margin:0 auto 14px}
 .av-price{font:700 clamp(2.3rem,5vw,3.3rem)/1.1 var(--av-display);color:var(--av-navy);margin:0 auto 6px}
 .av-offer p{margin-inline:auto}
-.av-box{text-align:left;background:var(--av-parch);border-left:4px solid var(--av-bronze);padding:18px 22px;margin:22px 0 0;font-size:.9em}
+.av-box{text-align:left;background:var(--av-parch);border-radius:12px;border-left:4px solid var(--av-bronze);padding:18px 22px;margin:22px 0 0;font-size:.9em}
 .av-box h4{font:700 12px var(--av-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--av-navy);margin:0 0 6px}
 .av-box p{margin:0}
 
 /* ---------- X · FAQ (acordeão, 800px) ---------- */
 .av-faq{max-width:800px;margin:36px auto 0}
-.av-faq details{background:#fff;border:1px solid var(--av-line);margin-bottom:10px}
+.av-faq details{background:#fff;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;margin-bottom:10px;transition:box-shadow .2s}
+.av-faq details[open]{box-shadow:0 14px 34px rgba(18,28,45,.1)}
 .av-faq summary{list-style:none;cursor:pointer;padding:20px 56px 20px 24px;min-height:56px;position:relative;font:700 1.05rem/1.3 var(--av-display);color:var(--av-navy)}
 .av-faq summary::-webkit-details-marker{display:none}
 .av-faq summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font:400 28px var(--av-ui);color:var(--av-bronze)}
@@ -192,12 +205,16 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-wa{position:fixed;right:18px;bottom:20px;z-index:960;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.28);transition:bottom .25s}
 .av-wa svg{width:30px;height:30px;fill:#fff}
 
+/* ---------- Revelação ao rolar (classe av-reveal; só esconde se o JS rodar) ---------- */
+.av-js .av-reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.av-js .av-reveal.is-in{opacity:1;transform:none}
+
 /* ---------- Marca-texto: itens a confirmar (REMOVER no lançamento) ---------- */
 .av-ph{background:#FFEF8A;color:#2B2B2B;padding:0 .25em;border-radius:3px;font-style:normal;font-family:var(--av-ui);font-size:.8em;font-weight:600;letter-spacing:0}
 
 /* ---------- Celular (desenhe primeiro aqui) ---------- */
 @media (max-width:1024px){
-  .av-hero__grid,.av-mirror,.av-include,.av-author{grid-template-columns:1fr;gap:40px}
+  .av-mirror,.av-include,.av-author{grid-template-columns:1fr;gap:40px}
   .av-stats__grid{grid-template-columns:repeat(2,1fr);row-gap:36px}
   .av-testi,.av-team{grid-template-columns:1fr 1fr}
 }
@@ -206,8 +223,13 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .av-section{padding:64px 0}
   .av-wrap{padding-inline:20px}
   .av-nav,.av-header .av-btn{display:none}
-  .av-hero{padding:56px 0 72px}
-  .av-art{max-width:340px;margin-inline:auto}
+  .av-hero{padding:64px 0 130px;min-height:0}
+  .av-hero::before{width:100%;opacity:.5;-webkit-mask-image:none;mask-image:none;background-position:68% center}
+  .av-logo{font-size:22px}
+  .av-hero .av-h1{white-space:normal;font-size:1.75rem}
+  .av-stats{margin-top:-64px}
+  .av-stats__card{padding:40px 16px 30px}
+  .av-stat+.av-stat::before{display:none}
   .av-fit,.av-testi,.av-team{grid-template-columns:1fr}
   .av-tabs{grid-template-columns:1fr}
   .av-tab,.av-panel{grid-column:1}
@@ -218,57 +240,37 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .av-wa{bottom:86px}
   .av-page{padding-bottom:76px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style></head><body class="av-page" id="top"><div class="av-notice">Matrículas abertas para a turma de janeiro de 2027 · cerca de <span class="av-ph">50</span> vagas por módulo</div>
+@media (prefers-reduced-motion:reduce){.av-js .av-reveal{opacity:1;transform:none}*{transition:none!important;scroll-behavior:auto!important}}
+:root{--av-hero-img:url("assets/hero.jpg")}</style></head><body class="av-page" id="top"><div class="av-notice">Matrículas abertas para a turma de janeiro de 2027 · <strong>30 vagas</strong> por módulo</div>
 <header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="#topo"><img src="https://aaldeialiteraria.com.br/wp-content/uploads/2026/07/LOGO_DUO-1-150x150.png" alt=""><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a href="#jornada">Jornada</a><a href="#para-quem">Para quem é</a><a href="#investimento">Investimento</a><a href="#duvidas">Dúvidas</a></nav>
-  <a class="av-btn" href="#investimento">Quero minha vaga</a>
+  <a class="av-btn" href="#investimento">Garantir minha vaga</a>
 </div></header>
 
 <main id="topo">
 <!-- I · HERO -->
 <section class="av-hero"><div class="av-wrap av-hero__grid">
-  <div>
-    <p class="av-label">I · Curso de escrita criativa</p>
-    <h1 class="av-h1">Sua história merece chegar ao último capítulo.</h1>
-    <p>Aulas ao vivo, três por mês, para quem quer escrever um livro de ficção e sair da ideia para o manuscrito completo, com método e uma comunidade escrevendo ao seu lado. Spoiler: dá pra chegar ao ponto final.</p>
-    <div class="av-cta-row"><a class="av-btn" href="#investimento">Quero minha vaga na turma de janeiro</a><a class="av-link" href="#jornada">Ver o que você vai aprender ↓</a></div>
-    <p class="av-hero__pay">Pagamento: <span class="av-ph">Pix e cartão em até X vezes</span> · Aulas ao vivo às 19h30</p>
+  <div class="av-reveal">
+    <p class="av-badge">Extensão universitária • Certificado MEC</p>
+    <h1 class="av-h1"><span>Escrita Criativa:</span><span>Desenvolvimento e Prática</span></h1>
+    <p class="av-sub">Formação online da Aldeia Literária para quem está começando. Aulas ao vivo, comunidade, feedback de mestres e doutores.</p>
+    <div class="av-cta-row"><a class="av-btn" href="#investimento">Entrar na lista da próxima turma</a></div>
+    <p class="av-hero__pay">Próxima turma: janeiro de 2027 · 30 vagas por módulo · aulas às 19h30 com gravação</p>
   </div>
-  <figure class="av-art" style="margin:0">
-    <svg viewBox="0 0 440 540" role="img" aria-label="Ilustração: templo clássico em tons de bronze">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d4263"/><stop offset="1" stop-color="#1B2A41"/></linearGradient>
-        <linearGradient id="col" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6a31"/><stop offset=".45" stop-color="#d9b872"/><stop offset="1" stop-color="#8a6a31"/></linearGradient>
-      </defs>
-      <rect width="440" height="540" fill="url(#sky)"/>
-      <circle cx="220" cy="150" r="92" fill="#A67C37" opacity=".28"/><circle cx="220" cy="150" r="62" fill="#A67C37" opacity=".35"/>
-      <g fill="url(#col)">
-        <polygon points="40,190 220,92 400,190"/><rect x="40" y="190" width="360" height="22"/>
-        <rect x="64" y="212" width="40" height="228"/><rect x="152" y="212" width="40" height="228"/><rect x="248" y="212" width="40" height="228"/><rect x="336" y="212" width="40" height="228"/>
-        <rect x="52" y="440" width="64" height="12"/><rect x="140" y="440" width="64" height="12"/><rect x="236" y="440" width="64" height="12"/><rect x="324" y="440" width="64" height="12"/>
-        <rect x="30" y="452" width="380" height="16"/><rect x="18" y="468" width="404" height="16"/><rect x="6" y="484" width="428" height="18"/>
-      </g>
-      <g stroke="#1B2A41" stroke-width="2" opacity=".5"><path d="M76 216v220M84 216v220M92 216v220M164 216v220M172 216v220M180 216v220M260 216v220M268 216v220M276 216v220M348 216v220M356 216v220M364 216v220"/></g>
-      <polygon points="220,120 168,176 272,176" fill="#1B2A41" opacity=".55"/>
-      <rect x="0" y="518" width="440" height="22" fill="#121C2D"/>
-    </svg>
-    <figcaption>Imagem ilustrativa · trocar por escultura ou pintura clássica de domínio público, ou foto da Camila</figcaption>
-  </figure>
 </div></section>
 
 <!-- II · FAIXA DE NÚMEROS -->
-<section class="av-stats"><div class="av-meander av-meander--top"></div><div class="av-wrap av-stats__grid">
+<section class="av-stats"><div class="av-wrap"><div class="av-stats__card av-reveal"><div class="av-stats__grid">
   <div class="av-stat"><strong><span class="av-ph">+X</span></strong><span>escritores já passaram pela Aldeia</span></div>
   <div class="av-stat"><strong data-count="3">3</strong><span>aulas ao vivo por mês em cada módulo</span></div>
   <div class="av-stat"><strong>1h30</strong><span>de duração, às 19h30</span></div>
-  <div class="av-stat"><strong data-count="50" data-prefix="~">~50</strong><span>vagas por módulo</span></div>
-</div></section>
+  <div class="av-stat"><strong data-count="30">30</strong><span>vagas por módulo</span></div>
+</div></div></div></section>
 
 <!-- III · ESPELHO -->
 <section class="av-section"><div class="av-wrap av-mirror">
-  <div>
+  <div class="av-reveal">
     <p class="av-label">III · O problema</p>
     <h2 class="av-h2">Você tem a ideia. Falta o mapa.</h2>
     <p>Você abre o documento, escreve três parágrafos e a história volta pra gaveta. Acontece com muita gente que começa, e não é falta de talento. Todo livro é uma travessia longa, e toda travessia pede mapa, companhia e ritmo.</p>
@@ -289,9 +291,9 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   <p class="av-label">IV · O caminho</p>
   <h2 class="av-h2">Do chamado ao ponto final, um módulo por vez.</h2>
   <p class="av-lead">Cada módulo tem 3 aulas ao vivo por mês. Em cada etapa você aprende uma habilidade e sai com algo escrito.</p>
-  <div class="av-tabs" data-av-tabs role="tablist">
+  <div class="av-reveal av-tabs" data-av-tabs role="tablist">
     <button class="av-tab is-active" role="tab" aria-selected="true"><b>I</b>Fundamentos da Narrativa</button>
-    <div class="av-panel is-active" role="tabpanel"><h3>Módulo I · Fundamentos da Narrativa</h3><dl><dt>O que você passa a saber fazer</dt><dd>Estruturar uma narrativa com conceitos fundamentais e entender o mercado editorial brasileiro.</dd><dt>Você sai com</dt><dd><span class="av-ph">entregável do módulo</span></dd></dl><p class="av-meta">Terça · 19h30 · aulas gravadas <span class="av-ph">confirmar</span></p></div>
+    <div class="av-panel is-active" role="tabpanel"><h3>Módulo I · Fundamentos da Narrativa</h3><dl><dt>O que você passa a saber fazer</dt><dd>Estruturar uma narrativa com conceitos fundamentais e entender o mercado editorial brasileiro.</dd><dt>Você sai com</dt><dd><span class="av-ph">entregável do módulo</span></dd></dl><p class="av-meta">Terça · 19h30 · com gravação</p></div>
     <button class="av-tab" role="tab" aria-selected="false"><b>II</b>Técnicas Avançadas</button>
     <div class="av-panel" role="tabpanel"><h3>Módulo II · Técnicas Avançadas</h3><dl><dt>O que você passa a saber fazer</dt><dd>Aplicar técnicas específicas de escrita criativa e de produção de livros no Brasil, em aulas teóricas e práticas.</dd><dt>Você sai com</dt><dd><span class="av-ph">entregável do módulo</span></dd></dl><p class="av-meta">Quarta · 19h30</p></div>
     <button class="av-tab" role="tab" aria-selected="false"><b>III</b>Processos criativos</button>
@@ -316,7 +318,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
     </ul>
     <a class="av-btn" href="#investimento">Quero minha vaga na turma de janeiro</a>
   </div>
-  <aside class="av-sum">
+  <aside class="av-reveal av-sum">
     <h3>Seu resumo</h3>
     <p class="av-big">R$ <span class="av-ph">X</span></p>
     <p>Valor somado de tudo isso.</p>
@@ -328,14 +330,14 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <!-- VI · PARA QUEM É -->
 <section class="av-section av-section--dark" style="background:var(--av-parch-dark);color:var(--av-graphite)" id="para-quem"><div class="av-meander av-meander--top"></div><div class="av-wrap">
   <p class="av-label" style="color:var(--av-terra-dark);opacity:1">VI · Para quem é</p>
-  <h2 class="av-h2" style="color:var(--av-navy)">Esta jornada é para você se…</h2>
+  <h2 class="av-h2" style="color:var(--av-navy)">Serve para o seu momento?</h2>
   <div class="av-fit">
-    <div class="av-fit__card"><h3>Esta jornada é para você se…</h3><ul>
+    <div class="av-reveal av-fit__card"><h3>Esta jornada é para você se…</h3><ul>
       <li>Quer escrever ficção (romance, fantasia, conto e afins) <span class="av-ph">ajustar gêneros</span>.</li>
       <li>Está começando, ou já começou e travou no meio.</li>
       <li>Pode acompanhar aulas ao vivo às 19h30, três vezes por mês.</li>
       <li>Topa praticar entre as aulas e receber avaliação das atividades.</li></ul></div>
-    <div class="av-fit__card av-fit__card--no"><h3>Talvez ainda não seja o momento se…</h3><ul>
+    <div class="av-reveal av-fit__card av-fit__card--no"><h3>Talvez ainda não seja o momento se…</h3><ul>
       <li>Procura uma fórmula pronta de best-seller. Aqui o caminho é feito de prática.</li>
       <li>Não consegue reservar tempo para as aulas e atividades agora. Sem problema: a próxima turma estará aqui.</li>
       <li>Quer escrever <span class="av-ph">não ficção / roteiro / outro: confirmar escopo</span>.</li></ul></div>
@@ -345,7 +347,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <!-- VII · QUEM CONDUZ -->
 <section class="av-section"><div class="av-wrap">
   <div class="av-author">
-    <figure class="av-portrait" style="margin:0">
+    <figure class="av-reveal av-portrait" style="margin:0">
       <svg viewBox="0 0 400 500" role="img" aria-label="Espaço reservado para a foto da Camila Veloso"><rect width="400" height="500" fill="#EADFCB"/><circle cx="200" cy="190" r="78" fill="#cdbd9f"/><path d="M60 500c0-110 60-170 140-170s140 60 140 170z" fill="#cdbd9f"/><text x="200" y="468" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="14" font-weight="600" fill="#8a7a58" letter-spacing="2">FOTO DA CAMILA</text></svg>
     </figure>
     <div>
@@ -355,9 +357,9 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
     </div>
   </div>
   <div class="av-team">
-    <div class="av-team__item"><h4>Laura Marques</h4><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div>
-    <div class="av-team__item"><h4>Lucas Oliveira</h4><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div>
-    <div class="av-team__item"><h4>Lavínia Neres</h4><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div>
+    <div class="av-reveal av-team__item"><h4>Laura Marques</h4><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div>
+    <div class="av-reveal av-team__item"><h4>Lucas Oliveira</h4><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div>
+    <div class="av-reveal av-team__item"><h4>Lavínia Neres</h4><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div>
   </div>
 </div></section>
 
@@ -366,9 +368,9 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   <p class="av-label">VIII · Quem já atravessou</p>
   <h2 class="av-h2">Veja o que acontece quando o rascunho ganha caminho</h2>
   <div class="av-testi">
-    <figure class="av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: terminei meu primeiro rascunho…</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
-    <figure class="av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: tive coragem de enviar para editoras…</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
-    <figure class="av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase ou print real de mensagem de aluno</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
+    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: terminei meu primeiro rascunho…</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
+    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: tive coragem de enviar para editoras…</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
+    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase ou print real de mensagem de aluno</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
   </div>
   <div class="av-video">▶ Vídeo curto de depoimento</div>
 </div></section>
@@ -377,7 +379,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <section class="av-section" id="investimento"><div class="av-meander av-meander--top"></div><div class="av-wrap av-center">
   <p class="av-label">IX · Seu investimento</p>
   <h2 class="av-h2">Turma de janeiro de 2027</h2>
-  <div class="av-offer">
+  <div class="av-reveal av-offer">
     <p class="av-class">Parcela primeiro, à vista depois</p>
     <p class="av-price">12x de R$ <span class="av-ph">Y</span></p>
     <p>ou R$ <span class="av-ph">Z</span> à vista</p>
@@ -393,11 +395,11 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <section class="av-section" style="background:var(--av-parch-dark)" id="duvidas"><div class="av-wrap av-center">
   <p class="av-label">X · Dúvidas</p>
   <h2 class="av-h2">Perguntas frequentes</h2>
-  <div class="av-faq" style="text-align:left">
+  <div class="av-reveal av-faq" style="text-align:left">
     <details open><summary>Quando começa a turma?</summary><div class="av-ans"><p>Em janeiro de 2027.</p></div></details>
-    <details><summary>Como são as aulas?</summary><div class="av-ans"><p>Ao vivo, 3 por mês em cada módulo, às 19h30, com 1h30 de duração. <span class="av-ph">As aulas ficam gravadas? Por quanto tempo?</span></p></div></details>
+    <details><summary>Como são as aulas?</summary><div class="av-ans"><p>Ao vivo, 3 por mês em cada módulo, às 19h30, com 1h30 de duração. As aulas ficam gravadas. <span class="av-ph">Por quanto tempo ficam disponíveis?</span></p></div></details>
     <details><summary>Preciso ter algo escrito antes?</summary><div class="av-ans"><p>O curso é para quem está começando. Você não precisa ter nada pronto, só vontade de escrever ficção.</p></div></details>
-    <details><summary>Quantas vagas existem?</summary><div class="av-ans"><p>Em média, 50 por módulo.</p></div></details>
+    <details><summary>Quantas vagas existem?</summary><div class="av-ans"><p>30 por módulo.</p></div></details>
     <details><summary>Os módulos 2 e 5 têm o mesmo horário?</summary><div class="av-ans"><p>Sim, em salas diferentes. A jornada é organizada para você nunca precisar cursar os dois ao mesmo tempo.</p></div></details>
     <details><summary>O que é a taxa de matrícula?</summary><div class="av-ans"><p>Ela cobre a formulação do seu contrato e a sua entrada no ecossistema da Aldeia Literária.</p></div></details>
     <details><summary>Posso cancelar?</summary><div class="av-ans"><p>Você pode pedir o cancelamento. O contrato prevê multa quando isso acontece antes do fim do curso. <span class="av-ph">detalhar a regra</span></p></div></details>
@@ -412,7 +414,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <section class="av-final"><div class="av-meander av-meander--top"></div><div class="av-wrap">
   <p class="av-label" style="justify-content:center">XI · O chamado</p>
   <h2 class="av-h2">O chamado já chegou. Falta atravessar a porta.</h2>
-  <p>A turma de janeiro de 2027 tem vagas limitadas: cerca de 50 por módulo. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>
+  <p>A turma de janeiro de 2027 tem vagas limitadas: 30 por módulo. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>
   <p style="margin:32px auto 18px"><a class="av-btn" href="#investimento">Quero minha vaga na turma de janeiro</a></p>
   <p class="av-small">Ficou com dúvida? <a class="av-link" style="min-height:44px" href="https://wa.me/">Fale com a gente no WhatsApp</a> <span class="av-ph">link</span></p>
 </div></section>
@@ -427,6 +429,14 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
    ou use Elementor Pro > Custom Code. Os widgets nativos (Tabs, Counter, Accordion) dispensam as partes correspondentes. */
 (function(){
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('av-js');
+
+  /* Revelação ao rolar: adicione a classe av-reveal em qualquer bloco */
+  var rv=document.querySelectorAll('.av-reveal');
+  if('IntersectionObserver' in window){
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');ro.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    rv.forEach(function(e){ro.observe(e)});
+  } else rv.forEach(function(e){e.classList.add('is-in')});
 
   /* Tabs no desktop / acordeão no celular */
   document.querySelectorAll('[data-av-tabs]').forEach(function(w){
