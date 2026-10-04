@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
+   Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).
+   Seletores com ".av-page" para vencer o CSS dos widgets, que pode carregar depois deste arquivo.
+   ========================================================================== */
+
+.av-page .elementor-heading-title{line-height:inherit}
+
+/* O Elementor zera a margem inferior dos widgets dentro de containers (.e-con .elementor-widget.elementor-widget);
+   aqui devolvemos os espaçamentos de cada componente. */
+.av-page .e-con .elementor-widget.av-label{margin-block-end:18px}
+.av-page .e-con .elementor-widget.av-badge{margin-block-end:26px}
+.av-page .e-con .elementor-widget.av-h1,.av-page .e-con .elementor-widget.av-h2{margin-block-end:22px}
+.av-page .e-con .av-hero .elementor-widget.av-h1{margin-block-end:24px}
+.av-page .e-con .elementor-widget.av-lead{margin-block-end:28px}
+.av-page .e-con .elementor-widget.av-waitnote{margin-block-end:26px}
+.av-page .e-con .av-hero .elementor-widget.av-sub{margin-block-end:6px}
+.av-page .e-con .elementor-widget.av-check{margin-block-end:30px}
+.av-page .e-con .av-offer .elementor-widget.av-class{margin-block-end:14px}
+.av-page .e-con .av-offer .elementor-widget.av-price{margin-block-end:6px}
+.av-page .e-con .av-team__item .elementor-widget.av-ava{margin-block-end:14px}
+
+/* Cabeçalho, avisos e textos curtos */
+.av-page .av-nav p{display:flex;gap:6px;margin:0;max-width:none}
+.av-page .av-notice p,.av-page .av-footer p{margin:0 0 .5em;max-width:none}
+.av-page .av-notice p{margin:0}
+.av-page .av-footer p:last-child{margin:0}
+.av-page .av-hero .av-sub p,.av-page .av-hero .av-hero__pay p{margin:0;max-width:none}
+.av-page .av-hero .av-sub p{max-width:34em}
+.av-page .av-final .av-label{justify-content:center}
+.av-page .av-center .elementor-widget-text-editor p,.av-page .av-center .elementor-widget-heading{margin-inline:auto}
+.av-page .av-btn-row{margin-top:28px}
+.av-page .av-btn-row--center{display:flex;justify-content:center;margin-top:36px}
+.av-page .av-final .av-btn-row--center{margin:32px 0 18px}
+.av-page .av-meander-w{position:static}
+
+/* Contadores nativos */
+.av-page .av-stat .elementor-counter{flex-direction:column;align-items:stretch}
+.av-page .av-stat .elementor-counter-number-wrapper{order:1;justify-content:center;font:700 clamp(2.4rem,4.4vw,3.6rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:12px}
+.av-page .av-stat .elementor-counter-title{order:2;display:block;font:600 12px/1.9 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite);text-align:center}
+.av-page .av-stat-box{text-align:center}
+
+/* Imagens como cartões/capas/fotos */
+.av-page .av-book,.av-page .av-photo,.av-page .av-certcard .elementor-widget-image{text-align:left}
+.av-page .av-book{flex:none;width:170px}
+.av-page .av-book img{width:100%;height:100%}
+.av-page .av-photo img{width:100%;height:100%}
+.av-page .av-portrait .elementor-widget-image img{width:100%;height:auto}
+.av-page .av-certcard .elementor-widget-image{flex:none;width:132px}
+.av-page .av-certcard .elementor-widget-image img{width:132px;height:176px}
+.av-page .av-certcard__txt{flex:1}
+.av-page .av-certcard .elementor-widget-text-editor p{margin:0}
+.av-page .e-con.av-marquee__track{max-width:none;width:max-content;flex-wrap:nowrap}
+
+/* Listas dentro do Editor de Texto */
+.av-page .av-check ul{list-style:none;margin:0;padding:0}
+.av-page .av-fit__card ul{list-style:none;margin:0;padding:0}
+.av-page .av-fit__card .elementor-widget-heading{margin-bottom:0}
+
+/* Carrossel dos problemas */
+.av-page .av-problem .elementor-widget-text-editor p{font:500 clamp(1.5rem,2.6vw,2.1rem)/1.28 var(--av-body);margin:0;max-width:none}
+
+/* Equipe, depoimentos, oferta */
+.av-page .av-team__item .elementor-widget-text-editor p{font-size:.85em;margin:0}
+.av-page .av-quote>.elementor-widget-text-editor p{font-size:1.05em;font-style:italic;margin:0}
+.av-page .av-quote__by .elementor-widget-text-editor p{margin:0;font:inherit}
+.av-page .av-face{width:52px;height:52px}
+.av-page .av-offer .elementor-widget-text-editor p{margin:0 auto 14px}
+.av-page .av-offer .av-small p{margin:0 auto 12px}
+.av-page .av-box .elementor-widget-text-editor p{margin:0}
+.av-page .av-waitnote p{margin:0;max-width:none}
+
+/* Tabela de preços (widget HTML): neutraliza o estilo de tabela do tema */
+.av-page .av-table{margin:0;width:100%;border-collapse:separate}
+.av-page .av-table th,.av-page .av-table td{border:0;border-bottom:1px solid var(--av-line);background:transparent}
+.av-page .av-table thead th{border-bottom:2px solid var(--av-navy)}
+.av-page .av-table tbody>tr>td:last-child,.av-page .av-table thead>tr>th:last-child{background:rgba(204,53,28,.06)}
+.av-page .av-table tr:last-child th,.av-page .av-table tr:last-child td{border-bottom:0}
+
+/* Abas nativas: lista à esquerda, painel à direita; vira acordeão no celular (comportamento do Elementor) */
+.av-page .elementor-widget.av-tabs{display:block;grid-template-columns:none;margin-top:0}
+.av-page .av-tabs .elementor-tabs{display:grid!important;grid-template-columns:minmax(260px,1fr) 2fr;column-gap:40px;align-items:start;margin-top:40px;counter-reset:avtab avtab2}
+.av-page .av-tabs .elementor-tabs-wrapper{width:auto!important;overflow:visible;display:flex!important;flex-direction:column;gap:10px}
+.av-page .av-tabs .elementor-tabs-content-wrapper{border:0!important;flex-grow:0}
+.av-page .av-tabs .elementor-tab-desktop-title::before,.av-page .av-tabs .elementor-tab-desktop-title::after{display:none!important}
+.av-page .av-tabs .elementor-tab-desktop-title{counter-increment:avtab;display:block!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:18px;padding:0!important;line-height:1.35;background:transparent;color:var(--av-parch);position:static;transition:background .15s}
+.av-page .av-tabs .elementor-tab-desktop-title a{display:flex;align-items:center;gap:16px;min-height:56px;padding:16px 20px;font:600 13px/1.35 var(--av-ui);letter-spacing:.08em;text-transform:uppercase;color:inherit;text-decoration:none}
+.av-page .av-tabs .elementor-tab-desktop-title a::before{content:counter(avtab,upper-roman);font:700 22px var(--av-display);color:#FF9C88;min-width:2.2ch;letter-spacing:.02em}
+.av-page .av-tabs .elementor-tab-desktop-title:hover{background:rgba(255,255,255,.07)}
+.av-page .av-tabs .elementor-tab-desktop-title.elementor-active{background:#fff;color:var(--av-navy);border-color:#fff!important}
+.av-page .av-tabs .elementor-tab-desktop-title.elementor-active a::before{color:var(--av-terra-dark)}
+.av-page .av-tabs .elementor-tab-mobile-title{counter-increment:avtab2;display:none;align-items:center;gap:16px;min-height:56px;margin-bottom:10px;padding:16px 20px;border:1px solid rgba(255,255,255,.22)!important;border-radius:18px;font:600 13px/1.35 var(--av-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--av-parch)}
+.av-page .av-tabs .elementor-tab-mobile-title::before{content:counter(avtab2,upper-roman);font:700 22px var(--av-display);color:#FF9C88;min-width:2.2ch}
+.av-page .av-tabs .elementor-tab-mobile-title.elementor-active{background:#fff;color:var(--av-navy)}
+.av-page .av-tabs .elementor-tab-content{padding:40px!important;color:var(--av-parch);background:rgba(255,255,255,.07);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22)!important;border-radius:var(--av-r)}
+.av-page .av-tabs .elementor-tab-content h3{font:700 clamp(1.4rem,2.4vw,2rem)/1.2 var(--av-display);color:var(--av-parch);margin:0 0 16px}
+.av-page .av-tabs .elementor-tab-content p{margin:0 0 4px;max-width:none}
+.av-page .av-tabs .elementor-tab-content h4{font:600 12px/1.4 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin:22px 0 6px;color:inherit}
+.av-page .av-tabs .elementor-tab-content h5{font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;margin:26px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);color:inherit}
+@media (max-width:767px){
+  .av-page .av-tabs .elementor-tabs-wrapper{display:none!important}
+  .av-page .av-tabs .elementor-tab-mobile-title{display:flex}
+  .av-page .av-tabs .elementor-tabs{display:block!important}
+  .av-page .av-tabs .elementor-tab-content{padding:26px 22px!important;margin:-4px 0 14px}
+}
+
+/* Acordeão nativo (FAQ) */
+.av-page .av-faq .elementor-accordion .elementor-accordion-item{background:#fff;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;margin-bottom:10px;transition:box-shadow .2s}
+.av-page .av-faq .elementor-accordion .elementor-accordion-item+.elementor-accordion-item{border-block-start:1px solid var(--av-line)}
+.av-page .av-faq .elementor-accordion .elementor-accordion-item:has(.elementor-active){box-shadow:0 14px 34px rgba(18,28,45,.1)}
+.av-page .av-faq .elementor-accordion .elementor-tab-title{display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;min-height:56px;font:700 1.05rem/1.3 var(--av-display);color:var(--av-navy);background:#fff;text-align:left}
+.av-page .av-faq .elementor-accordion .elementor-tab-title.elementor-active{background:var(--av-parch-dark)}
+.av-page .av-faq .elementor-accordion .elementor-tab-title a{color:inherit}
+.av-page .av-faq .elementor-accordion .elementor-accordion-icon{float:none;width:auto;flex:none}
+.av-page .av-faq .elementor-accordion .elementor-accordion-icon svg{width:1em;height:1em;fill:var(--av-terra)}
+.av-page .av-faq .elementor-accordion .elementor-tab-content{padding:18px 24px 22px;border-block-start:1px solid var(--av-line);background:#fff;color:var(--av-graphite);font:inherit}
+.av-page .av-faq .elementor-accordion .elementor-tab-content p{margin:0;max-width:none}

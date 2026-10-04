@@ -1,0 +1,2466 @@
+{
+ "version": "0.4",
+ "title": "Aldeia Literária — Página de vendas (turma 2027)",
+ "type": "page",
+ "content": [
+  {
+   "id": "569caaf",
+   "elType": "container",
+   "settings": {
+    "content_width": "full",
+    "flex_direction": "column",
+    "_css_classes": "av-page"
+   },
+   "elements": [
+    {
+     "id": "8a4a488",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-notice"
+     },
+     "elements": [
+      {
+       "id": "99cdca5",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p>Matrículas abrem em janeiro de 2027 · Lista de espera aberta · <strong>30 vagas</strong> por módulo</p>"
+       },
+       "elements": []
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "19da3aa",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-header"
+     },
+     "elements": [
+      {
+       "id": "bb8a5ac",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "row",
+        "_css_classes": "av-wrap av-row"
+       },
+       "elements": [
+        {
+         "id": "cdb5026",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Aldeia Literária",
+          "header_size": "div",
+          "link": {
+           "url": "https://aaldeialiteraria.com.br/",
+           "is_external": "",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "_css_classes": "av-logo"
+         },
+         "elements": []
+        },
+        {
+         "id": "6c927b2",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p><a href=\"#jornada\">Jornada</a><a href=\"#para-quem\">Para quem é</a><a href=\"#duvidas\">Dúvidas</a><a href=\"https://aaldeialiteraria.com.br/sobre/\">Sobre</a></p>",
+          "_css_classes": "av-nav"
+         },
+         "elements": []
+        },
+        {
+         "id": "852ccb7",
+         "elType": "widget",
+         "widgetType": "button",
+         "settings": {
+          "text": "Lista de espera",
+          "link": {
+           "url": "https://tally.so/r/0QNWPy",
+           "is_external": "on",
+           "nofollow": "",
+           "custom_attributes": ""
+          },
+          "size": "sm",
+          "_css_classes": "av-btn av-btn--sm"
+         },
+         "elements": []
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "b68e7da",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-hero"
+     },
+     "elements": [
+      {
+       "id": "3cb9bb8",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap av-hero__grid"
+       },
+       "elements": [
+        {
+         "id": "9d20df5",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-hero__txt av-reveal"
+         },
+         "elements": [
+          {
+           "id": "afbedc8",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Extensão universitária • Certificado MEC",
+            "header_size": "p",
+            "_css_classes": "av-badge"
+           },
+           "elements": []
+          },
+          {
+           "id": "7f39717",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Escrita Criativa:<br>Desenvolvimento e Prática",
+            "header_size": "h1",
+            "_css_classes": "av-h1"
+           },
+           "elements": []
+          },
+          {
+           "id": "b82540d",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Formação online da Aldeia Literária para quem está começando. Aulas ao vivo, comunidade, feedback de mestres e doutores.</p>",
+            "_css_classes": "av-sub"
+           },
+           "elements": []
+          },
+          {
+           "id": "65d002d",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "_css_classes": "av-cta-row"
+           },
+           "elements": [
+            {
+             "id": "8f884ac",
+             "elType": "widget",
+             "widgetType": "button",
+             "settings": {
+              "text": "Entrar na lista da próxima turma",
+              "link": {
+               "url": "https://tally.so/r/0QNWPy",
+               "is_external": "on",
+               "nofollow": "",
+               "custom_attributes": ""
+              },
+              "size": "sm",
+              "_css_classes": "av-btn"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "643fef0",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Próxima turma: janeiro de 2027 · 30 vagas por módulo · aulas às 19h30 com gravação</p>",
+            "_css_classes": "av-hero__pay"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "f5f0101",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-stats"
+     },
+     "elements": [
+      {
+       "id": "1be9936",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap"
+       },
+       "elements": [
+        {
+         "id": "564e766",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-stats__card av-reveal"
+         },
+         "elements": [
+          {
+           "id": "a7886d9",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-stats__grid"
+           },
+           "elements": [
+            {
+             "id": "a5ca8ee",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-stat-box"
+             },
+             "elements": [
+              {
+               "id": "aaf4ce3",
+               "elType": "widget",
+               "widgetType": "counter",
+               "settings": {
+                "starting_number": 0,
+                "ending_number": 500,
+                "prefix": "+",
+                "suffix": "",
+                "duration": 1800,
+                "title": "escritores já passaram pela Aldeia",
+                "thousand_separator": "",
+                "_css_classes": "av-stat"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            },
+            {
+             "id": "9e68cae",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-stat-box"
+             },
+             "elements": [
+              {
+               "id": "69e75ef",
+               "elType": "widget",
+               "widgetType": "counter",
+               "settings": {
+                "starting_number": 0,
+                "ending_number": 4,
+                "prefix": "",
+                "suffix": "h30",
+                "duration": 1800,
+                "title": "de aula ao vivo por mês<br>1 módulo · 3 aulas de 1h30",
+                "thousand_separator": "",
+                "_css_classes": "av-stat"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            },
+            {
+             "id": "ae3e35c",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-stat-box"
+             },
+             "elements": [
+              {
+               "id": "7a7d61d",
+               "elType": "widget",
+               "widgetType": "counter",
+               "settings": {
+                "starting_number": 0,
+                "ending_number": 9,
+                "prefix": "",
+                "suffix": "h",
+                "duration": 1800,
+                "title": "de aula ao vivo por mês<br>2 módulos · 6 aulas de 1h30",
+                "thousand_separator": "",
+                "_css_classes": "av-stat"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            },
+            {
+             "id": "fec6dfc",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-stat-box"
+             },
+             "elements": [
+              {
+               "id": "c71608d",
+               "elType": "widget",
+               "widgetType": "counter",
+               "settings": {
+                "starting_number": 0,
+                "ending_number": 30,
+                "prefix": "",
+                "suffix": "",
+                "duration": 1800,
+                "title": "vagas por módulo",
+                "thousand_separator": "",
+                "_css_classes": "av-stat"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "22efeec",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-books"
+     },
+     "elements": [
+      {
+       "id": "22eaeb4",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-books__head av-center av-reveal"
+       },
+       "elements": [
+        {
+         "id": "c154c8a",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Prova viva do método",
+          "header_size": "p",
+          "_css_classes": "av-label"
+         },
+         "elements": []
+        },
+        {
+         "id": "32feaab",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Livros escritos aqui",
+          "header_size": "h2",
+          "_css_classes": "av-h2"
+         },
+         "elements": []
+        }
+       ],
+       "isInner": true
+      },
+      {
+       "id": "89a9929",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-marquee"
+       },
+       "elements": [
+        {
+         "id": "77e5394",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "_css_classes": "av-marquee__track"
+         },
+         "elements": [
+          {
+           "id": "cc69eee",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-querida-tia-liz.jpg",
+             "id": "",
+             "alt": "Capa do livro Querida Tia Liz, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "6429b2a",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-dois-lados-da-coroa.jpg",
+             "id": "",
+             "alt": "Capa do livro Os Dois Lados da Coroa, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "c2f2bf9",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-violeta.jpg",
+             "id": "",
+             "alt": "Capa do livro Violeta, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "0f5ef83",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-dinamene-e-gavita.jpg",
+             "id": "",
+             "alt": "Capa do livro Dinamene & Gavita, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "5875d4a",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-ultimo-natal-com-ela.jpg",
+             "id": "",
+             "alt": "Capa do livro O Último Natal com Ela, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "f0b6bf8",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-melhores-anos.jpg",
+             "id": "",
+             "alt": "Capa do livro Os Melhores Anos de Nossas Vidas, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "a2b66da",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-resgate-de-muriel.jpg",
+             "id": "",
+             "alt": "Capa do livro O Resgate de Muriel, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "5777345",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-inconfidencia-da-magia.jpg",
+             "id": "",
+             "alt": "Capa do livro A Inconfidência da Magia, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "a26d244",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-sombras-que-me-vestem.jpg",
+             "id": "",
+             "alt": "Capa do livro As Sombras que me Vestem, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "35682e1",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-formula-encontro-perfeito.jpg",
+             "id": "",
+             "alt": "Capa do livro A Fórmula do Encontro Perfeito, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "3774c8e",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-perdida-em-teu-olhar.jpg",
+             "id": "",
+             "alt": "Capa do livro Perdida em teu olhar, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "49aebe7",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-desejei-as-estrelas.jpg",
+             "id": "",
+             "alt": "Capa do livro Desejei às Estrelas, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "2f328ac",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-estrelas-do-cosme-velho.jpg",
+             "id": "",
+             "alt": "Capa do livro Estrelas do Cosme Velho, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          },
+          {
+           "id": "2e64438",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-quando-as-sombras-falam.jpg",
+             "id": "",
+             "alt": "Capa do livro Quando as Sombras Falam, escrito por aluno da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-book"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "58f5cfe",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section"
+     },
+     "elements": [
+      {
+       "id": "d535006",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap av-mirror"
+       },
+       "elements": [
+        {
+         "id": "1c67b2b",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-reveal"
+         },
+         "elements": [
+          {
+           "id": "bd5dc6a",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "III · O problema",
+            "header_size": "p",
+            "_css_classes": "av-label"
+           },
+           "elements": []
+          },
+          {
+           "id": "cde6037",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Você tem a ideia. Falta a técnica.",
+            "header_size": "h2",
+            "_css_classes": "av-h2"
+           },
+           "elements": []
+          },
+          {
+           "id": "768334b",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Você abre o documento, escreve três parágrafos e a história volta pra gaveta. Acontece com muita gente que começa, e não é falta de talento. Todo livro é uma travessia longa, e toda travessia pede mapa, companhia e ritmo.</p>"
+           },
+           "elements": []
+          },
+          {
+           "id": "0bc8fdd",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p><strong>Se você se viu em alguma dessas linhas, o curso foi desenhado para esse ponto da jornada.</strong></p>",
+            "_css_classes": "av-mirror-close"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "54f20c9",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-reveal av-problems"
+         },
+         "elements": [
+          {
+           "id": "3eb0695",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-problems__stage"
+           },
+           "elements": [
+            {
+             "id": "9d251e8",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-problem"
+             },
+             "elements": [
+              {
+               "id": "f26766b",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p>Você sabe como a história começa, mas não sabe como ela termina.</p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            },
+            {
+             "id": "3de4d76",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-problem"
+             },
+             "elements": [
+              {
+               "id": "720974b",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p>Já começou vários rascunhos e nenhum chegou ao fim.</p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            },
+            {
+             "id": "ff87c95",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-problem"
+             },
+             "elements": [
+              {
+               "id": "1c7dcca",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p>Escreve sozinha ou sozinho e não sabe se o texto está bom.</p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            },
+            {
+             "id": "7572ccf",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-problem"
+             },
+             "elements": [
+              {
+               "id": "e591875",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p>Sonha em publicar, mas não sabe por onde começar.</p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "39e89a5",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section av-section--navy av-mark"
+     },
+     "elements": [
+      {
+       "id": "d08a366",
+       "elType": "widget",
+       "widgetType": "html",
+       "settings": {
+        "html": "<div class=\"av-meander av-meander--top\"></div>",
+        "_css_classes": "av-meander-w"
+       },
+       "elements": []
+      },
+      {
+       "id": "b0e2eba",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap"
+       },
+       "elements": [
+        {
+         "id": "848c5b8",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "IV · O caminho",
+          "header_size": "p",
+          "_css_classes": "av-label"
+         },
+         "elements": []
+        },
+        {
+         "id": "8cf61ba",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Do chamado ao ponto final, um módulo por vez.",
+          "header_size": "h2",
+          "_css_classes": "av-h2"
+         },
+         "elements": []
+        },
+        {
+         "id": "2e1a667",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>Cada módulo tem 3 aulas ao vivo por mês. Em cada etapa você aprende uma habilidade e sai com algo escrito.</p>",
+          "_css_classes": "av-lead"
+         },
+         "elements": []
+        },
+        {
+         "id": "2761419",
+         "elType": "widget",
+         "widgetType": "tabs",
+         "settings": {
+          "type": "vertical",
+          "tabs": [
+           {
+            "_id": "16d7cf3",
+            "tab_title": "Fundamentos da Narrativa",
+            "tab_content": "<h3>Módulo I · Fundamentos da Narrativa</h3><p>Conceitos fundamentais de estruturação de narrativa e mercado editorial brasileiro.</p><h4>O que você aprende</h4><p>Você aprende a organizar a sua ideia e entender como desenvolver o seu personagem.</p><h5>Terça · 19h30 · com gravação</h5>"
+           },
+           {
+            "_id": "9b04b46",
+            "tab_title": "Técnicas Avançadas",
+            "tab_content": "<h3>Módulo II · Técnicas Avançadas</h3><p>Aulas teóricas e práticas com técnicas específicas de escrita criativa e produção de livros no Brasil.</p><h4>O que você aprende</h4><p>Você aprende a escrever boas descrições e diálogos, dentro de uma narrativa envolvente.</p><h5>Quarta · 19h30</h5>"
+           },
+           {
+            "_id": "2a50e41",
+            "tab_title": "Processos criativos",
+            "tab_content": "<h3>Módulo III · Processos criativos e Escrita Criativa</h3><p>Entenda como trabalhar com a criatividade, fugindo dos bloqueios criativos e outros problemas na escrita.</p><h4>O que você aprende</h4><p>Você aprende a lapidar suas ideias e entende os segredos do mercado editorial brasileiro.</p><h5>Segunda · 19h30</h5>"
+           },
+           {
+            "_id": "c038b62",
+            "tab_title": "Gramática e produção literária",
+            "tab_content": "<h3>Módulo IV · Gramática e produção literária</h3><p>Estudo das normas gramaticais e sua aplicação na produção literária.</p><h4>O que você aprende</h4><p>A língua portuguesa é seu instrumento de trabalho. Aqui você relembra as regras essenciais para criar ritmo e criar uma voz única para o seu texto.</p><h5>Quinta · 19h30</h5>"
+           },
+           {
+            "_id": "29fbce5",
+            "tab_title": "Publicação Independente",
+            "tab_content": "<h3>Módulo V · Publicação Independente</h3><p>Conheça as melhores oportunidades, fornecedores e estratégias para escritores em início de carreira.</p><h4>O que você aprende</h4><p>Publicar o livro é uma das partes mais importantes e difíceis. Aqui você terá aulas de autopublicação e mercado editorial.</p><h5>Quarta · 19h30 · mesmo horário do Módulo II, em sala diferente</h5>"
+           }
+          ],
+          "_css_classes": "av-tabs av-reveal"
+         },
+         "elements": []
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "1785ee1",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section"
+     },
+     "elements": [
+      {
+       "id": "f5854a2",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap av-include"
+       },
+       "elements": [
+        {
+         "id": "4026465",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-reveal"
+         },
+         "elements": [
+          {
+           "id": "8f258d0",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "V · O que está incluído",
+            "header_size": "p",
+            "_css_classes": "av-label"
+           },
+           "elements": []
+          },
+          {
+           "id": "df91421",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Tudo o que você recebe ao entrar na Aldeia",
+            "header_size": "h2",
+            "_css_classes": "av-h2"
+           },
+           "elements": []
+          },
+          {
+           "id": "7f02f96",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<ul><li><strong>Aulas ao vivo:</strong> 3 por mês em cada módulo, às 19h30, com 1h30 de duração.</li><li><strong>Atividades com feedback individual:</strong> em cada atividade, você recebe um retorno personalizado sobre o seu texto.</li><li><strong>Entrada no ecossistema da Aldeia Literária:</strong> comunidade e demais espaços dos alunos <span class=\"av-ph\">detalhar</span>.</li><li><strong>Bônus:</strong> palestras com psicólogas e profissionais do mercado editorial.</li></ul>",
+            "_css_classes": "av-check"
+           },
+           "elements": []
+          },
+          {
+           "id": "cd2e848",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "_css_classes": "av-certcard",
+            "flex_direction_mobile": "column"
+           },
+           "elements": [
+            {
+             "id": "65d5810",
+             "elType": "widget",
+             "widgetType": "image",
+             "settings": {
+              "image": {
+               "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/certificados.jpg",
+               "id": "",
+               "alt": "Aluna da Aldeia segurando um certificado",
+               "source": "library"
+              },
+              "image_size": "full"
+             },
+             "elements": []
+            },
+            {
+             "id": "0db4b7c",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "_css_classes": "av-certcard__txt"
+             },
+             "elements": [
+              {
+               "id": "7089ff4",
+               "elType": "widget",
+               "widgetType": "heading",
+               "settings": {
+                "title": "Dois certificados na sua formação",
+                "header_size": "h4"
+               },
+               "elements": []
+              },
+              {
+               "id": "0adfe26",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p>Um ao final de cada módulo, com as competências e a carga horária, e, ao concluir a jornada completa, o certificado de extensão universitária emitido pela Anhanguera.</p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "a543658",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-btn-row"
+           },
+           "elements": [
+            {
+             "id": "9505ce9",
+             "elType": "widget",
+             "widgetType": "button",
+             "settings": {
+              "text": "Entrar na lista de espera",
+              "link": {
+               "url": "https://tally.so/r/0QNWPy",
+               "is_external": "on",
+               "nofollow": "",
+               "custom_attributes": ""
+              },
+              "size": "sm",
+              "_css_classes": "av-btn"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "1e2b9d7",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-reveal av-sum"
+         },
+         "elements": [
+          {
+           "id": "a73fe14",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Seu resumo · turma de 2027",
+            "header_size": "h3",
+            "_css_classes": "av-sum__ttl"
+           },
+           "elements": []
+          },
+          {
+           "id": "6bc7bdc",
+           "elType": "widget",
+           "widgetType": "html",
+           "settings": {
+            "html": "<table class=\"av-table\"><thead><tr><th scope=\"col\"></th><th scope=\"col\">1 módulo</th><th scope=\"col\">2 módulos</th></tr></thead><tbody><tr><th scope=\"row\">Aulas ao vivo por mês</th><td>3</td><td>6</td></tr><tr><th scope=\"row\">Horas de aula por mês</th><td>4h30</td><td>9h</td></tr><tr class=\"av-table__price\"><th scope=\"row\">Mensalidade</th><td>R$ 186</td><td>R$ 262</td></tr><tr><th scope=\"row\">Parcelas</th><td>11x</td><td>11x</td></tr><tr><th scope=\"row\">Investimento total</th><td>R$ 2.046</td><td>R$ 2.882</td></tr></tbody></table>",
+            "_css_classes": "av-table-w"
+           },
+           "elements": []
+          },
+          {
+           "id": "91a3a5f",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Mais taxa de matrícula de R$ <span class=\"av-ph\">M</span>. Dois módulos saem R$ 110 por mês mais baratos do que dois planos de 1 módulo (2 × R$ 186 = R$ 372).</p>",
+            "_css_classes": "av-small"
+           },
+           "elements": []
+          },
+          {
+           "id": "52bf622",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p><span class=\"av-ph\">confirmar nº de parcelas: o site atual usa 11x</span></p>",
+            "_css_classes": "av-small"
+           },
+           "elements": []
+          },
+          {
+           "id": "6ef957a",
+           "elType": "widget",
+           "widgetType": "button",
+           "settings": {
+            "text": "Entrar na lista de espera",
+            "link": {
+             "url": "https://tally.so/r/0QNWPy",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "size": "sm",
+            "_css_classes": "av-btn av-btn--block"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "a6d9301",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section av-section--soft"
+     },
+     "elements": [
+      {
+       "id": "cb2f183",
+       "elType": "widget",
+       "widgetType": "html",
+       "settings": {
+        "html": "<div class=\"av-meander av-meander--top\"></div>",
+        "_css_classes": "av-meander-w"
+       },
+       "elements": []
+      },
+      {
+       "id": "c8542ca",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap"
+       },
+       "elements": [
+        {
+         "id": "37f43e1",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "VI · Para quem é",
+          "header_size": "p",
+          "_css_classes": "av-label"
+         },
+         "elements": []
+        },
+        {
+         "id": "968e548",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Serve para o seu momento?",
+          "header_size": "h2",
+          "_css_classes": "av-h2"
+         },
+         "elements": []
+        },
+        {
+         "id": "46bfb06",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-fit"
+         },
+         "elements": [
+          {
+           "id": "7a7d8e9",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-fit__card"
+           },
+           "elements": [
+            {
+             "id": "39f0a03",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Esta jornada é para você se…",
+              "header_size": "h3"
+             },
+             "elements": []
+            },
+            {
+             "id": "c2d7bb8",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<ul><li>Quer escrever ficção (romance, fantasia, conto e afins) <span class=\"av-ph\">ajustar gêneros</span>.</li><li>Está começando, ou já começou e travou no meio.</li><li>Pode acompanhar aulas ao vivo às 19h30, três vezes por mês.</li><li>Topa praticar entre as aulas e receber feedback individual nas atividades.</li></ul>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "95af15f",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-fit__card av-fit__card--no"
+           },
+           "elements": [
+            {
+             "id": "93ef027",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Talvez ainda não seja o momento se…",
+              "header_size": "h3"
+             },
+             "elements": []
+            },
+            {
+             "id": "5605a43",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<ul><li>Procura uma fórmula pronta de best-seller. Aqui o caminho é feito de prática.</li><li>Não consegue reservar tempo para as aulas e atividades agora. Sem problema: a próxima turma estará aqui.</li><li>Quer escrever <span class=\"av-ph\">não ficção / roteiro / outro: confirmar escopo</span>.</li></ul>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "198a694",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section"
+     },
+     "elements": [
+      {
+       "id": "1d86f39",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap"
+       },
+       "elements": [
+        {
+         "id": "2ec9da5",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "_css_classes": "av-author"
+         },
+         "elements": [
+          {
+           "id": "e326635",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-portrait"
+           },
+           "elements": [
+            {
+             "id": "b044cae",
+             "elType": "widget",
+             "widgetType": "image",
+             "settings": {
+              "image": {
+               "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/foto-camila-placeholder.png",
+               "id": "",
+               "alt": "Foto da Camila Veloso (trocar pela foto real)",
+               "source": "library"
+              },
+              "image_size": "full"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "c0f40b5",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-author__txt"
+           },
+           "elements": [
+            {
+             "id": "26988b9",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "VII · Quem conduz",
+              "header_size": "p",
+              "_css_classes": "av-label"
+             },
+             "elements": []
+            },
+            {
+             "id": "ca68657",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Camila Veloso, fundadora da Aldeia Literária",
+              "header_size": "h2",
+              "_css_classes": "av-h2"
+             },
+             "elements": []
+            },
+            {
+             "id": "113f6db",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>Formada em Comunicação Social com habilitação em Produção Editorial pela UFSM, Camila criou a Aldeia nas redes sociais para ajudar escritores iniciantes a desenvolver e publicar seus livros. Hoje a Aldeia é uma escola e uma comunidade de quem escreve junto. <span class=\"av-ph\">conferir e ajustar à sua voz</span></p>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "bb801e7",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-team"
+         },
+         "elements": [
+          {
+           "id": "3b59717",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-team__item"
+           },
+           "elements": [
+            {
+             "id": "a57a6a7",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "LM",
+              "header_size": "div",
+              "_css_classes": "av-ava"
+             },
+             "elements": []
+            },
+            {
+             "id": "81a4958",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Laura Marques",
+              "header_size": "h4"
+             },
+             "elements": []
+            },
+            {
+             "id": "2dc8a2d",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "ffcc855",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-team__item"
+           },
+           "elements": [
+            {
+             "id": "e940be0",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "LO",
+              "header_size": "div",
+              "_css_classes": "av-ava"
+             },
+             "elements": []
+            },
+            {
+             "id": "3d52a8e",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Lucas Oliveira",
+              "header_size": "h4"
+             },
+             "elements": []
+            },
+            {
+             "id": "9edff5c",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "ce5e2be",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-team__item"
+           },
+           "elements": [
+            {
+             "id": "71ec2c3",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "LN",
+              "header_size": "div",
+              "_css_classes": "av-ava"
+             },
+             "elements": []
+            },
+            {
+             "id": "6b29558",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Lavínia Neres",
+              "header_size": "h4"
+             },
+             "elements": []
+            },
+            {
+             "id": "ad6bd9a",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "8136854",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-team__item"
+           },
+           "elements": [
+            {
+             "id": "a4cd7b3",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "AR",
+              "header_size": "div",
+              "_css_classes": "av-ava"
+             },
+             "elements": []
+            },
+            {
+             "id": "87176a5",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Ana Ribeiro",
+              "header_size": "h4"
+             },
+             "elements": []
+            },
+            {
+             "id": "c978aee",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "920f45d",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section av-section--navy av-mark av-mark--left"
+     },
+     "elements": [
+      {
+       "id": "6d81c80",
+       "elType": "widget",
+       "widgetType": "html",
+       "settings": {
+        "html": "<div class=\"av-meander av-meander--top\"></div>",
+        "_css_classes": "av-meander-w"
+       },
+       "elements": []
+      },
+      {
+       "id": "abf5dd7",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap"
+       },
+       "elements": [
+        {
+         "id": "370c7a6",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "VIII · Quem já atravessou",
+          "header_size": "p",
+          "_css_classes": "av-label"
+         },
+         "elements": []
+        },
+        {
+         "id": "02f4f06",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Veja o que acontece quando o rascunho ganha caminho",
+          "header_size": "h2",
+          "_css_classes": "av-h2"
+         },
+         "elements": []
+        },
+        {
+         "id": "1cd48d1",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "_css_classes": "av-mosaic av-reveal"
+         },
+         "elements": [
+          {
+           "id": "7e33095",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-1.jpg",
+             "id": "",
+             "alt": "Alunos da Aldeia Literária em evento, com ecobags da Aldeia",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-photo"
+           },
+           "elements": []
+          },
+          {
+           "id": "c5e3770",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-2.jpg",
+             "id": "",
+             "alt": "Alunos da Aldeia Literária sorrindo em evento",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-photo"
+           },
+           "elements": []
+          },
+          {
+           "id": "cdcf0da",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-3.jpg",
+             "id": "",
+             "alt": "Alunas da Aldeia Literária juntas em evento",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-photo"
+           },
+           "elements": []
+          },
+          {
+           "id": "fef8d86",
+           "elType": "widget",
+           "widgetType": "image",
+           "settings": {
+            "image": {
+             "url": "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-4.jpg",
+             "id": "",
+             "alt": "Alunas da Aldeia Literária posando em evento",
+             "source": "library"
+            },
+            "image_size": "full",
+            "_css_classes": "av-photo"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "5d95ca8",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>A comunidade Aldeia, ao vivo</p>",
+          "_css_classes": "av-mosaic-cap"
+         },
+         "elements": []
+        },
+        {
+         "id": "f297fa9",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "_css_classes": "av-testi"
+         },
+         "elements": [
+          {
+           "id": "27d4da8",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-quote"
+           },
+           "elements": [
+            {
+             "id": "7e3900c",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>“<span class=\"av-ph\">frase com resultado específico: terminei meu primeiro rascunho…</span>”</p>"
+             },
+             "elements": []
+            },
+            {
+             "id": "24949f5",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "_css_classes": "av-quote__by"
+             },
+             "elements": [
+              {
+               "id": "e040c0b",
+               "elType": "container",
+               "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "_css_classes": "av-face"
+               },
+               "elements": [],
+               "isInner": true
+              },
+              {
+               "id": "988e724",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p><span class=\"av-ph\">Nome, cidade/UF</span></p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "69b2d8b",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-quote"
+           },
+           "elements": [
+            {
+             "id": "d5cc4ff",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>“<span class=\"av-ph\">frase com resultado específico: tive coragem de enviar para editoras…</span>”</p>"
+             },
+             "elements": []
+            },
+            {
+             "id": "02b0d01",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "_css_classes": "av-quote__by"
+             },
+             "elements": [
+              {
+               "id": "1838498",
+               "elType": "container",
+               "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "_css_classes": "av-face"
+               },
+               "elements": [],
+               "isInner": true
+              },
+              {
+               "id": "5c93d50",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p><span class=\"av-ph\">Nome, cidade/UF</span></p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "382d9f2",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-reveal av-quote"
+           },
+           "elements": [
+            {
+             "id": "5e9b43a",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>“<span class=\"av-ph\">frase ou print real de mensagem de aluno</span>”</p>"
+             },
+             "elements": []
+            },
+            {
+             "id": "f07eb3d",
+             "elType": "container",
+             "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "_css_classes": "av-quote__by"
+             },
+             "elements": [
+              {
+               "id": "5259e5f",
+               "elType": "container",
+               "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "_css_classes": "av-face"
+               },
+               "elements": [],
+               "isInner": true
+              },
+              {
+               "id": "bfcc67a",
+               "elType": "widget",
+               "widgetType": "text-editor",
+               "settings": {
+                "editor": "<p><span class=\"av-ph\">Nome, cidade/UF</span></p>"
+               },
+               "elements": []
+              }
+             ],
+             "isInner": true
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "0621e10",
+         "elType": "widget",
+         "widgetType": "html",
+         "settings": {
+          "html": "<div class=\"av-video\">▶ Vídeo curto de depoimento (troque este bloco por um widget Vídeo)</div>"
+         },
+         "elements": []
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "557d459",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section"
+     },
+     "elements": [
+      {
+       "id": "038e3b9",
+       "elType": "widget",
+       "widgetType": "html",
+       "settings": {
+        "html": "<div class=\"av-meander av-meander--top\"></div>",
+        "_css_classes": "av-meander-w"
+       },
+       "elements": []
+      },
+      {
+       "id": "2a70f27",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap av-center"
+       },
+       "elements": [
+        {
+         "id": "1ef0a9a",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "IX · Seu investimento",
+          "header_size": "p",
+          "_css_classes": "av-label"
+         },
+         "elements": []
+        },
+        {
+         "id": "4927cff",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Turma de janeiro de 2027",
+          "header_size": "h2",
+          "_css_classes": "av-h2"
+         },
+         "elements": []
+        },
+        {
+         "id": "53df8be",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-reveal av-offer"
+         },
+         "elements": [
+          {
+           "id": "b3f70c3",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Matrículas abrem em janeiro de 2027.<br>Por enquanto, temos apenas a lista de espera.</p>",
+            "_css_classes": "av-waitnote"
+           },
+           "elements": []
+          },
+          {
+           "id": "255f78a",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Mensalidade",
+            "header_size": "p",
+            "_css_classes": "av-class"
+           },
+           "elements": []
+          },
+          {
+           "id": "a925575",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "<small>a partir de</small> R$ 186<small>/mês</small>",
+            "header_size": "div",
+            "_css_classes": "av-price"
+           },
+           "elements": []
+          },
+          {
+           "id": "a040f07",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>1 módulo · 3 aulas por mês (4h30 de aula ao vivo)<br>ou <strong>R$ 262/mês</strong> com 2 módulos · 6 aulas por mês (9h)</p>"
+           },
+           "elements": []
+          },
+          {
+           "id": "205cb9a",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Investimento total: R$ 2.046 (1 módulo) ou R$ 2.882 (2 módulos), em 11 parcelas <span class=\"av-ph\">confirmar nº de parcelas</span>. Mais taxa de matrícula de R$ <span class=\"av-ph\">M</span>, que cobre a formulação do seu contrato e a sua entrada no ecossistema da Aldeia Literária.</p>",
+            "_css_classes": "av-small"
+           },
+           "elements": []
+          },
+          {
+           "id": "1f3d6e7",
+           "elType": "widget",
+           "widgetType": "button",
+           "settings": {
+            "text": "Entrar na lista de espera",
+            "link": {
+             "url": "https://tally.so/r/0QNWPy",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "size": "sm",
+            "_css_classes": "av-btn av-btn--block"
+           },
+           "elements": []
+          },
+          {
+           "id": "1807f1f",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Pagamento: <span class=\"av-ph\">Pix e cartão em até X vezes</span></p>",
+            "_css_classes": "av-small"
+           },
+           "elements": []
+          },
+          {
+           "id": "eb60afd",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-box"
+           },
+           "elements": [
+            {
+             "id": "e829c10",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Transparência",
+              "header_size": "h4"
+             },
+             "elements": []
+            },
+            {
+             "id": "bdac0a2",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p>Você lê o contrato completo antes de decidir <span class=\"av-ph\">link</span>. Ele prevê multa em caso de cancelamento antes do fim do curso: <span class=\"av-ph\">regra/valor</span>.</p>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          },
+          {
+           "id": "de69566",
+           "elType": "container",
+           "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "_css_classes": "av-box"
+           },
+           "elements": [
+            {
+             "id": "a7d7905",
+             "elType": "widget",
+             "widgetType": "heading",
+             "settings": {
+              "title": "Garantia",
+              "header_size": "h4"
+             },
+             "elements": []
+            },
+            {
+             "id": "53a8708",
+             "elType": "widget",
+             "widgetType": "text-editor",
+             "settings": {
+              "editor": "<p><span class=\"av-ph\">texto da garantia conforme a decisão tomada (veja a nota do blueprint)</span></p>"
+             },
+             "elements": []
+            }
+           ],
+           "isInner": true
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "1aaf88c",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-section av-section--soft"
+     },
+     "elements": [
+      {
+       "id": "584852a",
+       "elType": "widget",
+       "widgetType": "html",
+       "settings": {
+        "html": "<div class=\"av-meander av-meander--top\"></div>",
+        "_css_classes": "av-meander-w"
+       },
+       "elements": []
+      },
+      {
+       "id": "eaae6cf",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap av-center"
+       },
+       "elements": [
+        {
+         "id": "74e5b6d",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "X · Dúvidas",
+          "header_size": "p",
+          "_css_classes": "av-label"
+         },
+         "elements": []
+        },
+        {
+         "id": "0f5e447",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Perguntas frequentes",
+          "header_size": "h2",
+          "_css_classes": "av-h2"
+         },
+         "elements": []
+        },
+        {
+         "id": "310814d",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-reveal av-faq"
+         },
+         "elements": [
+          {
+           "id": "8ad0b50",
+           "elType": "widget",
+           "widgetType": "accordion",
+           "settings": {
+            "tabs": [
+             {
+              "_id": "9360215",
+              "tab_title": "Quando começa a turma?",
+              "tab_content": "<p>Em janeiro de 2027.</p>"
+             },
+             {
+              "_id": "ca242d9",
+              "tab_title": "Já posso me matricular?",
+              "tab_content": "<p>Ainda não. As matrículas abrem em janeiro de 2027. Por enquanto, temos apenas a lista de espera.</p>"
+             },
+             {
+              "_id": "6fb6c73",
+              "tab_title": "Como são as aulas?",
+              "tab_content": "<p>Ao vivo, 3 por mês em cada módulo, às 19h30, com 1h30 de duração. As aulas ficam gravadas. <span class=\"av-ph\">Por quanto tempo ficam disponíveis?</span></p>"
+             },
+             {
+              "_id": "1408530",
+              "tab_title": "Preciso ter algo escrito antes?",
+              "tab_content": "<p>O curso é para quem está começando. Você não precisa ter nada pronto, só vontade de escrever ficção.</p>"
+             },
+             {
+              "_id": "f782501",
+              "tab_title": "Quantas vagas existem?",
+              "tab_content": "<p>30 por módulo.</p>"
+             },
+             {
+              "_id": "42a69fc",
+              "tab_title": "Os módulos 2 e 5 têm o mesmo horário?",
+              "tab_content": "<p>Sim, em salas diferentes. A jornada é organizada para você nunca precisar cursar os dois ao mesmo tempo.</p>"
+             },
+             {
+              "_id": "e5056d1",
+              "tab_title": "Quanto custa?",
+              "tab_content": "<p>Em 2027: R$ 186 por mês no plano de 1 módulo (3 aulas por mês) ou R$ 262 por mês no plano de 2 módulos (6 aulas por mês), mais a taxa de matrícula. <span class=\"av-ph\">confirmar nº de parcelas</span></p>"
+             },
+             {
+              "_id": "9e43ff8",
+              "tab_title": "O que é a taxa de matrícula?",
+              "tab_content": "<p>Ela cobre a formulação do seu contrato e a sua entrada no ecossistema da Aldeia Literária.</p>"
+             },
+             {
+              "_id": "4ce80d4",
+              "tab_title": "Posso cancelar?",
+              "tab_content": "<p>Você pode pedir o cancelamento. O contrato prevê multa quando isso acontece antes do fim do curso. <span class=\"av-ph\">detalhar a regra</span></p>"
+             },
+             {
+              "_id": "bb99a9c",
+              "tab_title": "Como as atividades são avaliadas?",
+              "tab_content": "<p>Nas atividades, cada aluno recebe um feedback individual. <span class=\"av-ph\">explicar formato e nota mínima</span></p>"
+             },
+             {
+              "_id": "c1c20a1",
+              "tab_title": "Como posso pagar?",
+              "tab_content": "<p><span class=\"av-ph\">Pix, cartão, parcelas</span></p>"
+             },
+             {
+              "_id": "a78dd3b",
+              "tab_title": "Existe garantia?",
+              "tab_content": "<p><span class=\"av-ph\">texto conforme a decisão tomada</span></p>"
+             }
+            ],
+            "title_html_tag": "h3",
+            "faq_schema": "yes",
+            "_css_classes": "av-accordion"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "73f549f",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-btn-row av-btn-row--center"
+         },
+         "elements": [
+          {
+           "id": "65bc19f",
+           "elType": "widget",
+           "widgetType": "button",
+           "settings": {
+            "text": "Entrar na lista de espera",
+            "link": {
+             "url": "https://tally.so/r/0QNWPy",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "size": "sm",
+            "_css_classes": "av-btn"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "fa4d308",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-final av-mark av-mark--left"
+     },
+     "elements": [
+      {
+       "id": "da2ee2a",
+       "elType": "widget",
+       "widgetType": "html",
+       "settings": {
+        "html": "<div class=\"av-meander av-meander--top\"></div>",
+        "_css_classes": "av-meander-w"
+       },
+       "elements": []
+      },
+      {
+       "id": "b5fe77c",
+       "elType": "container",
+       "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "_css_classes": "av-wrap"
+       },
+       "elements": [
+        {
+         "id": "c3ed7a7",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "XI · O chamado",
+          "header_size": "p",
+          "_css_classes": "av-label"
+         },
+         "elements": []
+        },
+        {
+         "id": "bf94a89",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "O chamado já chegou. Falta atravessar a porta.",
+          "header_size": "h2",
+          "_css_classes": "av-h2"
+         },
+         "elements": []
+        },
+        {
+         "id": "11ea7e9",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>A turma de janeiro de 2027 tem vagas limitadas: 30 por módulo. As matrículas abrem em janeiro; por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>"
+         },
+         "elements": []
+        },
+        {
+         "id": "d6c1a19",
+         "elType": "container",
+         "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "_css_classes": "av-btn-row av-btn-row--center"
+         },
+         "elements": [
+          {
+           "id": "f15954d",
+           "elType": "widget",
+           "widgetType": "button",
+           "settings": {
+            "text": "Entrar na lista de espera",
+            "link": {
+             "url": "https://tally.so/r/0QNWPy",
+             "is_external": "on",
+             "nofollow": "",
+             "custom_attributes": ""
+            },
+            "size": "sm",
+            "_css_classes": "av-btn"
+           },
+           "elements": []
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "e741714",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>Ficou com dúvida? <a href=\"https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw\">Fale com a gente no WhatsApp</a></p>",
+          "_css_classes": "av-small"
+         },
+         "elements": []
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "8832842",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-footer"
+     },
+     "elements": [
+      {
+       "id": "8030c97",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p><a href=\"https://aaldeialiteraria.com.br/\">Home</a> · <a href=\"https://aaldeialiteraria.com.br/sobre/\">Sobre</a></p><p>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados</p>"
+       },
+       "elements": []
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "6e56181",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_css_classes": "av-sticky"
+     },
+     "elements": [
+      {
+       "id": "2aebf8b",
+       "elType": "widget",
+       "widgetType": "button",
+       "settings": {
+        "text": "Lista de espera",
+        "link": {
+         "url": "https://tally.so/r/0QNWPy",
+         "is_external": "on",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "size": "sm",
+        "_css_classes": "av-btn av-btn--block"
+       },
+       "elements": []
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "33f5bd3",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<a class=\"av-wa\" href=\"https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw\" aria-label=\"Falar no WhatsApp\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z\"/></svg></a>",
+      "_css_classes": "av-wa-w"
+     },
+     "elements": []
+    }
+   ],
+   "isInner": false
+  }
+ ],
+ "page_settings": {
+  "hide_title": "yes"
+ }
+}

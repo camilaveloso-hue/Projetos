@@ -40,7 +40,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-page{background:#fff var(--av-grain);color:var(--av-graphite);font-family:var(--av-body);font-size:20px;line-height:1.5;-webkit-font-smoothing:antialiased}
 .av-page p{max-width:70ch}
-.av-wrap{max-width:var(--av-wrap);margin-inline:auto;padding-inline:24px}
+.av-wrap{max-width:calc(var(--av-wrap) + 48px);margin-inline:auto;padding-inline:24px;box-sizing:border-box}
 .av-section{padding:104px 0;position:relative;overflow:hidden}
 .av-section--soft{background:var(--av-parch-dark) var(--av-grain)}
 .av-section--soft::before{content:"";position:absolute;inset:0;background:var(--av-maze);opacity:.05;pointer-events:none}
@@ -74,34 +74,34 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-small{font-size:.8em;opacity:.85}
 
 /* ---------- Botão de compra: terracota SÓ aqui (efeito de isolamento) ---------- */
-.av-btn,.av-page .elementor-button.av-btn{
+.av-page a.av-btn,.av-page .av-btn .elementor-button{
   display:inline-flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;max-width:100%;
   min-height:52px;padding:16px 34px;background:var(--av-terra);color:#fff;border:0;border-radius:999px;
   font:600 14px/1.2 var(--av-ui);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;cursor:pointer;
   box-shadow:0 10px 26px rgba(204,53,28,.34);transition:transform .15s,background .15s,box-shadow .15s}
-.av-btn::after{content:"→";margin-left:12px;font-size:1.15em;transition:transform .2s}
-.av-btn:hover{background:var(--av-terra-dark);color:#fff;transform:translateY(-2px)}
-.av-btn:hover::after{transform:translateX(4px)}
-.av-btn:focus-visible,.av-link:focus-visible,.av-tab:focus-visible,.av-faq summary:focus-visible{outline:3px solid var(--av-bronze);outline-offset:3px}
-.av-btn--block{display:flex;width:100%}
+.av-page a.av-btn::after,.av-page .av-btn .elementor-button::after{content:"→";margin-left:12px;font-size:1.15em;transition:transform .2s}
+.av-page a.av-btn:hover,.av-page .av-btn .elementor-button:hover{background:var(--av-terra-dark);color:#fff;transform:translateY(-2px)}
+.av-page a.av-btn:hover::after,.av-page .av-btn .elementor-button:hover::after{transform:translateX(4px)}
+.av-btn:focus-visible,.av-btn .elementor-button:focus-visible,.av-link:focus-visible,.av-tab:focus-visible,.av-faq summary:focus-visible{outline:3px solid var(--av-bronze);outline-offset:3px}
+.av-page a.av-btn--block,.av-page .av-btn--block .elementor-button{display:flex;width:100%}
 .av-link{font:600 13px var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px;border-bottom:2px solid var(--av-bronze)}
-.av-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin:30px 0 14px}
+.av-cta-row{--flex-direction:row;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 28px;margin:30px 0 14px}
 
 /* ---------- Barra de aviso + menu enxuto ---------- */
 .av-notice{background:var(--av-navy-dark);color:var(--av-parch);font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:10px 16px;border-bottom:1px solid var(--av-line)}
 .av-header{background:rgba(255,255,255,.9);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);color:var(--av-navy);position:sticky;top:0;z-index:900;border-bottom:1px solid rgba(27,42,65,.08)}
-.av-header .av-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.av-header .av-wrap{--flex-direction:row;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
 .av-logo{font:500 26px var(--av-body);letter-spacing:.01em;color:var(--av-navy);text-decoration:none;display:flex;align-items:center;gap:12px}
-.av-logo img{width:46px;height:46px;object-fit:contain}
+.av-logo::before{content:"";width:46px;height:46px;flex:none;background:var(--av-medal) center/contain no-repeat}
 .av-nav{display:flex;gap:6px}
 .av-nav a{font:600 12px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-navy);text-decoration:none;padding:14px 14px;min-height:44px;display:inline-flex;align-items:center;border-bottom:3px solid transparent}
 .av-nav a:hover{border-color:var(--av-bronze)}
-.av-header .av-btn{min-height:44px;padding:11px 24px;font-size:12px;box-shadow:none}
-.av-header .av-btn::after{display:none}
+.av-page .av-header a.av-btn,.av-page .av-header .av-btn .elementor-button{min-height:44px;padding:11px 24px;font-size:12px;box-shadow:none}
+.av-page .av-header a.av-btn::after,.av-page .av-header .av-btn .elementor-button::after{display:none}
 
 /* ---------- I · Hero (imagem de fundo + overlay azul-marinho) ---------- */
 .av-hero{background:linear-gradient(90deg,#051A2D 0%,#082A46 45%,#0D3756 100%);color:var(--av-parch);min-height:min(92vh,840px);display:flex;align-items:center;padding:96px 0 160px;position:relative;overflow:hidden}
-.av-hero::before{content:"";position:absolute;top:0;bottom:0;right:0;width:64%;background:var(--av-hero-img) center/cover no-repeat;
+.av-hero::before{content:"";position:absolute;top:0;bottom:0;right:0;left:auto;width:64%;height:auto;background:var(--av-hero-img) center/cover no-repeat;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40%);mask-image:linear-gradient(90deg,transparent 0,#000 40%)}
 .av-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,26,45,.35),transparent 30%,rgba(5,26,45,.55));pointer-events:none}
 .av-hero>.av-wrap{position:relative;z-index:2}
@@ -122,10 +122,10 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-stats__card{background:#fff;border-radius:24px;padding:48px 24px 40px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
 .av-stats__card::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--av-meander) repeat-x center/28px 14px;opacity:.75}
 .av-stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-.av-stat{position:relative}
-.av-stat+.av-stat::before{content:"";position:absolute;left:-12px;top:12%;bottom:12%;width:1px;background:var(--av-line)}
+.av-stat,.av-stat-box{position:relative}
+.av-stat+.av-stat::before,.av-stat-box+.av-stat-box::before{content:"";position:absolute;left:-12px;top:12%;bottom:12%;width:1px;background:var(--av-line)}
 .av-stat strong{display:block;font:700 clamp(2.4rem,4.4vw,3.6rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:12px}
-.av-stat span{font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite)}
+.av-stat>span{font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite)}
 
 /* ---------- III · Espelho ---------- */
 .av-mirror{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
@@ -159,12 +159,15 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-check strong{color:var(--av-navy)}
 /* ---------- III · Problemas em carrossel + medalhão giratório ---------- */
 .av-problems{position:relative;padding:30px 0 10px}
-.av-medal{position:absolute;right:-70px;top:-50px;width:min(380px,70%);aspect-ratio:1;background:var(--av-medal) center/contain no-repeat,#fff;border-radius:50%;box-shadow:0 24px 50px rgba(13,55,86,.28);animation:av-spin 70s linear infinite;pointer-events:none}
+.av-problems::before{content:"";position:absolute;left:auto;height:auto;z-index:0;right:-70px;top:-50px;width:min(380px,70%);aspect-ratio:1;background:var(--av-medal) center/contain no-repeat,#fff;border-radius:50%;box-shadow:0 24px 50px rgba(13,55,86,.28);animation:av-spin 70s linear infinite;pointer-events:none}
 @keyframes av-spin{to{transform:rotate(360deg)}}
-.av-problems__stage{position:relative;display:grid;margin-top:150px}
-.av-problem{grid-area:1/1;background:var(--av-navy);color:#fff;border-radius:32px;padding:44px 44px 40px;box-shadow:0 30px 60px rgba(13,55,86,.28);opacity:0;transform:translateX(28px) scale(.98);pointer-events:none;transition:opacity .5s,transform .5s;overflow:hidden;background-image:var(--av-grain-light)}
+.av-problems__stage{position:relative;z-index:1;display:grid;gap:16px;margin-top:150px}
+.av-problems__ctrl{position:relative;z-index:1}
+.av-js .av-problems__stage{gap:0}
+.av-problem{position:relative;background:var(--av-navy);color:#fff;border-radius:32px;padding:44px 44px 40px;box-shadow:0 30px 60px rgba(13,55,86,.28);overflow:hidden;background-image:var(--av-grain-light)}
+.av-js .av-problem{grid-area:1/1;opacity:0;transform:translateX(28px) scale(.98);pointer-events:none;transition:opacity .5s,transform .5s}
 .av-problem::after{content:"";position:absolute;right:0;bottom:0;width:100%;height:14px;background:var(--av-meander-light) repeat-x center/28px 14px;opacity:.28}
-.av-problem.is-active{opacity:1;transform:none;pointer-events:auto}
+.av-js .av-problem.is-active{opacity:1;transform:none;pointer-events:auto}
 .av-problem__n{display:block;font:700 .95rem var(--av-ui);letter-spacing:.2em;color:#FF9C88;margin-bottom:18px}
 .av-problem p{font:500 clamp(1.5rem,2.6vw,2.1rem)/1.28 var(--av-body);margin:0;max-width:none}
 .av-problems__ctrl{display:flex;align-items:center;gap:16px;margin-top:22px}
@@ -185,7 +188,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-books__head .av-h2{font-size:clamp(1.5rem,2.8vw,2.2rem)}
 .av-books__head .av-h2::after{margin-inline:auto}
 .av-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.av-marquee__track{display:flex;gap:22px;width:max-content;animation:av-scroll 70s linear infinite;padding:14px 0 30px}
+.av-marquee__track{--flex-direction:row;display:flex;flex-direction:row;gap:22px;width:max-content;animation:av-scroll 70s linear infinite;padding:14px 0 30px}
 .av-marquee:hover .av-marquee__track{animation-play-state:paused}
 @keyframes av-scroll{to{transform:translateX(calc(-50% - 11px))}}
 .av-book{flex:none;width:170px;aspect-ratio:2/3;border-radius:14px;overflow:hidden;box-shadow:0 14px 30px rgba(13,55,86,.22);transition:transform .25s}
@@ -194,13 +197,13 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* ---------- Mosaico da comunidade ---------- */
 .av-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
-.av-mosaic figure{margin:0;border-radius:26px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 40px rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.25)}
-.av-mosaic figure:nth-child(even){transform:translateY(34px)}
+.av-mosaic figure,.av-mosaic .av-photo{margin:0;border-radius:26px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 40px rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.25)}
+.av-mosaic figure:nth-child(even),.av-mosaic .av-photo:nth-child(even){transform:translateY(34px)}
 .av-mosaic img{display:block;width:100%;height:100%;object-fit:cover}
 .av-mosaic-cap{margin:58px 0 0;font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
 
 /* ---------- Cartão dos certificados ---------- */
-.av-certcard{display:flex;gap:24px;align-items:center;background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);padding:18px;box-shadow:0 14px 36px rgba(13,55,86,.08);margin-top:6px}
+.av-certcard{--flex-direction:row;display:flex;flex-direction:row;gap:24px;align-items:center;background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);padding:18px;box-shadow:0 14px 36px rgba(13,55,86,.08);margin-top:6px}
 .av-certcard img{width:132px;height:176px;object-fit:cover;border-radius:18px;flex:none}
 .av-certcard h4{font:700 1.1rem var(--av-display);color:var(--av-navy);margin:0 0 6px}
 .av-certcard p{margin:0;font-size:.92em}
@@ -221,7 +224,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-table tr:last-child td{font-size:1.15rem}
 .av-table tbody th{width:34%}
 .av-sum .av-small{margin:16px 0 0}
-.av-sum .av-btn{margin-top:22px}
+.av-sum a.av-btn,.av-sum .av-btn--block{margin-top:22px}
 
 /* ---------- VI · Para quem é ---------- */
 .av-fit{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
@@ -248,7 +251,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-testi{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
 .av-quote{background:#fff;color:var(--av-graphite);padding:32px;border-top:4px solid var(--av-terra);border-radius:var(--av-r);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;gap:20px}
 .av-quote blockquote{margin:0;font-size:1.05em;font-style:italic}
-.av-quote footer{display:flex;align-items:center;gap:14px;font:600 12px var(--av-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--av-navy)}
+.av-quote__by{--flex-direction:row;display:flex;flex-direction:row;align-items:center;gap:14px;font:600 12px var(--av-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--av-navy)}
 .av-face{width:52px;height:52px;border-radius:50%;background:var(--av-parch-dark);border:2px solid var(--av-terra);flex:none}
 .av-video{margin-top:32px;aspect-ratio:16/7;background:rgba(255,255,255,.07);border:1px dashed rgba(255,255,255,.4);border-radius:var(--av-r);display:grid;place-items:center;font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
 
@@ -308,7 +311,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .av-testi{grid-template-columns:1fr 1fr}
   .av-team{grid-template-columns:1fr 1fr}
   .av-mosaic{grid-template-columns:1fr 1fr}
-  .av-mosaic figure:nth-child(even){transform:none}
+  .av-mosaic figure:nth-child(even),.av-mosaic .av-photo:nth-child(even){transform:none}
 }
 @media (max-width:767px){
   .av-page{font-size:18px}
@@ -321,15 +324,15 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .av-hero .av-h1{white-space:normal;font-size:1.75rem}
   .av-stats{margin-top:-64px}
   .av-stats__card{padding:40px 16px 30px}
-  .av-stat+.av-stat::before{display:none}
+  .av-stat+.av-stat::before,.av-stat-box+.av-stat-box::before{display:none}
   .av-fit,.av-testi{grid-template-columns:1fr}
   .av-team{grid-template-columns:1fr 1fr;gap:14px}
   .av-team__item{padding:20px 14px}
   .av-problem{padding:30px 24px}
   .av-problems__stage{margin-top:120px}
-  .av-medal{right:-40px;top:-30px;width:240px}
+  .av-problems::before{right:-40px;top:14px;width:230px}
   .av-book{width:130px}
-  .av-certcard{flex-direction:column;text-align:center}
+  .av-page .av-certcard{--flex-direction:column;flex-direction:column;text-align:center}
   .av-certcard img{width:100%;height:220px}
   .av-table th,.av-table td{padding:12px 4px}
   .av-sum{padding:30px 18px}
@@ -337,7 +340,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .av-tab,.av-panel{grid-column:1}
   .av-panel{grid-row:auto;padding:26px 22px;margin:-4px 0 14px}
   .av-offer{padding:36px 22px}
-  .av-btn{width:100%}
+  .av-page a.av-btn,.av-page .av-btn .elementor-button{width:100%}
   .av-sticky{display:block}
   .av-wa{bottom:86px}
   .av-page{padding-bottom:76px}
@@ -345,7 +348,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){.av-medal,.av-marquee__track{animation:none}.av-marquee{overflow-x:auto}.av-problem{transition:none}.av-js .av-reveal{opacity:1;transform:none}*{transition:none!important;scroll-behavior:auto!important}}
 :root{--av-hero-img:url("assets/hero.jpg");--av-medal:url("assets/logo-medalhao.png")}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style></head><body class="av-page" id="top"><div class="av-notice">Matrículas abrem em janeiro de 2027 · Lista de espera aberta · <strong>30 vagas</strong> por módulo</div>
 <header class="av-header"><div class="av-wrap">
-  <a class="av-logo" href="#topo"><img src="assets/logo-medalhao.png" alt=""><span>Aldeia Literária</span></a>
+  <a class="av-logo" href="#topo"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a href="#jornada">Jornada</a><a href="#para-quem">Para quem é</a><a href="#duvidas">Dúvidas</a><a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a></nav>
   <a class="av-btn" href="https://tally.so/r/0QNWPy">Lista de espera</a>
 </div></header>
@@ -383,7 +386,6 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
     <p class="av-mirror-close">Se você se viu em alguma dessas linhas, o curso foi desenhado para esse ponto da jornada.</p>
   </div>
   <div class="av-reveal av-problems" data-av-carousel>
-    <div class="av-medal" aria-hidden="true"></div>
     <div class="av-problems__stage"><article class="av-problem is-active"><span class="av-problem__n">01 / 04</span><p>Você sabe como a história começa, mas não sabe como ela termina.</p></article><article class="av-problem"><span class="av-problem__n">02 / 04</span><p>Já começou vários rascunhos e nenhum chegou ao fim.</p></article><article class="av-problem"><span class="av-problem__n">03 / 04</span><p>Escreve sozinha ou sozinho e não sabe se o texto está bom.</p></article><article class="av-problem"><span class="av-problem__n">04 / 04</span><p>Sonha em publicar, mas não sabe por onde começar.</p></article></div>
     <div class="av-problems__ctrl"><button class="av-arrow" data-prev aria-label="Problema anterior">←</button><div class="av-dots"><button class="av-dot" aria-label="Ir para o problema 1"></button><button class="av-dot" aria-label="Ir para o problema 2"></button><button class="av-dot" aria-label="Ir para o problema 3"></button><button class="av-dot" aria-label="Ir para o problema 4"></button></div><button class="av-arrow" data-next aria-label="Próximo problema">→</button></div>
   </div>
@@ -489,9 +491,9 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   </div>
   <p class="av-mosaic-cap">A comunidade Aldeia, ao vivo</p>
   <div class="av-testi">
-    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: terminei meu primeiro rascunho…</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
-    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: tive coragem de enviar para editoras…</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
-    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase ou print real de mensagem de aluno</span>”</blockquote><footer><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
+    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: terminei meu primeiro rascunho…</span>”</blockquote><footer class="av-quote__by"><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
+    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase com resultado específico: tive coragem de enviar para editoras…</span>”</blockquote><footer class="av-quote__by"><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
+    <figure class="av-reveal av-quote" style="margin:0"><blockquote>“<span class="av-ph">frase ou print real de mensagem de aluno</span>”</blockquote><footer class="av-quote__by"><span class="av-face"></span><span><span class="av-ph">Nome, cidade/UF</span></span></footer></figure>
   </div>
   <div class="av-video">▶ Vídeo curto de depoimento</div>
 </div></section>
@@ -549,20 +551,24 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <div class="av-sticky"><a class="av-btn av-btn--block" href="https://tally.so/r/0QNWPy">Lista de espera</a></div>
 <a class="av-wa" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 13.9c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-3.900-4.700-4.100-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.1.1.300 0 .5l-.3.500-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg></a>
 <script>/* Aldeia Literária — Página de vendas: comportamentos leves (sem dependências).
-   Elementor: cole dentro de um widget HTML (envolvido por uma tag script) no rodapé da página,
-   ou use Elementor Pro > Custom Code. Os widgets nativos (Tabs, Counter, Accordion) dispensam as partes correspondentes. */
+   - Revelação ao rolar (classe av-reveal)
+   - Carrossel dos problemas (.av-problems > .av-problems__stage > .av-problem)
+   - Faixa de capas em loop (.av-marquee__track)
+   - Barra fixa de compra no celular (.av-sticky) depois do hero (.av-hero)
+   Não faz nada dentro do editor do Elementor (para você editar com tudo visível). */
 (function(){
+  if(document.body.classList.contains('elementor-editor-active'))return;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('av-js');
 
-  /* Revelação ao rolar: adicione a classe av-reveal em qualquer bloco */
+  /* Revelação ao rolar */
   var rv=document.querySelectorAll('.av-reveal');
   if('IntersectionObserver' in window){
     var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');ro.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
     rv.forEach(function(e){ro.observe(e)});
   } else rv.forEach(function(e){e.classList.add('is-in')});
 
-  /* Tabs no desktop / acordeão no celular */
+  /* Tabs próprias (só na prévia HTML; no Elementor o widget Abas cuida disso) */
   document.querySelectorAll('[data-av-tabs]').forEach(function(w){
     var tabs=[].slice.call(w.querySelectorAll('.av-tab')), panels=[].slice.call(w.querySelectorAll('.av-panel'));
     function set(i){
@@ -572,7 +578,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
     tabs.forEach(function(t,i){t.addEventListener('click',function(){set(i)})});
   });
 
-  /* Contadores animados: data-count="500" data-prefix="+"  |  data-minutes="270" (formata como 4h30) */
+  /* Contadores próprios (só na prévia HTML; no Elementor use o widget Contador) */
   var els=document.querySelectorAll('[data-count],[data-minutes]');
   function hm(m){var h=Math.floor(m/60),r=m%60;return h+'h'+(r?('0'+r).slice(-2):'')}
   function run(el){
@@ -586,9 +592,24 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
     els.forEach(function(e){io.observe(e)});
   } else els.forEach(run);
 
-  /* Carrossel dos problemas: automático, pausa ao passar o mouse, setas, pontos e deslize no celular */
-  document.querySelectorAll('[data-av-carousel]').forEach(function(c){
-    var slides=[].slice.call(c.querySelectorAll('.av-problem')),dots=[].slice.call(c.querySelectorAll('.av-dot')),i=0,timer,paused=false;
+  /* Carrossel dos problemas: automático, pausa ao passar o mouse, setas, pontos e deslize no celular.
+     Os controles e a numeração são criados aqui, então basta ter os cartões .av-problem. */
+  document.querySelectorAll('.av-problems').forEach(function(c){
+    if(c.dataset.avInit)return;c.dataset.avInit='1';
+    var slides=[].slice.call(c.querySelectorAll('.av-problem'));
+    if(slides.length<2)return;
+    slides.forEach(function(s,k){
+      if(!s.querySelector('.av-problem__n')){var n=document.createElement('span');n.className='av-problem__n';n.textContent='0'+(k+1)+' / 0'+slides.length;s.insertBefore(n,s.firstChild)}
+    });
+    var ctrl=c.querySelector('.av-problems__ctrl');
+    if(!ctrl){
+      ctrl=document.createElement('div');ctrl.className='av-problems__ctrl';
+      ctrl.innerHTML='<button type="button" class="av-arrow" data-prev aria-label="Problema anterior">←</button><div class="av-dots"></div><button type="button" class="av-arrow" data-next aria-label="Próximo problema">→</button>';
+      var dw=ctrl.querySelector('.av-dots');
+      slides.forEach(function(_,k){var b=document.createElement('button');b.type='button';b.className='av-dot';b.setAttribute('aria-label','Ir para o problema '+(k+1));dw.appendChild(b)});
+      c.appendChild(ctrl);
+    }
+    var dots=[].slice.call(ctrl.querySelectorAll('.av-dot')),i=0,timer,paused=false;
     function go(n){
       i=(n+slides.length)%slides.length;
       slides.forEach(function(s,k){s.classList.toggle('is-active',k===i);s.setAttribute('aria-hidden',k!==i)});
@@ -598,7 +619,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
       clearTimeout(timer);
       if(!reduce&&!paused)timer=setTimeout(function(){go(i+1)},5000);
     }
-    var pv=c.querySelector('[data-prev]'),nx=c.querySelector('[data-next]');
+    var pv=ctrl.querySelector('[data-prev]'),nx=ctrl.querySelector('[data-next]');
     if(pv)pv.addEventListener('click',function(){go(i-1)});
     if(nx)nx.addEventListener('click',function(){go(i+1)});
     dots.forEach(function(d,k){d.addEventListener('click',function(){go(k)})});
@@ -612,8 +633,8 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
   /* Faixa de capas: duplica os itens para o loop contínuo */
   document.querySelectorAll('.av-marquee__track').forEach(function(tr){
-    if(reduce)return;
-    [].slice.call(tr.children).forEach(function(n){var cl=n.cloneNode(true);cl.setAttribute('aria-hidden','true');var im=cl.querySelector('img');if(im)im.alt='';tr.appendChild(cl)});
+    if(reduce||tr.dataset.avInit)return;tr.dataset.avInit='1';
+    [].slice.call(tr.children).forEach(function(n){var cl=n.cloneNode(true);cl.setAttribute('aria-hidden','true');cl.classList.remove('av-reveal');[].slice.call(cl.querySelectorAll('img')).forEach(function(im){im.alt='';im.removeAttribute('srcset')});tr.appendChild(cl)});
   });
 
   /* Barra fixa de compra (celular): aparece depois do hero */
