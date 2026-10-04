@@ -1,0 +1,329 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aldeia Literária — Prévia do novo layout</title>
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>/* ==========================================================================
+   ALDEIA LITERÁRIA — Redesign (estilo "curso online institucional")
+   Inspirado em PUCRS Online e FGV Cursos Gratuitos
+   COMO USAR: Elementor > Configurações do Site > CSS Personalizado
+   (ou Aparência > Personalizar > CSS adicional). Cole este arquivo inteiro.
+   Depois adicione as classes "al-*" nos containers (veja GUIA-ELEMENTOR.md).
+   ========================================================================== */
+
+:root{
+  --al-red:#DF3F21;
+  --al-red-dark:#B92F14;
+  --al-navy:#083656;
+  --al-navy-dark:#052640;
+  --al-ink:#181719;
+  --al-muted:#5B6672;
+  --al-line:#E4E9EE;
+  --al-bg:#F4F7FA;
+  --al-white:#fff;
+  --al-green:#61CE70;
+  --al-radius:14px;
+  --al-shadow:0 2px 6px rgba(8,54,86,.06),0 10px 30px rgba(8,54,86,.08);
+  --al-shadow-lg:0 4px 10px rgba(8,54,86,.08),0 22px 50px rgba(8,54,86,.16);
+  --al-font:"Montserrat",system-ui,sans-serif;
+  --al-serif:"GFS Didot","Playfair Display",Georgia,serif;
+}
+
+/* ---------- Base ---------- */
+html{scroll-behavior:smooth}
+body{font-family:var(--al-font);color:var(--al-ink);-webkit-font-smoothing:antialiased}
+.elementor-widget-text-editor,.elementor-widget-text-editor p{line-height:1.7}
+.al-section{padding:72px 24px}
+.al-section--alt{background:var(--al-bg)}
+.al-section--navy{background:var(--al-navy);color:#fff}
+.al-wrap{max-width:1160px;margin-inline:auto}
+
+/* Títulos de seção: eyebrow + título serifado + traço de destaque */
+.al-eyebrow .elementor-heading-title,.al-eyebrow{
+  font:700 .78rem/1 var(--al-font)!important;letter-spacing:.14em;text-transform:uppercase;color:var(--al-red)!important}
+.al-title .elementor-heading-title,h2.al-title{
+  font-family:var(--al-serif)!important;font-weight:400!important;color:var(--al-navy);
+  font-size:clamp(1.7rem,3.2vw,2.5rem)!important;line-height:1.15!important;letter-spacing:-.01em}
+.al-title .elementor-heading-title::after{content:"";display:block;width:56px;height:4px;border-radius:4px;background:var(--al-red);margin-top:14px}
+.al-section--navy .al-title .elementor-heading-title,.al-section--navy h2.al-title{color:#fff!important}
+.al-lead,.al-lead p{font-size:1.08rem;color:var(--al-muted);max-width:62ch}
+
+/* ---------- Header (barra branca fixa + CTA, como PUCRS) ---------- */
+.al-header,.elementor-location-header>.elementor-element{
+  background:#fff!important;border-bottom:1px solid var(--al-line);
+  position:sticky;top:0;z-index:999;box-shadow:0 1px 0 rgba(8,54,86,.04)}
+.al-header .elementor-nav-menu--main .elementor-item{
+  font:600 .9rem var(--al-font);color:var(--al-navy);padding:10px 16px;position:relative}
+.al-header .elementor-nav-menu--main .elementor-item::after{
+  content:"";position:absolute;left:16px;right:16px;bottom:2px;height:3px;border-radius:3px;
+  background:var(--al-red);transform:scaleX(0);transition:transform .2s}
+.al-header .elementor-nav-menu--main .elementor-item:hover::after,
+.al-header .elementor-nav-menu--main .elementor-item.elementor-item-active::after{transform:scaleX(1)}
+.al-header .elementor-site-title,.al-header .elementor-heading-title{font-family:var(--al-serif);color:var(--al-navy)}
+
+/* ---------- Botões ---------- */
+.elementor-widget-button .elementor-button,.al-btn{
+  font:700 .88rem var(--al-font);letter-spacing:.04em;text-transform:uppercase;
+  background:var(--al-red);color:#fff;border-radius:999px;padding:15px 30px;
+  box-shadow:0 6px 18px rgba(223,63,33,.32);transition:transform .15s,box-shadow .15s,background .15s}
+.elementor-widget-button .elementor-button:hover,.al-btn:hover{
+  background:var(--al-red-dark);color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(223,63,33,.4)}
+.al-btn--outline .elementor-button,.al-btn--outline{
+  background:transparent!important;color:var(--al-navy)!important;box-shadow:inset 0 0 0 2px var(--al-navy)!important}
+.al-btn--outline .elementor-button:hover{background:var(--al-navy)!important;color:#fff!important}
+.al-btn--light .elementor-button{background:#fff!important;color:var(--al-navy)!important;box-shadow:none!important}
+.al-btn--block .elementor-button{width:100%;justify-content:center}
+.al-header .elementor-widget-button .elementor-button{padding:11px 22px;font-size:.78rem}
+
+/* ---------- HERO (fundo azul-marinho, chips + cartão de inscrição) ---------- */
+.al-hero{
+  background:
+    radial-gradient(900px 420px at 85% -10%,rgba(223,63,33,.28),transparent 60%),
+    linear-gradient(135deg,var(--al-navy-dark),var(--al-navy) 60%,#0B4A75);
+  color:#fff;padding:84px 24px 96px;position:relative;overflow:hidden}
+.al-hero .elementor-heading-title{color:#fff}
+.al-hero h1,.al-hero h1.elementor-heading-title{
+  font-family:var(--al-serif)!important;font-weight:400!important;
+  font-size:clamp(2.1rem,4.6vw,3.6rem)!important;line-height:1.08!important;letter-spacing:-.02em;margin:0 0 16px}
+.al-hero .elementor-widget-text-editor{color:rgba(255,255,255,.86);font-size:1.12rem;max-width:56ch}
+.al-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+  color:#fff;font:700 .72rem var(--al-font);letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 14px;border-radius:999px;margin-bottom:22px}
+.al-chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px}
+.al-chip{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--al-navy);
+  font:600 .82rem var(--al-font);padding:9px 16px;border-radius:999px}
+.al-chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--al-green)}
+.al-hero-card{background:#fff;color:var(--al-ink);border-radius:var(--al-radius);padding:28px;box-shadow:var(--al-shadow-lg)}
+.al-hero-card h3{font:700 1.1rem var(--al-font);color:var(--al-navy);margin:0 0 14px}
+.al-hero-card ul{list-style:none;margin:0 0 20px;padding:0}
+.al-hero-card li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--al-line);font-size:.92rem}
+.al-hero-card li span:first-child{color:var(--al-muted)}
+.al-hero-card li strong{color:var(--al-navy);text-align:right}
+
+/* ---------- Faixa de números (prova social) ---------- */
+.al-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border-radius:var(--al-radius);
+  box-shadow:var(--al-shadow);margin-top:-48px;position:relative;z-index:2;overflow:hidden}
+.al-stat{padding:26px 20px;text-align:center;border-right:1px solid var(--al-line)}
+.al-stat:last-child{border-right:0}
+.al-stat strong{display:block;font:400 2.2rem var(--al-serif);color:var(--al-red)}
+.al-stat span{font-size:.85rem;color:var(--al-muted)}
+
+/* ---------- Cartões (base) ---------- */
+.al-card{background:#fff;border:1px solid var(--al-line);border-radius:var(--al-radius);padding:28px;
+  box-shadow:var(--al-shadow);transition:transform .2s,box-shadow .2s,border-color .2s}
+.al-card:hover{transform:translateY(-4px);box-shadow:var(--al-shadow-lg);border-color:transparent}
+.al-grid-2,.al-grid-3,.al-grid-4{display:grid;gap:24px}
+.al-grid-2{grid-template-columns:repeat(2,1fr)}
+.al-grid-3{grid-template-columns:repeat(3,1fr)}
+.al-grid-4{grid-template-columns:repeat(4,1fr)}
+
+/* "Para quem é" — cartões com ícone */
+.al-feature .al-ico{width:48px;height:48px;border-radius:12px;background:rgba(223,63,33,.1);color:var(--al-red);
+  display:grid;place-items:center;font-size:1.4rem;margin-bottom:16px}
+.al-feature h3{font:700 1rem var(--al-font);color:var(--al-navy);text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px}
+.al-feature p{color:var(--al-muted);margin:0;font-size:.95rem}
+
+/* ---------- Professores ---------- */
+.al-teacher{text-align:center}
+.al-avatar{width:92px;height:92px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--al-navy),#0B4A75);color:#fff;font:400 1.9rem var(--al-serif);
+  box-shadow:0 0 0 4px #fff,0 0 0 6px var(--al-red)}
+.al-teacher img{width:92px;height:92px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--al-red)}
+.al-teacher h3{font:700 1.05rem var(--al-font);color:var(--al-navy);margin:0 0 6px}
+.al-teacher p{font-size:.88rem;color:var(--al-muted);margin:0}
+
+/* ---------- Módulos (grade de cartões com número grande) ---------- */
+.al-module{position:relative;overflow:hidden;padding-top:34px}
+.al-module::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,var(--al-red),#F2894F)}
+.al-module .al-num{font:400 3.2rem/1 var(--al-serif);color:rgba(8,54,86,.12);position:absolute;right:22px;top:18px}
+.al-module h3{font:700 1.12rem var(--al-font);color:var(--al-navy);margin:0 0 10px;max-width:85%}
+.al-module p{color:var(--al-muted);font-size:.93rem;margin:0 0 18px}
+.al-meta{display:flex;flex-wrap:wrap;gap:8px}
+.al-meta span{background:var(--al-bg);color:var(--al-navy);font:600 .76rem var(--al-font);padding:7px 12px;border-radius:999px}
+
+/* ---------- Preços ---------- */
+.al-price{text-align:center;position:relative}
+.al-price--featured{border:2px solid var(--al-red);transform:translateY(-8px)}
+.al-price--featured::before{content:"Melhor custo-benefício";position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--al-red);color:#fff;font:700 .7rem var(--al-font);letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+.al-price h3{font:700 .85rem var(--al-font);letter-spacing:.12em;text-transform:uppercase;color:var(--al-muted);margin:0 0 6px}
+.al-price .al-amount{font:400 3.2rem var(--al-serif);color:var(--al-navy);line-height:1}
+.al-price .al-amount small{font:600 .95rem var(--al-font);color:var(--al-muted)}
+.al-price ul{list-style:none;padding:0;margin:20px 0;text-align:left}
+.al-price li{padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--al-line);font-size:.92rem}
+.al-price li::before{content:"✓";position:absolute;left:0;color:var(--al-green);font-weight:800}
+
+/* ---------- Certificação ---------- */
+.al-cert .al-card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:#fff;box-shadow:none}
+.al-cert h3{font:700 1.1rem var(--al-font);margin:0 0 8px;color:#fff}
+.al-cert p{color:rgba(255,255,255,.8);margin:0}
+
+/* ---------- FAQ (acordeão do Elementor) ---------- */
+.elementor-widget-accordion .elementor-accordion-item{
+  border:1px solid var(--al-line)!important;border-radius:12px;margin-bottom:12px;overflow:hidden;background:#fff}
+.elementor-widget-accordion .elementor-tab-title{padding:20px 24px;background:#fff}
+.elementor-widget-accordion .elementor-tab-title a{font:700 1rem var(--al-font);color:var(--al-navy)}
+.elementor-widget-accordion .elementor-tab-title.elementor-active{background:var(--al-bg)}
+.elementor-widget-accordion .elementor-tab-title.elementor-active a{color:var(--al-red)}
+.elementor-widget-accordion .elementor-tab-content{padding:6px 24px 22px;color:var(--al-muted);border:0!important;background:var(--al-bg)}
+
+/* ---------- CTA final ---------- */
+.al-cta{background:linear-gradient(135deg,var(--al-red),#F2894F);color:#fff;border-radius:calc(var(--al-radius)*1.5);padding:48px;text-align:center}
+.al-cta .elementor-heading-title{color:#fff!important;font-family:var(--al-serif)!important;font-weight:400!important}
+
+/* ---------- Rodapé em colunas ---------- */
+.al-footer{background:var(--al-navy-dark);color:rgba(255,255,255,.75);padding:56px 24px 28px}
+.al-footer h4{font:700 .8rem var(--al-font);letter-spacing:.12em;text-transform:uppercase;color:#fff;margin:0 0 14px}
+.al-footer a{color:rgba(255,255,255,.75);text-decoration:none}
+.al-footer a:hover{color:#fff}
+.al-footer ul{list-style:none;margin:0;padding:0}.al-footer li{margin-bottom:9px;font-size:.92rem}
+.al-footer .al-copy{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:.82rem}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:1024px){
+  .al-grid-4{grid-template-columns:repeat(2,1fr)}
+  .al-grid-3{grid-template-columns:repeat(2,1fr)}
+  .al-stats{grid-template-columns:repeat(2,1fr)}
+  .al-stat:nth-child(2){border-right:0}
+  .al-stat:nth-child(-n+2){border-bottom:1px solid var(--al-line)}
+}
+@media (max-width:767px){
+  .al-section{padding:52px 18px}
+  .al-hero{padding:56px 18px 80px}
+  .al-grid-2,.al-grid-3,.al-grid-4{grid-template-columns:1fr}
+  .al-price--featured{transform:none}
+  .al-cta{padding:32px 22px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.elementor-nav-menu--main{gap:4px}.elementor-item{text-decoration:none}
+details>summary{cursor:pointer;list-style:none}details>summary::-webkit-details-marker{display:none}
+.al-btn{display:inline-block;text-decoration:none}
+body{margin:0}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hide-m{display:none!important}}
+</style></head><body><header class="al-header" style="padding:12px 24px">
+ <div class="al-wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+  <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="https://aaldeialiteraria.com.br/wp-content/uploads/2026/07/LOGO_DUO-1-150x150.png" alt="" width="44" height="44"><span style="font:400 1.35rem var(--al-serif);color:var(--al-navy)">Aldeia Literária</span></a>
+  <nav class="elementor-nav-menu--main hide-m" style="display:flex"><a class="elementor-item elementor-item-active" href="#">Home</a><a class="elementor-item" href="#modulos">Módulos</a><a class="elementor-item" href="#professores">Sobre</a><a class="elementor-item" href="#faq">Blog</a></nav>
+  <a class="al-btn" style="padding:11px 22px;font-size:.78rem" href="#precos">Garantir minha vaga</a>
+ </div>
+</header>
+
+<section class="al-hero"><div class="al-wrap hero-grid">
+ <div>
+  <span class="al-badge">Extensão universitária • Certificado MEC</span>
+  <h1>Escrita Criativa: Desenvolvimento e Prática</h1>
+  <div class="elementor-widget-text-editor"><p>Formação online da Aldeia Literária para quem está começando. Aulas ao vivo, comunidade e feedback de mestres e doutores.</p></div>
+  <div class="al-chips"><span class="al-chip">100% online</span><span class="al-chip">Aulas ao vivo + gravação</span><span class="al-chip">Certificado Anhanguera</span><span class="al-chip">30 vagas por módulo</span></div>
+  <a class="al-btn" href="#precos">Entrar na lista da próxima turma</a>
+ </div>
+ <aside class="al-hero-card">
+  <h3>Próxima turma</h3>
+  <ul>
+   <li><span>Início</span><strong>Janeiro de 2027</strong></li>
+   <li><span>Aulas</span><strong>19h30, com gravação</strong></li>
+   <li><span>Vagas</span><strong>30 por módulo</strong></li>
+   <li><span>Duração de cada aula</span><strong>1h30</strong></li>
+   <li><span>A partir de</span><strong>11x R$ 177 no PIX</strong></li>
+  </ul>
+  <a class="al-btn" style="display:block;text-align:center" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">Lista de espera</a>
+ </aside>
+</div></section>
+
+<section style="padding:0 24px"><div class="al-wrap"><div class="al-stats">
+ <div class="al-stat"><strong>+500</strong><span>escritores formados</span></div>
+ <div class="al-stat"><strong>5</strong><span>módulos completos</span></div>
+ <div class="al-stat"><strong>4</strong><span>professores mestres e doutores</span></div>
+ <div class="al-stat"><strong>75%</strong><span>de atividades para o certificado</span></div>
+</div></div></section>
+
+<section class="al-section" id="professores"><div class="al-wrap">
+ <div class="al-eyebrow">Mestres e doutores vão te guiar</div>
+ <h2 class="al-title">Os professores confirmados</h2>
+ <div class="al-grid-4" style="margin-top:36px">
+  <div class="al-card al-teacher"><div class="al-avatar">LM</div><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div>
+  <div class="al-card al-teacher"><div class="al-avatar">LO</div><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div>
+  <div class="al-card al-teacher"><div class="al-avatar">LN</div><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div>
+  <div class="al-card al-teacher"><div class="al-avatar">CV</div><h3>Camila Veloso</h3><p>Produtora Editorial (UFSM) &amp; Fundadora da Aldeia Literária</p></div>
+ </div>
+</div></section>
+
+<section class="al-section al-section--alt"><div class="al-wrap">
+ <div class="al-eyebrow">Prova viva do método</div>
+ <h2 class="al-title">+ de 500 escritores já passaram pela Aldeia</h2>
+ <p class="al-lead" style="margin-top:20px">Livros escritos aqui:</p>
+ <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:12px">
+  <img class="al-card" style="padding:8px;width:170px" src="https://aaldeialiteraria.com.br/wp-content/uploads/2026/07/livro1.jpg" alt="Livro escrito por aluno">
+  <img class="al-card" style="padding:8px;width:170px" src="https://aaldeialiteraria.com.br/wp-content/uploads/2026/07/livro3.jpg" alt="Livro escrito por aluno">
+ </div>
+</div></section>
+
+<section class="al-section" id="modulos"><div class="al-wrap">
+ <div class="al-eyebrow">A jornada completa</div>
+ <h2 class="al-title">5 módulos para dominar a escrita</h2>
+ <p class="al-lead" style="margin-top:20px">Técnicas que vão do básico ao estratégico.</p>
+ <div class="al-grid-3" style="margin-top:36px">
+  <div class="al-card al-module"><span class="al-num">01</span><h3>Fundamentos da Narrativa</h3><p>Conceitos fundamentais de estruturação de narrativa e mercado editorial brasileiro.</p><div class="al-meta"><span>Terça, 19h30</span><span>Ago–Dez 2026</span></div></div>
+  <div class="al-card al-module"><span class="al-num">02</span><h3>Técnicas Avançadas</h3><p>Aulas teóricas e práticas com técnicas específicas de escrita criativa e produção de livros no Brasil.</p><div class="al-meta"><span>Quarta, 19h30</span><span>Ago–Dez 2026</span></div></div>
+  <div class="al-card al-module"><span class="al-num">03</span><h3>Processos criativos e Escrita Criativa</h3><p>Trabalhe a criatividade, fugindo dos bloqueios criativos e outros problemas na escrita.</p><div class="al-meta"><span>Segunda, 19h30</span><span>Ago–Dez 2026</span></div></div>
+  <div class="al-card al-module"><span class="al-num">04</span><h3>Gramática e produção literária</h3><p>Estudo das normas gramaticais e sua aplicação na produção literária.</p><div class="al-meta"><span>Quinta, 19h30</span><span>Ago–Dez 2026</span></div></div>
+  <div class="al-card al-module"><span class="al-num">05</span><h3>Publicação Independente</h3><p>Oportunidades, fornecedores e estratégias para escritores em início de carreira.</p><div class="al-meta"><span>Quarta, 19h30</span><span>Ago–Dez 2026</span></div></div>
+  <div class="al-card" style="background:var(--al-navy);color:#fff;display:flex;flex-direction:column;justify-content:center"><h3 style="font:400 1.5rem var(--al-serif);margin:0 0 10px">Aulas gravadas</h3><p style="margin:0;opacity:.85">Perdeu o ao vivo? A gravação fica disponível em até 48h.</p></div>
+ </div>
+</div></section>
+
+<section class="al-section al-section--alt"><div class="al-wrap">
+ <div class="al-eyebrow">Serve para você?</div>
+ <h2 class="al-title">A Aldeia Literária é para:</h2>
+ <div class="al-grid-3" style="margin-top:36px">
+  <div class="al-card al-feature"><div class="al-ico">👥</div><h3>Escritores em busca de comunidade</h3><p>Encontre seu espaço entre pessoas que levam a escrita a sério e querem crescer juntas.</p></div>
+  <div class="al-card al-feature"><div class="al-ico">✨</div><h3>Profissionais criativos</h3><p>Expanda suas habilidades criativas através dos exercícios ou projetos literários pessoais.</p></div>
+  <div class="al-card al-feature"><div class="al-ico">📖</div><h3>Quem deseja escrever e publicar</h3><p>Os Aldeões contam com um time de profissionais preparados para ajudá-los a alcançar seus objetivos.</p></div>
+ </div>
+</div></section>
+
+<section class="al-section" id="precos"><div class="al-wrap">
+ <div class="al-eyebrow">Sua jornada, no seu ritmo</div>
+ <h2 class="al-title">A gente te mostra o caminho</h2>
+ <p class="al-lead" style="margin-top:20px">Você pode fazer até dois módulos simultâneos durante o ano. Nas férias, sprints de escrita em comunidade aceleram a produção do seu livro.</p>
+ <div class="al-grid-2" style="margin-top:44px;max-width:860px">
+  <div class="al-card al-price"><h3>1 módulo por semestre</h3><div class="al-amount"><small>11x</small> R$177</div><ul><li>Uma aula por semana</li><li>Preço original: R$177 · desconto 0%</li><li>Mensalidade cobrada no PIX</li><li>Contrato anual + taxa de matrícula</li></ul><a class="al-btn al-btn--outline" style="display:block;text-align:center;background:transparent;color:var(--al-navy);box-shadow:inset 0 0 0 2px var(--al-navy)" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">Lista de espera</a></div>
+  <div class="al-card al-price al-price--featured"><h3>2 módulos por semestre</h3><div class="al-amount"><small>11x</small> R$270</div><ul><li>Duas aulas por semana</li><li>Preço original: R$354 · desconto 23%</li><li>Mensalidade cobrada no PIX</li><li>Contrato anual + taxa de matrícula</li></ul><a class="al-btn" style="display:block;text-align:center" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">Lista de espera</a></div>
+ </div>
+</div></section>
+
+<section class="al-section al-section--navy al-cert"><div class="al-wrap">
+ <div class="al-eyebrow" style="color:#F2894F">Credencial acadêmica que faz diferença</div>
+ <h2 class="al-title">Dois tipos de certificado na sua formação</h2>
+ <div class="al-grid-2" style="margin-top:36px">
+  <div class="al-card"><h3>Certificação por etapa</h3><p>Ao final de cada módulo semestral, você recebe um certificado detalhando as competências adquiridas e a carga horária.</p></div>
+  <div class="al-card"><h3>Reconhecimento acadêmico</h3><p>Ao concluir a jornada completa, você garante um certificado de extensão universitária, emitido pela Anhanguera.</p></div>
+ </div>
+</div></section>
+
+<section class="al-section" id="faq"><div class="al-wrap" style="max-width:860px">
+ <div class="al-eyebrow">Com dúvidas? Te respondemos</div>
+ <h2 class="al-title" style="margin-bottom:32px">Perguntas frequentes</h2>
+ <div class="elementor-widget-accordion">
+  <details class="elementor-accordion-item" open><summary class="elementor-tab-title elementor-active"><a>As aulas são ao vivo?</a></summary><div class="elementor-tab-content">Sim, as aulas acontecem ao vivo através do Zoom e ficam gravadas para consulta posterior.</div></details>
+  <details class="elementor-accordion-item"><summary class="elementor-tab-title"><a>Alguém vai ler meu livro?</a></summary><div class="elementor-tab-content">Depois de cada aula teórica você receberá uma atividade. Nelas, pode mandar trechos do seu livro para o professor avaliar.</div></details>
+  <details class="elementor-accordion-item"><summary class="elementor-tab-title"><a>Quantas aulas por mês?</a></summary><div class="elementor-tab-content">Cada módulo tem 3 aulas por mês, uma por semana, com 1h30 de duração.</div></details>
+  <details class="elementor-accordion-item"><summary class="elementor-tab-title"><a>Preciso entregar as atividades?</a></summary><div class="elementor-tab-content">Sim, é preciso entregar e receber nota mínima em 75% das atividades — um requerimento do MEC também.</div></details>
+  <details class="elementor-accordion-item"><summary class="elementor-tab-title"><a>O contrato de um ano não é o suficiente para acabar o curso, e agora?</a></summary><div class="elementor-tab-content">O contrato é anual; se optar por fazer em 5 semestres, basta renová-lo até finalizar todos os módulos. A gente te ajuda do início ao fim.</div></details>
+ </div>
+</div></section>
+
+<section class="al-section al-section--alt"><div class="al-wrap"><div class="al-cta">
+ <h2 class="elementor-heading-title" style="font-size:clamp(1.7rem,3.4vw,2.6rem);margin:0 0 10px">Quer falar com a gente?</h2>
+ <p style="margin:0 0 24px;opacity:.95">Estamos no WhatsApp para tirar qualquer dúvida.</p>
+ <a class="al-btn" style="background:#fff;color:var(--al-navy);box-shadow:none" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">Lista de espera</a>
+</div></div></section>
+
+<footer class="al-footer"><div class="al-wrap">
+ <div class="al-grid-3" style="grid-template-columns:2fr 1fr 1fr">
+  <div><span style="font:400 1.5rem var(--al-serif);color:#fff">Aldeia Literária</span><p style="margin-top:10px;max-width:34ch">Curso de escrita para iniciantes. Extensão universitária com certificado MEC.</p></div>
+  <div><h4>Navegue</h4><ul><li><a href="#">Home</a></li><li><a href="#professores">Sobre</a></li><li><a href="#faq">Blog</a></li></ul></div>
+  <div><h4>Matrícula</h4><ul><li><a href="#precos">Valores</a></li><li><a href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">WhatsApp</a></li><li><a href="#faq">Dúvidas</a></li></ul></div>
+ </div>
+ <div class="al-copy">© Aldeia Literária — Todos os direitos reservados</div>
+</div></footer>
+</body></html>
