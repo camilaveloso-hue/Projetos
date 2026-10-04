@@ -1,0 +1,217 @@
+/* ==========================================================================
+   ALDEIA LITERÁRIA — Página de vendas (Blueprint v1, turma jan/2027)
+   Identidade greco-romana: Cinzel + EB Garamond + Montserrat
+   Paleta: azul-marinho, terracota (SÓ botões de compra), bronze (SÓ decoração), pergaminho
+   COMO USAR: Elementor > Configurações do Site > CSS Personalizado (ou CSS da página).
+   Na página de vendas: Configurações da Página > Avançado > Classes CSS = "av-page".
+   Veja GUIA-PAGINA-VENDAS.md.
+   ========================================================================== */
+
+:root{
+  --av-navy:#1B2A41;
+  --av-navy-dark:#121C2D;
+  --av-terra:#B5533C;        /* botões de compra (4,9:1 com branco) */
+  --av-terra-dark:#9C4430;   /* rótulos/textos coloridos sobre claro (5,4:1) */
+  --av-bronze:#A67C37;       /* decoração: meandro, filetes, ícones — nunca texto pequeno */
+  --av-parch:#F4EBDD;
+  --av-parch-dark:#EADFCB;
+  --av-graphite:#2B2B2B;
+  --av-line:rgba(166,124,55,.35);
+  --av-display:"Cinzel",Georgia,serif;
+  --av-body:"EB Garamond",Georgia,serif;
+  --av-ui:"Montserrat",system-ui,sans-serif;
+  --av-wrap:1160px;
+  --av-meander:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23A67C37' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
+}
+
+/* ---------- Base ---------- */
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+.av-page{background:var(--av-parch);color:var(--av-graphite);font-family:var(--av-body);font-size:20px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.av-page p{max-width:70ch}
+.av-wrap{max-width:var(--av-wrap);margin-inline:auto;padding-inline:24px}
+.av-section{padding:96px 0;position:relative}
+.av-section--navy{background:var(--av-navy);color:var(--av-parch)}
+.av-section--dark{background:var(--av-navy-dark);color:var(--av-parch)}
+
+/* Divisória com meandro grego (SVG < 1 KB, repetido) */
+.av-meander{height:14px;background:var(--av-meander) repeat-x center/28px 14px;opacity:.9}
+.av-meander--top{position:absolute;left:0;right:0;top:0}
+
+/* Rótulo de seção: numeral romano + nome (Montserrat caixa alta) */
+.av-label{font:600 13px/1 var(--av-ui);letter-spacing:.18em;text-transform:uppercase;color:var(--av-terra-dark);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.av-label::before{content:"";width:32px;height:2px;background:var(--av-bronze)}
+.av-section--navy .av-label,.av-section--dark .av-label,.av-hero .av-label{color:var(--av-parch);opacity:.88}
+
+/* Títulos: Cinzel Bold, alinhados à esquerda (padrão em F) */
+.av-h1,.av-h2{font-family:var(--av-display);font-weight:700;color:var(--av-navy);margin:0 0 22px;line-height:1.15;letter-spacing:.005em}
+.av-h1{font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.1}
+.av-h2{font-size:clamp(1.9rem,3.6vw,3rem)}
+.av-section--navy .av-h2,.av-section--dark .av-h2,.av-hero .av-h1{color:var(--av-parch)}
+.av-lead{font-size:1.15em;max-width:62ch;margin:0 0 28px}
+.av-small{font-size:.8em;opacity:.85}
+
+/* ---------- Botão de compra: terracota SÓ aqui (efeito de isolamento) ---------- */
+.av-btn,.av-page .elementor-button.av-btn{
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;max-width:100%;
+  min-height:52px;padding:16px 34px;background:var(--av-terra);color:#fff;border:0;border-radius:3px;
+  font:600 14px/1.2 var(--av-ui);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;cursor:pointer;
+  box-shadow:0 8px 22px rgba(181,83,60,.35);transition:transform .15s,background .15s,box-shadow .15s}
+.av-btn:hover{background:var(--av-terra-dark);color:#fff;transform:translateY(-2px)}
+.av-btn:focus-visible,.av-link:focus-visible,.av-tab:focus-visible,.av-faq summary:focus-visible{outline:3px solid var(--av-bronze);outline-offset:3px}
+.av-btn--block{display:flex;width:100%}
+.av-link{font:600 13px var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px;border-bottom:2px solid var(--av-bronze)}
+.av-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin:30px 0 14px}
+
+/* ---------- Barra de aviso + menu enxuto ---------- */
+.av-notice{background:var(--av-navy-dark);color:var(--av-parch);font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:10px 16px;border-bottom:1px solid var(--av-line)}
+.av-header{background:var(--av-navy);color:var(--av-parch);position:sticky;top:0;z-index:900;border-bottom:1px solid var(--av-line)}
+.av-header .av-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.av-logo{font:700 20px var(--av-display);letter-spacing:.06em;color:var(--av-parch);text-decoration:none;display:flex;align-items:center;gap:12px}
+.av-logo img{width:42px;height:42px;object-fit:contain}
+.av-nav{display:flex;gap:6px}
+.av-nav a{font:600 12px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-parch);text-decoration:none;padding:14px 14px;min-height:44px;display:inline-flex;align-items:center;opacity:.85;border-bottom:2px solid transparent}
+.av-nav a:hover{opacity:1;border-color:var(--av-bronze)}
+.av-header .av-btn{min-height:44px;padding:11px 22px;font-size:12px;box-shadow:none}
+
+/* ---------- I · Hero (55/45) ---------- */
+.av-hero{background:radial-gradient(900px 500px at 90% 0,rgba(166,124,55,.22),transparent 60%),var(--av-navy);color:var(--av-parch);padding:88px 0 104px;position:relative}
+.av-hero__grid{display:grid;grid-template-columns:55fr 45fr;gap:56px;align-items:center}
+.av-hero p{font-size:1.1em}
+.av-hero .av-label{font-size:13px}
+.av-hero .av-hero__pay{font-size:14px}
+.av-hero__pay{font:500 14px var(--av-ui);opacity:.82;margin:0}
+.av-art{border:1px solid var(--av-bronze);padding:12px;background:rgba(244,235,221,.04);position:relative}
+.av-art::before,.av-art::after{content:"";position:absolute;width:26px;height:26px;border:2px solid var(--av-bronze)}
+.av-art::before{top:-7px;left:-7px;border-right:0;border-bottom:0}
+.av-art::after{bottom:-7px;right:-7px;border-left:0;border-top:0}
+.av-art svg,.av-art img{display:block;width:100%;height:auto}
+.av-art figcaption{font:500 11px var(--av-ui);opacity:.65;padding:10px 4px 0;letter-spacing:.04em}
+
+/* ---------- II · Faixa de números ---------- */
+.av-stats{background:var(--av-parch);padding:64px 0 56px;position:relative;border-bottom:1px solid var(--av-line)}
+.av-stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.av-stat strong{display:block;font:700 clamp(2.2rem,4vw,3.2rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:10px}
+.av-stat span{font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite)}
+
+/* ---------- III · Espelho ---------- */
+.av-mirror{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.av-quill{list-style:none;margin:0 0 28px;padding:0}
+.av-quill li{position:relative;padding:20px 0 20px 52px;border-bottom:1px solid var(--av-line);font-size:1.05em}
+.av-quill li::before{content:"";position:absolute;left:0;top:22px;width:30px;height:30px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A67C37' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z'/%3E%3Cpath d='M16 8 2 22M17.5 15H9'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* ---------- IV · Jornada (tabs no desktop, acordeão no celular) ---------- */
+.av-tabs{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;column-gap:40px;margin-top:40px;align-items:start}
+.av-tab{grid-column:1;display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:transparent;color:var(--av-parch);
+  border:1px solid rgba(166,124,55,.45);border-radius:3px;padding:16px 20px;margin-bottom:10px;min-height:56px;cursor:pointer;font:600 13px/1.35 var(--av-ui);letter-spacing:.08em;text-transform:uppercase;transition:background .15s}
+.av-tab:hover{background:rgba(244,235,221,.06)}
+.av-tab b{font:700 22px var(--av-display);color:var(--av-bronze);min-width:2.2ch;letter-spacing:.02em}
+.av-tab.is-active{background:var(--av-parch);color:var(--av-navy);border-color:var(--av-parch)}
+.av-tab.is-active b{color:var(--av-terra-dark)}
+.av-panel{display:none;grid-column:2;grid-row:1/span 8;background:rgba(244,235,221,.06);border:1px solid rgba(166,124,55,.45);padding:40px;border-radius:3px}
+.av-panel.is-active{display:block}
+.av-panel h3{font:700 clamp(1.4rem,2.4vw,2rem) var(--av-display);margin:0 0 16px;color:var(--av-parch)}
+.av-panel dt{font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:22px}
+.av-panel dd{margin:6px 0 0}
+.av-panel .av-meta{margin-top:26px;font:600 12px var(--av-ui);letter-spacing:.1em;text-transform:uppercase;border-top:1px solid var(--av-line);padding-top:18px}
+
+/* ---------- V · O que você leva ---------- */
+.av-include{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+.av-check{list-style:none;margin:0 0 30px;padding:0}
+.av-check li{position:relative;padding:16px 0 16px 46px;border-bottom:1px solid var(--av-line)}
+.av-check li::before{content:"";position:absolute;left:0;top:19px;width:26px;height:26px;border-radius:50%;border:2px solid var(--av-bronze);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A67C37' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center/70% no-repeat}
+.av-check strong{color:var(--av-navy)}
+.av-sum{background:#fff;border:1px solid var(--av-bronze);padding:36px;box-shadow:0 14px 40px rgba(27,42,65,.12);position:relative}
+.av-sum::before{content:"";position:absolute;inset:6px;border:1px solid var(--av-line);pointer-events:none}
+.av-sum h3{font:700 13px var(--av-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--av-terra-dark);margin:0 0 14px}
+.av-sum .av-big{font:700 2.4rem/1.1 var(--av-display);color:var(--av-navy);margin:0 0 8px}
+
+/* ---------- VI · Para quem é ---------- */
+.av-fit{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+.av-fit__card{background:#fff;padding:36px;border:2px solid var(--av-bronze)}
+.av-fit__card--no{border:2px solid #C9C2B6;background:rgba(255,255,255,.55)}
+.av-fit__card h3{font:700 1.35rem var(--av-display);color:var(--av-navy);margin:0 0 18px}
+.av-fit__card ul{list-style:none;margin:0;padding:0}
+.av-fit__card li{position:relative;padding:10px 0 10px 34px}
+.av-fit__card li::before{content:"";position:absolute;left:0;top:17px;width:18px;height:18px;border-radius:50%;background:var(--av-bronze)}
+.av-fit__card--no li::before{background:transparent;border:2px solid #9A948A}
+
+/* ---------- VII · Quem conduz ---------- */
+.av-author{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:center}
+.av-portrait{border:2px solid var(--av-bronze);padding:12px;background:#fff}
+.av-portrait svg,.av-portrait img{display:block;width:100%;height:auto}
+.av-team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.av-team__item{border-top:2px solid var(--av-bronze);padding-top:16px}
+.av-team__item h4{font:700 1.05rem var(--av-display);color:var(--av-navy);margin:0 0 6px}
+.av-team__item p{font-size:.85em;margin:0}
+
+/* ---------- VIII · Depoimentos ---------- */
+.av-testi{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.av-quote{background:var(--av-parch);color:var(--av-graphite);padding:32px;border-top:4px solid var(--av-bronze);display:flex;flex-direction:column;gap:20px}
+.av-quote blockquote{margin:0;font-size:1.05em;font-style:italic}
+.av-quote footer{display:flex;align-items:center;gap:14px;font:600 12px var(--av-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--av-navy)}
+.av-face{width:52px;height:52px;border-radius:50%;background:var(--av-parch-dark);border:2px solid var(--av-bronze);flex:none}
+.av-video{margin-top:32px;aspect-ratio:16/7;background:rgba(244,235,221,.06);border:1px dashed rgba(166,124,55,.6);display:grid;place-items:center;font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+
+/* ---------- IX · Oferta e garantia (moldura mais forte da página) ---------- */
+.av-offer{max-width:600px;margin:40px auto 0;background:#fff;border:3px solid var(--av-bronze);outline:1px solid var(--av-bronze);outline-offset:6px;padding:48px 44px;text-align:center;box-shadow:0 24px 60px rgba(27,42,65,.18)}
+.av-offer .av-class{font:600 13px var(--av-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--av-terra-dark);margin:0 auto 14px}
+.av-price{font:700 clamp(2.3rem,5vw,3.3rem)/1.1 var(--av-display);color:var(--av-navy);margin:0 auto 6px}
+.av-offer p{margin-inline:auto}
+.av-box{text-align:left;background:var(--av-parch);border-left:4px solid var(--av-bronze);padding:18px 22px;margin:22px 0 0;font-size:.9em}
+.av-box h4{font:700 12px var(--av-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--av-navy);margin:0 0 6px}
+.av-box p{margin:0}
+
+/* ---------- X · FAQ (acordeão, 800px) ---------- */
+.av-faq{max-width:800px;margin:36px auto 0}
+.av-faq details{background:#fff;border:1px solid var(--av-line);margin-bottom:10px}
+.av-faq summary{list-style:none;cursor:pointer;padding:20px 56px 20px 24px;min-height:56px;position:relative;font:700 1.05rem/1.3 var(--av-display);color:var(--av-navy)}
+.av-faq summary::-webkit-details-marker{display:none}
+.av-faq summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font:400 28px var(--av-ui);color:var(--av-bronze)}
+.av-faq details[open] summary::after{content:"–"}
+.av-faq details[open] summary{border-bottom:1px solid var(--av-line)}
+.av-faq .av-ans{padding:18px 24px 22px}
+.av-faq .av-ans p{margin:0}
+.av-center{text-align:center}.av-center .av-label{justify-content:center}.av-center .av-label::after{content:"";width:32px;height:2px;background:var(--av-bronze)}
+
+/* ---------- XI · Chamado final ---------- */
+.av-final{background:var(--av-navy);color:var(--av-parch);text-align:center;padding:112px 0 96px;position:relative}
+.av-final .av-h2{color:var(--av-parch);max-width:20ch;margin-inline:auto}
+.av-final p{margin-inline:auto}
+.av-footer{background:var(--av-navy-dark);color:rgba(244,235,221,.75);text-align:center;padding:36px 24px;font:500 13px var(--av-ui)}
+.av-footer a{color:inherit}
+
+/* ---------- Barra fixa de compra (celular) + WhatsApp flutuante ---------- */
+.av-sticky{position:fixed;left:0;right:0;bottom:0;z-index:950;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--av-navy);border-top:1px solid var(--av-bronze);transform:translateY(110%);transition:transform .25s;display:none}
+.av-sticky.is-on{transform:none}
+.av-wa{position:fixed;right:18px;bottom:20px;z-index:960;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.28);transition:bottom .25s}
+.av-wa svg{width:30px;height:30px;fill:#fff}
+
+/* ---------- Marca-texto: itens a confirmar (REMOVER no lançamento) ---------- */
+.av-ph{background:#FFEF8A;color:#2B2B2B;padding:0 .25em;border-radius:3px;font-style:normal;font-family:var(--av-ui);font-size:.8em;font-weight:600;letter-spacing:0}
+
+/* ---------- Celular (desenhe primeiro aqui) ---------- */
+@media (max-width:1024px){
+  .av-hero__grid,.av-mirror,.av-include,.av-author{grid-template-columns:1fr;gap:40px}
+  .av-stats__grid{grid-template-columns:repeat(2,1fr);row-gap:36px}
+  .av-testi,.av-team{grid-template-columns:1fr 1fr}
+}
+@media (max-width:767px){
+  .av-page{font-size:18px}
+  .av-section{padding:64px 0}
+  .av-wrap{padding-inline:20px}
+  .av-nav,.av-header .av-btn{display:none}
+  .av-hero{padding:56px 0 72px}
+  .av-art{max-width:340px;margin-inline:auto}
+  .av-fit,.av-testi,.av-team{grid-template-columns:1fr}
+  .av-tabs{grid-template-columns:1fr}
+  .av-tab,.av-panel{grid-column:1}
+  .av-panel{grid-row:auto;padding:26px 22px;margin:-4px 0 14px}
+  .av-offer{padding:36px 22px}
+  .av-btn{width:100%}
+  .av-sticky{display:block}
+  .av-wa{bottom:86px}
+  .av-page{padding-bottom:76px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
