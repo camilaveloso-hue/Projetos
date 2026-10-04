@@ -5,7 +5,8 @@ import html, json, os, re, sys
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ELC = "/tmp/claude-0/elc"   # CSS do Elementor baixado do site
 
-data = json.load(open(os.path.join(ROOT, "wordpress", "pagina-vendas-elementor.json"), encoding="utf-8"))
+JSON = os.environ.get("SIM_JSON", "pagina-vendas-elementor.json")
+data = json.load(open(os.path.join(ROOT, "wordpress", JSON), encoding="utf-8"))
 first_tab = {}
 
 def esc(s): return html.escape(s, quote=True)
@@ -58,7 +59,7 @@ def render(el, parent_is_page=True, depth=0):
                       f'<div id="elementor-tab-content-{n}" class="elementor-tab-content elementor-clearfix{" elementor-active" if op else ""}" data-tab="{n}" role="region" style="display:{"block" if op else "none"}">{tb["tab_content"]}</div></div>')
         return f'<div class="{base}" data-id="{i}" data-element_type="widget" data-widget_type="accordion.default"><div class="elementor-accordion">{items}</div></div>'
     if w == "html":
-        return f'<div class="{base}" data-id="{i}" data-element_type="widget" data-widget_type="html.default">{s["html"]}</div>'
+        return f'<div class="{base}" data-id="{i}" data-element_type="widget" data-widget_type="html.default">{s["html"].replace("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/", "assets/img/")}</div>'
     raise SystemExit("widget não suportado no simulador: " + w)
 
 def rd(p): return open(os.path.join(ELC, p), encoding="utf-8").read()
