@@ -34,13 +34,13 @@ O plugin só carrega o visual nas páginas que usam o modelo. O resto do site n�
 
 1. No painel: **Modelos → Modelos salvos** (em inglês: *Templates → Saved Templates*).
 2. Clique em **Importar modelos**, escolha `pagina-vendas-elementor.json` e clique em **Importar agora**.
-3. O modelo **"Aldeia Literária — Página de vendas (turma 2027)"** aparece na lista. O Elementor também copia as imagens para a sua Biblioteca de Mídia (é normal).
+3. O modelo **"Aldeia Literária — Página de vendas (turma 2027) v2"** aparece na lista. (Se existir um modelo antigo sem o "v2", ignore-o ou apague-o: a versão antiga não aplica o visual nos blocos.) O Elementor também copia as imagens para a sua Biblioteca de Mídia (é normal).
 
 ## Passo 3 — Criar a página
 
 1. **Páginas → Adicionar nova**. Título sugerido: `Escrita Criativa — Turma 2027` (o endereço fica `.../escrita-criativa-turma-2027/`; você pode editar o endereço depois).
 2. Clique em **Editar com Elementor**.
-3. Na área de edição, clique no ícone de **pasta** (Adicionar modelo) → aba **Meus modelos** → ao lado de "Aldeia Literária — Página de vendas", clique em **Inserir**. Se o Elementor perguntar sobre aplicar as configurações da página, responda **Sim**.
+3. Na área de edição, clique no ícone de **pasta** (Adicionar modelo) → aba **Meus modelos** → ao lado de "Aldeia Literária — Página de vendas (turma 2027) v2", clique em **Inserir**. Se o Elementor perguntar sobre aplicar as configurações da página, responda **Sim**.
 4. A página aparece montada. Clique em **Publicar** (canto inferior esquerdo) quando terminar os passos abaixo. Para ir testando, use **Salvar rascunho**.
 
 ## Passo 4 — Ajustar o layout da página
@@ -120,7 +120,7 @@ Clique no elemento e edite no painel da esquerda, como em qualquer página do El
 
 | Problema | O que fazer |
 |---|---|
-| A página aparece sem cores, sem fontes (visual "cru") | O plugin não está ativo, ou há cache. Ative em **Plugins**, limpe o cache (WP Rocket, plugin de cache e o do navegador). Confirme também que o container principal tem a classe `av-page` (Avançado → Classes CSS) |
+| A página aparece sem cores, sem fontes (visual "cru"): botões verdes, títulos vermelhos | Confirme que você inseriu o modelo **v2**. Depois: o plugin não está ativo, ou há cache. Ative em **Plugins**, limpe o cache (WP Rocket, plugin de cache e o do navegador). Confirme também que o container principal tem a classe `av-page` (Avançado → Classes CSS) |
 | A importação do modelo deu erro | Tente de novo pelo Elementor: **Modelos → Modelos salvos → Importar**. Se persistir, use o **Plano B** abaixo |
 | Imagens não aparecem | Confirme que o plugin está ativo (as imagens ficam em `/wp-content/plugins/aldeia-vendas/assets/img/`). O nome da pasta do plugin precisa ser exatamente `aldeia-vendas` |
 | Carrossel dos problemas ou faixa de capas parados | Veja o item de WP Rocket no Passo 7 |

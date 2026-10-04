@@ -1,6 +1,6 @@
 {
  "version": "0.4",
- "title": "Aldeia Literária — Página de vendas (turma 2027)",
+ "title": "Aldeia Literária — Página de vendas (turma 2027) v2",
  "type": "page",
  "content": [
   {
@@ -9,7 +9,7 @@
    "settings": {
     "content_width": "full",
     "flex_direction": "column",
-    "_css_classes": "av-page"
+    "css_classes": "av-page"
    },
    "elements": [
     {
@@ -18,7 +18,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-notice"
+      "css_classes": "av-notice"
      },
      "elements": [
       {
@@ -39,7 +39,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-header"
+      "css_classes": "av-header"
      },
      "elements": [
       {
@@ -48,7 +48,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "row",
-        "_css_classes": "av-wrap av-row"
+        "css_classes": "av-wrap av-row"
        },
        "elements": [
         {
@@ -107,7 +107,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-hero"
+      "css_classes": "av-hero"
      },
      "elements": [
       {
@@ -116,7 +116,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap av-hero__grid"
+        "css_classes": "av-wrap av-hero__grid"
        },
        "elements": [
         {
@@ -125,7 +125,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-hero__txt av-reveal"
+          "css_classes": "av-hero__txt av-reveal"
          },
          "elements": [
           {
@@ -166,7 +166,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "row",
-            "_css_classes": "av-cta-row"
+            "css_classes": "av-cta-row"
            },
            "elements": [
             {
@@ -214,7 +214,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-stats"
+      "css_classes": "av-stats"
      },
      "elements": [
       {
@@ -223,7 +223,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap"
+        "css_classes": "av-wrap"
        },
        "elements": [
         {
@@ -232,7 +232,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-stats__card av-reveal"
+          "css_classes": "av-stats__card av-reveal"
          },
          "elements": [
           {
@@ -241,7 +241,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-stats__grid"
+            "css_classes": "av-stats__grid"
            },
            "elements": [
             {
@@ -250,7 +250,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-stat-box"
+              "css_classes": "av-stat-box"
              },
              "elements": [
               {
@@ -278,7 +278,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-stat-box"
+              "css_classes": "av-stat-box"
              },
              "elements": [
               {
@@ -306,7 +306,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-stat-box"
+              "css_classes": "av-stat-box"
              },
              "elements": [
               {
@@ -334,7 +334,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-stat-box"
+              "css_classes": "av-stat-box"
              },
              "elements": [
               {
@@ -374,7 +374,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-books"
+      "css_classes": "av-books"
      },
      "elements": [
       {
@@ -383,7 +383,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-books__head av-center av-reveal"
+        "css_classes": "av-books__head av-center av-reveal"
        },
        "elements": [
         {
@@ -417,7 +417,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-marquee"
+        "css_classes": "av-marquee"
        },
        "elements": [
         {
@@ -426,7 +426,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "_css_classes": "av-marquee__track"
+          "css_classes": "av-marquee__track"
          },
          "elements": [
           {
@@ -668,7 +668,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section"
+      "css_classes": "av-section"
      },
      "elements": [
       {
@@ -677,7 +677,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap av-mirror"
+        "css_classes": "av-wrap av-mirror"
        },
        "elements": [
         {
@@ -686,7 +686,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-reveal"
+          "css_classes": "av-reveal"
          },
          "elements": [
           {
@@ -739,7 +739,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-reveal av-problems"
+          "css_classes": "av-reveal av-problems"
          },
          "elements": [
           {
@@ -748,7 +748,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-problems__stage"
+            "css_classes": "av-problems__stage"
            },
            "elements": [
             {
@@ -757,7 +757,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-problem"
+              "css_classes": "av-problem"
              },
              "elements": [
               {
@@ -778,7 +778,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-problem"
+              "css_classes": "av-problem"
              },
              "elements": [
               {
@@ -799,7 +799,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-problem"
+              "css_classes": "av-problem"
              },
              "elements": [
               {
@@ -820,7 +820,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-problem"
+              "css_classes": "av-problem"
              },
              "elements": [
               {
@@ -853,7 +853,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section av-section--navy av-mark"
+      "css_classes": "av-section av-section--navy av-mark"
      },
      "elements": [
       {
@@ -872,7 +872,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap"
+        "css_classes": "av-wrap"
        },
        "elements": [
         {
@@ -956,7 +956,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section"
+      "css_classes": "av-section"
      },
      "elements": [
       {
@@ -965,7 +965,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap av-include"
+        "css_classes": "av-wrap av-include"
        },
        "elements": [
         {
@@ -974,7 +974,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-reveal"
+          "css_classes": "av-reveal"
          },
          "elements": [
           {
@@ -1015,7 +1015,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "row",
-            "_css_classes": "av-certcard",
+            "css_classes": "av-certcard",
             "flex_direction_mobile": "column"
            },
            "elements": [
@@ -1040,7 +1040,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "_css_classes": "av-certcard__txt"
+              "css_classes": "av-certcard__txt"
              },
              "elements": [
               {
@@ -1074,7 +1074,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-btn-row"
+            "css_classes": "av-btn-row"
            },
            "elements": [
             {
@@ -1106,7 +1106,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-reveal av-sum"
+          "css_classes": "av-reveal av-sum"
          },
          "elements": [
           {
@@ -1182,7 +1182,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section av-section--soft"
+      "css_classes": "av-section av-section--soft"
      },
      "elements": [
       {
@@ -1201,7 +1201,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap"
+        "css_classes": "av-wrap"
        },
        "elements": [
         {
@@ -1232,7 +1232,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-fit"
+          "css_classes": "av-fit"
          },
          "elements": [
           {
@@ -1241,7 +1241,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-fit__card"
+            "css_classes": "av-reveal av-fit__card"
            },
            "elements": [
             {
@@ -1272,7 +1272,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-fit__card av-fit__card--no"
+            "css_classes": "av-reveal av-fit__card av-fit__card--no"
            },
            "elements": [
             {
@@ -1312,7 +1312,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section"
+      "css_classes": "av-section"
      },
      "elements": [
       {
@@ -1321,7 +1321,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap"
+        "css_classes": "av-wrap"
        },
        "elements": [
         {
@@ -1330,7 +1330,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "_css_classes": "av-author"
+          "css_classes": "av-author"
          },
          "elements": [
           {
@@ -1339,7 +1339,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-portrait"
+            "css_classes": "av-reveal av-portrait"
            },
            "elements": [
             {
@@ -1366,7 +1366,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-author__txt"
+            "css_classes": "av-author__txt"
            },
            "elements": [
             {
@@ -1412,7 +1412,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-team"
+          "css_classes": "av-team"
          },
          "elements": [
           {
@@ -1421,7 +1421,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-team__item"
+            "css_classes": "av-reveal av-team__item"
            },
            "elements": [
             {
@@ -1463,7 +1463,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-team__item"
+            "css_classes": "av-reveal av-team__item"
            },
            "elements": [
             {
@@ -1505,7 +1505,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-team__item"
+            "css_classes": "av-reveal av-team__item"
            },
            "elements": [
             {
@@ -1547,7 +1547,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-team__item"
+            "css_classes": "av-reveal av-team__item"
            },
            "elements": [
             {
@@ -1598,7 +1598,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section av-section--navy av-mark av-mark--left"
+      "css_classes": "av-section av-section--navy av-mark av-mark--left"
      },
      "elements": [
       {
@@ -1617,7 +1617,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap"
+        "css_classes": "av-wrap"
        },
        "elements": [
         {
@@ -1648,7 +1648,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "_css_classes": "av-mosaic av-reveal"
+          "css_classes": "av-mosaic av-reveal"
          },
          "elements": [
           {
@@ -1734,7 +1734,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "_css_classes": "av-testi"
+          "css_classes": "av-testi"
          },
          "elements": [
           {
@@ -1743,7 +1743,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-quote"
+            "css_classes": "av-reveal av-quote"
            },
            "elements": [
             {
@@ -1761,7 +1761,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "row",
-              "_css_classes": "av-quote__by"
+              "css_classes": "av-quote__by"
              },
              "elements": [
               {
@@ -1770,7 +1770,7 @@
                "settings": {
                 "content_width": "full",
                 "flex_direction": "column",
-                "_css_classes": "av-face"
+                "css_classes": "av-face"
                },
                "elements": [],
                "isInner": true
@@ -1796,7 +1796,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-quote"
+            "css_classes": "av-reveal av-quote"
            },
            "elements": [
             {
@@ -1814,7 +1814,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "row",
-              "_css_classes": "av-quote__by"
+              "css_classes": "av-quote__by"
              },
              "elements": [
               {
@@ -1823,7 +1823,7 @@
                "settings": {
                 "content_width": "full",
                 "flex_direction": "column",
-                "_css_classes": "av-face"
+                "css_classes": "av-face"
                },
                "elements": [],
                "isInner": true
@@ -1849,7 +1849,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-reveal av-quote"
+            "css_classes": "av-reveal av-quote"
            },
            "elements": [
             {
@@ -1867,7 +1867,7 @@
              "settings": {
               "content_width": "full",
               "flex_direction": "row",
-              "_css_classes": "av-quote__by"
+              "css_classes": "av-quote__by"
              },
              "elements": [
               {
@@ -1876,7 +1876,7 @@
                "settings": {
                 "content_width": "full",
                 "flex_direction": "column",
-                "_css_classes": "av-face"
+                "css_classes": "av-face"
                },
                "elements": [],
                "isInner": true
@@ -1920,7 +1920,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section"
+      "css_classes": "av-section"
      },
      "elements": [
       {
@@ -1939,7 +1939,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap av-center"
+        "css_classes": "av-wrap av-center"
        },
        "elements": [
         {
@@ -1970,7 +1970,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-reveal av-offer"
+          "css_classes": "av-reveal av-offer"
          },
          "elements": [
           {
@@ -2057,7 +2057,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-box"
+            "css_classes": "av-box"
            },
            "elements": [
             {
@@ -2088,7 +2088,7 @@
            "settings": {
             "content_width": "full",
             "flex_direction": "column",
-            "_css_classes": "av-box"
+            "css_classes": "av-box"
            },
            "elements": [
             {
@@ -2128,7 +2128,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-section av-section--soft"
+      "css_classes": "av-section av-section--soft"
      },
      "elements": [
       {
@@ -2147,7 +2147,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap av-center"
+        "css_classes": "av-wrap av-center"
        },
        "elements": [
         {
@@ -2178,7 +2178,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-reveal av-faq"
+          "css_classes": "av-reveal av-faq"
          },
          "elements": [
           {
@@ -2263,7 +2263,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-btn-row av-btn-row--center"
+          "css_classes": "av-btn-row av-btn-row--center"
          },
          "elements": [
           {
@@ -2298,7 +2298,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-final av-mark av-mark--left"
+      "css_classes": "av-final av-mark av-mark--left"
      },
      "elements": [
       {
@@ -2317,7 +2317,7 @@
        "settings": {
         "content_width": "full",
         "flex_direction": "column",
-        "_css_classes": "av-wrap"
+        "css_classes": "av-wrap"
        },
        "elements": [
         {
@@ -2357,7 +2357,7 @@
          "settings": {
           "content_width": "full",
           "flex_direction": "column",
-          "_css_classes": "av-btn-row av-btn-row--center"
+          "css_classes": "av-btn-row av-btn-row--center"
          },
          "elements": [
           {
@@ -2402,7 +2402,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-footer"
+      "css_classes": "av-footer"
      },
      "elements": [
       {
@@ -2423,7 +2423,7 @@
      "settings": {
       "content_width": "full",
       "flex_direction": "column",
-      "_css_classes": "av-sticky"
+      "css_classes": "av-sticky"
      },
      "elements": [
       {

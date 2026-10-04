@@ -11,7 +11,7 @@ first_tab = {}
 def esc(s): return html.escape(s, quote=True)
 
 def render(el, parent_is_page=True, depth=0):
-    t = el["elType"]; s = el["settings"]; cls = s.get("_css_classes", ""); i = el["id"]
+    t = el["elType"]; s = el["settings"]; cls = s.get("css_classes", "") if el["elType"] == "container" else s.get("_css_classes", ""); i = el["id"]
     if t == "container":
         style = ""
         if s.get("flex_direction") == "row": style = ' style="--flex-direction:row"'

@@ -31,7 +31,8 @@ def _link(url, external=False):
 
 def C(cls, children=None, row=False, tag=None, mobile_column=False):
     """Container (flexbox) em largura total."""
-    settings = {"content_width": "full", "flex_direction": "row" if row else "column", "_css_classes": cls}
+    # Atenção: em CONTAINERS o campo de classes se chama "css_classes" (nos widgets é "_css_classes").
+    settings = {"content_width": "full", "flex_direction": "row" if row else "column", "css_classes": cls}
     if mobile_column:
         settings["flex_direction_mobile"] = "column"
     if tag:
@@ -326,7 +327,7 @@ def build():
     _mark_inner(page["elements"])
     return {
         "version": "0.4",
-        "title": "Aldeia Literária — Página de vendas (turma 2027)",
+        "title": "Aldeia Literária — Página de vendas (turma 2027) v2",
         "type": "page",
         "content": [page],
         "page_settings": {"hide_title": "yes"},
