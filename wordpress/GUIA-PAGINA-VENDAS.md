@@ -40,7 +40,10 @@ Botão de compra repetido em 4 pontos (hero, após "O que você leva", oferta, c
 Contraste: botão branco/terracota 4,9:1; texto/pergaminho passa AA; bronze nunca em texto pequeno. Alvos de toque ≥ 44 px. Sem rolagem horizontal em 390 px. Respeita "reduzir movimento".
 
 ## 4. Pendências (marcadas em amarelo `av-ph` na prévia — apague a classe ao preencher)
-Número de alunos · preço, parcelas, à vista, taxa de matrícula e formas de pagamento · entregável de cada módulo · se as aulas ficam gravadas e por quanto tempo · tipo de retorno das atividades e critérios de avaliação · bônus · garantia (veja a nota jurídica no blueprint) · multa de cancelamento e link do contrato · depoimentos reais (nome, cidade, foto) · foto da Camila · número do WhatsApp · gêneros/escopo do curso · logo e meandro oficiais.
+Preço, parcelas, à vista, taxa de matrícula e formas de pagamento · por quanto tempo as aulas ficam gravadas · formato e nota mínima das atividades · garantia (veja a nota jurídica no blueprint) · multa de cancelamento e link do contrato · depoimentos reais (nome, cidade, foto) · foto da Camila · gêneros/escopo do curso · logo e meandro oficiais.
+
+## 4b. Lista de espera (até as matrículas abrirem, em janeiro de 2027)
+Todos os botões levam ao formulário da lista de espera (`https://tally.so/r/0QNWPy`, o mesmo do site atual) e o texto é "Entrar na lista de espera". O cartão de oferta tem o aviso `av-waitnote`. Quando as matrículas abrirem, troque o link e os textos dos botões pelo checkout e remova o aviso. O menu tem as 2 páginas do site: esta (Home, com âncoras) e Sobre.
 
 ## 5. Divergências entre o blueprint e o site atual (decidir antes de publicar)
 - **Vagas:** blueprint diz ~50 por módulo; o site e o hero escolhido dizem 30. A prévia usa **30** em toda a página (aviso, números, FAQ, chamado final). Confirme.
