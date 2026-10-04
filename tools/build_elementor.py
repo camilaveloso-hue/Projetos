@@ -118,7 +118,7 @@ def build():
     S = []  # filhos do container principal (av-page)
 
     # Aviso + cabeçalho
-    S.append(C("av-notice", [T("<p>Matrículas abrem em janeiro de 2027 · Lista de espera aberta · <strong>30 vagas</strong> por módulo</p>")]))
+    S.append(C("av-notice", [T("<p>Matrículas abrem em janeiro de 2027 · Lista de espera aberta · <strong>35 vagas</strong> por módulo</p>")]))
     S.append(C("av-header", [C("av-wrap av-row", [
         H("Aldeia Literária", "div", "av-logo", url=SITE + "/"),
         T('<p><a href="#jornada">Jornada</a><a href="#para-quem">Para quem é</a><a href="#duvidas">Dúvidas</a><a href="%s">Sobre</a></p>' % SOBRE, "av-nav"),
@@ -131,7 +131,7 @@ def build():
         H("Escrita Criativa:<br>Desenvolvimento e Prática", "h1", "av-h1"),
         T("<p>Formação online da Aldeia Literária para quem está começando. Aulas ao vivo, comunidade, feedback de mestres e doutores.</p>", "av-sub"),
         C("av-cta-row", [B("Entrar na lista da próxima turma", WAIT)], row=True),
-        T("<p>Próxima turma: janeiro de 2027 · 30 vagas por módulo · aulas às 19h30 com gravação</p>", "av-hero__pay"),
+        T("<p>Próxima turma: janeiro de 2027 · 35 vagas por módulo · aulas às 19h30 com gravação</p>", "av-hero__pay"),
     ])])]))
 
     # II · Números (contadores nativos)
@@ -139,7 +139,7 @@ def build():
         C("av-stat-box", [COUNTER(500, "escritores já passaram pela Aldeia", prefix="+")]),
         C("av-stat-box", [COUNTER(4, "de aula ao vivo por mês<br>1 módulo · 3 aulas de 1h30", suffix="h30")]),
         C("av-stat-box", [COUNTER(9, "de aula ao vivo por mês<br>2 módulos · 6 aulas de 1h30", suffix="h")]),
-        C("av-stat-box", [COUNTER(30, "vagas por módulo")]),
+        C("av-stat-box", [COUNTER(35, "vagas por módulo")]),
     ])])])]))
 
     # Livros escritos aqui (faixa de capas)
@@ -292,7 +292,7 @@ def build():
            ("Já posso me matricular?", "<p>Ainda não. As matrículas abrem em janeiro de 2027. Por enquanto, temos apenas a lista de espera.</p>"),
            ("Como são as aulas?", "<p>Ao vivo, 3 por mês em cada módulo, às 19h30, com 1h30 de duração. As aulas ficam gravadas. %s</p>" % ph("Por quanto tempo ficam disponíveis?")),
            ("Preciso ter algo escrito antes?", "<p>O curso é para quem está começando. Você não precisa ter nada pronto, só vontade de escrever ficção.</p>"),
-           ("Quantas vagas existem?", "<p>30 por módulo.</p>"),
+           ("Quantas vagas existem?", "<p>35 por módulo.</p>"),
            ("Os módulos 2 e 5 têm o mesmo horário?", "<p>Sim, em salas diferentes. A jornada é organizada para você nunca precisar cursar os dois ao mesmo tempo.</p>"),
            ("Quanto custa?", "<p>Em 2027: R$ 186 por mês no plano de 1 módulo (3 aulas por mês) ou R$ 262 por mês no plano de 2 módulos (6 aulas por mês), mais a taxa de matrícula. %s</p>" % ph("confirmar nº de parcelas")),
            ("O que é a taxa de matrícula?", "<p>Ela cobre a formulação do seu contrato e a sua entrada no ecossistema da Aldeia Literária.</p>"),
@@ -311,7 +311,7 @@ def build():
     S.append(C("av-final av-mark av-mark--left", [meander(), C("av-wrap", [
         H("XI · O chamado", "p", "av-label"),
         H("O chamado já chegou. Falta atravessar a porta.", "h2", "av-h2"),
-        T("<p>A turma de janeiro de 2027 tem vagas limitadas: 30 por módulo. As matrículas abrem em janeiro; por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>"),
+        T("<p>A turma de janeiro de 2027 tem vagas limitadas: 35 por módulo. As matrículas abrem em janeiro; por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>"),
         C("av-btn-row av-btn-row--center", [B("Entrar na lista de espera", WAIT)]),
         T('<p>Ficou com dúvida? <a href="%s">Fale com a gente no WhatsApp</a></p>' % WHATS, "av-small"),
     ])]))
