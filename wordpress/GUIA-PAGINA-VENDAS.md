@@ -7,7 +7,7 @@ Arquivos: `aldeia-vendas.css` (visual) · `aldeia-vendas.js` (abas, contadores, 
 2. **CSS**: cole `aldeia-vendas.css` em Configurações do Site → CSS Personalizado.
 3. Na página de vendas: Configurações da Página → Avançado → **Classes CSS = `av-page`** (isso isola o estilo: o resto do site não muda).
 4. **JS**: widget HTML no fim da página com `<script>` + conteúdo de `aldeia-vendas.js` + `</script>` (necessário só para a barra fixa; Tabs/Counter/Accordion nativos do Elementor dispensam o resto).
-5. Cores globais: azul-marinho `#1B2A41`, terracota `#B5533C` (só botões de compra), terracota escura `#9C4430`, bronze `#A67C37` (só decoração), pergaminho `#F4EBDD`, grafite `#2B2B2B`.
+5. Cores globais (tiradas da logo): azul `#0D3756`, vermelho `#CC351C` (botões e acentos), vermelho escuro `#A82B16` (textos), branco `#FFFFFF`, cinza-azulado claro `#F1F5F9` (seções alternadas), grafite `#26303B`.
 
 ## 2. Seção → classes (Avançado → Classes CSS)
 | Seção | Container / classe | Widgets |
@@ -31,6 +31,20 @@ Arquivos: `aldeia-vendas.css` (visual) · `aldeia-vendas.js` (abas, contadores, 
 
 Botão de compra repetido em 4 pontos (hero, após "O que você leva", oferta, chamado final), sempre `av-btn`, mesmo texto e cor.
 
+## 2a. Novos blocos (versão com logo, imagens e carrossel)
+| Bloco | Classes | Como fazer no Elementor |
+|---|---|---|
+| Faixa de capas (logo após os números) | `av-books` > `av-marquee` > `av-marquee__track` > vários `av-book` | Container + imagens (as capas já estão na Biblioteca de Mídia do site, `uploads/2026/07/…`). O JS duplica os itens para o loop. |
+| Problemas em carrossel | `av-problems` com `data-av-carousel` (widget HTML) contendo `av-medal`, `av-problem` ×4 e os controles | Cole o HTML da prévia (seção III) em um widget HTML. O medalhão usa a variável `--av-medal` (logo atual do site). |
+| Resumo com tabela de preços | `av-sum` > `av-table` | Widget HTML (tabela) ou Elementor Pro "Price Table". |
+| Certificados | `av-certcard` | Imagem + texto lado a lado. |
+| Mosaico da comunidade | `av-mosaic` (4 `figure`) | Fotos de evento do próprio site; usar texto alternativo descritivo. |
+| Equipe | `av-team` > `av-team__item` com `av-ava` | 4 cartões (Laura, Lucas, Lavínia, Ana). Quando houver fotos, troque o `av-ava` por `<img>`. |
+| Marca d'água do medalhão | `av-mark` (e `av-mark--left`) na seção | Só uma classe. |
+| Fundo alternativo texturizado | `av-section--soft` | Só uma classe. |
+
+Texturas: grão de papel sutil em todo o fundo e labirinto grego a 5% nas seções `--soft` (ambos em SVG dentro do CSS, sem imagens extras). Botões são pílula com seta.
+
 ## 2b. Toques modernos (opcionais)
 - **Revelação ao rolar:** adicione `av-reveal` em qualquer bloco (cartões, colunas, tabs). Só esconde o bloco se o JS estiver ativo; respeita "reduzir movimento".
 - **Cantos arredondados, vidro fosco nos painéis azuis, meandro como marca sob os títulos e cartão de números flutuante** já vêm no CSS.
@@ -40,7 +54,10 @@ Botão de compra repetido em 4 pontos (hero, após "O que você leva", oferta, c
 Contraste: botão branco/terracota 4,9:1; texto/pergaminho passa AA; bronze nunca em texto pequeno. Alvos de toque ≥ 44 px. Sem rolagem horizontal em 390 px. Respeita "reduzir movimento".
 
 ## 4. Pendências (marcadas em amarelo `av-ph` na prévia — apague a classe ao preencher)
-Preço, parcelas, à vista, taxa de matrícula e formas de pagamento · por quanto tempo as aulas ficam gravadas · formato e nota mínima das atividades · garantia (veja a nota jurídica no blueprint) · multa de cancelamento e link do contrato · depoimentos reais (nome, cidade, foto) · foto da Camila · gêneros/escopo do curso · logo e meandro oficiais.
+Nº de parcelas, taxa de matrícula e formas de pagamento · por quanto tempo as aulas ficam gravadas · formato e nota mínima das atividades · garantia (veja a nota jurídica no blueprint) · multa de cancelamento e link do contrato · depoimentos reais (nome, cidade, foto) · foto da Camila · gêneros/escopo do curso · logo e meandro oficiais.
+
+## 4a. Preços e horas (turma 2027)
+1 módulo: 3 aulas/mês × 1h30 = **4h30/mês**, R$ 186/mês. 2 módulos: 6 aulas/mês = **9h/mês**, R$ 262/mês. Total = mensalidade × parcelas: com **11 parcelas** (o número usado no site atual) dá R$ 2.046 e R$ 2.882. **Confirme o nº de parcelas** (o blueprint falava em 12x: seriam R$ 2.232 e R$ 3.144) e a taxa de matrícula. Os números estão em dois lugares: tabela "Seu resumo" e cartão da seção IX (e FAQ "Quanto custa?").
 
 ## 4b. Lista de espera (até as matrículas abrirem, em janeiro de 2027)
 Todos os botões levam ao formulário da lista de espera (`https://tally.so/r/0QNWPy`, o mesmo do site atual) e o texto é "Entrar na lista de espera". O cartão de oferta tem o aviso `av-waitnote`. Quando as matrículas abrirem, troque o link e os textos dos botões pelo checkout e remova o aviso. O menu tem as 2 páginas do site: esta (Home, com âncoras) e Sobre.
