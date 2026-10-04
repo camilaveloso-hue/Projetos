@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Aldeia Literária — Página de vendas
  * Description: Estilo (CSS), comportamentos (JS), fontes e imagens da página de vendas da turma 2027. Funciona junto com o modelo de página importado no Elementor.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Aldeia Literária
  * Requires PHP: 7.2
  */
@@ -11,13 +11,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALDEIA_VENDAS_VERSION', '1.0.0' );
+define( 'ALDEIA_VENDAS_VERSION', '1.0.1' );
 
 /**
  * Carrega o CSS/JS só nas páginas que usam a página de vendas
  * (as que têm o container principal com a classe "av-page").
  */
 function aldeia_vendas_precisa_carregar() {
+	// Dentro do editor do Elementor (iframe de pré-visualização), carrega sempre:
+	// a página pode ainda não ter sido salva com o conteúdo.
+	if ( isset( $_GET['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		return true;
+	}
 	if ( ! is_singular() ) {
 		return false;
 	}
