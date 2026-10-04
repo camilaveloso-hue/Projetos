@@ -36,7 +36,7 @@
 
 /* Contadores nativos */
 .av-page .av-stat .elementor-counter{flex-direction:column;align-items:stretch}
-.av-page .av-stat .elementor-counter-number-wrapper{order:1;justify-content:center;font:700 clamp(2.4rem,4.4vw,3.6rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:12px}
+.av-page .av-stat .elementor-counter-number-wrapper{order:1;justify-content:center;font:700 clamp(1.9rem,3.2vw,2.5rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:12px}
 .av-page .av-stat .elementor-counter-title{order:2;display:block;font:600 12px/1.9 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite);text-align:center}
 .av-page .av-stat-box{text-align:center}
 
@@ -58,7 +58,7 @@
 .av-page .av-fit__card .elementor-widget-heading{margin-bottom:0}
 
 /* Carrossel dos problemas */
-.av-page .av-problem .elementor-widget-text-editor p{font:500 clamp(1.5rem,2.6vw,2.1rem)/1.28 var(--av-body);margin:0;max-width:none}
+.av-page .av-problem .elementor-widget-text-editor p{font:500 clamp(1.2rem,2vw,1.55rem)/1.3 var(--av-body);margin:0;max-width:none}
 
 /* Equipe, depoimentos, oferta */
 .av-page .av-team__item .elementor-widget-text-editor p{font-size:.85em;margin:0}
@@ -93,7 +93,7 @@
 .av-page .av-tabs .elementor-tab-mobile-title::before{content:counter(avtab2,upper-roman);font:700 22px var(--av-display);color:#FF9C88;min-width:2.2ch}
 .av-page .av-tabs .elementor-tab-mobile-title.elementor-active{background:#fff;color:var(--av-navy)}
 .av-page .av-tabs .elementor-tab-content{padding:40px!important;color:var(--av-parch);background:rgba(255,255,255,.07);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22)!important;border-radius:var(--av-r)}
-.av-page .av-tabs .elementor-tab-content h3{font:700 clamp(1.4rem,2.4vw,2rem)/1.2 var(--av-display);color:var(--av-parch);margin:0 0 16px}
+.av-page .av-tabs .elementor-tab-content h3{font:700 clamp(1.15rem,1.8vw,1.5rem)/1.2 var(--av-display);color:var(--av-parch);margin:0 0 16px}
 .av-page .av-tabs .elementor-tab-content p{margin:0 0 4px;max-width:none}
 .av-page .av-tabs .elementor-tab-content h4{font:600 12px/1.4 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin:22px 0 6px;color:inherit}
 .av-page .av-tabs .elementor-tab-content h5{font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;margin:26px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);color:inherit}

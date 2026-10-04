@@ -59,7 +59,7 @@ def render(el, parent_is_page=True, depth=0):
                       f'<div id="elementor-tab-content-{n}" class="elementor-tab-content elementor-clearfix{" elementor-active" if op else ""}" data-tab="{n}" role="region" style="display:{"block" if op else "none"}">{tb["tab_content"]}</div></div>')
         return f'<div class="{base}" data-id="{i}" data-element_type="widget" data-widget_type="accordion.default"><div class="elementor-accordion">{items}</div></div>'
     if w == "html":
-        return f'<div class="{base}" data-id="{i}" data-element_type="widget" data-widget_type="html.default">{s["html"].replace("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/", "assets/img/")}</div>'
+        return f'<div class="{base}" data-id="{i}" data-element_type="widget" data-widget_type="html.default">{s["html"].replace("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/", "assets/")}</div>'
     raise SystemExit("widget não suportado no simulador: " + w)
 
 def rd(p): return open(os.path.join(ELC, p), encoding="utf-8").read()

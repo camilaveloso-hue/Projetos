@@ -82,8 +82,11 @@
   /* Faixa de capas: duplica os itens para o loop contínuo */
   document.querySelectorAll('.av-marquee__track').forEach(function(tr){
     if(reduce||tr.dataset.avInit)return;tr.dataset.avInit='1';
-    [].slice.call(tr.children).forEach(function(n){var cl=n.cloneNode(true);cl.setAttribute('aria-hidden','true');cl.classList.remove('av-reveal');[].slice.call(cl.querySelectorAll('img')).forEach(function(im){im.alt='';im.removeAttribute('srcset')});tr.appendChild(cl)});
+    [].slice.call(tr.children).forEach(function(n){var cl=n.cloneNode(true);cl.setAttribute('aria-hidden','true');cl.classList.remove('av-reveal');[].slice.call(cl.querySelectorAll('img')).forEach(function(im){im.alt='';im.removeAttribute('srcset')});if(cl.tagName==='A')cl.setAttribute('tabindex','-1');tr.appendChild(cl)});
   });
+
+  /* Livros sem link ainda (href="#") não fazem nada ao clicar */
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.av-book');if(a&&a.getAttribute('href')==='#')e.preventDefault()});
 
   /* Barra fixa de compra (celular): aparece depois do hero */
   var hero=document.querySelector('.av-hero'),bar=document.querySelector('.av-sticky');

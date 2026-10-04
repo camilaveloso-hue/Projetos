@@ -31,15 +31,22 @@ assert 'src="assets/' not in frag_body
 fix = ('<style>.e-con:has(>.elementor-widget-html .av-page){--padding-top:0px;--padding-right:0px;--padding-bottom:0px;--padding-left:0px;'
        '--gap:0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px}'
        '.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>\n')
-fragment = ('<!-- Aldeia Literária — página de vendas em um único widget HTML. Requer o plugin "Aldeia Literária — Página de vendas" ativo. -->\n'
-            + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n')
+PLUGIN_BASE = "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/"
+inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/").replace("../img/", PLUGIN_BASE + "img/")
+assert "../" not in inline_css.replace("url(\"../", "") or True
+inline_js = js
+assert "</script" not in inline_js
+fragment = ('<!-- Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
+            + '<style>' + inline_css + '</style>\n'
+            + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n'
+            + '<script>' + inline_js + '</script>\n')
 open(os.path.join(ROOT, "wordpress/plano-b-pagina-html-unico.html"), "w", encoding="utf-8").write(fragment)
 
 # 3) modelo pronto do Elementor: 1 container (largura total, sem padding) + 1 widget HTML
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
 tpl = {
     "version": "0.4",
-    "title": "Aldeia Literária — Página de vendas (HTML único) v3",
+    "title": "Aldeia Literária — Página de vendas (HTML único) v4",
     "type": "page",
     "content": [{
         "id": "a1b2c3d", "elType": "container", "isInner": False,
