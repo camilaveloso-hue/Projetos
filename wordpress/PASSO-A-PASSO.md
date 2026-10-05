@@ -1,7 +1,7 @@
 # Como colocar a página de vendas no ar (WordPress + Elementor)
 
 > **ATUALIZAÇÃO — caminho recomendado agora: modelo "HTML único" (v3).**
-> Use o arquivo `pagina-vendas-html-unico-elementor.json` (versão v6, com o CSS e o JavaScript embutidos no próprio bloco). Ele traz a página inteira dentro de **um** bloco HTML, com o visual embutido, e não depende das classes dos containers do Elementor. Os passos 1 a 8 abaixo continuam valendo; só troque o modelo do Passo 2 por esse e insira o modelo **"(HTML único) v6"** no Passo 3. Nesse formato, os textos ficam dentro do código do widget HTML: para ajustar algo, me peça que eu gero uma nova versão. O modelo com widgets editáveis (`pagina-vendas-elementor.json`) fica guardado para uma próxima fase.
+> Use o arquivo `aldeia-pagina-v7.json` (versão v7, com o CSS e o JavaScript embutidos no próprio bloco). Ele traz a página inteira dentro de **um** bloco HTML, com o visual embutido, e não depende das classes dos containers do Elementor. Os passos 1 a 8 abaixo continuam valendo; só troque o modelo do Passo 2 por esse e insira o modelo **"ALDEIA v7"** no Passo 3. Nesse formato, os textos ficam dentro do código do widget HTML: para ajustar algo, me peça que eu gero uma nova versão. O modelo com widgets editáveis (`pagina-vendas-elementor.json`) fica guardado para uma próxima fase.
 
 Você recebeu 3 arquivos (mais um plano B):
 

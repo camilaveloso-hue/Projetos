@@ -46,7 +46,7 @@ open(os.path.join(ROOT, "wordpress/plano-b-pagina-html-unico.html"), "w", encodi
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
 tpl = {
     "version": "0.4",
-    "title": "Aldeia Literária — Página de vendas (HTML único) v6",
+    "title": "Aldeia Literária — Página de vendas (HTML único) v7",
     "type": "page",
     "content": [{
         "id": "a1b2c3d", "elType": "container", "isInner": False,
