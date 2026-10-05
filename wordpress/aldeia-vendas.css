@@ -571,3 +571,9 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-table .av-table__time td.av-hl--end{border-bottom:2px solid var(--av-terra)}
 .av-table .av-table__fee td{border-left:0;border-right:0}
 .av-sum{padding-top:40px}
+
+/* v14 — destaques em negrito */
+.av-lead strong,.av-cert__card p strong{font-weight:700;color:inherit}
+.av-cert__card p strong{color:#fff}
+.av-panel .av-meta{font-weight:500}
+.av-panel .av-meta strong{font-weight:800;color:#fff}

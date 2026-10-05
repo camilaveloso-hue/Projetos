@@ -1,12 +1,12 @@
-# Como colocar a página de vendas no ar (versão final v13)
+# Como colocar a página de vendas no ar (versão final v14)
 
 Você recebeu 3 arquivos:
 
 | Arquivo | Para que serve |
 |---|---|
 | `aldeia-vendas.zip` | **Plugin**: guarda as fontes, as imagens (capas, fotos, brasão) e o estilo. Instala uma vez. |
-| `aldeia-pagina-v13.json` | **Modelo de página do Elementor**: a página inteira, pronta. |
-| `aldeia-pagina-v13-colar-no-widget-html.html` | O mesmo conteúdo, para **colar** num widget HTML. Plano B se o modelo não funcionar. |
+| `aldeia-pagina-v14.json` | **Modelo de página do Elementor**: a página inteira, pronta. |
+| `aldeia-pagina-v14-colar-no-widget-html.html` | O mesmo conteúdo, para **colar** num widget HTML. Plano B se o modelo não funcionar. |
 
 A página nova nasce num endereço próprio. **A Home atual continua no ar** até você decidir trocar.
 
@@ -24,14 +24,14 @@ Faça um backup do site (plugin de backup ou o da hospedagem). Nada abaixo mexe 
 ## Passo 3 — Importar o modelo
 1. Abra: `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_library&tabs_group=library`
    (ou pelo menu **Elementor**, no painel, procure **Modelos** / **Modelos salvos**).
-2. Clique em **Importar modelos**, escolha `aldeia-pagina-v13.json` → **Importar agora**.
-3. Confirme que aparece **"ALDEIA v13 — Página de vendas (final)"**.
+2. Clique em **Importar modelos**, escolha `aldeia-pagina-v14.json` → **Importar agora**.
+3. Confirme que aparece **"ALDEIA v14 — Página de vendas (final)"**.
 4. **Apague os modelos antigos** da lista (v3, v4, v5, v6, v7, "Página de vendas"…). Assim não dá para inserir o errado.
 
 ## Passo 4 — Criar a página e inserir o modelo
 1. **Páginas → Adicionar nova**. Título sugerido: `Escrita Criativa — Turma 2027`.
 2. Clique em **Editar com Elementor**.
-3. Na área vazia, clique no círculo da **pasta preta** (Adicionar modelo) → aba **Meus modelos** → **Inserir** ao lado de **ALDEIA v13**.
+3. Na área vazia, clique no círculo da **pasta preta** (Adicionar modelo) → aba **Meus modelos** → **Inserir** ao lado de **ALDEIA v14**.
 4. Se a página já tinha conteúdo, apague tudo antes: abra o **Navegador** (ícone de camadas, na barra de cima), clique com o botão direito em cada bloco → **Excluir**. O modelo é **adicionado**, não substitui.
 5. Clique no ícone da **folha com engrenagem** (Configurações da página) → **Layout da página** → **Elementor Canvas**. Isso tira o menu duplicado do tema, porque a página já traz o próprio cabeçalho.
 6. Clique em **Publicar** (ou **Atualizar**, se a página já estava publicada).
@@ -40,10 +40,10 @@ Faça um backup do site (plugin de backup ou o da hospedagem). Nada abaixo mexe 
 
 ## Passo 5 — Conferir
 1. Abra o endereço da página numa **janela anônima**.
-2. Role até o **fim**: a última linha deve dizer **"versão v13"**. Se disser outra versão, ainda tem conteúdo antigo na página (volte ao Passo 4, item 4).
+2. Role até o **fim**: a última linha deve dizer **"versão v14"**. Se disser outra versão, ainda tem conteúdo antigo na página (volte ao Passo 4, item 4).
 3. Se o site usa **WP Rocket**: **WP Rocket → Limpar cache**. Se o carrossel dos problemas, a faixa de capas ou as abas dos módulos não se mexerem, vá em **WP Rocket → Otimização de arquivos** e adicione `/wp-content/plugins/aldeia-vendas/` nas exclusões de JavaScript (atraso e minificação). Limpe o cache de novo.
 4. Teste no **celular** e no computador, e clique nos botões "Entrar na lista de espera".
-5. Quando tudo estiver certo, **apague a linha "versão v13"** (veja "Como editar", abaixo).
+5. Quando tudo estiver certo, **apague a linha "versão v14"** (veja "Como editar", abaixo).
 
 ## Passo 6 (opcional) — Colocar essa página como início do site
 1. **Configurações → Leitura → Sua página inicial exibe → Uma página estática**.
@@ -67,11 +67,11 @@ A página é **um único bloco HTML**: o texto não se edita clicando nele, como
 | Valores, parcelas, taxa | Procure `R$ 186`, `R$ 262`, `R$ 105`… e troque os números |
 | Tempo de curso e duração dos módulos | Procure `Tempo de curso` e `duração de 6 meses` |
 | Foto de um professor | Troque o endereço em `src="…/prof-….jpg"` pelo da imagem na sua Biblioteca de Mídia |
-| Tirar a linha "versão v13" | Apague `<br><span class="av-ver">…</span>` no fim |
+| Tirar a linha "versão v14" | Apague `<br><span class="av-ver">…</span>` no fim |
 
 **Cuidados**
 - Nunca apague os nomes que começam com `av-`: é o que aplica o visual.
-- **Guarde o arquivo original** `aldeia-pagina-v13-colar-no-widget-html.html`. Se algo quebrar, cole tudo de novo.
+- **Guarde o arquivo original** `aldeia-pagina-v14-colar-no-widget-html.html`. Se algo quebrar, cole tudo de novo.
 - O **Histórico** do Elementor (ícone de relógio) permite voltar a uma versão anterior.
 - Mudanças grandes: faça como rascunho e confira na pré-visualização antes de publicar.
 
@@ -87,17 +87,17 @@ A página é **um único bloco HTML**: o texto não se edita clicando nele, como
 | Problema | O que fazer |
 |---|---|
 | Página sem cores, botões verdes e títulos vermelhos | O plugin não está ativo, ou há cache. Confirme em **Plugins**, limpe o cache e teste em janela anônima |
-| A página mostra conteúdo antigo | Veja se clicou em **Atualizar** e se há **dois blocos** no Navegador. Confira a linha "versão v13" |
+| A página mostra conteúdo antigo | Veja se clicou em **Atualizar** e se há **dois blocos** no Navegador. Confira a linha "versão v14" |
 | Imagens não aparecem | Confirme que o plugin está ativo. A pasta dele precisa se chamar exatamente `aldeia-vendas` |
 | Carrossel/abas parados | WP Rocket: veja o Passo 5, item 3 |
 | No editor do Elementor tudo aparece parado | É proposital: as animações ficam desligadas dentro do editor. No site publicado funcionam |
-| A importação do modelo deu erro | Use o **Plano B**: crie a página, arraste **um** widget **HTML**, cole todo o conteúdo de `aldeia-pagina-v13-colar-no-widget-html.html` e escolha o layout **Elementor Canvas** |
+| A importação do modelo deu erro | Use o **Plano B**: crie a página, arraste **um** widget **HTML**, cole todo o conteúdo de `aldeia-pagina-v14-colar-no-widget-html.html` e escolha o layout **Elementor Canvas** |
 | Quero desfazer tudo | Mande a página para a lixeira e desative o plugin. Nada mais no site foi alterado |
 
 ---
 
 ## Checklist antes de divulgar
-- [ ] Rodapé mostra "versão v13" e a linha foi apagada depois da conferência
+- [ ] Rodapé mostra "versão v14" e a linha foi apagada depois da conferência
 - [ ] Botões levam ao formulário/checkout certo
 - [ ] Links dos livros preenchidos (ou capas sem link, se preferir)
 - [ ] Alunos das fotos da comunidade autorizaram o uso das imagens
