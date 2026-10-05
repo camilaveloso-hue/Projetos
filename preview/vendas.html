@@ -31,6 +31,9 @@
   /* meandro: azul sobre claro, branco sobre azul */
   --av-meander:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%230D3756' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
   --av-meander-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23FFFFFF' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
+  /* meandro vertical (laterais do cartão) */
+  --av-meander-v:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='28' viewBox='0 0 14 28' fill='none' stroke='%230D3756' stroke-opacity='.75' stroke-width='1.6' stroke-linecap='square'%3E%3Cg transform='translate(14 0) rotate(90)'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/g%3E%3C/svg%3E");
+  --av-meander-h:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%230D3756' stroke-opacity='.75' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
   /* texturas: grão de papel + labirinto grego bem discreto */
   --av-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .22 0 0 0 0 .34 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
   --av-grain-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
@@ -120,8 +123,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* ---------- II · Faixa de números (cartão flutuante) ---------- */
 .av-stats{background:transparent;padding:0;margin-top:-84px;position:relative;z-index:3}
-.av-stats__card{background:#fff;border-radius:24px;padding:48px 24px 40px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
-.av-stats__card::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--av-meander) repeat-x center/28px 14px;opacity:.75}
+.av-stats__card{background-color:#fff;background-image:var(--av-meander-h),var(--av-meander-h),var(--av-meander-v),var(--av-meander-v);background-repeat:repeat-x,repeat-x,repeat-y,repeat-y;background-position:left top,left bottom,left top,right top;background-size:28px 14px,28px 14px,14px 28px,14px 28px;border-radius:24px;padding:46px 40px 44px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
 .av-stats__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
 .av-stat,.av-stat-box{position:relative}
 .av-stat+.av-stat::before,.av-stat-box+.av-stat-box::before{content:"";position:absolute;left:-12px;top:12%;bottom:12%;width:1px;background:var(--av-line)}
@@ -508,6 +510,47 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 }
 
 @media (prefers-reduced-motion:reduce){.av-medal,.av-marquee__track{animation:none}.av-marquee{overflow-x:auto}.av-problem{transition:none}.av-js .av-reveal{opacity:1;transform:none}*{transition:none!important;scroll-behavior:auto!important}}
+
+
+/* ==========================================================================
+   v10 — professores estáticos (4 lado a lado), comunidade em carrossel,
+   meandro em todas as bordas do cartão de números
+   ========================================================================== */
+.av-tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.av-tgrid .av-tcard{width:auto}
+.av-tgrid .av-tcard img{aspect-ratio:4/5;object-position:50% 25%}
+.av-tgrid .av-tcard__txt{padding:18px 18px 22px}
+.av-tgrid .av-tcard h3{font-size:1.05rem}
+.av-tgrid .av-tcard p{font-size:.85em}
+.av-founder{margin-bottom:0}
+
+.av-marquee--photos{margin-top:36px}
+.av-marquee--photos .av-marquee__track{--av-gap:18px;animation-duration:150s;padding:10px 0 30px}
+.av-cphoto{flex:none;width:230px;aspect-ratio:3/4;margin:0;border-radius:20px;overflow:hidden;box-shadow:0 16px 34px rgba(13,55,86,.2)}
+.av-cphoto img{display:block;width:100%;height:100%;object-fit:cover}
+
+@media (max-width:1024px){
+  .av-tgrid{grid-template-columns:repeat(2,1fr);gap:18px}
+}
+@media (max-width:767px){
+  /* banner: sem o subtítulo, mais espaço para o título e o botão */
+  .av-hero .av-sub{display:none}
+  .av-hero .av-h1{margin-bottom:6px}
+  /* separador (meandro) menor */
+  .av-h2::after{width:44px;height:10px;margin-top:10px;background-size:20px 10px}
+  .av-books__head .av-h2::after{width:44px}
+  /* cartão de números */
+  .av-stats__card{padding:34px 28px 30px;background-size:20px 10px,20px 10px,10px 20px,10px 20px}
+  /* professores: 2 por linha, fotos quadradas */
+  .av-tgrid{grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+  .av-tgrid .av-tcard img{aspect-ratio:1/1}
+  .av-tgrid .av-tcard__txt{padding:12px 10px 16px}
+  .av-tgrid .av-tcard h3{font-size:.88rem}
+  .av-tgrid .av-tcard p{font-size:.74em}
+  /* comunidade em carrossel */
+  .av-cphoto{width:160px;border-radius:16px}
+  .av-marquee--photos .av-marquee__track{--av-gap:12px;animation-duration:120s}
+}
 :root{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="#topo"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a href="#professores">Quem conduz</a><a href="#jornada">Jornada</a><a href="#duvidas">Dúvidas</a><a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a></nav>
@@ -562,17 +605,18 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     </figure>
     <div>
       <p class="av-label">I · Quem conduz</p>
-      <h2 class="av-h2">Mestres e doutores em Letras e Produção Editorial.</h2>
+      <h2 class="av-h2">Conheça os professores</h2>
       <p>Em 2023, Camila Veloso fundou a Aldeia Literária com o objetivo de ajudar escritores iniciantes. Desde então, a Aldeia cresceu, e hoje conta com mestres e doutores que vão te ajudar a escrever seu próximo livro.</p>
     </div>
   </div>
 </div>
-<div class="av-marquee av-marquee--team" aria-label="Professores da Aldeia Literária"><div class="av-marquee__track">
-  <article class="av-tcard"><img src="assets/img/prof-laura.jpg" alt="Foto de Laura Marques" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div></article>
-  <article class="av-tcard"><img src="assets/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div></article>
-  <article class="av-tcard"><img src="assets/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div></article>
-  <article class="av-tcard"><img src="assets/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p></div></article>
-</div></div></section>
+<div class="av-wrap"><div class="av-tgrid">
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-laura.jpg" alt="Foto de Laura Marques" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div></article>
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div></article>
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div></article>
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p></div></article>
+</div></div>
+</section>
 
 <!-- II · PROBLEMA -->
 <section class="av-section" id="problema"><div class="av-wrap av-mirror">
@@ -648,17 +692,32 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <section class="av-section"><div class="av-wrap">
   <p class="av-label">VI · Comunidade</p>
   <h2 class="av-h2">Encontramos nossos alunos em eventos do mercado editorial</h2>
-  <div class="av-mosaic av-mosaic--light av-reveal">
-    <figure><img src="assets/img/comunidade-1.jpg" alt="Alunas da Aldeia Literária em selfie em evento do mercado editorial" loading="lazy" width="520" height="700"></figure>
-    <figure><img src="assets/img/comunidade-2.jpg" alt="Alunas da Aldeia Literária com ecobags da Aldeia em evento" loading="lazy" width="520" height="700"></figure>
-    <figure><img src="assets/img/comunidade-3.jpg" alt="Alunas da Aldeia Literária sorrindo em evento" loading="lazy" width="520" height="700"></figure>
-    <figure><img src="assets/img/comunidade-4.jpg" alt="Alunas da Aldeia Literária juntas em evento" loading="lazy" width="520" height="700"></figure>
-    <figure><img src="assets/img/comunidade-5.jpg" alt="Alunas da Aldeia Literária com ecobag em evento" loading="lazy" width="520" height="700"></figure>
-    <figure><img src="assets/img/comunidade-6.jpg" alt="Alunas da Aldeia Literária com ecobag em evento do livro" loading="lazy" width="520" height="700"></figure>
-    <figure><img src="assets/img/comunidade-7.jpg" alt="Alunas da Aldeia Literária abraçadas em evento" loading="lazy" width="520" height="700"></figure>
-    <figure><img src="assets/img/comunidade-8.jpg" alt="Alunas da Aldeia Literária em selfie na Bienal" loading="lazy" width="520" height="700"></figure>
   </div>
-</div></section>
+<div class="av-marquee av-marquee--photos" aria-label="Fotos dos alunos da Aldeia Literária em eventos"><div class="av-marquee__track">
+    <figure class="av-cphoto"><img src="assets/img/comunidade-01.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-02.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-03.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-04.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-05.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-06.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-07.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-08.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-09.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-10.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-11.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-12.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-13.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-14.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-15.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-16.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-17.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-18.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-19.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-20.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-21.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-22.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="assets/img/comunidade-23.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+</div></div></section>
 
 <!-- VII · INVESTIMENTO -->
 <section class="av-section av-section--soft" id="investimento"><div class="av-meander av-meander--top"></div><div class="av-wrap av-center">
@@ -699,7 +758,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 </div></section>
 </main>
 
-<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v9 · pode apagar este trecho</span></footer>
+<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v10 · pode apagar este trecho</span></footer>
 
 <a class="av-wa" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 13.9c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-3.900-4.700-4.100-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.1.1.300 0 .5l-.3.500-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg></a>
 <script>/* Aldeia Literária — Página de vendas: comportamentos leves (sem dependências).
