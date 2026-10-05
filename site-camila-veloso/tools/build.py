@@ -137,7 +137,7 @@ def fragmento(nome):
     return preencher((ROOT / "tools" / "paginas" / f"{nome}.html").read_text(encoding="utf-8"))
 
 def header(atual, links=False):
-    aviso = (f'<div class="aviso">Pré-venda com brindes exclusivos + livro autografado por <b>R$ {PRECO}</b>. Últimos dias.</div>' if links else
+    aviso = ('' if links == "aldeia" else f'<div class="aviso">Pré-venda com brindes exclusivos + livro autografado por <b>R$ {PRECO}</b>. Últimos dias.</div>' if links else
              f'<div class="aviso">🎉 Pré-venda: livro <b>autografado</b> + brindes por <b>R$ {PRECO}</b> · últimos dias</div>')
     itens = "".join(
         f'<a href="{h}"{" class=on aria-current=page" if atual == h else ""}>{t}</a>' for h, t in NAV[1:])
@@ -214,7 +214,7 @@ def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-
 {medicao()}
 </head>
 <body{f' class="{classe}"' if classe else ""}>
-{header(atual or caminho, classe == "pag-links")}
+{header(atual or caminho, "aldeia" if "pag-aldeia" in classe else "pag-links" in classe)}
 <main id="conteudo">
 {corpo}
 </main>
@@ -301,6 +301,9 @@ paginas.append(pagina("/sobre/", "Sobre Camila Veloso: escritora, produtora edit
 # ---------------------------------------------------------------- LINKS (bio das redes)
 paginas.append(pagina("/links/", "Links da Camila Veloso", "Pré-venda de O Diário de Amélia, newsletter, YouTube e Aldeia Literária.",
     fragmento("links"), classe="pag-links", noindex=True))
+paginas.append(pagina("/links-aldeia/", "Links da Aldeia Literária", "Site oficial e TikTok da Aldeia Literária.",
+    fragmento("links-aldeia"), classe="pag-links pag-aldeia", noindex=True,
+    og_img="/assets/img/aldeia-literaria-logo.png"))
 
 # ---------------------------------------------------------------- MANIFESTO
 manifesto = """
@@ -362,7 +365,7 @@ pagina("/404", "Página não encontrada | Camila Veloso", "Página não encontra
 import shutil; shutil.rmtree(ROOT / "404")
 
 # ---------------------------------------------------------------- sitemap + robots
-publicas = [p for p in paginas if p != "/links/"]
+publicas = [p for p in paginas if p not in ("/links/", "/links-aldeia/")]
 urls = "".join(f"<url><loc>{SITE['dominio']}{p}</loc><lastmod>{HOJE}</lastmod></url>" for p in publicas)
 (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE['dominio']}/sitemap.xml\n", encoding="utf-8")
