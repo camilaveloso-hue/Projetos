@@ -102,8 +102,8 @@ p{margin:0}
 .res{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
 .res blockquote{margin:0;background:var(--branco);color:var(--tinta);border:3px solid var(--tinta);border-radius:1.4rem;padding:1.6rem;box-shadow:6px 6px 0 var(--tinta);font-family:var(--titulo);font-weight:600;font-size:1.35rem;line-height:1.25;position:relative}
 .res blockquote:nth-child(2){transform:rotate(1.2deg)}.res blockquote:nth-child(1){transform:rotate(-1.2deg)}
-.res__a{display:flex;align-items:center;gap:.8rem;margin-top:1.1rem}
-.res__a img{flex:none;width:3.4rem;height:3.4rem;object-fit:cover;border-radius:50%;border:3px solid var(--tinta)}
+.res__a{display:flex;align-items:center;gap:1.1rem;margin-top:1.2rem}
+.res__a img{flex:none;width:7.5rem;height:7.5rem;object-fit:cover;border-radius:1.2rem;border:3px solid var(--tinta)}
 .res cite{display:block;margin:0;font-family:var(--texto);font-style:normal;font-weight:700;font-size:.9rem;color:var(--vermelho)}
 @media(max-width:46rem){.res{grid-template-columns:1fr}.res blockquote{transform:none!important}}
 /* oferta */
