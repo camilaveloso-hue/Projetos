@@ -588,6 +588,18 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-founder>div>p{order:3;text-align:center}
 }
 
+/* v12 — destaque do plano indicado (2 módulos): grade vermelha em volta da coluna */
+.av-table td:last-child,.av-table thead th:last-child{background:transparent}
+.av-table .av-hl{background:rgba(204,53,28,.05);border-left:2px solid var(--av-terra);border-right:2px solid var(--av-terra)}
+.av-table thead th.av-hl{border-top:2px solid var(--av-terra);border-radius:14px 14px 0 0;padding-top:14px;color:var(--av-terra-dark)}
+.av-table thead th.av-hl small{display:block;font:600 9.5px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;margin-top:3px;color:var(--av-terra-dark);opacity:.9}
+.av-table td.av-hl--end{border-bottom:2px solid var(--av-terra);border-radius:0 0 14px 14px}
+.av-table .av-table__time td{font:700 .98rem var(--av-body)}
+.av-table .av-table__time th,.av-table .av-table__time td{border-bottom:1px solid var(--av-line)}
+.av-table .av-table__time td.av-hl--end{border-bottom:2px solid var(--av-terra)}
+.av-table .av-table__fee td{border-left:0;border-right:0}
+.av-sum{padding-top:40px}
+
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
    Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).
@@ -664,7 +676,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-page .av-table{margin:0;width:100%;border-collapse:separate}
 .av-page .av-table th,.av-page .av-table td{border:0;border-bottom:1px solid var(--av-line);background:transparent}
 .av-page .av-table thead th{border-bottom:2px solid var(--av-navy)}
-.av-page .av-table tbody>tr>td:last-child,.av-page .av-table thead>tr>th:last-child{background:rgba(204,53,28,.06)}
+.av-page .av-table .av-hl{background:rgba(204,53,28,.05)}
 .av-page .av-table tr:last-child th,.av-page .av-table tr:last-child td{border-bottom:0}
 
 /* Abas nativas: lista à esquerda, painel à direita; vira acordeão no celular (comportamento do Elementor) */
@@ -816,11 +828,11 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     </ul>
   </div>
   <aside class="av-reveal av-sum">
-    <h3>Seu resumo · turma de 2027</h3>
-    <table class="av-table"><thead><tr><th scope="col"><span class="sr-only">Plano</span></th><th scope="col">1 módulo</th><th scope="col">2 módulos</th></tr></thead><tbody>
-        <tr><th scope="row">Aulas ao vivo por mês</th><td>3 aulas<small>4h30</small></td><td>6 aulas<small>9h</small></td></tr>
-        <tr class="av-table__price"><th scope="row">Mensalidade</th><td>R$ 186</td><td>R$ 262</td></tr>
-        <tr class="av-table__total"><th scope="row">Investimento total<small>em 11 parcelas</small></th><td>R$ 2.046</td><td>R$ 2.882</td></tr>
+    <table class="av-table"><thead><tr><th scope="col"><span class="sr-only">Plano</span></th><th scope="col">1 módulo</th><th scope="col" class="av-hl av-hl--top">2 módulos<small>Plano indicado</small></th></tr></thead><tbody>
+        <tr><th scope="row">Aulas ao vivo por mês</th><td>3 aulas<small>4h30</small></td><td class="av-hl">6 aulas<small>9h</small></td></tr>
+        <tr class="av-table__price"><th scope="row">Mensalidade</th><td>R$ 186</td><td class="av-hl">R$ 262</td></tr>
+        <tr class="av-table__total"><th scope="row">Investimento total<small>em 11 parcelas</small></th><td>R$ 2.046</td><td class="av-hl">R$ 2.882</td></tr>
+        <tr class="av-table__time"><th scope="row">Tempo de curso</th><td>2 anos e meio</td><td class="av-hl av-hl--end">1 ano e meio</td></tr>
         <tr class="av-table__fee"><th scope="row">Taxa de matrícula</th><td colspan="2"><strong>R$ 105</strong> com 40% de desconto para os primeiros inscritos</td></tr>
       </tbody></table>
     <a class="av-btn av-btn--block" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a>
@@ -842,7 +854,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <!-- VI · COMUNIDADE -->
 <section class="av-section"><div class="av-wrap">
-  <h2 class="av-h2">Encontramos nossos alunos em eventos do mercado editorial</h2>
+  <h2 class="av-h2">Comunidade on-line, conexões reais.</h2>
   </div>
 <div class="av-marquee av-marquee--photos" aria-label="Fotos dos alunos da Aldeia Literária em eventos"><div class="av-marquee__track">
     <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-01.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
@@ -906,9 +918,8 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 </div></section>
 </main>
 
-<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v11 · pode apagar este trecho</span></footer>
+<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v12 · pode apagar este trecho</span></footer>
 
-<a class="av-wa" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 13.9c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-3.900-4.700-4.100-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.1.1.300 0 .5l-.3.500-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg></a>
 
 </div>
 <script>/* Aldeia Literária — Página de vendas: comportamentos leves (sem dependências).

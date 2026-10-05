@@ -559,3 +559,15 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-founder__fig{order:2;margin:6px 0 0}
   .av-founder>div>p{order:3;text-align:center}
 }
+
+/* v12 — destaque do plano indicado (2 módulos): grade vermelha em volta da coluna */
+.av-table td:last-child,.av-table thead th:last-child{background:transparent}
+.av-table .av-hl{background:rgba(204,53,28,.05);border-left:2px solid var(--av-terra);border-right:2px solid var(--av-terra)}
+.av-table thead th.av-hl{border-top:2px solid var(--av-terra);border-radius:14px 14px 0 0;padding-top:14px;color:var(--av-terra-dark)}
+.av-table thead th.av-hl small{display:block;font:600 9.5px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;margin-top:3px;color:var(--av-terra-dark);opacity:.9}
+.av-table td.av-hl--end{border-bottom:2px solid var(--av-terra);border-radius:0 0 14px 14px}
+.av-table .av-table__time td{font:700 .98rem var(--av-body)}
+.av-table .av-table__time th,.av-table .av-table__time td{border-bottom:1px solid var(--av-line)}
+.av-table .av-table__time td.av-hl--end{border-bottom:2px solid var(--av-terra)}
+.av-table .av-table__fee td{border-left:0;border-right:0}
+.av-sum{padding-top:40px}

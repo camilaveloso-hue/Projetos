@@ -74,7 +74,7 @@
 .av-page .av-table{margin:0;width:100%;border-collapse:separate}
 .av-page .av-table th,.av-page .av-table td{border:0;border-bottom:1px solid var(--av-line);background:transparent}
 .av-page .av-table thead th{border-bottom:2px solid var(--av-navy)}
-.av-page .av-table tbody>tr>td:last-child,.av-page .av-table thead>tr>th:last-child{background:rgba(204,53,28,.06)}
+.av-page .av-table .av-hl{background:rgba(204,53,28,.05)}
 .av-page .av-table tr:last-child th,.av-page .av-table tr:last-child td{border-bottom:0}
 
 /* Abas nativas: lista à esquerda, painel à direita; vira acordeão no celular (comportamento do Elementor) */
