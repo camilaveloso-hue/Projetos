@@ -25,7 +25,10 @@
       var mobile=matchMedia('(max-width:767px)').matches, wasOn=tabs[i].classList.contains('is-active');
       tabs.forEach(function(t,j){var on=j===i&&!(mobile&&wasOn);t.classList.toggle('is-active',on);t.setAttribute('aria-selected',on);panels[j].classList.toggle('is-active',on)});
     }
-    tabs.forEach(function(t,i){t.addEventListener('click',function(){set(i)})});
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){set(i)});
+      t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();set(i)}});
+    });
   });
 
   /* Contadores próprios (só na prévia HTML; no Elementor use o widget Contador) */
