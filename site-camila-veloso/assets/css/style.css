@@ -214,4 +214,9 @@ details p{padding:0 1.2rem 1.1rem}
 .lk--aldeia h1{color:var(--creme)}
 .lk--aldeia .lkb{box-shadow:5px 5px 0 var(--rosa)}
 .lk--aldeia .lkb__i{background:var(--rosa)}
-.pag-aldeia .topo,.pag-aldeia .rod{display:none}
+.lk__p{display:grid;gap:1rem;justify-items:center;width:100%}
+.lk__abas{display:flex;gap:.3rem;padding:.3rem;background:var(--tinta);border-radius:3rem;width:100%}
+.lk__abas button{flex:1;font:inherit;font-weight:800;font-size:1rem;padding:.65rem .5rem;border:0;border-radius:3rem;background:transparent;color:var(--creme);cursor:pointer}
+.lk__abas button.on{background:var(--amarelo);color:var(--tinta)}
+.lk.lk--aldeia .lk__abas button.on{background:var(--rosa)}
+body.aba-aldeia .aviso--camila{display:none}
