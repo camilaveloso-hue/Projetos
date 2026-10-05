@@ -338,7 +338,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-final p{margin-inline:auto}
 .av-footer{background:var(--av-navy-dark);color:rgba(244,235,221,.75);text-align:center;padding:36px 24px;font:500 13px var(--av-ui)}
 .av-footer a{color:inherit}
-.av-ver{display:inline-block;margin-top:10px;font-size:11px;opacity:.55}
 
 /* ---------- Barra fixa de compra (celular) + WhatsApp flutuante ---------- */
 .av-sticky{position:fixed;left:0;right:0;bottom:0;z-index:950;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--av-navy);border-top:1px solid var(--av-bronze);transform:translateY(110%);transition:transform .25s;display:none}
@@ -780,6 +779,14 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero--sobre .av-hero__txt{margin-inline:auto}
   .av-hero--sobre .av-badge{margin-inline:auto}
   .av-hero--sobre .av-sub{display:none}
+}
+
+
+/* v18 — no celular o menu mostra só o link para a outra página (Sobre / Início) */
+@media (max-width:767px){
+  .av-nav{display:flex;gap:0}
+  .av-nav a{display:none}
+  .av-nav a.av-nav__keep{display:inline-flex;font-size:11px;letter-spacing:.1em;padding:8px 6px;min-height:38px}
 }
 
 /* ==========================================================================

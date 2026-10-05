@@ -12,7 +12,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.dirname(__file__))
 import build_plugin
 
-VERSION = "v4"
+VERSION = "v5"
 PLUGIN_BASE = "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/"
 body = open(os.path.join(ROOT, "tools/src/sobre.html"), encoding="utf-8").read()
 css_base = open(os.path.join(ROOT, "wordpress/aldeia-vendas.css"), encoding="utf-8").read()
@@ -30,7 +30,7 @@ fix = ('<style>.e-con:has(>.elementor-widget-html .av-page){--padding-top:0px;--
        '--gap:0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px}'
        '.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>\n')
 inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/").replace("../img/", PLUGIN_BASE + "img/")
-fragment = ('<!-- aldeia-sobre-v4 · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
+fragment = ('<!-- aldeia-sobre-v5 · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
             + '<style>' + inline_css + '</style>\n' + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n'
             + '<script>' + js + '</script>\n')
 open(os.path.join(ROOT, f"wordpress/aldeia-sobre-{VERSION}-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)

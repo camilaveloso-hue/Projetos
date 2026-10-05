@@ -1,4 +1,4 @@
-<!-- aldeia-sobre-v4 · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->
+<!-- aldeia-vendas-v15 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->
 <style>/* Aldeia Literária — Página de vendas (plugin) — gerado por tools/build_plugin.py */
 /* ===== Fontes locais ===== */
 @font-face{font-family:'Cinzel';font-style:normal;font-weight:700;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/Cinzel-700-normal.woff2") format('woff2')}
@@ -339,7 +339,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-final p{margin-inline:auto}
 .av-footer{background:var(--av-navy-dark);color:rgba(244,235,221,.75);text-align:center;padding:36px 24px;font:500 13px var(--av-ui)}
 .av-footer a{color:inherit}
-.av-ver{display:inline-block;margin-top:10px;font-size:11px;opacity:.55}
 
 /* ---------- Barra fixa de compra (celular) + WhatsApp flutuante ---------- */
 .av-sticky{position:fixed;left:0;right:0;bottom:0;z-index:950;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--av-navy);border-top:1px solid var(--av-bronze);transform:translateY(110%);transition:transform .25s;display:none}
@@ -783,6 +782,14 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero--sobre .av-sub{display:none}
 }
 
+
+/* v18 — no celular o menu mostra só o link para a outra página (Sobre / Início) */
+@media (max-width:767px){
+  .av-nav{display:flex;gap:0}
+  .av-nav a{display:none}
+  .av-nav a.av-nav__keep{display:inline-flex;font-size:11px;letter-spacing:.1em;padding:8px 6px;min-height:38px}
+}
+
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
    Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).
@@ -904,97 +911,205 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <style>.e-con:has(>.elementor-widget-html .av-page){--padding-top:0px;--padding-right:0px;--padding-bottom:0px;--padding-left:0px;--gap:0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px}.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>
 <div class="av-page">
 <header class="av-header"><div class="av-wrap">
-  <a class="av-logo" href="https://aaldeialiteraria.com.br/"><span>Aldeia Literária</span></a>
-  <nav class="av-nav" aria-label="Principal"><a href="https://aaldeialiteraria.com.br/">Início</a><a href="#historia">Nossa história</a><a href="#professores">Quem somos</a><a href="#comunidade">Comunidade</a></nav>
+  <a class="av-logo" href="#topo"><span>Aldeia Literária</span></a>
+  <nav class="av-nav" aria-label="Principal"><a href="#professores">Quem conduz</a><a href="#jornada">Jornada</a><a href="#duvidas">Dúvidas</a><a class="av-nav__keep" href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a></nav>
   <a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a>
 </div></header>
 
 <main id="topo">
-<!-- 1. ABERTURA: foto do banner atual da página -->
-<section class="av-hero av-hero--sobre"><div class="av-wrap av-hero__grid">
-  <div class="av-reveal av-hero__txt">
-    <p class="av-badge">Sobre a Aldeia Literária</p>
-    <h1 class="av-h1"><span>Onde o sonho de escrever</span><span>e publicar livros se realiza</span></h1>
-    <p class="av-sub">Desde 2023, ajudamos escritores iniciantes a transformar a ideia em livro, com professores mestres e doutores e uma comunidade ao seu lado.</p>
+<!-- HERO -->
+<section class="av-hero"><div class="av-wrap av-hero__grid">
+  <div class="av-reveal">
+    <p class="av-badge">Extensão universitária • Certificado MEC</p>
+    <h1 class="av-h1"><span>Escrita Criativa:</span><span>Desenvolvimento e Prática</span></h1>
+    <p class="av-sub">Formação online da Aldeia Literária para quem está começando. <br>Aulas ao vivo, comunidade, feedback de mestres e doutores.</p>
     <div class="av-cta-row"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></div>
+    <p class="av-hero__pay">Próxima turma em janeiro de 2027</p>
   </div>
 </div></section>
 
-<!-- 3. NOSSA HISTÓRIA, EM CAPÍTULOS -->
-<section class="av-section av-section--soft" id="historia"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Nascemos para unir e fortalecer escritores</h2>
-  <p class="av-lead av-reveal">A nossa história, em quatro capítulos.</p>
-  <div class="av-chapters">
-    <article class="av-reveal av-chapter" data-n="I"><span class="av-chapter__tag">Capítulo I · 11/2023</span><h3>O início</h3><p>A Produtora Editorial Camila Veloso fundou a Aldeia Literária como desafio de 30 dias. Mais de 150 escritores participaram da primeira versão do curso. Ao final, os escritores perguntaram se poderiam ficar na comunidade por mais tempo.</p></article>
-    <article class="av-reveal av-chapter" data-n="II"><span class="av-chapter__tag">Capítulo II · 01/2024</span><h3>Curso livre</h3><p>Camila iniciou as atividades da Aldeia Literária como curso livre de seis meses. Novamente, 150 escritores participaram. No final do semestre, o curso foi aprovado na avaliação de critérios do MEC e passou a ser extensão universitária.</p></article>
-    <article class="av-reveal av-chapter" data-n="III"><span class="av-chapter__tag">Capítulo III · 08/2024</span><h3>Avaliação do MEC</h3><p>Reestruturamos o currículo de acordo com as diretrizes do MEC e nos tornamos parceiros da Anhanguera. Desde 2024, os escritores que finalizaram o curso da Aldeia Literária receberam um certificado de extensão universitária, emitido pela Anhanguera.</p></article>
-    <article class="av-reveal av-chapter" data-n="IV"><span class="av-chapter__tag">Capítulo IV · 2025</span><h3>Professores com mestrado e doutorado</h3><p>Mestres e doutores passaram a compor o nosso corpo docente, trazendo mais expertise para nossas aulas. Desde então, a Aldeia Literária cresce em estrutura interna, fortalecendo escritores.</p></article>
-  </div>
-</div></section>
+<!-- FAIXA DE NÚMEROS -->
+<section class="av-stats"><div class="av-wrap"><div class="av-stats__card av-reveal"><div class="av-stats__grid">
+  <div class="av-stat"><strong data-count="500" data-prefix="+">+500</strong><span>escritores estudaram aqui</span></div>
+  <div class="av-stat"><strong><em class="av-pre">até</em><span data-minutes="540">9h</span></strong><span>de aula ao vivo por mês<br>+ atividades práticas semanais</span></div>
+  <div class="av-stat"><strong data-count="35">35</strong><span>vagas por módulo</span></div>
+</div></div></div></section>
 
-<section class="av-section" id="palestrantes"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Recebemos editores, revisores, agentes literários e grandes escritores</h2>
-  <p class="av-lead av-reveal">Como palestrantes, eles explicam os segredos do mercado editorial.</p>
-</div>
-<div class="av-marquee av-marquee--guests" aria-label="Palestrantes que já passaram pela Aldeia Literária"><div class="av-marquee__track">
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-1.jpg" alt="Palestra com Renata, da Editora Maquinaria" loading="lazy" width="760" height="428"><figcaption><strong>Renata</strong><span>Editora Maquinaria</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-2.jpg" alt="Palestra com Mari Dal Chico" loading="lazy" width="760" height="428"><figcaption><strong>Mari Dal Chico</strong><span>Increasy Consultoria Literária</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-3.jpg" alt="Palestra com Karine Leôncio, da KabookTV" loading="lazy" width="760" height="428"><figcaption><strong>Karine Leôncio</strong><span>KabookTV</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-4.jpg" alt="Palestra com Bianca Jung" loading="lazy" width="760" height="428"><figcaption><strong>Bianca Jung</strong><span>Palestrante</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-5.jpg" alt="Palestra com Bettina" loading="lazy" width="760" height="428"><figcaption><strong>Bettina</strong><span>Palestrante</span></figcaption></figure>
+<!-- LIVROS ESCRITOS AQUI -->
+<!-- Para cada livro, troque href="#" pelo endereço da página do livro. Ele abre em uma nova janela. -->
+<section class="av-books"><div class="av-books__head av-center av-reveal"><h2 class="av-h2">Livros escritos aqui</h2></div>
+<div class="av-marquee" aria-label="Capas de livros escritos por alunos da Aldeia. Clique para abrir a página do livro."><div class="av-marquee__track">
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Querida Tia Liz (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-querida-tia-liz.jpg" alt="Capa do livro Querida Tia Liz, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Os Dois Lados da Coroa (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-dois-lados-da-coroa.jpg" alt="Capa do livro Os Dois Lados da Coroa, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Violeta (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-violeta.jpg" alt="Capa do livro Violeta, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Dinamene & Gavita (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-dinamene-e-gavita.jpg" alt="Capa do livro Dinamene & Gavita, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro O Último Natal com Ela (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-ultimo-natal-com-ela.jpg" alt="Capa do livro O Último Natal com Ela, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Os Melhores Anos de Nossas Vidas (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-melhores-anos.jpg" alt="Capa do livro Os Melhores Anos de Nossas Vidas, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro O Resgate de Muriel (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-resgate-de-muriel.jpg" alt="Capa do livro O Resgate de Muriel, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro A Inconfidência da Magia (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-inconfidencia-da-magia.jpg" alt="Capa do livro A Inconfidência da Magia, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro As Sombras que me Vestem (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-sombras-que-me-vestem.jpg" alt="Capa do livro As Sombras que me Vestem, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro A Fórmula do Encontro Perfeito (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-formula-encontro-perfeito.jpg" alt="Capa do livro A Fórmula do Encontro Perfeito, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Perdida em teu olhar (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-perdida-em-teu-olhar.jpg" alt="Capa do livro Perdida em teu olhar, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Desejei às Estrelas (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-desejei-as-estrelas.jpg" alt="Capa do livro Desejei às Estrelas, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Estrelas do Cosme Velho (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-estrelas-do-cosme-velho.jpg" alt="Capa do livro Estrelas do Cosme Velho, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
+  <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Quando as Sombras Falam (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-quando-as-sombras-falam.jpg" alt="Capa do livro Quando as Sombras Falam, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
 </div></div></section>
 
+<!-- I · QUEM CONDUZ -->
+<section class="av-section av-section--tight" id="professores"><div class="av-wrap">
+  <div class="av-founder av-reveal">
+    <figure class="av-founder__fig">
+      <img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-camila.jpg" alt="Foto de Camila Veloso, fundadora da Aldeia Literária" loading="lazy" width="560" height="700">
+      <figcaption><strong>Camila Veloso</strong><span>Fundadora da Aldeia Literária</span></figcaption>
+    </figure>
+    <div>
+      <h2 class="av-h2">Conheça os professores</h2>
+      <p>Em 2023, Camila Veloso fundou a Aldeia Literária com o objetivo de ajudar escritores iniciantes. Desde então, a Aldeia cresceu, e hoje conta com mestres e doutores que vão te ajudar a escrever seu próximo livro.</p>
+    </div>
+  </div>
+</div>
+<div class="av-wrap"><div class="av-tgrid">
+  <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-laura.jpg" alt="Foto de Laura Marques" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div></article>
+  <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div></article>
+  <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div></article>
+  <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p></div></article>
+</div></div>
+</section>
 
-<!-- 6. MISSÃO + PALESTRANTES -->
-<section class="av-section av-section--navy av-maze-bg av-mark"><div class="av-wrap av-mission">
-  <h2 class="av-h2 av-reveal">O mercado editorial é um labirinto. Mas você não está sozinho.</h2>
-  <p class="av-lead av-reveal">Nossa missão é te dar informações, ferramentas e te apresentar a pessoas que vão mudar suas possibilidades como escritor.</p>
+<!-- II · PROBLEMA -->
+<section class="av-section" id="problema"><div class="av-wrap av-mirror">
+  <div class="av-reveal">
+    <h2 class="av-h2">Você tem a ideia.<br>Falta a técnica.</h2>
+    <p>Nossos professores estão aqui para te ajudar a entender técnicas complexas de forma rápida. Todo livro é uma travessia longa, e toda travessia pede mapa, companhia e ritmo. <strong>Se você se viu em alguma dessas linhas, o curso foi desenhado para esse ponto da jornada.</strong></p>
+  </div>
+  <div class="av-reveal av-problems" data-av-carousel>
+    <div class="av-problems__stage"><article class="av-problem is-active"><span class="av-problem__n">01 / 04</span><p class="av-problem__lead">Deixa eu adivinhar, você…</p><p>sabe como a história começa, mas não sabe como ela termina.</p></article><article class="av-problem"><span class="av-problem__n">02 / 04</span><p class="av-problem__lead">Deixa eu adivinhar, você…</p><p>já começou vários rascunhos e nenhum chegou ao fim.</p></article><article class="av-problem"><span class="av-problem__n">03 / 04</span><p class="av-problem__lead">Deixa eu adivinhar, você…</p><p>escreve sozinha ou sozinho e não sabe se o texto está bom.</p></article><article class="av-problem"><span class="av-problem__n">04 / 04</span><p class="av-problem__lead">Deixa eu adivinhar, você…</p><p>sonha em publicar, mas não sabe por onde começar.</p></article></div>
+    <div class="av-problems__ctrl"><button class="av-arrow" data-prev aria-label="Problema anterior">←</button><div class="av-dots"><button class="av-dot" aria-label="Ir para o problema 1"></button><button class="av-dot" aria-label="Ir para o problema 2"></button><button class="av-dot" aria-label="Ir para o problema 3"></button><button class="av-dot" aria-label="Ir para o problema 4"></button></div><button class="av-arrow" data-next aria-label="Próximo problema">→</button></div>
+  </div>
 </div></section>
 
-<!-- 4. COMO ACOMPANHAMOS A JORNADA (método) -->
+<!-- III · JORNADA -->
+<section class="av-section av-section--navy av-mark" id="jornada"><div class="av-meander av-meander--top"></div><div class="av-wrap">
+  <h2 class="av-h2">Aulas e atividades práticas, um módulo por vez.</h2>
+  <p class="av-lead">Cada módulo dura <strong>6 meses</strong>. Em cada um, você aprende os segredos da escrita e do mercado editorial brasileiro.</p>
+  <div class="av-reveal av-tabs" data-av-tabset role="tablist">
+    <div class="av-tab is-active" role="tab" tabindex="0" aria-selected="true"><b>I</b><span>Fundamentos da Narrativa</span></div>
+    <div class="av-panel is-active" role="tabpanel"><p class="av-meta">Módulo I · Terça, 19h30 · duração de <strong>6 meses</strong></p><p class="av-desc">Conceitos fundamentais de estruturação de narrativa e mercado editorial brasileiro.</p><dl><dt>O que você aprende</dt><dd>Você aprende a organizar a sua ideia e entender como desenvolver o seu personagem.</dd></dl></div>
+    <div class="av-tab" role="tab" tabindex="0" aria-selected="false"><b>II</b><span>Técnicas Avançadas</span></div>
+    <div class="av-panel" role="tabpanel"><p class="av-meta">Módulo II · Quarta, 19h30 · duração de <strong>6 meses</strong></p><p class="av-desc">Aulas teóricas e práticas com técnicas específicas de escrita criativa e produção de livros no Brasil.</p><dl><dt>O que você aprende</dt><dd>Você aprende a escrever boas descrições e diálogos, dentro de uma narrativa envolvente.</dd></dl></div>
+    <div class="av-tab" role="tab" tabindex="0" aria-selected="false"><b>III</b><span>Processos criativos</span></div>
+    <div class="av-panel" role="tabpanel"><p class="av-meta">Módulo III · Segunda, 19h30 · duração de <strong>6 meses</strong></p><p class="av-desc">Entenda como trabalhar com a criatividade, fugindo dos bloqueios criativos e outros problemas na escrita.</p><dl><dt>O que você aprende</dt><dd>Você aprende a lapidar suas ideias e entende os segredos do mercado editorial brasileiro.</dd></dl></div>
+    <div class="av-tab" role="tab" tabindex="0" aria-selected="false"><b>IV</b><span>Gramática e produção literária</span></div>
+    <div class="av-panel" role="tabpanel"><p class="av-meta">Módulo IV · Quinta, 19h30 · duração de <strong>6 meses</strong></p><p class="av-desc">Estudo das normas gramaticais e sua aplicação na produção literária.</p><dl><dt>O que você aprende</dt><dd>A língua portuguesa é seu instrumento de trabalho. Aqui você relembra as regras essenciais para criar ritmo e criar uma voz única para o seu texto.</dd></dl></div>
+    <div class="av-tab" role="tab" tabindex="0" aria-selected="false"><b>V</b><span>Publicação Independente</span></div>
+    <div class="av-panel" role="tabpanel"><p class="av-meta">Módulo V · Quarta, 19h30 · duração de <strong>6 meses</strong></p><p class="av-desc">Conheça as melhores oportunidades, fornecedores e estratégias para escritores em início de carreira.</p><dl><dt>O que você aprende</dt><dd>Publicar o livro é uma das partes mais importantes e difíceis. Aqui você terá aulas de autopublicação e mercado editorial.</dd></dl></div>
+  </div>
+</div></section>
+
+<!-- IV · O QUE ESTÁ INCLUSO -->
+<section class="av-section"><div class="av-wrap av-include">
+  <div class="av-reveal">
+    <h2 class="av-h2">Tudo o que você recebe ao entrar na Aldeia</h2>
+    <ul class="av-check">
+      <li><strong>Aulas ao vivo</strong><span>3 por mês em cada módulo, às 19h30, com 1h30 de duração.</span></li>
+      <li><strong>Atividades com feedback individual</strong><span>Em cada atividade, você recebe um retorno personalizado sobre o seu texto.</span></li>
+      <li><strong>Entrada no ecossistema da Aldeia Literária</strong><span>WhatsApp + comunidade oficial com sprints e atividades extra.</span></li>
+      <li><strong>Bônus</strong><span>Palestras com psicólogas e profissionais do mercado editorial.</span></li>
+    </ul>
+  </div>
+  <aside class="av-reveal av-sum">
+    <table class="av-table"><thead><tr><th scope="col"><span class="sr-only">Plano</span></th><th scope="col">1 módulo</th><th scope="col" class="av-hl av-hl--top">2 módulos<small>Plano indicado</small></th></tr></thead><tbody>
+        <tr><th scope="row">Aulas ao vivo por mês</th><td>3 aulas<small>4h30</small></td><td class="av-hl">6 aulas<small>9h</small></td></tr>
+        <tr class="av-table__price"><th scope="row">Mensalidade</th><td>R$ 186</td><td class="av-hl">R$ 262</td></tr>
+        <tr class="av-table__total"><th scope="row">Investimento total<small>em 11 parcelas</small></th><td>R$ 2.046</td><td class="av-hl">R$ 2.882</td></tr>
+        <tr class="av-table__time"><th scope="row">Tempo de curso</th><td>2 anos e meio</td><td class="av-hl av-hl--end">1 ano e meio</td></tr>
+        <tr class="av-table__fee"><th scope="row">Taxa de matrícula</th><td colspan="2"><strong>R$ 105</strong> com 40% de desconto para os primeiros inscritos</td></tr>
+      </tbody></table>
+    <a class="av-btn av-btn--block" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a>
+  </aside>
+</div></section>
+
+<!-- V · CERTIFICADOS -->
+<section class="av-section av-section--navy av-mark av-mark--left" id="certificados"><div class="av-meander av-meander--top"></div><div class="av-wrap av-cert">
+  <figure class="av-reveal av-cert__img"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/certificados.jpg" alt="Aluna da Aldeia Literária segurando um certificado" loading="lazy" width="480" height="717"></figure>
+  <div class="av-reveal">
+    <h2 class="av-h2">Dois certificados na sua formação</h2>
+    <div class="av-cert__cards">
+      <div class="av-cert__card"><span class="av-cert__n">01</span><h3>Certificação por etapa</h3><p>Ao final de cada módulo semestral, você recebe um certificado, detalhando as competências adquiridas e a carga horária.</p></div>
+      <div class="av-cert__card"><span class="av-cert__n">02</span><h3>Reconhecimento acadêmico</h3><p>Ao concluir a jornada completa do curso, você garante um certificado de extensão universitária, emitido pela <strong>Anhanguera</strong>.</p></div>
+    </div>
+    <a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a>
+  </div>
+</div></section>
+
+<!-- VI · COMUNIDADE -->
 <section class="av-section"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Como acompanhamos a sua jornada</h2>
-  <div class="av-pillars">
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">01</span><h3>Aulas ao vivo</h3><p>Três aulas por mês em cada módulo. As gravações ficam disponíveis enquanto você estiver matriculado.</p></div>
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">02</span><h3>Feedback individual</h3><p>O professor que passou a atividade corrige o seu texto e te ajuda a melhorar.</p></div>
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">03</span><h3>Comunidade</h3><p>WhatsApp e comunidade oficial, com sprints de escrita e atividades extras.</p></div>
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">04</span><h3>Mercado editorial por dentro</h3><p>Palestras com editores, revisores, agentes literários, escritores e profissionais do mercado.</p></div>
+  <h2 class="av-h2">Comunidade on-line, conexões reais.</h2>
   </div>
-</div></section>
-
-<!-- 5. QUEM ESTÁ POR TRÁS -->
-<section class="av-section av-section--soft" id="professores"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Quem está por trás da Aldeia</h2>
-  <div class="av-tgrid av-tgrid--5">
-    <article class="av-reveal av-tcard av-tcard--founder"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-camila.jpg" alt="Foto de Camila Veloso" loading="lazy" width="560" height="700"><div class="av-tcard__txt"><h3>Camila Veloso</h3><p>Fundadora e mediadora das aulas. Produtora Editorial (UFSM)</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-laura.jpg" alt="Foto de Laura Marques" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p></div></article>
-  </div>
-</div></section>
-
-<!-- 7. COMUNIDADE (fotos que não aparecem na página inicial) -->
-<section class="av-section av-section--soft" id="comunidade"><div class="av-meander av-meander--top"></div><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Faça parte deste movimento literário.</h2>
-  <p class="av-lead av-reveal">Comunidade on-line, conexões reais.</p>
-</div>
-<div class="av-marquee av-marquee--photos" aria-label="Fotos da comunidade da Aldeia Literária em eventos"><div class="av-marquee__track">
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-01.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-02.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-03.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-04.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-05.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-06.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-07.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-08.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-09.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-10.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+<div class="av-marquee av-marquee--photos" aria-label="Fotos dos alunos da Aldeia Literária em eventos"><div class="av-marquee__track">
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-01.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-02.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-03.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-04.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-05.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-06.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-07.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-08.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-09.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-10.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-11.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-12.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-13.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-14.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-15.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-16.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-17.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-18.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-19.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-20.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-21.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-22.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
+    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-23.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
 </div></div></section>
 
+<!-- VII · INVESTIMENTO -->
+<section class="av-section av-section--soft" id="investimento"><div class="av-meander av-meander--top"></div><div class="av-wrap av-center">
+  <h2 class="av-h2">Seja o primeiro a saber das novidades</h2>
+  <div class="av-reveal av-offer av-offer--lite">
+    <p class="av-waitnote">Matrículas abrem em janeiro de 2027</p>
+    <a class="av-btn av-btn--block" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a>
+  </div>
+</div></section>
+
+<!-- VIII · FAQ -->
+<section class="av-section" id="duvidas"><div class="av-wrap av-center">
+  <h2 class="av-h2">Perguntas frequentes</h2>
+  <div class="av-reveal av-faq" style="text-align:left">
+    <details open><summary>Quando começa a turma?</summary><div class="av-ans"><p>Em janeiro de 2027.</p></div></details>
+    <details><summary>Já posso me matricular?</summary><div class="av-ans"><p>Ainda não. As matrículas abrem em janeiro de 2027. Por enquanto, temos apenas a lista de espera.</p></div></details>
+    <details><summary>Como são as aulas?</summary><div class="av-ans"><p>Ao vivo, 3 por mês em cada módulo, às 19h30, com 1h30 de duração. As aulas ficam disponíveis enquanto você estiver matriculado na Aldeia Literária: você pode assistir às gravações sempre que quiser.</p></div></details>
+    <details><summary>Preciso ter algo escrito antes?</summary><div class="av-ans"><p>O curso é para quem está começando. Você não precisa ter nada pronto, só vontade de escrever ficção.</p></div></details>
+    <details><summary>Quantas vagas existem?</summary><div class="av-ans"><p>35 por módulo.</p></div></details>
+    <details><summary>Os módulos 2 e 5 têm o mesmo horário?</summary><div class="av-ans"><p>Sim, em salas diferentes. A jornada é organizada para você nunca precisar cursar os dois ao mesmo tempo.</p></div></details>
+    <details><summary>Quanto custa?</summary><div class="av-ans"><p>Em 2027: R$ 186 por mês no plano de 1 módulo (3 aulas por mês) ou R$ 262 por mês no plano de 2 módulos (6 aulas por mês). São 11 parcelas mais a taxa de matrícula, totalizando 12 pagamentos.</p></div></details>
+    <details><summary>O que é a taxa de matrícula?</summary><div class="av-ans"><p>A taxa é de R$ 105, com 40% de desconto para os primeiros inscritos. Ela cobre a formulação do seu contrato e a sua entrada no ecossistema da Aldeia Literária.</p></div></details>
+    <details><summary>Posso cancelar?</summary><div class="av-ans"><p>Você pode pedir o cancelamento. O contrato prevê multa de 30% das parcelas restantes.</p></div></details>
+    <details><summary>Como as atividades são avaliadas?</summary><div class="av-ans"><p>As atividades são corrigidas pelo professor que passou a atividade. Ele olha se você utilizou as técnicas transmitidas em aula e te ajuda a melhorar o seu texto.</p></div></details>
+    <details><summary>Como posso pagar?</summary><div class="av-ans"><p>O pagamento é feito via Pix: 11 parcelas mais a taxa de matrícula, totalizando 12 pagamentos.</p></div></details>
+  </div>
+</div></section>
+
+<!-- IX · CHAMADO FINAL -->
+<section class="av-final av-mark av-mark--left"><div class="av-meander av-meander--top"></div><div class="av-wrap">
+  <h2 class="av-h2">O chamado já chegou.</h2>
+  <p>A turma de janeiro de 2027 tem vagas limitadas: 35 por módulo. As matrículas abrem em janeiro; por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>
+  <p style="margin:32px auto 18px"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></p>
+  <p class="av-small">Ficou com dúvida? <a class="av-link" style="min-height:44px" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">Fale com a gente no WhatsApp</a></p>
+</div></section>
 </main>
 
-<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Início</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados</footer>
+<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados</footer>
+
 
 </div>
 <script>/* Aldeia Literária — Página de vendas: comportamentos leves (sem dependências).
