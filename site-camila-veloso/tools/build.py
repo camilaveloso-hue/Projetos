@@ -15,17 +15,21 @@ SITE = {
     "email": "",  # opcional: contato@seudominio.com.br
     "instagram": "",  # opcional: URL completa do perfil
     "podcast": "",  # opcional: URL do podcast Patricinha Literária
-    "aldeia": "",  # opcional: URL da Aldeia Literária
+    "aldeia": "https://aaldeialiteraria.com.br/",
+    # Contagem de visitas e cliques (GoatCounter, grátis e sem cookies). Crie a conta em goatcounter.com,
+    # escolha um código (ex.: camilaveloso) e escreva aqui. Vazio = sem medição.
+    "goatcounter": "",
 }
 LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de-amelia-1amj0/"
-LINK_AMAZON = "https://www.amazon.com.br/Di%C3%A1rio-Am%C3%A9lia-Camila-Veloso-ebook/dp/B0CQZ4PRKB"
+PRECO = "59,49"       # preço da pré-venda: tem que bater com o da loja da Editora Fissura
+PRECO_DE = "69,99"
 HOJE = datetime.date.today().isoformat()
 
-FONTS = ("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800"
-         "&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap")
+FONTS = ("https://fonts.googleapis.com/css2?family=Shrikhand&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800"
+         "&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap")
 
-NAV = [("/o-diario-de-amelia/", "O Diário de Amélia"), ("/livros/", "Livros"),
-       ("/manifesto/", "Manifesto"), ("/leituras/", "Leituras"), ("/sobre/", "Sobre")]
+NAV = [("/", "Home"), ("/o-diario-de-amelia/", "O Diário de Amélia"), ("/livros/", "Livros"),
+       ("/sobre/", "Sobre"), ("/links/", "Links")]
 
 # ---------------------------------------------------------------- ARTIGOS (SEO)
 ARTIGOS = [
@@ -46,7 +50,7 @@ ARTIGOS = [
 </ul>
 <h2>Para quem cresceu em casa pequena demais para os sonhos</h2>
 <p>Se você cresceu num ambiente que cabia pouco do que você queria ser, vale procurar histórias de amadurecimento (o chamado <em>coming-of-age</em>) em que a protagonista descobre que independência é um músculo — e que se treina aos poucos, entre lapsos de coragem e muitas queixas.</p>
-<p>Foi exatamente essa a ideia de <strong>O Diário de Amélia</strong>: um romance jovem-adulto sobre uma garota de dezoito anos que precisa se libertar das expectativas dos pais para criar a vida que sempre quis. Um manual básico, e bem-humorado, para jovens que querem mudar de vida mas não sabem como.</p>
+<p>Foi exatamente essa a ideia de <strong>O Diário de Amélia</strong>: um romance jovem-adulto sobre uma garota de dezoito anos que precisa se libertar das expectativas dos pais para criar a vida que sempre quis. Um livro bem-humorado para jovens que querem mudar de vida, mas não sabem como.</p>
 <blockquote>Liberdade não é um dia em que tudo muda. É uma sequência de pequenas escolhas feitas com o coração um pouco mais firme.</blockquote>
 <h2>Como escolher a sua próxima leitura</h2>
 <p>Pergunte-se qual liberdade você está procurando: de uma família, de uma crença, de um emprego, de uma versão antiga de você? Depois busque livros em que a protagonista enfrente algo parecido. A identificação é o que transforma a leitura em movimento.</p>
@@ -125,60 +129,57 @@ ARTIGOS = [
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
-def link_ext(url, txt, cls="btn"):
-    return f'<a class="{cls}" href="{url}" target="_blank" rel="noopener">{txt}</a>'
+def preencher(html):
+    return (html.replace("{{PRECO_INT}}", PRECO.split(",")[0]).replace("{{PRECO_DE}}", PRECO_DE)
+            .replace("{{PRECO}}", PRECO))
+
+def fragmento(nome):
+    return preencher((ROOT / "tools" / "paginas" / f"{nome}.html").read_text(encoding="utf-8"))
 
 def header(atual):
-    cur = ' aria-current="page"'
     itens = "".join(
-        f'<a href="{h}"{cur if atual == h else ""}>{t}</a>' for h, t in NAV)
+        f'<a href="{h}"{" class=on aria-current=page" if atual == h else ""}>{t}</a>' for h, t in NAV)
     return f"""<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<header class="topo"><div class="wrap topo__in">
-  <a class="topo__logo" href="/" aria-label="Camila Veloso — página inicial"><img src="/assets/img/logo-horizontal.png" alt="Camila Veloso" width="132" height="44"></a>
+<div class="aviso">🎉 Pré-venda: livro <b>autografado</b> + brindes por <b>R$ {PRECO}</b> · lançamento em 23 de outubro</div>
+<header class="topo"><div class="w topo__in">
+  <a class="marca" href="/" aria-label="Camila Veloso, página inicial">camila veloso</a>
   <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
   <nav class="nav" id="nav" aria-label="Principal">{itens}
-    <a class="btn btn--sol" href="{LINK_EDITORA}" target="_blank" rel="noopener">Garantir o meu</a></nav>
+    <a class="btn" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></nav>
 </div></header>"""
 
 def footer():
     sociais = ""
     for chave, rotulo in (("instagram", "Instagram"), ("podcast", "Podcast Patricinha Literária"), ("aldeia", "Aldeia Literária")):
         if SITE[chave]:
-            sociais += f'<li><a href="{SITE[chave]}" target="_blank" rel="noopener me">{rotulo}</a></li>'
+            sociais += f'<a href="{SITE[chave]}" target="_blank" rel="noopener me">{rotulo}</a>'
     if SITE["email"]:
-        sociais += f'<li><a href="mailto:{SITE["email"]}">{SITE["email"]}</a></li>'
-    sociais = sociais or "<li>Em breve, mais por aqui.</li>"
-    return f"""<footer class="rodape"><div class="wrap">
- <div class="rodape__grid">
-  <div><img class="logo" src="/assets/img/logo-negativo.png" alt="Camila Veloso" width="116" height="92">
-   <p class="serif-i" style="font-size:1.3rem;max-width:26ch">Criar é inerente ao ser humano. A arte é o caminho de volta pra si.</p></div>
-  <div><h4>Explorar</h4><ul>
-   <li><a href="/o-diario-de-amelia/">O Diário de Amélia</a></li><li><a href="/livros/">Todos os livros</a></li>
-   <li><a href="/manifesto/">Manifesto</a></li><li><a href="/leituras/">Leituras</a></li><li><a href="/sobre/">Sobre Camila</a></li></ul></div>
-  <div><h4>Comprar &amp; seguir</h4><ul>
-   <li><a href="{LINK_EDITORA}" target="_blank" rel="noopener">Pré-venda na Editora Fissura</a></li>
-   <li><a href="{LINK_AMAZON}" target="_blank" rel="noopener">E-book na Amazon</a></li>{sociais}</ul></div>
- </div>
- <small>© {datetime.date.today().year} Camila Veloso. Todos os direitos reservados.</small>
+        sociais += f'<a href="mailto:{SITE["email"]}">{SITE["email"]}</a>'
+    return f"""<footer class="rod"><div class="w rod__g">
+  <div><div class="marca">camila veloso</div><small>Escritora · Aldeia Literária · Patricinha Literária</small>
+  <small>© {datetime.date.today().year} Camila Veloso. Todos os direitos reservados.</small></div>
+  <nav class="nav" aria-label="Rodapé"><a href="/o-diario-de-amelia/">O Diário de Amélia</a><a href="/livros/">Livros</a><a href="/sobre/">Sobre</a><a href="/manifesto/">Manifesto</a><a href="/leituras/">Leituras</a><a href="/links/">Links</a>{sociais}</nav>
 </div></footer>
-<script>
-(function(){{var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
-b.addEventListener('click',function(){{var o=n.classList.toggle('is-open');b.setAttribute('aria-expanded',o)}});}})();
-</script>"""
+<div class="fix"><span>O Diário de Amélia · pré-venda <b>R$ {PRECO}</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></div>
+<script src="/assets/js/site.js" defer></script>"""
+
+def medicao():
+    c = SITE["goatcounter"]
+    if not c:
+        return ""
+    return f'<script data-goatcounter="https://{c}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
 
 def pessoa_ld():
-    d = {"@type": "Person", "@id": SITE["dominio"] + "/#camila", "name": "Camila Veloso",
-         "url": SITE["dominio"] + "/sobre/",
-         "jobTitle": "Escritora",
-         "description": "Escritora, fundadora da Aldeia Literária e apresentadora do podcast Patricinha Literária. Autora de O Diário de Amélia.",
-         "alumniOf": "Universidade Federal de Santa Maria (UFSM)",
-         "sameAs": [v for k, v in SITE.items() if k in ("instagram", "podcast", "aldeia") and v]}
-    return d
+    return {"@type": "Person", "@id": SITE["dominio"] + "/#camila", "name": "Camila Veloso",
+            "url": SITE["dominio"] + "/sobre/", "jobTitle": "Escritora",
+            "description": "Escritora, produtora editorial e fundadora da Aldeia Literária. Autora de O Diário de Amélia.",
+            "alumniOf": "Universidade Federal de Santa Maria (UFSM)",
+            "sameAs": [v for k, v in SITE.items() if k in ("instagram", "podcast", "aldeia") and v]}
 
-def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-de-amelia.jpg", tipo="website", atual=None, noindex=False):
+def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-de-amelia.jpg", tipo="website", atual=None, noindex=False, classe=""):
     url = SITE["dominio"] + caminho
     grafo = [{"@type": "WebSite", "@id": SITE["dominio"] + "/#site", "url": SITE["dominio"] + "/",
-              "name": "Camila Veloso — Escritora", "inLanguage": "pt-BR",
+              "name": "Camila Veloso, escritora", "inLanguage": "pt-BR",
               "publisher": {"@id": SITE["dominio"] + "/#camila"}}, pessoa_ld()]
     if ld:
         grafo += ld if isinstance(ld, list) else [ld]
@@ -193,7 +194,7 @@ def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-
 <meta name="description" content="{esc(desc)}">
 {robots}
 <link rel="canonical" href="{url}">
-<meta name="theme-color" content="#CC341B">
+<meta name="theme-color" content="#FFD83D">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:type" content="{tipo}">
 <meta property="og:site_name" content="Camila Veloso">
@@ -208,8 +209,9 @@ def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-
 <link rel="stylesheet" href="{FONTS}">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script type="application/ld+json">{jsonld}</script>
+{medicao()}
 </head>
-<body>
+<body{f' class="{classe}"' if classe else ""}>
 {header(atual or caminho)}
 <main id="conteudo">
 {corpo}
@@ -228,134 +230,6 @@ def migalhas_ld(itens):
         {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE["dominio"] + c}
         for i, (c, n) in enumerate(itens)]}
 
-BTN_COMPRA = (f'<div class="btns">{link_ext(LINK_EDITORA, "Pré-venda na Editora Fissura →", "btn btn--sol")}'
-              f'{link_ext(LINK_AMAZON, "E-book na Amazon", "btn btn--vazado")}</div>')
-
-CAPA = ('<img class="capa" src="/assets/img/capa-diario-de-amelia.webp" width="541" height="432" '
-        'alt="Capa do livro O Diário de Amélia, de Camila Veloso: capa vermelha com ilustração de uma jovem de mãos nos bolsos">')
-
-paginas = []
-
-# ---------------------------------------------------------------- HOME
-marq = ["liberdade", "criatividade", "arte que empodera", "coragem", "primeiras vezes", "escrever a própria história", "ser quem você é"]
-marq_html = "".join(f"<span>{t}</span><i>✺</i>" for t in marq) * 2
-
-def ico(svg):
-    return f'<svg class="card__ico" viewBox="0 0 54 54" aria-hidden="true">{svg}</svg>'
-
-ICO1 = ico('<circle cx="27" cy="27" r="26" fill="#CC341B"/><path d="M27 12v30M12 27h30M17 17l20 20M37 17 17 37" stroke="#FFF6EA" stroke-width="4" stroke-linecap="round"/>')
-ICO2 = ico('<circle cx="27" cy="27" r="26" fill="#622064"/><path d="M14 38c4-14 10-20 26-22-2 16-8 22-22 24z" fill="#FFD83D"/><path d="M14 40 30 24" stroke="#622064" stroke-width="3" stroke-linecap="round"/>')
-ICO3 = ico('<path d="M30 3C14 6 8 20 12 30c3 7 10 10 15 12-4 4-9 6-13 6 0 0 6 6 18 3 14-4 22-16 20-30C50 12 42 2 30 3z" fill="#008CFF"/>')
-
-home = f"""
-<section class="hero"><div class="wrap hero__grid">
-  <div>
-    <span class="selo">Pré-venda · lançamento em 23 de outubro de 2026</span>
-    <h1>Um livro sobre <span class="l2">sair</span> <span class="l3">da casa pequena demais</span> para os seus sonhos.</h1>
-    <p class="lede">Romance jovem-adulto de <strong>Camila Veloso</strong> sobre liberdade, família, primeiras vezes e a coragem de criar a vida que a gente sempre quis.</p>
-    {BTN_COMPRA}
-  </div>
-  <div class="hero__capa">
-    <img class="estrela" src="/assets/img/insignia-estrela.png" alt="" width="600" height="600">
-    {CAPA}
-  </div>
-</div></section>
-
-<div class="marquee" aria-hidden="true"><div class="marquee__in">{marq_html}</div></div>
-
-<section class="sec"><div class="wrap duas">
-  <div class="sinopse">
-    <span class="eyebrow">A história</span>
-    <h2>O Diário de Amélia</h2>
-    <p class="abre">Aos dezoito anos, Amélia se sente sem graça, sem personalidade e tão confusa quanto as anotações nos seus cadernos do cursinho.</p>
-    <p>Seus pais frequentam uma seita — mas, se você perguntar, ela vai dizer que é mentira — e, para eles, a filha deve aprender a servir, se casar com um membro da comunidade e manter-se longe de pensamentos impuros.</p>
-    <p>O problema é que Amélia tem uma cabeça cheia de opiniões, pensamentos impuros e beijos imaginados com um certo colega. Em uma montanha-russa de primeiras vezes, lapsos de coragem e muitas queixas, ela vai descobrir que precisa confiar mais no seu coração para se libertar das expectativas dos pais.</p>
-    <p><a href="/o-diario-de-amelia/">Ler a sinopse completa e conhecer o livro →</a></p>
-  </div>
-  <aside class="fichaq" aria-label="Para quem é este livro">
-    <h3>Este livro é para você se…</h3>
-    <ul class="paraquem">
-      <li>Cresceu em um lar pequeno demais para os seus sonhos.</li>
-      <li>Já se sentiu culpada por ter opinião própria.</li>
-      <li>Procura um romance de amadurecimento com humor e coração apertado.</li>
-      <li>Quer ler sobre liberdade, independência e recomeço.</li>
-      <li>Ama histórias de autodescoberta e amizade.</li>
-    </ul>
-  </aside>
-</div></section>
-
-<section class="sec sec--marinho"><div class="wrap">
-  <div class="sec__head"><span class="eyebrow">No que eu acredito</span>
-   <p class="frase">Criatividade não é <em>habilidade</em>. É o que a gente é.</p></div>
-  <div class="cards">
-    <article class="card"><span class="card__n">01</span>{ICO1}<h3>Criatividade é característica</h3><p>Ninguém nasce sem ela. Criar é inerente ao ser humano — o que muda é o quanto nos deixaram usá-la.</p></article>
-    <article class="card"><span class="card__n">02</span>{ICO2}<h3>A arte empodera</h3><p>Quem escreve, pinta, canta ou inventa deixa de ser plateia da própria vida e vira autora.</p></article>
-    <article class="card"><span class="card__n">03</span>{ICO3}<h3>Liberdade é o ponto</h3><p>Para criar, é preciso poder errar, discordar e tentar o que ninguém aprovou. Amélia que o diga.</p></article>
-  </div>
-  <p style="margin-top:2rem"><a href="/manifesto/">Ler o manifesto completo →</a></p>
-</div></section>
-
-<section class="sec sec--papel"><div class="wrap">
-  <div class="sec__head"><span class="eyebrow">Quem já leu</span><h2>Para rir e apertar o peito.</h2></div>
-  <div class="citas">
-    <figure class="cita" style="margin:0"><blockquote>“Um livro para rir, mas com o peito apertado do começo ao fim.”</blockquote><figcaption><cite>Karine Leôncio · Kabook TV</cite></figcaption></figure>
-    <figure class="cita" style="margin:0"><blockquote>“História sobre autodescoberta e amizades, um abraço carinhoso.”</blockquote><figcaption><cite>Amanda Gambogi · autora</cite></figcaption></figure>
-  </div>
-</div></section>
-
-<section class="sec"><div class="wrap">
-  <div class="sec__head"><span class="eyebrow">Meu trabalho</span><h2>Livros de Camila Veloso</h2>
-   <p>Romance, crônicas e poesia: tudo nasce do mesmo lugar — a vontade de dar voz a quem foi ensinada a ficar quieta.</p></div>
-  {{LIVROS_GRID}}
-  <p style="margin-top:2rem"><a class="btn btn--vazado" href="/livros/">Ver todos os livros</a></p>
-</div></section>
-
-<section class="sec sec--roxo"><div class="wrap duas" style="align-items:center">
-  <div class="foto-slot" role="img" aria-label="Espaço reservado para a foto de Camila Veloso"><img class="estrela" src="/assets/img/insignia-estrela.png" alt="" loading="lazy" width="600" height="600"></div>
-  <div>
-    <span class="eyebrow">A autora</span>
-    <h2>Escritora, professora de escrita e fundadora da Aldeia Literária.</h2>
-    <p>Camila cresceu em uma casa reservada e escolheu ser artista. Formada em Comunicação Social — Produção Editorial pela UFSM, já ensinou escrita a mais de 430 autores e comanda o podcast <em>Patricinha Literária</em>.</p>
-    <div class="nums">
-      <div class="num"><b>430+</b><span>autores ensinados</span></div>
-      <div class="num"><b>5 mi</b><span>de alcance anual com conteúdo</span></div>
-      <div class="num"><b>4</b><span>livros publicados</span></div>
-    </div>
-    <a class="btn btn--claro" href="/sobre/">Conhecer a Camila</a>
-  </div>
-</div></section>
-
-<section class="sec"><div class="wrap">
-  <div class="sec__head"><span class="eyebrow">Leituras</span><h2>Conversas sobre liberdade, arte e crescer.</h2></div>
-  {{LEITURAS}}
-</div></section>
-
-<section class="sec sec--sol"><div class="wrap" style="text-align:center;max-width:44rem">
-  <h2>Chegou a hora de ler (e de escrever) a sua própria história.</h2>
-  <p class="lede" style="color:#fff">Pré-venda aberta. O Diário de Amélia chega em 23 de outubro de 2026.</p>
-  <div class="btns" style="justify-content:center">{link_ext(LINK_EDITORA, "Garantir o meu exemplar →", "btn btn--claro")}</div>
-</div></section>
-"""
-
-LIVROS = [
-    ("O Diário de Amélia", "Romance jovem-adulto · 2026", "Estreia no romance. Uma jovem de 18 anos e a coragem de criar a própria vida.", "c0", "/o-diario-de-amelia/", True),
-    ("Encontrei um Pote com Tempo Dentro", "2022", "", "c2", None, False),
-    ("Cartas ao Sol", "2021", "", "c3", None, False),
-    ("Traumas de uma Grande Gostosa", "2021", "", "c4", None, False),
-]
-
-def livros_grid():
-    out = ['<div class="livros">']
-    for t, ano, d, cls, href, destaque in LIVROS:
-        capa = (f'<img src="/assets/img/capa-diario-de-amelia.webp" alt="Capa de {esc(t)}" width="541" height="432" loading="lazy" style="object-fit:contain;padding:.6rem">'
-                if destaque else f'<b>{esc(t)}</b><small>Camila Veloso</small>')
-        tag = '<span class="tag">Pré-venda</span><br>' if destaque else ""
-        inner = (f'<div class="livro__capa {cls}">{capa}</div><div>{tag}<h3>{esc(t)}</h3>'
-                 f'<p>{esc(ano)}{(" — " + esc(d)) if d else ""}</p></div>')
-        out.append(f'<a class="livro" href="{href}">{inner}</a>' if href else f'<div class="livro">{inner}</div>')
-    out.append("</div>")
-    return "".join(out)
-
 def leituras_grid(excluir=None):
     out = ['<div class="leituras">']
     for a in ARTIGOS:
@@ -365,21 +239,29 @@ def leituras_grid(excluir=None):
     out.append("</div>")
     return "".join(out)
 
-home = home.replace("{LIVROS_GRID}", livros_grid()).replace("{LEITURAS}", leituras_grid())
-paginas.append(pagina("/", "Camila Veloso — Escritora | O Diário de Amélia, romance sobre liberdade",
-    "Site oficial de Camila Veloso, autora de O Diário de Amélia: romance jovem-adulto sobre liberdade, autodescoberta e coragem. Pré-venda aberta. Conheça também o meu manifesto sobre criatividade e arte.",
-    home, ld=[{"@type": "WebPage", "@id": SITE["dominio"] + "/#pagina", "url": SITE["dominio"] + "/", "name": "Camila Veloso — Escritora", "isPartOf": {"@id": SITE["dominio"] + "/#site"}, "about": {"@id": SITE["dominio"] + "/#camila"}}]))
+paginas = []
+FAQ = [
+    ("O livro vem autografado?", "Sim. Quem compra na pré-venda recebe o livro autografado pela Camila. Ela só vai autografar nesta etapa e não haverá sessão de lançamento."),
+    ("Quais são os brindes?", "Marcador de página duplo, marcador duplo temático, brinde sortido e o Manual de sobrevivência do jovem adulto, exclusivo de quem compra na pré-venda."),
+    ("Quando sai O Diário de Amélia?", "A edição impressa, pela Editora Fissura, sai em 23 de outubro de 2026. A pré-venda já está aberta."),
+    ("Onde eu compro?", "O livro físico autografado está em pré-venda na loja da Editora Fissura."),
+    ("É pra quem?", "Para jovens e adultos que gostam de romance de amadurecimento, autodescoberta, amizade e primeiro amor, com humor e emoção."),
+    ("Quantas páginas tem?", "250 páginas, brochura de 14 × 21 cm, miolo em papel Pólen 80 g/m² e capa em Cartão Supremo 300 g/m²."),
+    ("Quem escreveu?", "Camila Veloso, escritora, produtora editorial, fundadora da Aldeia Literária e apresentadora do podcast Patricinha Literária."),
+]
+FAQ_HTML = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in FAQ)
+
+def com_faq(html):
+    return html.replace("<!--FAQ-->", FAQ_HTML)
+
+# ---------------------------------------------------------------- HOME
+paginas.append(pagina("/", "Camila Veloso, escritora | O Diário de Amélia, romance sobre liberdade",
+    "Site oficial de Camila Veloso, autora de O Diário de Amélia: romance jovem-adulto sobre liberdade, autodescoberta e coragem. Pré-venda autografada com brindes.",
+    com_faq(fragmento("home")),
+    ld=[{"@type": "WebPage", "@id": SITE["dominio"] + "/#pagina", "url": SITE["dominio"] + "/", "name": "Camila Veloso, escritora",
+         "isPartOf": {"@id": SITE["dominio"] + "/#site"}, "about": {"@id": SITE["dominio"] + "/#camila"}}]))
 
 # ---------------------------------------------------------------- O DIÁRIO DE AMÉLIA
-FAQ = [
-    ("Quando sai O Diário de Amélia?", "O lançamento da edição impressa pela Editora Fissura está previsto para 23 de outubro de 2026, com pré-venda aberta."),
-    ("Onde comprar O Diário de Amélia?", "A pré-venda do livro físico está na loja da Editora Fissura. O e-book está disponível na Amazon Brasil."),
-    ("Sobre o que é O Diário de Amélia?", "É um romance jovem-adulto sobre Amélia, uma garota de dezoito anos que cresce em uma família ligada a uma seita e precisa descobrir como se libertar das expectativas dos pais para criar a vida que quer."),
-    ("Para quem é indicado?", "Para jovens e adultos que gostam de romances de amadurecimento (coming-of-age), histórias de autodescoberta, liberdade, independência, amizade e primeiros amores, com humor e emoção."),
-    ("Quantas páginas tem e qual o formato?", "A edição impressa tem 250 páginas, formato brochura de 14 × 21 cm, miolo em papel Pólen 80 g/m² e capa em Cartão Supremo 300 g/m²."),
-    ("Quem é a autora?", "Camila Veloso é escritora, formada em Comunicação Social — Produção Editorial pela UFSM, fundadora da Aldeia Literária e apresentadora do podcast Patricinha Literária."),
-]
-faq_html = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in FAQ)
 book_ld = [
     {"@type": "Book", "@id": SITE["dominio"] + "/o-diario-de-amelia/#livro", "name": "O Diário de Amélia",
      "author": {"@id": SITE["dominio"] + "/#camila"}, "inLanguage": "pt-BR", "genre": ["Romance jovem-adulto", "Romance de amadurecimento"],
@@ -389,81 +271,39 @@ book_ld = [
      "datePublished": "2026-10-23",
      "workExample": [{"@type": "Book", "bookFormat": "https://schema.org/Paperback", "numberOfPages": 250, "inLanguage": "pt-BR",
         "datePublished": "2026-10-23",
-        "offers": {"@type": "Offer", "url": LINK_EDITORA, "priceCurrency": "BRL", "price": "59.49", "availability": "https://schema.org/PreOrder", "itemCondition": "https://schema.org/NewCondition"}},
-        {"@type": "Book", "bookFormat": "https://schema.org/EBook", "inLanguage": "pt-BR", "url": LINK_AMAZON}],
+        "offers": {"@type": "Offer", "url": LINK_EDITORA, "priceCurrency": "BRL", "price": PRECO.replace(",", "."),
+                   "availability": "https://schema.org/PreOrder", "itemCondition": "https://schema.org/NewCondition"}}],
      "review": [{"@type": "Review", "author": {"@type": "Person", "name": "Karine Leôncio"}, "reviewBody": "Um livro para rir, mas com o peito apertado do começo ao fim."},
                 {"@type": "Review", "author": {"@type": "Person", "name": "Amanda Gambogi"}, "reviewBody": "História sobre autodescoberta e amizades, um abraço carinhoso."}]},
     {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
     migalhas_ld([("/", "Início"), ("/o-diario-de-amelia/", "O Diário de Amélia")]),
 ]
-book = f"""
-<section class="pagina-topo"><img class="estrela-bg" src="/assets/img/insignia-estrela.png" alt="" width="460" height="460">
- <div class="wrap hero__grid" style="align-items:center">
-  <div><nav class="migalha" aria-label="Você está em"><a href="/">Início</a> / O Diário de Amélia</nav>
-   <span class="selo">Pré-venda · 23 de outubro de 2026</span>
-   <h1>O Diário de Amélia</h1>
-   <p class="lede">Um romance sobre quem cresceu em lar pequeno demais para os seus sonhos. <span class="serif-i">Um manual básico para jovens que querem mudar de vida, mas não sabem como.</span></p>
-   {BTN_COMPRA}</div>
-  <div class="hero__capa" style="min-height:360px">{CAPA}</div>
- </div></section>
-
-<section class="sec"><div class="wrap duas">
- <div class="sinopse"><span class="eyebrow">Sinopse</span><h2>Uma montanha-russa de primeiras vezes</h2>
-  <p class="abre">O Diário de Amélia é uma história para todos que cresceram em lares pequenos demais para os seus sonhos.</p>
-  <p>Aos dezoito anos, Amélia se sente sem graça, sem personalidade e tão confusa quanto as anotações nos seus cadernos do cursinho. Seus pais frequentam uma seita — mas, se você perguntar, ela vai dizer que é mentira — e, para eles, a filha deve aprender a servir, se casar com um membro da comunidade e manter-se longe de pensamentos impuros.</p>
-  <p>O problema é que Amélia tem uma cabeça cheia de opiniões, pensamentos impuros e beijos imaginados com um certo colega. Só que, aparentemente, a única forma de viver as aventuras que imagina é se tornando independente de seu ambiente familiar caótico e opressor.</p>
-  <p>Em uma montanha-russa de primeiras vezes, lapsos de coragem e muitas queixas, Amélia vai descobrir que precisa confiar mais no seu coração se quiser se libertar das expectativas dos pais e criar a vida que ela sempre quis. E, de quebra, dar uns beijos no garoto que ela gosta.</p></div>
- <div>
-  <aside class="fichaq"><h3>Ficha do livro</h3><dl class="ficha">
-   <dt>Autora</dt><dd>Camila Veloso</dd><dt>Editora</dt><dd>Editora Fissura</dd>
-   <dt>Gênero</dt><dd>Romance jovem-adulto (young adult)</dd><dt>Páginas</dt><dd>250</dd>
-   <dt>Formato</dt><dd>Brochura, 14 × 21 cm</dd><dt>Lançamento</dt><dd>23 de outubro de 2026</dd>
-   <dt>Pré-venda</dt><dd>R$ 59,49 <s style="opacity:.6">R$ 69,99</s></dd></dl>{BTN_COMPRA}</aside>
- </div>
-</div></section>
-
-<section class="sec sec--marinho"><div class="wrap duas">
- <div><span class="eyebrow">Temas</span><h2>Do que este livro fala</h2></div>
- <ul class="paraquem" style="color:var(--creme)">
-  <li>Autodescoberta e independência</li><li>Família opressora e liberdade</li>
-  <li>Amadurecimento e primeiras vezes</li><li>Amizade, humor e coragem</li><li>Criar a própria vida, escrevendo a própria história</li></ul>
-</div></section>
-
-<section class="sec sec--papel"><div class="wrap"><div class="citas">
- <figure class="cita" style="margin:0"><blockquote>“Um livro para rir, mas com o peito apertado do começo ao fim.”</blockquote><figcaption><cite>Karine Leôncio · Kabook TV</cite></figcaption></figure>
- <figure class="cita" style="margin:0"><blockquote>“História sobre autodescoberta e amizades, um abraço carinhoso.”</blockquote><figcaption><cite>Amanda Gambogi · autora</cite></figcaption></figure></div></div></section>
-
-<section class="sec"><div class="wrap" style="max-width:48rem"><span class="eyebrow">Dúvidas</span><h2>Perguntas frequentes</h2>{faq_html}</div></section>
-
-<section class="sec sec--sol"><div class="wrap" style="text-align:center;max-width:44rem">
- <h2>Amélia está esperando por você.</h2>{'' }
- <div class="btns" style="justify-content:center">{link_ext(LINK_EDITORA, "Garantir na pré-venda →", "btn btn--claro")}{link_ext(LINK_AMAZON, "Ler o e-book na Amazon", "btn btn--claro")}</div></div></section>
-"""
-paginas.append(pagina("/o-diario-de-amelia/", "O Diário de Amélia — romance de Camila Veloso | Pré-venda",
-    "O Diário de Amélia, de Camila Veloso: romance jovem-adulto sobre liberdade, família opressora e primeiras vezes. 250 páginas, Editora Fissura. Pré-venda por R$ 59,49.",
-    book, ld=book_ld, tipo="book"))
+paginas.append(pagina("/o-diario-de-amelia/", "O Diário de Amélia, romance de Camila Veloso | Pré-venda autografada",
+    f"O Diário de Amélia, de Camila Veloso: romance jovem-adulto sobre liberdade, família opressora e primeiras vezes. 250 páginas, Editora Fissura. Pré-venda por R$ {PRECO}, autografada e com brindes.",
+    com_faq(fragmento("diario")), ld=book_ld, tipo="book"))
 
 # ---------------------------------------------------------------- LIVROS
-livros_pg = f"""
-<section class="pagina-topo"><img class="estrela-bg" src="/assets/img/insignia-estrela.png" alt="" width="460" height="460"><div class="wrap">
- <nav class="migalha" aria-label="Você está em"><a href="/">Início</a> / Livros</nav>
- <span class="eyebrow">Obra</span><h1>Livros de Camila Veloso</h1>
- <p class="lede" style="max-width:40rem">Romance, crônicas e poesia sobre liberdade, corpo, tempo e coragem.</p></div></section>
-<section class="sec"><div class="wrap">{livros_grid()}
- <p style="margin-top:2.5rem;color:var(--suave)">Em breve: sinopses, capas e links de compra de cada título.</p></div></section>
-<section class="sec sec--marinho"><div class="wrap duas" style="align-items:center"><div><h2>Lançamento: O Diário de Amélia</h2><p>O primeiro romance de Camila Veloso chega em 23 de outubro de 2026.</p>{BTN_COMPRA}</div><div class="hero__capa" style="min-height:300px">{CAPA}</div></div></section>
-"""
-paginas.append(pagina("/livros/", "Livros de Camila Veloso — romance, crônicas e poesia",
+paginas.append(pagina("/livros/", "Livros de Camila Veloso: romance, crônicas e poesia",
     "Todos os livros de Camila Veloso: O Diário de Amélia, Encontrei um Pote com Tempo Dentro, Cartas ao Sol e Traumas de uma Grande Gostosa.",
-    livros_pg, ld=[migalhas_ld([("/", "Início"), ("/livros/", "Livros")]),
-                   {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "Book", "name": t, "author": {"@id": SITE["dominio"] + "/#camila"}}} for i, (t, *_r) in enumerate(LIVROS)]}]))
+    fragmento("livros"),
+    ld=[migalhas_ld([("/", "Início"), ("/livros/", "Livros")]),
+        {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "Book", "name": t, "author": {"@id": SITE["dominio"] + "/#camila"}}}
+         for i, t in enumerate(["O Diário de Amélia", "Traumas de uma Grande Gostosa", "Encontrei um Pote com Tempo Dentro", "Cartas ao Sol"])]}]))
+
+# ---------------------------------------------------------------- SOBRE
+paginas.append(pagina("/sobre/", "Sobre Camila Veloso: escritora, produtora editorial e fundadora da Aldeia Literária",
+    "Camila Veloso é escritora, produtora editorial, fundadora da Aldeia Literária, apresentadora do podcast Patricinha Literária e autora de O Diário de Amélia.",
+    fragmento("sobre"),
+    ld=[migalhas_ld([("/", "Início"), ("/sobre/", "Sobre")]), {"@type": "AboutPage", "url": SITE["dominio"] + "/sobre/", "about": {"@id": SITE["dominio"] + "/#camila"}}]))
+
+# ---------------------------------------------------------------- LINKS (bio das redes)
+paginas.append(pagina("/links/", "Links da Camila Veloso", "Pré-venda de O Diário de Amélia, newsletter, YouTube e Aldeia Literária.",
+    fragmento("links"), classe="pag-links", noindex=True))
 
 # ---------------------------------------------------------------- MANIFESTO
-manifesto = f"""
-<section class="pagina-topo"><img class="estrela-bg" src="/assets/img/insignia-estrela.png" alt="" width="460" height="460"><div class="wrap">
- <nav class="migalha" aria-label="Você está em"><a href="/">Início</a> / Manifesto</nav>
- <span class="eyebrow">Manifesto</span><h1>No que eu acredito</h1></div></section>
-<section class="sec"><div class="wrap artigo">
+manifesto = """
+<section class="pt"><div class="w"><span class="eyebrow">Manifesto</span><h1 class="fat">No que eu acredito</h1></div></section>
+<section class="sec"><div class="w artigo">
  <p class="lede">Escrevo porque acredito que ninguém precisa pedir licença para criar.</p>
  <h2>1. Criatividade é característica, não habilidade.</h2>
  <p>Ela é inerente ao ser humano. Não existe gente “sem criatividade”: existe gente a quem disseram, cedo demais, que criar era para outros.</p>
@@ -481,47 +321,27 @@ manifesto = f"""
 """
 paginas.append(pagina("/manifesto/", "Manifesto: criatividade, arte e liberdade | Camila Veloso",
     "No que Camila Veloso acredita: criatividade é característica e não habilidade, a arte empodera e a liberdade vem antes de tudo.",
-    manifesto, ld=[migalhas_ld([("/", "Início"), ("/manifesto/", "Manifesto")])]))
-
-# ---------------------------------------------------------------- SOBRE
-sobre = f"""
-<section class="pagina-topo"><img class="estrela-bg" src="/assets/img/insignia-estrela.png" alt="" width="460" height="460"><div class="wrap">
- <nav class="migalha" aria-label="Você está em"><a href="/">Início</a> / Sobre</nav>
- <span class="eyebrow">Sobre</span><h1>Oi, eu sou a Camila.</h1></div></section>
-<section class="sec"><div class="wrap duas" style="align-items:center">
- <div class="foto-slot" role="img" aria-label="Espaço reservado para a foto de Camila Veloso"><img class="estrela" src="/assets/img/insignia-estrela.png" alt="" width="600" height="600"></div>
- <div class="sinopse"><p class="abre">Cresci em uma casa reservada e escolhi ser artista.</p>
-  <p>Sou escritora, formada em Comunicação Social — Produção Editorial pela UFSM e fundadora da <strong>Aldeia Literária</strong>, onde já ensinei escrita a mais de 430 autores. Meu conteúdo alcança cerca de 5 milhões de pessoas por ano e eu apresento o podcast <em>Patricinha Literária</em>.</p>
-  <p>Publiquei <em>Traumas de uma Grande Gostosa</em> (2021), <em>Cartas ao Sol</em> (2021) e <em>Encontrei um Pote com Tempo Dentro</em> (2022). <strong>O Diário de Amélia</strong> é o meu primeiro romance.</p>
-  <p>Acredito em empoderamento através da arte, em liberdade e que criatividade é uma característica humana, não um talento raro.</p>
-  <div class="btns"><a class="btn" href="/manifesto/">Ler o manifesto</a><a class="btn btn--vazado" href="/o-diario-de-amelia/">Conhecer o livro</a></div></div>
-</div></section>
-"""
-paginas.append(pagina("/sobre/", "Sobre Camila Veloso — escritora, professora e fundadora da Aldeia Literária",
-    "Camila Veloso é escritora, fundadora da Aldeia Literária, apresentadora do podcast Patricinha Literária e autora de O Diário de Amélia.",
-    sobre, ld=[migalhas_ld([("/", "Início"), ("/sobre/", "Sobre")]), {"@type": "AboutPage", "url": SITE["dominio"] + "/sobre/", "about": {"@id": SITE["dominio"] + "/#camila"}}]))
+    manifesto, ld=[migalhas_ld([("/", "Início"), ("/manifesto/", "Manifesto")])], atual="/sobre/"))
 
 # ---------------------------------------------------------------- LEITURAS
 hub = f"""
-<section class="pagina-topo"><img class="estrela-bg" src="/assets/img/insignia-estrela.png" alt="" width="460" height="460"><div class="wrap">
- <nav class="migalha" aria-label="Você está em"><a href="/">Início</a> / Leituras</nav>
- <span class="eyebrow">Leituras</span><h1>Conversas sobre liberdade, arte e crescer</h1></div></section>
-<section class="sec"><div class="wrap">{leituras_grid()}</div></section>
+<section class="pt"><div class="w"><span class="eyebrow">Leituras</span><h1 class="fat">Conversas sobre liberdade, arte e crescer</h1></div></section>
+<section class="sec"><div class="w artigo" style="max-width:none">{leituras_grid()}</div></section>
 """
 paginas.append(pagina("/leituras/", "Leituras: livros sobre liberdade, amadurecimento e criatividade",
     "Guias e reflexões sobre livros de liberdade e independência, romances de amadurecimento young adult e a ideia de que criatividade é inerente ao ser humano.",
-    hub, ld=[migalhas_ld([("/", "Início"), ("/leituras/", "Leituras")])]))
+    hub, ld=[migalhas_ld([("/", "Início"), ("/leituras/", "Leituras")])], atual="/sobre/"))
 
 for a in ARTIGOS:
     c = f"/leituras/{a['slug']}/"
     corpo = f"""
-<section class="sec"><div class="wrap artigo">
+<section class="sec"><div class="w artigo">
  <nav class="migalha" aria-label="Você está em"><a href="/">Início</a> / <a href="/leituras/">Leituras</a></nav>
  <span class="eyebrow">Leituras</span><h1>{esc(a['h1'])}</h1>
  {a['corpo']}
- <aside class="cta-livro"><img src="/assets/img/capa-diario-de-amelia.webp" alt="Capa de O Diário de Amélia" width="541" height="432" loading="lazy">
-  <div><h3>O Diário de Amélia</h3><p>Romance de Camila Veloso sobre liberdade, família e a coragem de criar a própria vida. Pré-venda aberta.</p>
-  <a class="btn btn--claro" href="/o-diario-de-amelia/">Conhecer o livro →</a></div></aside>
+ <aside class="cta-livro"><img src="/assets/img/capa-diario-de-amelia-capa.jpg" alt="Capa de O Diário de Amélia" width="480" height="720" loading="lazy">
+  <div><h3>O Diário de Amélia</h3><p>Romance de Camila Veloso sobre liberdade, família e a coragem de criar a própria vida. Pré-venda autografada, com brindes.</p>
+  <a class="btn btn--am" href="/o-diario-de-amelia/">Conhecer o livro →</a></div></aside>
  <h2>Continue lendo</h2>{leituras_grid(a['slug'])}
 </div></section>"""
     ld = [{"@type": "Article", "headline": a["h1"], "description": a["desc"], "inLanguage": "pt-BR",
@@ -529,19 +349,19 @@ for a in ARTIGOS:
            "datePublished": HOJE, "dateModified": HOJE, "mainEntityOfPage": SITE["dominio"] + c,
            "image": SITE["dominio"] + "/assets/img/og-diario-de-amelia.jpg"},
           migalhas_ld([("/", "Início"), ("/leituras/", "Leituras"), (c, a["h1"])])]
-    paginas.append(pagina(c, a["titulo"] + " | Camila Veloso", a["desc"], corpo, ld=ld, tipo="article", atual="/leituras/"))
+    paginas.append(pagina(c, a["titulo"] + " | Camila Veloso", a["desc"], corpo, ld=ld, tipo="article", atual="/sobre/"))
 
 # ---------------------------------------------------------------- 404
-nf = """<section class="sec"><div class="wrap" style="text-align:center;max-width:36rem">
-<img src="/assets/img/insignia-virgula.png" alt="" width="120" height="150" style="margin:0 auto 1rem">
-<h1>Essa página fugiu de casa.</h1><p class="lede">Mas a gente pode te ajudar a voltar.</p>
-<div class="btns" style="justify-content:center"><a class="btn" href="/">Ir para o início</a></div></div></section>"""
-pagina("/404.html".replace(".html", ""), "Página não encontrada | Camila Veloso", "Página não encontrada.", nf, noindex=True)
+nf = """<section class="sec"><div class="w" style="text-align:center;max-width:36rem">
+<h1 class="fat">Essa página fugiu de casa.</h1><p class="lede" style="margin-block:1rem 1.5rem">Mas a gente ajuda você a voltar.</p>
+<a class="btn btn--g" href="/">Ir para o início</a></div></section>"""
+pagina("/404", "Página não encontrada | Camila Veloso", "Página não encontrada.", nf, noindex=True)
 (ROOT / "404.html").write_text((ROOT / "404" / "index.html").read_text(encoding="utf-8"), encoding="utf-8")
 import shutil; shutil.rmtree(ROOT / "404")
 
 # ---------------------------------------------------------------- sitemap + robots
-urls = "".join(f"<url><loc>{SITE['dominio']}{p}</loc><lastmod>{HOJE}</lastmod></url>" for p in paginas)
+publicas = [p for p in paginas if p != "/links/"]
+urls = "".join(f"<url><loc>{SITE['dominio']}{p}</loc><lastmod>{HOJE}</lastmod></url>" for p in publicas)
 (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE['dominio']}/sitemap.xml\n", encoding="utf-8")
 print("OK:", len(paginas), "páginas")

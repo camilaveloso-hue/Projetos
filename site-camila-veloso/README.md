@@ -1,30 +1,32 @@
-# Site de Camila Veloso — O Diário de Amélia
+# Site de Camila Veloso: O Diário de Amélia
 
-Site estático (HTML + CSS, sem dependências). Funciona em qualquer hospedagem: Netlify, Vercel, Cloudflare Pages, GitHub Pages, Hostinger etc. Basta publicar esta pasta.
+Site estático (HTML + CSS + um arquivo de JavaScript, sem dependências). Funciona em qualquer hospedagem: Netlify, Vercel, Cloudflare Pages, GitHub Pages, Hostinger etc. Basta publicar esta pasta.
 
-## O que já está pronto
-- Home, **O Diário de Amélia** (página do livro com ficha, FAQ e dados estruturados `Book`/`FAQPage`), Livros, Manifesto, Sobre, Leituras (4 artigos pensados para busca) e 404.
-- SEO técnico: `title`/`description` únicos, canonical, Open Graph, JSON-LD (Person, Book, Article, FAQ, Breadcrumb), `sitemap.xml`, `robots.txt`, HTML semântico, mobile-first, acessível.
-- Identidade: cores e insígnias da sua marca (vermelho-sol, roxo, azul-vírgula, marinho).
+## Páginas
+Home, **O Diário de Amélia** (venda: contagem regressiva, brindes, autógrafo, perguntas frequentes), Livros, Sobre, **Links** (para a bio das redes), Manifesto, Leituras (4 artigos para busca) e 404.
 
-## Antes de publicar (checklist)
-1. **Domínio:** em `tools/build.py` troque `SITE["dominio"]` (hoje `https://www.camilaveloso.com.br`, um palpite) e rode `python3 tools/build.py`.
-2. **Redes:** preencha `instagram`, `podcast`, `aldeia` e `email` em `SITE`; aparecem no rodapé e nos dados estruturados.
-3. **Sua foto:** hoje há um espaço com a insígnia (home e Sobre). Salve a foto em `assets/img/` e troque o bloco `.foto-slot`.
-4. **Capa em alta:** a capa usada veio da loja da editora (541 px). Peça o arquivo em alta à Fissura e substitua `assets/img/capa-diario-de-amelia.webp`.
-5. **Outros livros:** adicione capa, sinopse e link de compra (lista `LIVROS` em `tools/build.py`).
-6. Revise os textos dos artigos em `ARTIGOS` — são rascunhos; ajuste para a sua voz.
+## Antes de publicar
+1. **Domínio:** em `tools/build.py` troque `SITE["dominio"]` e rode `python3 tools/build.py`.
+2. **Preço:** `PRECO` e `PRECO_DE` em `tools/build.py` aparecem em todo o site e nos dados estruturados. Têm que bater com a loja da Editora Fissura.
+3. **Medição dos links:** veja a seção abaixo.
+4. **Redes:** preencha `instagram`, `podcast` e `email` em `SITE`.
+5. Peça à Fissura a capa em alta e substitua `assets/img/capa-diario-de-amelia-capa.jpg`.
 
-## Depois de publicar (o que ajuda a ranquear)
-- Cadastre o site no **Google Search Console** e envie `https://SEUDOMINIO/sitemap.xml`.
-- Peça indexação da home e da página do livro.
-- Coloque o link do site no Instagram, no podcast, na página de autora da Amazon e na loja da editora (backlinks pesam).
-- Publique textos novos em `ARTIGOS` com regularidade, mirando buscas como "livros sobre liberdade" ou "romance young adult sobre família opressora".
-- Após o lançamento (23/10/2026) atualize os selos "Pré-venda" e o `availability` do JSON-LD.
+## Medir cliques e origem (página /links/)
+O painel é o do **GoatCounter** (grátis, sem cookies, só você entra com login):
+1. Crie a conta em goatcounter.com e escolha um código (ex.: `camilaveloso`).
+2. Escreva o código em `SITE["goatcounter"]` e rode `python3 tools/build.py`.
+3. Em cada rede use um endereço diferente na bio, para saber de onde veio o clique:
+   `https://SEUDOMINIO/links/?ref=instagram`, `?ref=tiktok`, `?ref=youtube`, `?ref=whatsapp`.
+4. No painel, cada link aparece como evento (`link-pre-venda`, `link-newsletter`, `link-youtube`, `link-aldeia`) com a origem.
+Os links de saída também levam `utm_source=camilaveloso&utm_medium=linkinbio`, o que mostra a origem no Substack e na loja da editora.
 
 ## Editar e gerar
-Conteúdo em `tools/build.py`, visual em `assets/css/style.css`.
+Textos das páginas em `tools/paginas/*.html`, artigos e configuração em `tools/build.py`, visual em `assets/css/style.css`.
 ```
 python3 tools/build.py        # regenera as páginas
 python3 -m http.server 8000   # prévia em http://localhost:8000
 ```
+
+## Depois do lançamento (23/10/2026)
+Atualize preço e selos de pré-venda e o `availability` dos dados estruturados em `tools/build.py`.
