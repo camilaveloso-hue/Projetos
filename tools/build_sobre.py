@@ -12,7 +12,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.dirname(__file__))
 import build_plugin
 
-VERSION = "v1"
+VERSION = "v2"
 PLUGIN_BASE = "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/"
 body = open(os.path.join(ROOT, "tools/src/sobre.html"), encoding="utf-8").read()
 css_base = open(os.path.join(ROOT, "wordpress/aldeia-vendas.css"), encoding="utf-8").read()
