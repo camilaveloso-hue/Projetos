@@ -148,7 +148,8 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* ---------- II · Faixa de números (cartão flutuante) ---------- */
 .av-stats{background:transparent;padding:0;margin-top:-84px;position:relative;z-index:3}
-.av-stats__card{background-color:#fff;background-image:var(--av-meander-h),var(--av-meander-h),var(--av-meander-v),var(--av-meander-v);background-repeat:repeat-x,repeat-x,repeat-y,repeat-y;background-position:left top,left bottom,left top,right top;background-size:28px 14px,28px 14px,14px 28px,14px 28px;border-radius:24px;padding:46px 40px 44px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
+.av-stats__card{background:#fff;border-radius:24px;padding:48px 24px 40px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
+.av-stats__card::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--av-meander) repeat-x center/28px 14px;opacity:.75}
 .av-stats__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
 .av-stat,.av-stat-box{position:relative}
 .av-stat+.av-stat::before,.av-stat-box+.av-stat-box::before{content:"";position:absolute;left:-12px;top:12%;bottom:12%;width:1px;background:var(--av-line)}
@@ -565,7 +566,8 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-h2::after{width:44px;height:10px;margin-top:10px;background-size:20px 10px}
   .av-books__head .av-h2::after{width:44px}
   /* cartão de números */
-  .av-stats__card{padding:34px 28px 30px;background-size:20px 10px,20px 10px,10px 20px,10px 20px}
+  .av-stats__card{padding:36px 16px 30px}
+  .av-stats__card::before{height:10px;background-size:20px 10px}
   /* professores: 2 por linha, fotos quadradas */
   .av-tgrid{grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
   .av-tgrid .av-tcard img{aspect-ratio:1/1}
@@ -575,6 +577,15 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   /* comunidade em carrossel */
   .av-cphoto{width:160px;border-radius:16px}
   .av-marquee--photos .av-marquee__track{--av-gap:12px;animation-duration:120s}
+}
+
+/* v11 — celular: título "Conheça os professores" acima da foto da Camila */
+@media (max-width:767px){
+  .av-founder{display:flex;flex-direction:column;align-items:center}
+  .av-founder>div{display:contents}
+  .av-founder .av-h2{order:1;text-align:center;margin-bottom:6px}
+  .av-founder__fig{order:2;margin:6px 0 0}
+  .av-founder>div>p{order:3;text-align:center}
 }
 
 /* ==========================================================================
@@ -711,7 +722,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     <h1 class="av-h1"><span>Escrita Criativa:</span><span>Desenvolvimento e Prática</span></h1>
     <p class="av-sub">Formação online da Aldeia Literária para quem está começando. <br>Aulas ao vivo, comunidade, feedback de mestres e doutores.</p>
     <div class="av-cta-row"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></div>
-    <p class="av-hero__pay">Próxima turma: janeiro de 2027 · 35 vagas por módulo · aulas às 19h30 com gravação</p>
+    <p class="av-hero__pay">Próxima turma em janeiro de 2027</p>
   </div>
 </div></section>
 
@@ -747,10 +758,9 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   <div class="av-founder av-reveal">
     <figure class="av-founder__fig">
       <img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-camila.jpg" alt="Foto de Camila Veloso, fundadora da Aldeia Literária" loading="lazy" width="560" height="700">
-      <figcaption><strong>Camila Veloso</strong><span>Fundadora e mediadora das aulas</span></figcaption>
+      <figcaption><strong>Camila Veloso</strong><span>Fundadora da Aldeia Literária</span></figcaption>
     </figure>
     <div>
-      <p class="av-label">I · Quem conduz</p>
       <h2 class="av-h2">Conheça os professores</h2>
       <p>Em 2023, Camila Veloso fundou a Aldeia Literária com o objetivo de ajudar escritores iniciantes. Desde então, a Aldeia cresceu, e hoje conta com mestres e doutores que vão te ajudar a escrever seu próximo livro.</p>
     </div>
@@ -767,7 +777,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <!-- II · PROBLEMA -->
 <section class="av-section" id="problema"><div class="av-wrap av-mirror">
   <div class="av-reveal">
-    <p class="av-label">II · O problema</p>
     <h2 class="av-h2">Você tem a ideia.<br>Falta a técnica.</h2>
     <p>Nossos professores estão aqui para te ajudar a entender técnicas complexas de forma rápida. Todo livro é uma travessia longa, e toda travessia pede mapa, companhia e ritmo. <strong>Se você se viu em alguma dessas linhas, o curso foi desenhado para esse ponto da jornada.</strong></p>
   </div>
@@ -779,7 +788,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <!-- III · JORNADA -->
 <section class="av-section av-section--navy av-mark" id="jornada"><div class="av-meander av-meander--top"></div><div class="av-wrap">
-  <p class="av-label">III · O caminho</p>
   <h2 class="av-h2">Aulas e atividades práticas, um módulo por vez.</h2>
   <p class="av-lead">Em cada módulo, você aprende os segredos da escrita e do mercado editorial brasileiro.</p>
   <div class="av-reveal av-tabs" data-av-tabset role="tablist">
@@ -799,7 +807,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <!-- IV · O QUE ESTÁ INCLUSO -->
 <section class="av-section"><div class="av-wrap av-include">
   <div class="av-reveal">
-    <p class="av-label">IV · O que está incluso</p>
     <h2 class="av-h2">Tudo o que você recebe ao entrar na Aldeia</h2>
     <ul class="av-check">
       <li><strong>Aulas ao vivo</strong><span>3 por mês em cada módulo, às 19h30, com 1h30 de duração.</span></li>
@@ -824,7 +831,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <section class="av-section av-section--navy av-mark av-mark--left" id="certificados"><div class="av-meander av-meander--top"></div><div class="av-wrap av-cert">
   <figure class="av-reveal av-cert__img"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/certificados.jpg" alt="Aluna da Aldeia Literária segurando um certificado" loading="lazy" width="480" height="717"></figure>
   <div class="av-reveal">
-    <p class="av-label">V · Credencial acadêmica</p>
     <h2 class="av-h2">Dois certificados na sua formação</h2>
     <div class="av-cert__cards">
       <div class="av-cert__card"><span class="av-cert__n">01</span><h3>Certificação por etapa</h3><p>Ao final de cada módulo semestral, você recebe um certificado, detalhando as competências adquiridas e a carga horária.</p></div>
@@ -836,7 +842,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <!-- VI · COMUNIDADE -->
 <section class="av-section"><div class="av-wrap">
-  <p class="av-label">VI · Comunidade</p>
   <h2 class="av-h2">Encontramos nossos alunos em eventos do mercado editorial</h2>
   </div>
 <div class="av-marquee av-marquee--photos" aria-label="Fotos dos alunos da Aldeia Literária em eventos"><div class="av-marquee__track">
@@ -867,7 +872,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <!-- VII · INVESTIMENTO -->
 <section class="av-section av-section--soft" id="investimento"><div class="av-meander av-meander--top"></div><div class="av-wrap av-center">
-  <p class="av-label">VII · Investimento</p>
   <h2 class="av-h2">Seja o primeiro a saber da abertura de matrículas</h2>
   <div class="av-reveal av-offer av-offer--lite">
     <p class="av-waitnote">Matrículas abrem em janeiro de 2027</p>
@@ -877,7 +881,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <!-- VIII · FAQ -->
 <section class="av-section" id="duvidas"><div class="av-wrap av-center">
-  <p class="av-label">VIII · Dúvidas</p>
   <h2 class="av-h2">Perguntas frequentes</h2>
   <div class="av-reveal av-faq" style="text-align:left">
     <details open><summary>Quando começa a turma?</summary><div class="av-ans"><p>Em janeiro de 2027.</p></div></details>
@@ -896,7 +899,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <!-- IX · CHAMADO FINAL -->
 <section class="av-final av-mark av-mark--left"><div class="av-meander av-meander--top"></div><div class="av-wrap">
-  <p class="av-label" style="justify-content:center">IX · O chamado</p>
   <h2 class="av-h2">O chamado já chegou.</h2>
   <p>A turma de janeiro de 2027 tem vagas limitadas: 35 por módulo. As matrículas abrem em janeiro; por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>
   <p style="margin:32px auto 18px"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></p>
@@ -904,7 +906,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 </div></section>
 </main>
 
-<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v10 · pode apagar este trecho</span></footer>
+<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v11 · pode apagar este trecho</span></footer>
 
 <a class="av-wa" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 13.9c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-3.900-4.700-4.100-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.1.1.300 0 .5l-.3.500-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg></a>
 

@@ -120,7 +120,8 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* ---------- II · Faixa de números (cartão flutuante) ---------- */
 .av-stats{background:transparent;padding:0;margin-top:-84px;position:relative;z-index:3}
-.av-stats__card{background-color:#fff;background-image:var(--av-meander-h),var(--av-meander-h),var(--av-meander-v),var(--av-meander-v);background-repeat:repeat-x,repeat-x,repeat-y,repeat-y;background-position:left top,left bottom,left top,right top;background-size:28px 14px,28px 14px,14px 28px,14px 28px;border-radius:24px;padding:46px 40px 44px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
+.av-stats__card{background:#fff;border-radius:24px;padding:48px 24px 40px;box-shadow:0 30px 70px rgba(18,28,45,.22);position:relative;overflow:hidden}
+.av-stats__card::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--av-meander) repeat-x center/28px 14px;opacity:.75}
 .av-stats__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
 .av-stat,.av-stat-box{position:relative}
 .av-stat+.av-stat::before,.av-stat-box+.av-stat-box::before{content:"";position:absolute;left:-12px;top:12%;bottom:12%;width:1px;background:var(--av-line)}
@@ -537,7 +538,8 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-h2::after{width:44px;height:10px;margin-top:10px;background-size:20px 10px}
   .av-books__head .av-h2::after{width:44px}
   /* cartão de números */
-  .av-stats__card{padding:34px 28px 30px;background-size:20px 10px,20px 10px,10px 20px,10px 20px}
+  .av-stats__card{padding:36px 16px 30px}
+  .av-stats__card::before{height:10px;background-size:20px 10px}
   /* professores: 2 por linha, fotos quadradas */
   .av-tgrid{grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
   .av-tgrid .av-tcard img{aspect-ratio:1/1}
@@ -547,4 +549,13 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   /* comunidade em carrossel */
   .av-cphoto{width:160px;border-radius:16px}
   .av-marquee--photos .av-marquee__track{--av-gap:12px;animation-duration:120s}
+}
+
+/* v11 — celular: título "Conheça os professores" acima da foto da Camila */
+@media (max-width:767px){
+  .av-founder{display:flex;flex-direction:column;align-items:center}
+  .av-founder>div{display:contents}
+  .av-founder .av-h2{order:1;text-align:center;margin-bottom:6px}
+  .av-founder__fig{order:2;margin:6px 0 0}
+  .av-founder>div>p{order:3;text-align:center}
 }
