@@ -1,23 +1,23 @@
-# Página Sobre (versão 2) — como colocar no ar
+# Página Sobre (versão 3) — como colocar no ar
 
 | Arquivo | Para que serve |
 |---|---|
-| `aldeia-vendas.zip` | Plugin (versão **1.0.7**). **Reinstale por cima**: traz o estilo e as imagens novas. |
-| `aldeia-sobre-v2.json` | Modelo de página do Elementor da página Sobre. |
-| `aldeia-sobre-v2-colar-no-widget-html.html` | O mesmo conteúdo, para colar num widget HTML (plano B). |
+| `aldeia-vendas.zip` | Plugin (versão **1.0.8**). **Reinstale por cima**: traz o estilo e as imagens novas. |
+| `aldeia-sobre-v3.json` | Modelo de página do Elementor da página Sobre. |
+| `aldeia-sobre-v3-colar-no-widget-html.html` | O mesmo conteúdo, para colar num widget HTML (plano B). |
 
 ## Passo 1 — Reinstalar o plugin
 **Plugins → Adicionar plugin → Enviar plugin** → `aldeia-vendas.zip` → **Substituir o atual pelo enviado**. Confirme que continua **Ativo**.
 
 ## Passo 2 — Importar o modelo
-Abra `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_library&tabs_group=library` → **Importar modelos** → `aldeia-sobre-v2.json`. Deve aparecer **"ALDEIA Sobre v2 — Página Sobre"**.
+Abra `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_library&tabs_group=library` → **Importar modelos** → `aldeia-sobre-v3.json`. Deve aparecer **"ALDEIA Sobre v3 — Página Sobre"**.
 
 ## Passo 3 — Colocar na página Sobre
 **A. Substituir o conteúdo da página atual (mantém o endereço `/sobre/`)**
 1. **Páginas → Sobre → Editar com Elementor**.
 2. Abra o **Histórico** (ícone de relógio) e confirme que existe uma versão guardada, para poder voltar atrás.
 3. No **Navegador** (camadas), apague todo o conteúdo (botão direito em cada bloco → **Excluir**).
-4. **Pasta preta → Meus modelos → Inserir** em **ALDEIA Sobre v2**.
+4. **Pasta preta → Meus modelos → Inserir** em **ALDEIA Sobre v3**.
 5. **Engrenagem → Layout da página → Elementor Canvas**.
 6. Clique em **Atualizar** (botão grande, canto inferior esquerdo).
 
@@ -25,7 +25,7 @@ Abra `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_libr
 
 ## Passo 4 — Conferir
 1. **WP Rocket → Limpar cache** e abra `aaldeialiteraria.com.br/sobre/` numa janela anônima.
-2. A última linha deve dizer **"versão sobre v2"**.
+2. A última linha deve dizer **"versão sobre v3"**.
 3. Teste no celular e no computador. Se os carrosséis (palestrantes, livros, fotos) não se mexerem, adicione `/wp-content/plugins/aldeia-vendas/` nas exclusões de JavaScript do WP Rocket e limpe o cache.
 4. Depois de conferir, apague a linha da versão (no código do bloco, procure `av-ver`).
 
@@ -38,7 +38,7 @@ Clique no bloco e edite o **Código HTML** no painel da esquerda (Ctrl+F para ac
 | Os 4 pilares do método | `av-pillar` |
 | Nome ou cargo de professor | `av-tcard` |
 | Palestrantes | `av-gcard` |
-| **Links dos livros** | `Abrir a página do livro` (troque `href="#"`) |
+| Fotos da comunidade | `av-cphoto` |
 | Link dos botões | `tally.so/r/0QNWPy` |
 
 **Desfazer:** Histórico do Elementor ou a versão antiga da página Sobre.

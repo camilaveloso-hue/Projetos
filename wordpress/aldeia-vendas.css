@@ -734,3 +734,23 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-h3{font-size:1.1rem}
   .av-community-head{padding-top:26px}
 }
+
+
+/* ==========================================================================
+   v17 — SOBRE: banner com a foto atual da página (mão escrevendo), sem faixa de números
+   ========================================================================== */
+:root{--av-sobre-banner:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-banner.jpg")}
+.av-hero--sobre{background:linear-gradient(90deg,#051A2D 0%,#082A46 55%,#0D3756 100%);min-height:min(66vh,580px);padding:104px 0 112px;overflow:hidden}
+.av-hero--sobre::before{content:"";display:block;position:absolute;top:0;bottom:0;right:0;left:auto;width:46%;height:auto;background:var(--av-sobre-banner) 50% 42%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%);opacity:1}
+.av-hero--sobre::after{display:none}
+.av-hero--sobre .av-hero__grid{display:block}
+.av-hero--sobre .av-hero__txt{max-width:600px}
+@media (max-width:767px){
+  .av-hero--sobre{min-height:0;padding:0 0 64px;text-align:center;background:var(--av-navy-dark)}
+  .av-hero--sobre::before{position:relative;display:block;inset:auto;width:100%;height:min(62vw,260px);background-position:50% 40%;-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 100%);mask-image:linear-gradient(180deg,#000 50%,transparent 100%)}
+  .av-hero--sobre>.av-wrap{margin-top:-26px}
+  .av-hero--sobre .av-hero__grid{display:block;padding-top:0}
+  .av-hero--sobre .av-hero__txt{margin-inline:auto}
+  .av-hero--sobre .av-badge{margin-inline:auto}
+  .av-hero--sobre .av-sub{display:none}
+}
