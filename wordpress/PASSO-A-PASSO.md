@@ -1,7 +1,7 @@
 # Como colocar a página de vendas no ar (WordPress + Elementor)
 
 > **ATUALIZAÇÃO — caminho recomendado agora: modelo "HTML único" (v3).**
-> Use o arquivo `pagina-vendas-html-unico-elementor.json` (versão v5, com o CSS e o JavaScript embutidos no próprio bloco). Ele traz a página inteira dentro de **um** bloco HTML, com o visual embutido, e não depende das classes dos containers do Elementor. Os passos 1 a 8 abaixo continuam valendo; só troque o modelo do Passo 2 por esse e insira o modelo **"(HTML único) v5"** no Passo 3. Nesse formato, os textos ficam dentro do código do widget HTML: para ajustar algo, me peça que eu gero uma nova versão. O modelo com widgets editáveis (`pagina-vendas-elementor.json`) fica guardado para uma próxima fase.
+> Use o arquivo `pagina-vendas-html-unico-elementor.json` (versão v6, com o CSS e o JavaScript embutidos no próprio bloco). Ele traz a página inteira dentro de **um** bloco HTML, com o visual embutido, e não depende das classes dos containers do Elementor. Os passos 1 a 8 abaixo continuam valendo; só troque o modelo do Passo 2 por esse e insira o modelo **"(HTML único) v6"** no Passo 3. Nesse formato, os textos ficam dentro do código do widget HTML: para ajustar algo, me peça que eu gero uma nova versão. O modelo com widgets editáveis (`pagina-vendas-elementor.json`) fica guardado para uma próxima fase.
 
 Você recebeu 3 arquivos (mais um plano B):
 
@@ -154,3 +154,9 @@ Dúvidas ou ajustes: me mande o que viu (de preferência com um print) que eu co
 
 ## Links dos livros ("Livros escritos aqui")
 Cada capa é um link que abre em uma **nova janela**. Por enquanto os links estão vazios. Para colocar o endereço de cada livro, abra o bloco HTML, procure (Ctrl+F) por `aria-label="Abrir a página do livro` e, na mesma linha, troque `href="#"` pelo endereço do livro, por exemplo `href="https://www.amazon.com.br/..."`. Cada livro aparece **duas vezes** no código (a segunda vez é a cópia do movimento automático, que o próprio código cria): troque só a primeira, que fica dentro da seção `LIVROS ESCRITOS AQUI`. Se preferir, me mande a lista "nome do livro → link" e eu preencho tudo.
+
+
+---
+
+## Importante: publicar a mudança
+Se a página **já está publicada**, depois de inserir o modelo novo clique em **Atualizar** (o botão grande, no canto inferior esquerdo do Elementor). "Salvar rascunho" (pela setinha) só guarda no editor e **não muda a página no ar**. Para conferir qual versão está no ar, role até o fim da página: a última linha mostra "versão vN".

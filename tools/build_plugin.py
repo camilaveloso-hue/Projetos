@@ -27,7 +27,7 @@ def build_css(for_sim=False):
     css += "/* ===== Fontes locais ===== */\n" + fonts_css() + "\n"
     css += rd("tools/css/reset.css") + "\n" + base_css() + "\n" + rd("tools/css/components.css")
     if for_sim:
-        css = css.replace("../fonts/", "assets/fonts/").replace("../img/hero.jpg", "assets/hero.jpg").replace("../img/logo-medalhao.png", "assets/logo-medalhao.png")
+        css = css.replace("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/", "assets/").replace("../fonts/", "assets/fonts/").replace("../img/hero.jpg", "assets/hero.jpg").replace("../img/logo-medalhao.png", "assets/logo-medalhao.png")
     return css
 
 if __name__ == "__main__":

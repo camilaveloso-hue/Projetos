@@ -21,7 +21,7 @@ js = open(os.path.join(ROOT, "wordpress/aldeia-vendas.js"), encoding="utf-8").re
 prev = f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aldeia Literária — Prévia da página de vendas</title>
 <link rel="stylesheet" href="assets/fonts.css">
-<style>body{{margin:0}}{css_base}:root{{--av-hero-img:url("assets/hero.jpg");--av-medal:url("assets/logo-medalhao.png")}}.sr-only{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}</style></head><body class="av-page" id="top">{body}<script>{js}</script></body></html>'''
+<style>body{{margin:0}}{css_base}:root{{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}}.sr-only{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}</style></head><body class="av-page" id="top">{body}<script>{js}</script></body></html>'''
 open(os.path.join(ROOT, "preview/vendas.html"), "w", encoding="utf-8").write(prev)
 
 # 2) fragmento para widget HTML do Elementor
@@ -46,7 +46,7 @@ open(os.path.join(ROOT, "wordpress/plano-b-pagina-html-unico.html"), "w", encodi
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
 tpl = {
     "version": "0.4",
-    "title": "Aldeia Literária — Página de vendas (HTML único) v5",
+    "title": "Aldeia Literária — Página de vendas (HTML único) v6",
     "type": "page",
     "content": [{
         "id": "a1b2c3d", "elType": "container", "isInner": False,

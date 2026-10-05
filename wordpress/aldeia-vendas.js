@@ -6,6 +6,7 @@
    Não faz nada dentro do editor do Elementor (para você editar com tudo visível). */
 (function(){
   if(document.body.classList.contains('elementor-editor-active'))return;
+  if(window.__avInit)return;window.__avInit=1; /* evita rodar duas vezes (plugin + código embutido na página) */
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('av-js');
 
@@ -17,7 +18,8 @@
   } else rv.forEach(function(e){e.classList.add('is-in')});
 
   /* Tabs próprias (só na prévia HTML; no Elementor o widget Abas cuida disso) */
-  document.querySelectorAll('[data-av-tabs]').forEach(function(w){
+  document.querySelectorAll('[data-av-tabset]').forEach(function(w){
+    if(w.dataset.avInit)return;w.dataset.avInit='1';
     var tabs=[].slice.call(w.querySelectorAll('.av-tab')), panels=[].slice.call(w.querySelectorAll('.av-panel'));
     function set(i){
       var mobile=matchMedia('(max-width:767px)').matches, wasOn=tabs[i].classList.contains('is-active');
