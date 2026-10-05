@@ -29,7 +29,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Shrikhand&family=Bricolage+Gr
          "&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap")
 
 NAV = [("/", "Home"), ("/o-diario-de-amelia/", "O Diário de Amélia"), ("/livros/", "Livros"),
-       ("/sobre/", "Sobre"), ("/links/", "Links")]
+       ("/sobre/", "Sobre"), ("/aldeia/", "Aldeia"), ("/links/", "Links")]
 
 # ---------------------------------------------------------------- ARTIGOS (SEO)
 ARTIGOS = [
@@ -214,7 +214,7 @@ def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-
 {medicao()}
 </head>
 <body{f' class="{classe}"' if classe else ""}>
-{header(atual or caminho, "pag-links" in classe)}
+{header(atual or caminho, "pag-links" in classe and "pag-aldeia" not in classe)}
 <main id="conteudo">
 {corpo}
 </main>
@@ -301,6 +301,10 @@ paginas.append(pagina("/sobre/", "Sobre Camila Veloso: escritora, produtora edit
 # ---------------------------------------------------------------- LINKS (bio das redes)
 paginas.append(pagina("/links/", "Links da Camila Veloso e da Aldeia Literária", "Pré-venda de O Diário de Amélia, newsletter, YouTube, Aldeia Literária e TikTok.",
     fragmento("links"), classe="pag-links", noindex=True))
+
+# ---------------------------------------------------------------- ALDEIA LITERÁRIA (links do TikTok)
+paginas.append(pagina("/aldeia/", "Aldeia Literária: site oficial e TikTok", "Links da Aldeia Literária, curso de extensão da Camila Veloso: site oficial e TikTok.",
+    fragmento("aldeia"), classe="pag-links pag-aldeia", og_img="/assets/img/aldeia-literaria-logo.png"))
 
 # ---------------------------------------------------------------- MANIFESTO
 manifesto = """

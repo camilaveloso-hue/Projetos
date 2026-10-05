@@ -17,18 +17,3 @@
   }
   if (document.querySelector('[data-cont],[data-dias]')) { tick(); setInterval(tick, 1000); }
 })();
-
-/* Página de links: seletor Camila / Aldeia Literária (endereço /links/#aldeia abre direto a Aldeia) */
-(function () {
-  var lk = document.getElementById('lk'); if (!lk) return;
-  var abas = lk.querySelectorAll('[data-aba]'), paineis = lk.querySelectorAll('[data-painel]');
-  function mostrar(nome, hash) {
-    abas.forEach(function (a) { var on = a.dataset.aba === nome; a.classList.toggle('on', on); a.setAttribute('aria-selected', on); });
-    paineis.forEach(function (p) { p.hidden = p.dataset.painel !== nome; });
-    lk.classList.toggle('lk--aldeia', nome === 'aldeia');
-    document.body.classList.toggle('aba-aldeia', nome === 'aldeia');
-    if (hash && history.replaceState) history.replaceState(null, '', nome === 'aldeia' ? '#aldeia' : location.pathname + location.search);
-  }
-  abas.forEach(function (a) { a.addEventListener('click', function () { mostrar(a.dataset.aba, true); }); });
-  mostrar(location.hash === '#aldeia' ? 'aldeia' : 'camila', false);
-})();
