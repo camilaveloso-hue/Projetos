@@ -227,7 +227,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 /* ---------- Mosaico da comunidade ---------- */
 .av-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
-.av-mosaic figure,.av-mosaic .av-photo{margin:0;border-radius:26px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 40px rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.25)}
+.av-mosaic figure,.av-mosaic .av-photo{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 40px rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.25)}
 .av-mosaic figure:nth-child(even),.av-mosaic .av-photo:nth-child(even){transform:translateY(34px)}
 .av-mosaic img{display:block;width:100%;height:100%;object-fit:cover}
 .av-mosaic-cap{margin:58px 0 0;font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
@@ -445,20 +445,20 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 @keyframes av-scroll{to{transform:translateX(calc(-50% - var(--av-gap,22px) / 2))}}
 
 /* Quem conduz: Camila discreta + professores grandes em carrossel */
-.av-founder{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;max-width:960px}
+.av-founder{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center;max-width:1000px}
 .av-founder__fig{margin:0;text-align:center}
-.av-founder__fig img{display:block;width:150px;height:150px;border-radius:50%;object-fit:cover;margin:0 auto;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--av-terra),0 16px 34px rgba(13,55,86,.2)}
+.av-founder__fig img{display:block;width:100%;height:auto;aspect-ratio:4/5;border-radius:26px;object-fit:cover;object-position:50% 20%;margin:0 auto;box-shadow:0 22px 46px rgba(13,55,86,.24)}
 .av-founder__fig figcaption{display:flex;flex-direction:column;gap:3px;margin-top:20px}
 .av-founder__fig strong{font:700 1rem var(--av-display);color:var(--av-navy)}
 .av-founder__fig span{font:600 10.5px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-terra-dark)}
 .av-marquee--team{margin-top:44px}
-.av-marquee--team .av-marquee__track{--av-gap:26px;animation-duration:52s;padding:10px 0 34px}
-.av-tcard{flex:none;width:270px;background:#fff;border:1px solid var(--av-line);border-radius:26px;overflow:hidden;box-shadow:0 18px 40px rgba(13,55,86,.12);transition:transform .25s,box-shadow .25s}
+.av-marquee--team .av-marquee__track{--av-gap:22px;animation-duration:52s;padding:10px 0 34px}
+.av-tcard{flex:none;width:170px;background:#fff;border:1px solid var(--av-line);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(13,55,86,.12);transition:transform .25s,box-shadow .25s}
 .av-tcard:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(13,55,86,.2)}
-.av-tcard img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-.av-tcard__txt{padding:18px 20px 22px;text-align:center}
-.av-tcard h3{font:700 1.05rem var(--av-display);color:var(--av-navy);margin:0 0 6px}
-.av-tcard p{font-size:.85em;margin:0;line-height:1.45;max-width:none}
+.av-tcard img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;object-position:50% 22%}
+.av-tcard__txt{padding:14px 12px 18px;text-align:center}
+.av-tcard h3{font:700 .95rem var(--av-display);color:var(--av-navy);margin:0 0 6px}
+.av-tcard p{font-size:.78em;margin:0;line-height:1.4;max-width:none}
 
 /* Abas dos módulos (div em vez de botão): nada vaza para fora da caixa */
 .av-tabs{min-width:0}
@@ -483,7 +483,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-mosaic--light figure,.av-mosaic--light .av-photo{border:0;box-shadow:0 18px 38px rgba(13,55,86,.18)}
 
 @media (max-width:1024px){
-  .av-founder{gap:32px}
+  .av-founder{grid-template-columns:240px 1fr;gap:32px}
 }
 
 @media (max-width:767px){
@@ -516,8 +516,12 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-founder{grid-template-columns:1fr;text-align:center;gap:22px;justify-items:center}
   .av-founder .av-label{justify-content:center}
   .av-founder .av-h2::after{margin-inline:auto}
-  .av-founder__fig img{width:120px;height:120px}
-  .av-tcard{width:232px}
+  .av-founder__fig{width:min(260px,72%)}
+  .av-founder__fig img{width:100%;height:auto}
+  .av-tcard{width:130px}
+  .av-tcard h3{font-size:.85rem}
+  .av-tcard p{font-size:.72em}
+  .av-mosaic{grid-template-columns:1fr 1fr;gap:12px}
   .av-marquee--team{margin-top:30px}
 
   /* abas */
@@ -650,7 +654,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 </style>
 <style>.e-con:has(>.elementor-widget-html .av-page){--padding-top:0px;--padding-right:0px;--padding-bottom:0px;--padding-left:0px;--gap:0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px}.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>
 <div class="av-page">
-<div class="av-notice">Matrículas abrem em janeiro de 2027 · Lista de espera aberta · <strong>35 vagas</strong> por módulo</div>
 <header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="#topo"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a href="#professores">Quem conduz</a><a href="#jornada">Jornada</a><a href="#duvidas">Dúvidas</a><a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a></nav>
@@ -678,7 +681,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <!-- LIVROS ESCRITOS AQUI -->
 <!-- Para cada livro, troque href="#" pelo endereço da página do livro. Ele abre em uma nova janela. -->
-<section class="av-books"><div class="av-books__head av-center av-reveal"><p class="av-label">Prova viva do método</p><h2 class="av-h2">Livros escritos aqui</h2></div>
+<section class="av-books"><div class="av-books__head av-center av-reveal"><h2 class="av-h2">Livros escritos aqui</h2></div>
 <div class="av-marquee" aria-label="Capas de livros escritos por alunos da Aldeia. Clique para abrir a página do livro."><div class="av-marquee__track">
   <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Querida Tia Liz (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-querida-tia-liz.jpg" alt="Capa do livro Querida Tia Liz, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
   <a class="av-book" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir a página do livro Os Dois Lados da Coroa (abre em nova janela)"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/livro-dois-lados-da-coroa.jpg" alt="Capa do livro Os Dois Lados da Coroa, escrito por aluno da Aldeia" loading="lazy" width="340" height="510"></a>
@@ -700,7 +703,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <section class="av-section av-section--tight" id="professores"><div class="av-wrap">
   <div class="av-founder av-reveal">
     <figure class="av-founder__fig">
-      <img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-camila.jpg" alt="Foto de Camila Veloso, fundadora da Aldeia Literária" loading="lazy" width="320" height="320">
+      <img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-camila.jpg" alt="Foto de Camila Veloso, fundadora da Aldeia Literária" loading="lazy" width="560" height="700">
       <figcaption><strong>Camila Veloso</strong><span>Fundadora e mediadora das aulas</span></figcaption>
     </figure>
     <div>
@@ -792,10 +795,14 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   <p class="av-label">VI · Comunidade</p>
   <h2 class="av-h2">Encontramos nossos alunos em eventos do mercado editorial</h2>
   <div class="av-mosaic av-mosaic--light av-reveal">
-    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-1.jpg" alt="Alunos da Aldeia Literária em evento, com ecobags da Aldeia" loading="lazy" width="520" height="830"></figure>
-    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-2.jpg" alt="Alunos da Aldeia Literária sorrindo em evento" loading="lazy" width="520" height="830"></figure>
-    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-3.jpg" alt="Alunas da Aldeia Literária juntas em evento" loading="lazy" width="520" height="830"></figure>
-    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-4.jpg" alt="Alunas da Aldeia Literária posando em evento" loading="lazy" width="520" height="830"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-1.jpg" alt="Alunas da Aldeia Literária em selfie em evento do mercado editorial" loading="lazy" width="520" height="700"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-2.jpg" alt="Alunas da Aldeia Literária com ecobags da Aldeia em evento" loading="lazy" width="520" height="700"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-3.jpg" alt="Alunas da Aldeia Literária sorrindo em evento" loading="lazy" width="520" height="700"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-4.jpg" alt="Alunas da Aldeia Literária juntas em evento" loading="lazy" width="520" height="700"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-5.jpg" alt="Alunas da Aldeia Literária com ecobag em evento" loading="lazy" width="520" height="700"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-6.jpg" alt="Alunas da Aldeia Literária com ecobag em evento do livro" loading="lazy" width="520" height="700"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-7.jpg" alt="Alunas da Aldeia Literária abraçadas em evento" loading="lazy" width="520" height="700"></figure>
+    <figure><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-8.jpg" alt="Alunas da Aldeia Literária em selfie na Bienal" loading="lazy" width="520" height="700"></figure>
   </div>
 </div></section>
 
@@ -831,14 +838,14 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <!-- IX · CHAMADO FINAL -->
 <section class="av-final av-mark av-mark--left"><div class="av-meander av-meander--top"></div><div class="av-wrap">
   <p class="av-label" style="justify-content:center">IX · O chamado</p>
-  <h2 class="av-h2">O chamado já chegou. Falta atravessar a porta.</h2>
+  <h2 class="av-h2">O chamado já chegou.</h2>
   <p>A turma de janeiro de 2027 tem vagas limitadas: 35 por módulo. As matrículas abrem em janeiro; por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>
   <p style="margin:32px auto 18px"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></p>
   <p class="av-small">Ficou com dúvida? <a class="av-link" style="min-height:44px" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">Fale com a gente no WhatsApp</a></p>
 </div></section>
 </main>
 
-<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v8 · pode apagar este trecho</span></footer>
+<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Home</a> · <a href="https://aaldeialiteraria.com.br/sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br><span class="av-ver">versão v9 · pode apagar este trecho</span></footer>
 
 <a class="av-wa" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 13.9c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-3.900-4.700-4.100-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.1.1.300 0 .5l-.3.500-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg></a>
 
