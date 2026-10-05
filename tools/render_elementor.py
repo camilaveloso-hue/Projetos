@@ -5,7 +5,7 @@ import html, json, os, re, sys
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ELC = "/tmp/claude-0/elc"   # CSS do Elementor baixado do site
 
-JSON = os.environ.get("SIM_JSON", "pagina-vendas-elementor.json")
+JSON = os.environ.get("SIM_JSON", "aldeia-pagina-v13.json")
 data = json.load(open(os.path.join(ROOT, "wordpress", JSON), encoding="utf-8"))
 first_tab = {}
 

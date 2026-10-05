@@ -55,6 +55,9 @@
   /* meandro: azul sobre claro, branco sobre azul */
   --av-meander:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%230D3756' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
   --av-meander-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23FFFFFF' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
+  /* meandro vertical (laterais do cartão) */
+  --av-meander-v:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='28' viewBox='0 0 14 28' fill='none' stroke='%230D3756' stroke-opacity='.75' stroke-width='1.6' stroke-linecap='square'%3E%3Cg transform='translate(14 0) rotate(90)'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/g%3E%3C/svg%3E");
+  --av-meander-h:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%230D3756' stroke-opacity='.75' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
   /* texturas: grão de papel + labirinto grego bem discreto */
   --av-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .22 0 0 0 0 .34 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
   --av-grain-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
@@ -158,7 +161,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-quill{list-style:none;margin:0 0 28px;padding:0}
 .av-quill li{position:relative;padding:20px 0 20px 52px;border-bottom:1px solid var(--av-line);font-size:1.05em}
 .av-quill li::before{content:"";position:absolute;left:0;top:22px;width:30px;height:30px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A67C37' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z'/%3E%3Cpath d='M16 8 2 22M17.5 15H9'/%3E%3C/svg%3E") center/contain no-repeat}
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23CC351C' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z'/%3E%3Cpath d='M16 8 2 22M17.5 15H9'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* ---------- IV · Jornada (tabs no desktop, acordeão no celular) ---------- */
 .av-tabs{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;column-gap:40px;margin-top:40px;align-items:start}
@@ -181,7 +184,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-check{list-style:none;margin:0 0 30px;padding:0}
 .av-check li{position:relative;padding:16px 0 16px 46px;border-bottom:1px solid var(--av-line)}
 .av-check li::before{content:"";position:absolute;left:0;top:19px;width:26px;height:26px;border-radius:50%;border:2px solid var(--av-bronze);
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A67C37' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center/70% no-repeat}
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23CC351C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center/70% no-repeat}
 .av-check strong{color:var(--av-navy)}
 /* ---------- III · Problemas em carrossel + medalhão giratório ---------- */
 .av-problems{position:relative;padding:30px 0 10px}
@@ -226,7 +229,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 /* ---------- Mosaico da comunidade ---------- */
 .av-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
-.av-mosaic figure,.av-mosaic .av-photo{margin:0;border-radius:26px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 40px rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.25)}
+.av-mosaic figure,.av-mosaic .av-photo{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 40px rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.25)}
 .av-mosaic figure:nth-child(even),.av-mosaic .av-photo:nth-child(even){transform:translateY(34px)}
 .av-mosaic img{display:block;width:100%;height:100%;object-fit:cover}
 .av-mosaic-cap{margin:58px 0 0;font:600 12px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
@@ -430,7 +433,171 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-panel.is-active{display:block;margin:-2px 0 12px;grid-column:auto}
 }
 
+/* ==========================================================================
+   v8 — menos denso (até 4 informações por dobra), professores em carrossel,
+   botões que cabem no texto, abas sem estouro e ajustes de celular
+   ========================================================================== */
+
+/* Botões: o texto sempre cabe dentro do botão */
+.av-page a.av-btn,.av-page .av-btn .elementor-button{white-space:normal;line-height:1.25;font-size:13px;letter-spacing:.07em;padding:15px 30px;text-wrap:balance}
+.av-page .av-header a.av-btn,.av-page .av-header .av-btn .elementor-button{white-space:nowrap;font-size:11.5px;letter-spacing:.06em;padding:11px 22px}
+
+/* Carrossel (capas e professores): espaço entre itens controlável */
+.av-marquee__track{gap:var(--av-gap,22px)}
+@keyframes av-scroll{to{transform:translateX(calc(-50% - var(--av-gap,22px) / 2))}}
+
+/* Quem conduz: Camila discreta + professores grandes em carrossel */
+.av-founder{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center;max-width:1000px}
+.av-founder__fig{margin:0;text-align:center}
+.av-founder__fig img{display:block;width:100%;height:auto;aspect-ratio:4/5;border-radius:26px;object-fit:cover;object-position:50% 20%;margin:0 auto;box-shadow:0 22px 46px rgba(13,55,86,.24)}
+.av-founder__fig figcaption{display:flex;flex-direction:column;gap:3px;margin-top:20px}
+.av-founder__fig strong{font:700 1rem var(--av-display);color:var(--av-navy)}
+.av-founder__fig span{font:600 10.5px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-terra-dark)}
+.av-marquee--team{margin-top:44px}
+.av-marquee--team .av-marquee__track{--av-gap:22px;animation-duration:52s;padding:10px 0 34px}
+.av-tcard{flex:none;width:170px;background:#fff;border:1px solid var(--av-line);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(13,55,86,.12);transition:transform .25s,box-shadow .25s}
+.av-tcard:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(13,55,86,.2)}
+.av-tcard img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;object-position:50% 22%}
+.av-tcard__txt{padding:14px 12px 18px;text-align:center}
+.av-tcard h3{font:700 .95rem var(--av-display);color:var(--av-navy);margin:0 0 6px}
+.av-tcard p{font-size:.78em;margin:0;line-height:1.4;max-width:none}
+
+/* Abas dos módulos (div em vez de botão): nada vaza para fora da caixa */
+.av-tabs{min-width:0}
+.av-tab b{white-space:nowrap;overflow-wrap:normal;text-align:left}
+.av-tab{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;column-gap:10px;box-sizing:border-box;min-width:0;max-width:100%;padding:14px 18px;overflow-wrap:anywhere;hyphens:auto}
+.av-tab b,.av-tab span{min-width:0}
+.av-panel{padding:30px 32px}
+.av-panel .av-meta{margin:0 0 14px;padding:0;border:0;color:#FF9C88;font:700 11px/1.4 var(--av-ui);letter-spacing:.16em;text-transform:uppercase}
+.av-panel dt{margin-top:18px}
+
+/* O que está incluso: título em cima, texto menor embaixo (hierarquia) */
+.av-check{margin-bottom:0}
+.av-check strong{display:block;font:700 1rem/1.3 var(--av-display);color:var(--av-navy);margin-bottom:4px;letter-spacing:.01em}
+.av-check span{display:block;color:var(--av-graphite);font-size:.95em;line-height:1.5}
+
+/* Tabela do resumo */
+.av-table tbody th{width:38%}
+.av-table th small{display:block;font:500 10.5px/1.3 var(--av-ui);letter-spacing:.03em;margin-top:3px;opacity:.7}
+.av-table td small{display:block;font:600 11px var(--av-ui);letter-spacing:.06em;margin-top:3px;opacity:.7;color:var(--av-graphite)}
+
+/* Comunidade em fundo claro */
+.av-mosaic--light figure,.av-mosaic--light .av-photo{border:0;box-shadow:0 18px 38px rgba(13,55,86,.18)}
+
+@media (max-width:1024px){
+  .av-founder{grid-template-columns:240px 1fr;gap:32px}
+}
+
+@media (max-width:767px){
+  /* títulos bem menores */
+  .av-h2{font-size:1.2rem;line-height:1.25;margin-bottom:16px}
+  .av-h2::after{width:64px;margin-top:12px}
+  .av-hero .av-h1{font-size:1.15rem}
+  .av-stat strong{font-size:1.7rem}
+  .av-lead{font-size:1em}
+  .av-problem p{font-size:1.1rem}
+  .av-problem p.av-problem__lead{font-size:1rem}
+  .av-price{font-size:1.7rem}
+
+  /* botões: texto sempre dentro */
+  .av-page a.av-btn,.av-page .av-btn .elementor-button{width:100%;font-size:12px;letter-spacing:.05em;padding:14px 18px}
+  .av-page .av-header a.av-btn,.av-page .av-header .av-btn .elementor-button{width:auto;font-size:10.5px;letter-spacing:.04em;padding:9px 14px;min-height:38px}
+  .av-hero .av-btn{font-size:12px;letter-spacing:.04em;white-space:normal;padding:14px 18px}
+
+  /* cabeçalho: só o brasão + botão (cabe em qualquer celular) */
+  .av-logo span{display:none}
+  .av-logo::before{width:40px;height:40px}
+
+  /* banner: selo em uma linha, centralizado; texto em um bloco só */
+  .av-badge{display:flex;justify-content:center;white-space:nowrap;width:max-content;max-width:100%;margin:0 auto 16px;font-size:8.5px;letter-spacing:.05em;padding:7px 12px}
+  .av-badge::before{display:none}
+  .av-hero .av-sub br{display:none}
+  .av-hero .av-sub{text-wrap:pretty}
+
+  /* quem conduz */
+  .av-founder{grid-template-columns:1fr;text-align:center;gap:22px;justify-items:center}
+  .av-founder .av-label{justify-content:center}
+  .av-founder .av-h2::after{margin-inline:auto}
+  .av-founder__fig{width:min(260px,72%)}
+  .av-founder__fig img{width:100%;height:auto}
+  .av-tcard{width:130px}
+  .av-tcard h3{font-size:.85rem}
+  .av-tcard p{font-size:.72em}
+  .av-mosaic{grid-template-columns:1fr 1fr;gap:12px}
+  .av-marquee--team{margin-top:30px}
+
+  /* abas */
+  .av-tab{padding:13px 16px;font-size:12px}
+  .av-panel{padding:22px 20px}
+
+  /* incluso */
+  .av-check strong{font-size:.95rem}
+}
+
 @media (prefers-reduced-motion:reduce){.av-medal,.av-marquee__track{animation:none}.av-marquee{overflow-x:auto}.av-problem{transition:none}.av-js .av-reveal{opacity:1;transform:none}*{transition:none!important;scroll-behavior:auto!important}}
+
+
+/* ==========================================================================
+   v10 — professores estáticos (4 lado a lado), comunidade em carrossel,
+   meandro em todas as bordas do cartão de números
+   ========================================================================== */
+.av-tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.av-tgrid .av-tcard{width:auto}
+.av-tgrid .av-tcard img{aspect-ratio:4/5;object-position:50% 25%}
+.av-tgrid .av-tcard__txt{padding:18px 18px 22px}
+.av-tgrid .av-tcard h3{font-size:1.05rem}
+.av-tgrid .av-tcard p{font-size:.85em}
+.av-founder{margin-bottom:0}
+
+.av-marquee--photos{margin-top:36px}
+.av-marquee--photos .av-marquee__track{--av-gap:18px;animation-duration:150s;padding:10px 0 30px}
+.av-cphoto{flex:none;width:230px;aspect-ratio:3/4;margin:0;border-radius:20px;overflow:hidden;box-shadow:0 16px 34px rgba(13,55,86,.2)}
+.av-cphoto img{display:block;width:100%;height:100%;object-fit:cover}
+
+@media (max-width:1024px){
+  .av-tgrid{grid-template-columns:repeat(2,1fr);gap:18px}
+}
+@media (max-width:767px){
+  /* banner: sem o subtítulo, mais espaço para o título e o botão */
+  .av-hero .av-sub{display:none}
+  .av-hero .av-h1{margin-bottom:6px}
+  /* separador (meandro) menor */
+  .av-h2::after{width:44px;height:10px;margin-top:10px;background-size:20px 10px}
+  .av-books__head .av-h2::after{width:44px}
+  /* cartão de números */
+  .av-stats__card{padding:36px 16px 30px}
+  .av-stats__card::before{height:10px;background-size:20px 10px}
+  /* professores: 2 por linha, fotos quadradas */
+  .av-tgrid{grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+  .av-tgrid .av-tcard img{aspect-ratio:1/1}
+  .av-tgrid .av-tcard__txt{padding:12px 10px 16px}
+  .av-tgrid .av-tcard h3{font-size:.88rem}
+  .av-tgrid .av-tcard p{font-size:.74em}
+  /* comunidade em carrossel */
+  .av-cphoto{width:160px;border-radius:16px}
+  .av-marquee--photos .av-marquee__track{--av-gap:12px;animation-duration:120s}
+}
+
+/* v11 — celular: título "Conheça os professores" acima da foto da Camila */
+@media (max-width:767px){
+  .av-founder{display:flex;flex-direction:column;align-items:center}
+  .av-founder>div{display:contents}
+  .av-founder .av-h2{order:1;text-align:center;margin-bottom:6px}
+  .av-founder__fig{order:2;margin:6px 0 0}
+  .av-founder>div>p{order:3;text-align:center}
+}
+
+/* v12 — destaque do plano indicado (2 módulos): grade vermelha em volta da coluna */
+.av-table td:last-child,.av-table thead th:last-child{background:transparent}
+.av-table .av-hl{background:rgba(204,53,28,.05);border-left:2px solid var(--av-terra);border-right:2px solid var(--av-terra)}
+.av-table thead th.av-hl{border-top:2px solid var(--av-terra);border-radius:14px 14px 0 0;padding-top:14px;color:var(--av-terra-dark)}
+.av-table thead th.av-hl small{display:block;font:600 9.5px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;margin-top:3px;color:var(--av-terra-dark);opacity:.9}
+.av-table td.av-hl--end{border-bottom:2px solid var(--av-terra);border-radius:0 0 14px 14px}
+.av-table .av-table__time td{font:700 .98rem var(--av-body)}
+.av-table .av-table__time th,.av-table .av-table__time td{border-bottom:1px solid var(--av-line)}
+.av-table .av-table__time td.av-hl--end{border-bottom:2px solid var(--av-terra)}
+.av-table .av-table__fee td{border-left:0;border-right:0}
+.av-sum{padding-top:40px}
 
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
@@ -508,7 +675,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-page .av-table{margin:0;width:100%;border-collapse:separate}
 .av-page .av-table th,.av-page .av-table td{border:0;border-bottom:1px solid var(--av-line);background:transparent}
 .av-page .av-table thead th{border-bottom:2px solid var(--av-navy)}
-.av-page .av-table tbody>tr>td:last-child,.av-page .av-table thead>tr>th:last-child{background:rgba(204,53,28,.06)}
+.av-page .av-table .av-hl{background:rgba(204,53,28,.05)}
 .av-page .av-table tr:last-child th,.av-page .av-table tr:last-child td{border-bottom:0}
 
 /* Abas nativas: lista à esquerda, painel à direita; vira acordeão no celular (comportamento do Elementor) */
