@@ -102,8 +102,8 @@ p{margin:0}
 .res{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
 .res blockquote{margin:0;background:var(--branco);color:var(--tinta);border:3px solid var(--tinta);border-radius:1.4rem;padding:1.6rem;box-shadow:6px 6px 0 var(--tinta);font-family:var(--titulo);font-weight:600;font-size:1.35rem;line-height:1.25;position:relative}
 .res blockquote:nth-child(2){transform:rotate(1.2deg)}.res blockquote:nth-child(1){transform:rotate(-1.2deg)}
-.res__a{display:flex;align-items:center;gap:.8rem;margin-top:1.1rem}
-.res__a img{flex:none;width:3.4rem;height:3.4rem;object-fit:cover;border-radius:50%;border:3px solid var(--tinta)}
+.res__a{display:flex;align-items:center;gap:1.1rem;margin-top:1.2rem}
+.res__a img{flex:none;width:7.5rem;height:7.5rem;object-fit:cover;border-radius:1.2rem;border:3px solid var(--tinta)}
 .res cite{display:block;margin:0;font-family:var(--texto);font-style:normal;font-weight:700;font-size:.9rem;color:var(--vermelho)}
 @media(max-width:46rem){.res{grid-template-columns:1fr}.res blockquote{transform:none!important}}
 /* oferta */
@@ -209,6 +209,19 @@ details p{padding:0 1.2rem 1.1rem}
 .pag-links{padding-bottom:0}
 @media(max-width:30rem){.livros .livro p{-webkit-line-clamp:8;line-clamp:8;min-height:11.6em}}
 
+.lk--aldeia{background:#0E3858;color:var(--creme)}
+.lk--aldeia .lk__logo{border-radius:50%;background:var(--branco);border-color:var(--creme);box-shadow:5px 5px 0 var(--rosa);aspect-ratio:1;object-fit:contain;width:9.5rem}
+.lk--aldeia h1{color:var(--creme)}
+.lk--aldeia .lkb{box-shadow:5px 5px 0 var(--rosa)}
+.lk--aldeia .lkb__i{background:var(--rosa)}
+@media(max-width:46rem){
+ .pag-aldeia .topo__in{flex-direction:column;align-items:center;gap:.4rem}
+ .pag-aldeia .menu-btn{display:none}
+ .pag-aldeia .nav{display:flex;position:static;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:0;background:none}
+ .pag-aldeia .nav a{font-size:.9rem;padding:.35rem .7rem}
+ .pag-aldeia .nav .btn{margin:0}
+}
+
 /* capa clicavel que leva ao jogo */
 .hero__cap{display:flex;flex-direction:column;align-items:center;gap:2rem;justify-self:center;width:100%}
 .capa--jogo{display:block;text-decoration:none}
@@ -226,18 +239,4 @@ details p{padding:0 1.2rem 1.1rem}
 @media(max-width:46rem){.hero__cap{order:-1;gap:1.6rem}.hero__cap .capa{width:min(80%,20rem)}.jogue{width:5.4rem;font-size:.8rem;left:-.4rem}.hero__rabisco{display:none}}
 .lkb--j{background:var(--roxo);color:var(--branco)}
 .lkb--j .lkb__i{background:var(--rosa);color:var(--tinta)}
-mark{background:var(--rosa);color:var(--tinta);padding:0 .25em;border-radius:.3em}
-
-/* jogo */
-.jogo{max-width:30rem}
-.jogo__box{position:relative;border:3px solid var(--tinta);border-radius:1.4rem;overflow:hidden;box-shadow:8px 8px 0 var(--tinta);background:var(--branco);touch-action:none}
-.jogo__box canvas{display:block;width:100%;height:auto;touch-action:none}
-.jogo__hud{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:.6rem .9rem;font-family:var(--titulo);font-weight:800;pointer-events:none}
-.jogo__hud #vidas{color:var(--vermelho);letter-spacing:.1em}
-.jogo__ov{position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:rgba(10,10,10,.85);color:var(--creme);padding:1.5rem}
-.jogo__ov[hidden]{display:none}
-.jogo__ov h2{color:var(--amarelo);margin-bottom:.6rem}
-.jogo__ov p{margin-bottom:1.2rem}
 html{overflow-x:hidden}
-
-.pag-jogo .fix{display:none}.pag-jogo{padding-bottom:0}

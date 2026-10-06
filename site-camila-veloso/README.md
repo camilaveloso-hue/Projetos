@@ -4,10 +4,12 @@ Site estático (HTML + CSS + um arquivo de JavaScript, sem dependências). Funci
 
 ## Páginas
 Só quatro, de propósito:
-- **Home** (`/`): venda do livro (brindes, contagem regressiva, FAQ, estante com os 4 livros). A capa e o botão **"Jogar com a Amélia"** são animados (balanço, selo, ponteiro "clique na capa", onda pulsante) e levam ao jogo. O FAQ e os dados do livro para o Google ficam aqui.
-- **Aldeia** (`/aldeia/`): história e método da Aldeia Literária, com botão para o site oficial.
+- **Home** (`/`): venda do livro (brindes, contagem regressiva, estante, FAQ). A capa e o botão "Jogar com a Amélia" são animados e levam ao jogo. O FAQ e os dados do livro para o Google ficam aqui.
+- **Aldeia** (`/aldeia/`): links da Aldeia Literária (site oficial e TikTok).
 - **Links** (`/links/`): para a bio das redes; o primeiro botão é o jogo.
-- **Jogo** (`/jogo/`): "Amélia em fuga" (pegue ideias, desvie das regras). Fora do menu; o acesso é pela capa da home e pelos Links. Código em `tools/paginas/jogo.html`.
+- **Jogo** (`/jogo/`): jogo de plataforma, cópia de `jogo-amelia/`. Fora do menu.
+
+As páginas O Diário de Amélia, Livros, Sobre, Manifesto e Leituras foram removidas; o `netlify.toml` redireciona os endereços antigos para a Home (Sobre vai para a Aldeia).
 
 ## Antes de publicar
 1. **Domínio:** em `tools/build.py` troque `SITE["dominio"]` e rode `python3 tools/build.py`.
@@ -26,7 +28,7 @@ O painel é o do **GoatCounter** (grátis, sem cookies, só você entra com logi
 Os links de saída também levam `utm_source=camilaveloso&utm_medium=linkinbio`, o que mostra a origem no Substack e na loja da editora.
 
 ## Editar e gerar
-Textos das páginas em `tools/paginas/*.html`, configuração em `tools/build.py`, visual em `assets/css/style.css`.
+Textos das páginas em `tools/paginas/*.html`, artigos e configuração em `tools/build.py`, visual em `assets/css/style.css`.
 ```
 python3 tools/build.py        # regenera as páginas
 python3 -m http.server 8000   # prévia em http://localhost:8000

@@ -4,7 +4,7 @@
 Uso:  python3 tools/build.py            (roda na pasta site-camila-veloso/)
 Para trocar o domínio, redes sociais ou links de compra, edite só o bloco SITE.
 """
-import json, pathlib, datetime
+import json, pathlib, datetime, hashlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -18,12 +18,17 @@ SITE = {
     "aldeia": "https://aaldeialiteraria.com.br/",
     # Contagem de visitas e cliques (GoatCounter, grátis e sem cookies). Crie a conta em goatcounter.com,
     # escolha um código (ex.: camilaveloso) e escreva aqui. Vazio = sem medição.
-    "goatcounter": "",
+    "goatcounter": "camilaveloso",
 }
 LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de-amelia-1amj0/"
-PRECO = "59,49"       # preço da pré-venda: tem que bater com o da loja da Editora Fissura
+PRECO = "59,90"       # preço da pré-venda: tem que bater com o da loja da Editora Fissura
 PRECO_DE = "69,99"
 HOJE = datetime.date.today().isoformat()
+
+def _versao(caminho):
+    # muda quando o arquivo muda: evita que o navegador use CSS/JS antigo guardado em cache
+    return hashlib.md5((ROOT / caminho).read_bytes()).hexdigest()[:8]
+
 
 FONTS = ("https://fonts.googleapis.com/css2?family=Shrikhand&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800"
          "&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap")
@@ -36,18 +41,20 @@ def esc(s):
 
 def preencher(html):
     return (html.replace("{{PRECO_INT}}", PRECO.split(",")[0]).replace("{{PRECO_DE}}", PRECO_DE)
-            .replace("{{PRECO}}", PRECO).replace("{{ALDEIA}}", SITE["aldeia"]).replace("{{LINK}}", LINK_EDITORA))
+            .replace("{{PRECO}}", PRECO))
 
 def fragmento(nome):
     return preencher((ROOT / "tools" / "paginas" / f"{nome}.html").read_text(encoding="utf-8"))
 
-def header(atual):
+def header(atual, links=False):
+    aviso = (f'<div class="aviso aviso--camila">Pré-venda com brindes exclusivos + livro autografado por <b>R$ {PRECO}</b>. Últimos dias.</div>' if links else
+             f'<div class="aviso">🎉 Pré-venda: livro <b>autografado</b> + brindes por <b>R$ {PRECO}</b> · últimos dias</div>')
     itens = "".join(
-        f'<a href="{h}"{" class=on aria-current=page" if atual == h else ""}>{t}</a>' for h, t in NAV)
+        f'<a href="{h}"{" class=on aria-current=page" if atual == h else ""}>{t}</a>' for h, t in NAV[1:])
     return f"""<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<div class="aviso">🎉 Pré-venda: livro <b>autografado</b> + brindes por <b>R$ {PRECO}</b> · lançamento em 23 de outubro</div>
+{aviso}
 <header class="topo"><div class="w topo__in">
-  <a class="marca" href="/" aria-label="Camila Veloso, página inicial">camila veloso</a>
+  <a class="marca" href="/" aria-label="Página inicial"{" aria-current=page" if atual == "/" else ""}>Home</a>
   <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
   <nav class="nav" id="nav" aria-label="Principal">{itens}
     <a class="btn" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></nav>
@@ -66,7 +73,7 @@ def footer():
   <nav class="nav" aria-label="Rodapé"><a href="/aldeia/">Aldeia</a><a href="/links/">Links</a><a href="/jogo/">Jogo da Amélia</a>{sociais}</nav>
 </div></footer>
 <div class="fix"><span>O Diário de Amélia · pré-venda <b>R$ {PRECO}</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></div>
-<script src="/assets/js/site.js" defer></script>"""
+<script src="/assets/js/site.js?v={_versao("assets/js/site.js")}" defer></script>"""
 
 def medicao():
     c = SITE["goatcounter"]
@@ -112,12 +119,12 @@ def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={_versao("assets/css/style.css")}">
 <script type="application/ld+json">{jsonld}</script>
 {medicao()}
 </head>
 <body{f' class="{classe}"' if classe else ""}>
-{header(atual or caminho)}
+{header(atual or caminho, "pag-links" in classe and "pag-aldeia" not in classe)}
 <main id="conteudo">
 {corpo}
 </main>
@@ -138,7 +145,7 @@ def migalhas_ld(itens):
 paginas = []
 FAQ = [
     ("O livro vem autografado?", "Sim. Quem compra na pré-venda recebe o livro autografado pela Camila. Ela só vai autografar nesta etapa e não haverá sessão de lançamento."),
-    ("Quais são os brindes?", "Marcador de página duplo, marcador duplo temático, brinde sortido e o Manual de sobrevivência do jovem adulto, exclusivo de quem compra na pré-venda."),
+    ("Quais são os brindes?", "Marcador de página duplo, cartela de adesivos e o Manual de sobrevivência do jovem adulto, um card exclusivo com conteúdo extra, só para quem compra na pré-venda."),
     ("Quando sai O Diário de Amélia?", "A edição impressa, pela Editora Fissura, sai em 23 de outubro de 2026. A pré-venda já está aberta."),
     ("Onde eu compro?", "O livro físico autografado está em pré-venda na loja da Editora Fissura."),
     ("É pra quem?", "Para jovens e adultos que gostam de romance de amadurecimento, autodescoberta, amizade e primeiro amor, com humor e emoção."),
@@ -152,7 +159,7 @@ def com_faq(html):
 
 # ---------------------------------------------------------------- HOME (livro, FAQ e dados do livro para o Google ficam aqui)
 book_ld = [
-    {"@type": "Book", "@id": SITE["dominio"] + "/o-diario-de-amelia/#livro", "name": "O Diário de Amélia",
+    {"@type": "Book", "@id": SITE["dominio"] + "/#livro", "name": "O Diário de Amélia",
      "author": {"@id": SITE["dominio"] + "/#camila"}, "inLanguage": "pt-BR", "genre": ["Romance jovem-adulto", "Romance de amadurecimento"],
      "image": SITE["dominio"] + "/assets/img/og-diario-de-amelia.jpg",
      "description": "Romance sobre Amélia, de dezoito anos, que precisa se libertar das expectativas dos pais e de um ambiente familiar opressor para criar a vida que sempre quis.",
@@ -167,27 +174,20 @@ book_ld = [
     {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
     migalhas_ld([("/", "Início"), ("/o-diario-de-amelia/", "O Diário de Amélia")]),
 ]
+
 home_ld = [{"@type": "WebPage", "@id": SITE["dominio"] + "/#pagina", "url": SITE["dominio"] + "/", "name": "Camila Veloso, escritora",
-         "isPartOf": {"@id": SITE["dominio"] + "/#site"}, "about": {"@id": SITE["dominio"] + "/#camila"}}] + book_ld[:2]
+            "isPartOf": {"@id": SITE["dominio"] + "/#site"}, "about": {"@id": SITE["dominio"] + "/#camila"}}] + book_ld[:2]
 paginas.append(pagina("/", "O Diário de Amélia, romance de Camila Veloso sobre liberdade | Pré-venda autografada",
     f"O Diário de Amélia, de Camila Veloso: romance jovem-adulto sobre liberdade, família opressora e primeiras vezes. 250 páginas, Editora Fissura. Pré-venda por R$ {PRECO}, autografada e com brindes.",
     com_faq(fragmento("home")), ld=home_ld, tipo="book"))
 
-# ---------------------------------------------------------------- ALDEIA
-paginas.append(pagina("/aldeia/", "Aldeia Literária: curso de escrita criado por Camila Veloso",
-    "Conheça a Aldeia Literária, comunidade e curso de escrita para iniciantes fundado por Camila Veloso: aulas ao vivo, feedback individual e mercado editorial por dentro.",
-    fragmento("aldeia"),
-    ld=[migalhas_ld([("/", "Início"), ("/aldeia/", "Aldeia")]),
-        {"@type": "Organization", "name": "Aldeia Literária", "url": SITE["aldeia"], "foundingDate": "2023-11", "founder": {"@id": SITE["dominio"] + "/#camila"}}]))
-
 # ---------------------------------------------------------------- LINKS (bio das redes)
-paginas.append(pagina("/links/", "Links da Camila Veloso", "Pré-venda de O Diário de Amélia, jogo, newsletter, YouTube e Aldeia Literária.",
+paginas.append(pagina("/links/", "Links da Camila Veloso e da Aldeia Literária", "Pré-venda de O Diário de Amélia, newsletter, YouTube, Aldeia Literária e TikTok.",
     fragmento("links"), classe="pag-links", noindex=True))
 
-# ---------------------------------------------------------------- JOGO
-paginas.append(pagina("/jogo/", "Jogue com a Amélia: pegue as ideias e fuja das regras | Camila Veloso",
-    "Um jogo rápido inspirado em O Diário de Amélia, de Camila Veloso: pegue as ideias, desvie das regras e ajude Amélia a ganhar liberdade.",
-    fragmento("jogo"), ld=[migalhas_ld([("/", "Início"), ("/jogo/", "Jogo")])], atual="/links/", classe="pag-jogo"))
+# ---------------------------------------------------------------- ALDEIA LITERÁRIA (links do TikTok)
+paginas.append(pagina("/aldeia/", "Aldeia Literária: site oficial e TikTok", "Links da Aldeia Literária, curso de extensão da Camila Veloso: site oficial e TikTok.",
+    fragmento("aldeia"), classe="pag-links pag-aldeia", og_img="/assets/img/aldeia-literaria-logo.png"))
 
 # ---------------------------------------------------------------- 404
 nf = """<section class="sec"><div class="w" style="text-align:center;max-width:36rem">
@@ -198,7 +198,7 @@ pagina("/404", "Página não encontrada | Camila Veloso", "Página não encontra
 import shutil; shutil.rmtree(ROOT / "404")
 
 # ---------------------------------------------------------------- sitemap + robots
-publicas = [p for p in paginas if p != "/links/"]
+publicas = [p for p in paginas if p != "/links/"] + ["/jogo/"]  # /jogo/ é uma página pronta, fora do gerador
 urls = "".join(f"<url><loc>{SITE['dominio']}{p}</loc><lastmod>{HOJE}</lastmod></url>" for p in publicas)
 (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE['dominio']}/sitemap.xml\n", encoding="utf-8")
