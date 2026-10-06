@@ -240,3 +240,13 @@ details p{padding:0 1.2rem 1.1rem}
 .lkb--j{background:var(--roxo);color:var(--branco)}
 .lkb--j .lkb__i{background:var(--rosa);color:var(--tinta)}
 html{overflow-x:hidden}
+
+/* links: pré-venda é o primeiro e o maior botão */
+.lkb--gg{padding:1.2rem 1.2rem 1.3rem;gap:1.1rem;align-items:center;box-shadow:7px 7px 0 var(--tinta);border-width:4px}
+.lkb--gg img{width:5.6rem}
+.lkb--gg .lkb__t b{font-size:1.55rem;line-height:1.08}
+.lkb--gg .lkb__t small{font-size:.95rem;margin-top:.35rem}
+.lkb__tag{display:inline-block;font-style:normal;font-family:var(--titulo);font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--tinta);color:var(--amarelo);padding:.2rem .6rem;border-radius:2rem;margin-bottom:.5rem}
+.lkb__cta{display:inline-block;margin-top:.8rem;background:var(--vermelho);color:var(--branco);font-family:var(--titulo);font-weight:800;font-size:1.05rem;padding:.55rem 1.2rem;border-radius:3rem;border:3px solid var(--tinta);animation:cta 2s ease-in-out infinite}
+@keyframes cta{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@media(prefers-reduced-motion:reduce){.lkb__cta{animation:none}}
