@@ -12,8 +12,8 @@ Atalho para testar fases: `?fase=3` (começa na fase 3), `&boss` (vai direto ao 
 1. Presa em Casa, **O Porteiro** (2 pisões; sem balões ainda)
 2. Um Emprego Escondido, **O Tesoureiro** (libera os balões de opinião, tecla X)
 3. Ronda da Noite (furtiva), **O Vigia**
-4. Antes do Beijo (correr antes que o Lucca beije a Michelle), **O Ciúme**
-5. Um Beijo, Por Favor, **As Expectativas**, com final em cliffhanger e botão para o livro
+4. Antes do Beijo (correr antes que o Lucca beije a Michelle), **O Medo** (a sombra da própria Amélia)
+5. Mesa para Dois (restaurante onde Lucca e Michelle estão), **O Fiscal da Seita**, com final em cliffhanger e botão para o livro
 
 ## Personalizar
 No topo do `<script>` do `index.html`: `CFG.BOOK_URL` (link de compra), `CFG.SHARE_TEXT` e o array `LEVELS` (nomes, textos do diário, chefões).
