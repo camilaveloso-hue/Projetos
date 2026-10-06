@@ -48,6 +48,30 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
 #over h2,#clear h2,#end h2{font-size:clamp(34px,7vw,84px);color:var(--yellow);text-shadow:3px 3px 0 var(--red)}
 #clear p{max-width:70%}#over p,#clear p,#end p,#select p{font-size:clamp(15px,2.8vw,30px);margin:.2em 0 .6em}
 #end{background:radial-gradient(ellipse at 50% 45%,#5a0a14 0,#14040a 70%,#050102 100%);flex-direction:row;gap:3%}
+#cliff{background:radial-gradient(ellipse at 40% 50%,#2a0a18 0,#0a0306 70%);flex-direction:row;gap:5%}
+.phone{width:min(34%,330px);height:88%;background:#150c1c;border:5px solid #000;border-radius:30px;box-shadow:0 0 0 3px #3a2a48,0 14px 0 rgba(0,0,0,.5);display:flex;flex-direction:column;overflow:hidden;position:relative;text-align:left}
+.phone.buzz{animation:buzz .08s linear 14}
+@keyframes buzz{0%{transform:translateX(-5px) rotate(-1deg)}50%{transform:translateX(5px) rotate(1deg)}100%{transform:translateX(-5px)}}
+.ph-top{background:#23162e;padding:.5em .8em;font-size:clamp(14px,2.4vw,22px);font-family:'Caveat Brush',cursive;color:var(--cream);border-bottom:2px solid #000}
+.ph-top::before{content:'● ';color:#43c94a}
+.ph-chat{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:.5em;gap:.3em;overflow:hidden}
+.b{max-width:80%;padding:.35em .75em;border-radius:16px;font-size:clamp(13px,2.3vw,21px);line-height:1.15;animation:pop .25s ease-out}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.b.l{background:#2e2238;color:var(--cream);align-self:flex-start;border-bottom-left-radius:4px}
+.b.r{background:var(--pink);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.b.typing{display:flex;gap:4px;padding:.55em .8em}.b.typing i{width:8px;height:8px;border-radius:50%;background:#9a88a8;animation:dot 1s infinite}.b.typing i:nth-child(2){animation-delay:.15s}.b.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+.ph-actions{display:flex;gap:6px;padding:.5em;flex-wrap:wrap;justify-content:center}
+.ph-actions .btn{font-size:clamp(13px,2.2vw,20px);margin:.1em}
+.notif{position:absolute;left:6px;right:6px;top:36px;background:#ed212b;color:#fff;border:2px solid #000;border-radius:12px;padding:.4em .6em;font-size:clamp(13px,2.2vw,20px);animation:pop .3s ease-out;box-shadow:0 6px 0 rgba(0,0,0,.4)}
+.cliff-note{max-width:40%;font-family:'Caveat Brush',cursive;font-size:clamp(24px,5vw,56px);color:var(--yellow);text-shadow:3px 3px 0 var(--red);line-height:1.05;min-height:5em;display:flex;align-items:center}
+.promo{border:3px dashed var(--yellow);border-radius:12px;padding:.3em .7em;margin:.2em auto .5em;font-size:clamp(11px,min(2.2vw,4vh),22px);background:rgba(255,242,26,.1);max-width:92%}
+.promo b{color:var(--yellow);font-weight:400;font-family:'Caveat Brush',cursive;font-size:1.15em}
+#end .txt{display:flex;flex-direction:column;align-items:center;justify-content:center;max-height:98%}
+#end h2{font-size:clamp(20px,min(4.6vw,8.5vh),50px)}
+#end .txt>p{font-size:clamp(11px,min(2.1vw,3.9vh),21px);margin:.1em 0 .35em;line-height:1.15}
+#end .btn{font-size:clamp(13px,min(2.7vw,5vh),27px);padding:.15em .7em;margin:.15em}
+#end .btn.small{font-size:clamp(11px,min(2vw,3.6vh),19px)}
 #end img{height:82%;border-radius:8px;transform:rotate(2deg);box-shadow:0 10px 0 rgba(43,15,58,.5)}
 #end .txt{max-width:48%}
 #select{background:rgba(43,15,58,.92)}
@@ -94,13 +118,19 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
   <section class="panel" id="story"><div class="paper"><h2 id="stT"></h2><div class="sub" id="stS"></div><p id="stP"></p><div class="row"><button class="btn small" id="bStory">Continuar ▶</button></div></div></section>
   
   <section class="panel" id="over"><h2 id="ovH">Ops! Pegaram a Amélia</h2><p id="ovP">Respira fundo, anota no diário e tenta de novo.</p><button class="btn" id="bRetry">Tentar de novo</button><button class="btn alt small" id="bMenu1">Menu</button></section>
-  <section class="panel" id="clear"><h2>Fase concluída!</h2><p id="clP"></p><button class="btn" id="bNext">Próxima fase ▶</button></section>
+  <section class="panel" id="clear"><h2 id="clH">Fase concluída!</h2><p id="clP"></p><button class="btn" id="bNext">Próxima fase ▶</button></section>
+  <section class="panel" id="cliff">
+    <div class="phone" id="phone"><div class="ph-top">Lucca</div><div class="ph-chat" id="chat"></div><div class="ph-actions" id="chatBtns"></div></div>
+    <div class="cliff-note"><div id="cliffNote"></div></div>
+    <button class="btn small alt" id="bSkip" style="position:absolute;right:2%;bottom:3%">Pular ▶</button>
+  </section>
   <section class="panel" id="end">
     <img src="assets/capa.png" alt="Capa do livro">
     <div class="txt"><h2>E agora?</h2>
-      <p>Amélia chegou a tempo de impedir o beijo, mas ela ainda é da seita.<br>Se o Lucca chamar a Amélia para sair, ela consegue ir? Eles conseguem ter um relacionamento?<br><b>Para descobrir, leia O Diário de Amélia.</b></p>
-      <p id="endStats" style="font-size:clamp(12px,2vw,22px)"></p>
-      <a class="btn" id="bBook2" target="_blank" rel="noopener">📖 Quero ler O Diário de Amélia</a><br>
+      <p>Amélia chegou a tempo de impedir o beijo, mas ela ainda é da seita. O Lucca vai chamá-la para sair? Ela consegue ir? Eles conseguem ter um relacionamento?<br><b>Só o livro responde.</b></p>
+      <div class="promo" id="promo"><b>📚 Livro em promoção e AUTOGRAFADO</b><br>só nas compras feitas até <b>23 de outubro</b><span id="promoDays"></span></div>
+      <p id="endStats" style="font-size:clamp(11px,1.8vw,18px);margin:.1em"></p>
+      <a class="btn" id="bBook2" target="_blank" rel="noopener">📖 Quero meu exemplar autografado</a><br>
       <button class="btn alt small" id="bShare">Compartilhar o jogo</button><button class="btn alt small" id="bMenu2">Jogar de novo</button></div>
   </section>
 </div>
@@ -116,6 +146,7 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
 'use strict';
 /* ================= CONFIGURAÇÃO (edite aqui) ================= */
 const CFG={
+  PROMO_DAY:23,PROMO_MONTH:9, // promoção + autógrafo até 23/10 (mês começa em 0)
   BOOK_URL:'https://www.editorafissura.com.br/',   // link para comprar o livro
   SHARE_TEXT:'Ajude a Amélia a fugir da seita e beijar o crush! Jogue o jogo de "O Diário de Amélia", livro de Camila Veloso:',
 };
@@ -201,10 +232,10 @@ function playAmb(n,t){
   if(s===4||s===12){const ln=LEADN[(n>>2)%8];toneAt(root*16*Math.pow(2,ln/12),root*16*Math.pow(2,ln/12),t,1.8,'sine',.025)}
 }
 function sched(){
-  if(!AC||muted||(state!=='play'&&state!=='story')){mst.next=0;return}
+  if(!AC||muted||(state!=='play'&&state!=='story'&&state!=='cliff')){mst.next=0;return}
   const now=AC.currentTime;if(mst.next<now)mst.next=now+.05;
   const b=state==='play'&&G&&G.boss,intense=state==='play'&&G&&(!!(b&&b.alive)||G.time<30);
-  const amb=state==='story',bpm=amb?80:(intense?166:134),sd=60/bpm/4;
+  const amb=state==='story'||state==='cliff',bpm=amb?80:(intense?166:134),sd=60/bpm/4;
   while(mst.next<now+.12){if(amb)playAmb(mst.step++,mst.next);else playStep(mst.step++,mst.next,intense,sd);mst.next+=sd}
 }
 function music(on){if(on){if(musicOn)return;musicOn=true;mst.step=0;mst.next=0;mTimer=setInterval(sched,25)}else{musicOn=false;clearInterval(mTimer)}}
@@ -459,7 +490,7 @@ function updateShots(dt){
   for(const s of G.shots){s.x+=s.vx*dt;s.life-=dt;
     for(const e of G.L.enemies)if(!e.dead&&Math.abs(s.x-(e.x+e.w/2))<e.w/2+14&&Math.abs(s.y-(e.y+e.h/2))<e.h/2+14){e.dead=.01;s.life=0;SFX.stomp();addScore(50);spawnParts(e.x+e.w/2,e.y+e.h/2,10,[COL.yellow,COL.pink,COL.red]);floatText(e.x,e.y-10,'+50')}
     const b=G.boss;
-    if(b&&b.alive&&!b.invuln()&&s.x>b.x-12&&s.x<b.x+b.w+12&&s.y>b.y-12&&s.y<b.y+b.h+12&&s.life>0){s.life=0;bossHit(b,b.shotDmg||2)}
+    if(b&&b.alive&&!b.invuln()&&s.x>b.x-12&&s.x<b.x+b.w+12&&s.y>b.y-12&&s.y<b.y+b.h+12&&s.life>0){s.life=0;const dmg=Math.min(b.shotDmg||2,b.hp-(b.shotFloor||0));if(dmg>0)bossHit(b,dmg);else{floatText(b.x+b.w/2-60,b.y-24,'Pule na cabeça dele!',COL.cream);b.flash=.1}}
     for(const so of G.L.solids)if(s.x>so.x&&s.x<so.x+so.w&&s.y>so.y&&s.y<so.y+so.h)s.life=0;
   }
   G.shots=G.shots.filter(s=>s.life>0);
@@ -508,6 +539,7 @@ function updateWorld(dt){
 }
 function levelClear(){
   state='clear';SFX.win();music(false);$('hudbtn').style.display='none';
+  const pen=G.lvl===LEVELS.length-2;$('clH').textContent=pen?'Quase lá!':'Fase concluída!';$('bNext').textContent=pen?'Última fase ▶':'Próxima fase ▶';
   addScore(Math.floor(G.time)*5);
   $('clP').textContent=G.cfg.after||'';
   if(G.lvl===0)$('clP').textContent+='\n\nNova habilidade: soltar opiniões (tecla X)!';$('clP').style.whiteSpace='pre-line';
@@ -524,7 +556,7 @@ function makeBoss(k,ax){
     case'gerente':return Object.assign(base,{name:'O Tesoureiro',hp:6,max:6,w:78,h:124,x:ax+700,y:GY-124,mode:'idle',mt:2.2,dashV:0});
     case'vigia':return Object.assign(base,{name:'O Vigia',hp:6,max:6,w:74,h:124,x:ax+740,y:GY-124,mode:'walk',mt:5,beamA:0,sweepT:0,hidesAdded:false,v:55});
     case'lider':return Object.assign(base,{name:'O Líder da Seita',hp:14,max:14,w:96,h:130,x:arenaMid-48,y:GY-330,mode:'float',mt:4,beams:[],fl:0,vuln:false,spawned:0});
-    case'medo':return Object.assign(base,{name:'O Medo',hp:6,max:6,w:96,h:160,x:ax+720,y:GY-160,mode:'rest',mt:1.6,vx:0,vy:0,sq:0,stompDmg:2,shotDmg:3});
+    case'medo':return Object.assign(base,{name:'O Medo',hp:6,max:6,w:96,h:160,x:ax+720,y:GY-160,mode:'rest',mt:1.6,vx:0,vy:0,sq:0,stompDmg:2,shotDmg:2,shotFloor:2});
     case'fiscal':return Object.assign(base,{name:'O Fiscal da Seita',hp:8,max:8,w:84,h:128,x:ax+700,y:GY-128,mode:'guard',mt:4,dashV:0,stompDmg:2});
     case'expect':return Object.assign(base,{name:'As Expectativas',hp:20,max:20,w:120,h:210,x:ax+720,y:GY-210,mode:'rest',mt:1.5,beams:[],att:0});
   }
@@ -677,10 +709,35 @@ function updateCut(dt){
   else{G.cut.auto=false;P.vx=0;
     if(!G.kissed){G.kissed=true;G.kissT=0;SFX.win();for(let i=0;i<30;i++)spawnParts(c.x,c.y+30,1,[COL.red,COL.pink,COL.yellow],260)}
     G.kissT+=dt;
-    if(G.kissT>4&&state==='play'){showEnd()}}
+    if(G.kissT>4&&state==='play'){showCliff()}}
 }
+let cliffRun=0;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function showCliff(){
+  state='cliff';$('hudbtn').style.display='none';show('cliff');
+  const id=++cliffRun,chat=$('chat'),btns=$('chatBtns'),note=$('cliffNote'),phone=$('phone');
+  chat.innerHTML='';btns.innerHTML='';note.textContent='';phone.querySelectorAll('.notif').forEach(n=>n.remove());
+  const alive=()=>id===cliffRun&&state==='cliff';
+  const bubble=(cls,txt)=>{const d=document.createElement('div');d.className='b '+cls;if(txt)d.textContent=txt;chat.appendChild(d);return d};
+  const typing=()=>{const d=bubble('l typing');d.innerHTML='<i></i><i></i><i></i>';return d};
+  const sayL=async(txt,wait)=>{const t=typing();await sleep(wait);if(!alive())return false;t.remove();bubble('l',txt);tone(900,1300,.12,'triangle',.08);return true};
+  await sleep(700);if(!alive())return;
+  for(const [x,w] of [['Amélia?!',900],['Você veio até aqui…',1200],['Eu queria te perguntar uma coisa.',1400],['Você topa sair comigo?',1600]]){if(!await sayL(x,w))return}
+  const choice=await new Promise(res=>{for(const t of ['Topo! ❤','Preciso pensar…']){const b=document.createElement('button');b.className='btn small';b.textContent=t;b.onclick=()=>{audio();res(t)};btns.appendChild(b)}});
+  if(!alive())return;btns.innerHTML='';bubble('r',choice);
+  await sleep(900);if(!alive())return;
+  typing();                       // Lucca está digitando... e nunca termina
+  await sleep(2300);if(!alive())return;
+  const n=document.createElement('div');n.className='notif';n.innerHTML='📞 <b>Mãe</b><br>14 ligações perdidas';phone.appendChild(n);phone.classList.add('buzz');SFX.alarm();
+  await sleep(1300);phone.classList.remove('buzz');if(!alive())return;
+  for(const t of ['Ela foi convidada para sair.','Mas a seita sabe onde ela está.','Será que ela consegue ir?']){note.textContent=t;await sleep(2300);if(!alive())return}
+  showEnd();
+}
+$('bSkip').onclick=()=>{audio();cliffRun++;showEnd()};
 function showEnd(){
-  state='end';music(false);$('hudbtn').style.display='none';
+  state='end';music(false);$('hudbtn').style.display='none';cliffRun++;
+  {const d=new Date(),y=d.getFullYear(),end=new Date(y,CFG.PROMO_MONTH,CFG.PROMO_DAY,23,59,59),left=Math.ceil((end-d)/864e5);
+   if(left<0)$('promo').style.display='none';else $('promoDays').textContent=left<=1?' (último dia!)':' (faltam '+left+' dias)'}
   $('endStats').textContent='Você coletou '+stat.pages+' de '+(LEVELS.reduce((q,l)=>q+(l.pages||3),0))+' páginas do diário e fez '+stat.score+' pontos!';
   try{localStorage.setItem('amelia_lvl',0)}catch(e){}
   show('end');
@@ -765,18 +822,22 @@ function drawRestaurant(){
   for(let i=0;i<9;i++){ctx.fillStyle=i%2?'#fde4cf':'#8a1a2c';ctx.fillRect(x0-10+i*62,y0+66,62,24)}
   ctx.save();ctx.shadowColor='#ff2bb4';ctx.shadowBlur=18;ctx.fillStyle='#ff7ad8';ctx.font='44px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('Restaurante',x0+w/2,y0+50);ctx.restore();
   const wx=x0+24,wy=y0+108,ww=320,wh=164;
-  const g=ctx.createLinearGradient(0,wy,0,wy+wh);g.addColorStop(0,'#5a2a14');g.addColorStop(1,'#8a4a22');ctx.fillStyle=g;ctx.fillRect(wx,wy,ww,wh);
-  const lean=clamp(1-G.time/G.cfg.time,0,1),ty=wy+wh-30,tcx=wx+ww/2;
-  // Lucca
-  if(IMG.crush.width){ctx.save();ctx.translate(tcx-70+lean*44,ty+6);ctx.scale(-1,1);ctx.drawImage(IMG.crush,0,0,85,110,-34,-84,68,88);ctx.restore()}
-  // Michelle
-  {const mx=tcx+70-lean*44,my=ty+6;ctx.save();ctx.translate(mx,my);ctx.fillStyle='#2b1030';ctx.beginPath();ctx.ellipse(0,-62,19,22,0,0,6.3);ctx.fill();ctx.fillRect(-19,-62,38,40);
-   ctx.fillStyle='#5ccdc4';rr(-18,-44,36,46,10);ctx.fill();ctx.fillStyle='#c47a4a';ctx.beginPath();ctx.arc(0,-60,13,0,6.3);ctx.fill();
-   ctx.fillStyle='#2b1030';ctx.beginPath();ctx.arc(0,-66,14,Math.PI,6.283);ctx.fill();ctx.fillStyle=COL.purple;ctx.beginPath();ctx.arc(-4,-60,1.8,0,6.3);ctx.arc(4,-60,1.8,0,6.3);ctx.fill();
-   ctx.strokeStyle=COL.red;ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,-55,4,.2,2.9);ctx.stroke();ctx.restore()}
-  ctx.fillStyle='#2a1008';ctx.fillRect(tcx-70,ty,140,8);ctx.fillStyle='#8a1a2c';ctx.fillRect(tcx-70,ty+8,140,26);
-  ctx.fillStyle='#ffe27a';ctx.beginPath();ctx.ellipse(tcx,ty-8,4,8+Math.sin(G.t*9),0,0,6.3);ctx.fill();
-  if(lean>.35){const hy=wy+30-Math.sin(G.t*3)*5;ctx.globalAlpha=Math.min(1,lean*1.3);ctx.drawImage(IMG.heart,tcx-12,hy,26,28);ctx.globalAlpha=1}
+  const g=ctx.createLinearGradient(0,wy,0,wy+wh);g.addColorStop(0,'#d99a48');g.addColorStop(1,'#a85a26');ctx.fillStyle=g;ctx.fillRect(wx,wy,ww,wh);
+  const lean=clamp(1-G.time/G.cfg.time,0,1),cx=wx+ww/2,gap=66-lean*54,hy=wy+wh-66;
+  ctx.save();ctx.beginPath();ctx.rect(wx,wy,ww,wh);ctx.clip();ctx.filter='blur(1.2px)';ctx.fillStyle='#14060c';
+  // Lucca (cabelo cacheado)
+  ctx.save();ctx.translate(cx-gap-6,hy+24);ctx.rotate(lean*.28);
+  ctx.beginPath();ctx.arc(0,-24,15,0,6.3);ctx.fill();for(let i=0;i<7;i++){const an=Math.PI*(1.05+i*.15);ctx.beginPath();ctx.arc(Math.cos(an)*14,-24+Math.sin(an)*14,7,0,6.3);ctx.fill()}
+  ctx.beginPath();ctx.moveTo(13,-27);ctx.lineTo(21,-21);ctx.lineTo(13,-18);ctx.fill();ctx.fillRect(-6,-12,12,16);rr(-34,0,68,120,16);ctx.fill();ctx.restore();
+  // Michelle (cabelo longo)
+  ctx.save();ctx.translate(cx+gap+6,hy+24);ctx.rotate(-lean*.28);
+  ctx.beginPath();ctx.arc(0,-24,15,0,6.3);ctx.fill();ctx.beginPath();ctx.ellipse(6,-14,21,32,0,0,6.3);ctx.fill();
+  ctx.beginPath();ctx.moveTo(-13,-27);ctx.lineTo(-21,-21);ctx.lineTo(-13,-18);ctx.fill();ctx.fillRect(-6,-12,12,16);rr(-32,0,64,120,16);ctx.fill();ctx.restore();
+  ctx.restore();
+  // cortina translúcida
+  ctx.fillStyle='rgba(253,228,207,.32)';ctx.fillRect(wx,wy,ww,wh);
+  for(let i=0;i<ww;i+=16){ctx.fillStyle=(i/16)%2?'rgba(90,40,20,.16)':'rgba(255,240,220,.14)';ctx.fillRect(wx+i,wy,16,wh)}
+  ctx.fillStyle='rgba(70,20,10,.55)';ctx.fillRect(wx,wy,ww,7);
   ctx.strokeStyle='#000';ctx.lineWidth=5;ctx.strokeRect(wx,wy,ww,wh);ctx.beginPath();ctx.moveTo(wx+ww/2,wy);ctx.lineTo(wx+ww/2,wy+wh);ctx.stroke();
   // porta
   const dx=x0+380;ctx.fillStyle='#2a1008';ctx.fillRect(dx,GY-200,110,200);ctx.strokeRect(dx,GY-200,110,200);ctx.fillStyle='#ffe27a';ctx.beginPath();ctx.arc(dx+92,GY-100,6,0,6.3);ctx.fill();
