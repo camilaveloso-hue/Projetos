@@ -13,9 +13,9 @@
 <style>
 :root{--red:#ed212b;--lime:#e4ec14;--yellow:#fff21a;--pink:#e955b4;--purple:#4f1f5f;--cream:#fde4cf;--dark:#2b0f3a}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;touch-action:none}
-html,body{margin:0;height:100%;background:var(--dark);overflow:hidden;font-family:'Patrick Hand','Comic Sans MS',cursive;color:var(--cream)}
+html,body{margin:0;height:100%;background:#050205;overflow:hidden;font-family:'Patrick Hand','Comic Sans MS',cursive;color:var(--cream)}
 #wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-#stage{position:relative;aspect-ratio:16/9;width:min(100vw,calc(100vh*16/9));max-height:100vh;background:var(--red);overflow:hidden}
+#stage{position:relative;aspect-ratio:16/9;width:min(100vw,calc(100vh*16/9));max-height:100vh;background:#0a0204;overflow:hidden}
 canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 #ui{position:absolute;inset:0}
 .panel{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:2%}
@@ -25,24 +25,24 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
 .btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--purple)}
 .btn.alt{background:var(--pink);color:#fff}
 .btn.small{font-size:clamp(14px,2.4vw,24px)}
-#title{background:radial-gradient(circle at 70% 40%,rgba(255,242,26,.35) 0 14%,transparent 15%),var(--red);flex-direction:row;gap:4%}
+#title{background:radial-gradient(circle at 72% 42%,rgba(237,33,43,.28) 0 16%,transparent 17%),radial-gradient(ellipse at 50% 45%,#5a0a14 0,#14040a 62%,#050102 100%);flex-direction:row;gap:4%}
 #title .cover{height:92%;border-radius:8px;box-shadow:0 10px 0 rgba(43,15,58,.5);transform:rotate(-2deg)}
 #title .txt{max-width:46%}
 #title h1{font-size:clamp(30px,7vw,84px);line-height:.9;color:var(--cream);text-shadow:3px 3px 0 var(--purple)}
 #title h1 b{color:var(--yellow);display:block;font-size:1.25em;font-weight:400}
 #title p{font-size:clamp(14px,2.3vw,26px);margin:.4em 0 .6em;line-height:1.15}
 .tag{display:inline-block;background:var(--purple);color:var(--yellow);padding:.1em .6em;border-radius:20px;font-size:clamp(12px,1.9vw,20px);margin-bottom:.4em}
-#story{background:rgba(43,15,58,.82)}
+#story{background:rgba(3,1,5,.9)}#tip{background:rgba(0,0,0,.55)}
 .paper{position:relative;width:min(78%,760px);background:repeating-linear-gradient(transparent 0 31px,#e6a99b 31px 32px),var(--cream);color:var(--purple);border-radius:6px;padding:3% 5% 3% 6%;box-shadow:0 12px 0 rgba(0,0,0,.35);transform:rotate(-1deg);text-align:left;border-left:6px double #e55;}
 .paper::before{content:"";position:absolute;left:42%;top:-16px;width:90px;height:30px;background:rgba(255,242,26,.85);transform:rotate(3deg)}
 .paper h2{font-size:clamp(22px,4.4vw,48px);color:var(--red)}
 .paper .sub{font-size:clamp(14px,2.2vw,24px);color:var(--pink);margin:0 0 .3em}
 .paper p{font-size:clamp(15px,2.7vw,30px);line-height:1.2;margin:.2em 0;min-height:4.8em}
 .paper .row{text-align:right}
-#over,#clear{background:rgba(43,15,58,.86)}
+#over,#clear{background:rgba(5,1,6,.9)}
 #over h2,#clear h2,#end h2{font-size:clamp(34px,7vw,84px);color:var(--yellow);text-shadow:3px 3px 0 var(--red)}
 #over p,#clear p,#end p,#select p{font-size:clamp(15px,2.8vw,30px);margin:.2em 0 .6em}
-#end{background:var(--red);flex-direction:row;gap:3%}
+#end{background:radial-gradient(ellipse at 50% 45%,#5a0a14 0,#14040a 70%,#050102 100%);flex-direction:row;gap:3%}
 #end img{height:82%;border-radius:8px;transform:rotate(2deg);box-shadow:0 10px 0 rgba(43,15,58,.5)}
 #end .txt{max-width:48%}
 #select{background:rgba(43,15,58,.92)}
@@ -71,7 +71,7 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
     <div class="txt">
       <span class="tag">um jogo inspirado no livro de Camila Veloso</span>
       <h1>O Diário de <b>Amélia</b></h1>
-      <p>Fugir da seita, arrumar um emprego, driblar os pais e chegar até o garoto que ela gosta. Dá pra beijar na boca antes do fim do culto?</p>
+      <p>Amélia está presa na seita e o garoto que ela gosta está marcando de sair com outra pessoa. Ajude-a a escapar antes que decidam que ela não pode mais estudar. O relógio já está correndo.</p>
       <button class="btn" id="bPlay">▶ Jogar</button><button class="btn alt" id="bCont" style="display:none">Continuar</button><br>
       <button class="btn small alt" id="bSel">Fases</button>
       <a class="btn small alt" id="bBook" target="_blank" rel="noopener">📖 O livro</a>
@@ -82,14 +82,15 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
     <h2 style="font-size:clamp(30px,6vw,64px);color:var(--yellow)">Como jogar</h2>
     <p style="font-size:clamp(14px,2.6vw,28px);max-width:80%;line-height:1.3">
       <b>← → / A D</b> andar · <b>↑ / W / Espaço</b> pular (segure para pular mais alto)<br>
-      <b>X / J</b> soltar um <b>balão de opinião</b> (derrota inimigos e chefões)<br>
+      <b>X / J</b> (ou 💬) soltar um <b>balão de opinião</b>: derrota inimigos e chefões · <b>pular na cabeça</b> deles também funciona<br>⏳ Fique de olho no <b>relógio da seita</b>: páginas do diário dão tempo extra!<br>
       <b>↓ / S</b> agachar · atrás de móveis e bancos, <b>↓</b> faz a Amélia se esconder<br>
       Pule na cabeça dos inimigos · Fuja do foco de luz de quem vigia · <b>P</b> pausa · <b>M</b> som</p>
     <button class="btn" id="bHowOk">Entendi!</button>
   </section>
   <section class="panel" id="select"><h2 style="font-size:clamp(30px,6vw,64px);color:var(--yellow)">Escolha a fase</h2><div class="grid" id="grid"></div><button class="btn small" id="bSelBack">Voltar</button></section>
   <section class="panel" id="story"><div class="paper"><h2 id="stT"></h2><div class="sub" id="stS"></div><p id="stP"></p><div class="row"><button class="btn small" id="bStory">Continuar ▶</button></div></div></section>
-  <section class="panel" id="over"><h2>Ops! Pegaram a Amélia</h2><p id="ovP">Respira fundo, anota no diário e tenta de novo.</p><button class="btn" id="bRetry">Tentar de novo</button><button class="btn alt small" id="bMenu1">Menu</button></section>
+  <section class="panel" id="tip"><div class="paper" style="width:min(72%,640px)"><h2>Página do diário</h2><div class="sub">uma dica para ajudar Amélia</div><p id="tipP"></p><div class="row"><button class="btn small" id="bTip">Entendi ▶</button></div></div></section>
+  <section class="panel" id="over"><h2 id="ovH">Ops! Pegaram a Amélia</h2><p id="ovP">Respira fundo, anota no diário e tenta de novo.</p><button class="btn" id="bRetry">Tentar de novo</button><button class="btn alt small" id="bMenu1">Menu</button></section>
   <section class="panel" id="clear"><h2>Fase concluída!</h2><p id="clP"></p><button class="btn" id="bNext">Próxima fase ▶</button></section>
   <section class="panel" id="end">
     <img src="assets/capa.png" alt="Capa do livro">
@@ -116,30 +117,42 @@ const CFG={
   SHARE_TEXT:'Ajude a Amélia a fugir da seita e beijar o crush! Jogue o jogo de "O Diário de Amélia", livro de Camila Veloso:',
 };
 const LEVELS=[
- {name:'A Comunidade',sub:'Domingo de manhã',seed:11,len:4000,eGap:520,weights:{flat:4,gap:2,stairs:2,bridge:1},theme:'com',en:['person'],boss:'irma',bossName:'Irmã Prudência',bossSub:'Guardiã dos Bons Costumes',
-  story:['Querido diário,','Hoje o culto foi longo e os cochichos, mais ainda. Todo mundo tem uma opinião sobre a minha opinião. Então vou soltar as minhas em balões, bem alto. (Aperte X!)','Agora é só passar pela comunidade inteira sem ficar de castigo.'],
-  pal:{sky1:'#f3f15a',sky2:'#e4ec14',wave:'#cfe30f',ground:'#4f1f5f',top:'#fde4cf',plat:'#fff21a'}},
- {name:'Currículo na Mão',sub:'Preciso do meu próprio dinheiro',seed:23,len:4400,eGap:440,weights:{flat:3,gap:2,stairs:2,bridge:2,air:1,lift:1},theme:'job',en:['person','paper'],boss:'gerente',bossName:'O Gerente',bossSub:'Reunião marcada para ontem',
-  story:['Querido diário,','Quem tem o próprio dinheiro decide mais coisas. Decidi que preciso de um emprego. Só preciso sobreviver à entrevista… e ao gerente, que parece ter sido fabricado dentro da sala de reunião.','Currículos voam, estagiários cansados andam pelos corredores. Vamos lá!'],
-  pal:{sky1:'#ffb3dd',sky2:'#e955b4',wave:'#d946a6',ground:'#4f1f5f',top:'#fff21a',plat:'#fde4cf'}},
- {name:'Janela do Quarto',sub:'Fugir sem que os pais vejam',seed:37,len:4400,eGap:520,weights:{flat:2,gap:1,stairs:1,bridge:1,hide:4},theme:'casa',stealth:true,en:['cat','person'],boss:'pais',bossName:'Mãe Radar & Pai Lanterna',bossSub:'Eles sempre sabem de tudo',
-  story:['Querido diário,','Hoje é a noite. Meus pais acham que eu estou dormindo. A casa está escura, o corredor é comprido e a lanterna do meu pai varre tudo.','Se a luz me pegar, volto pra cama. Escondo atrás dos móveis (aperte ↓) e espero a luz passar.'],
-  pal:{sky1:'#3a1650',sky2:'#2b0f3a',wave:'#4a1d63',ground:'#1b0a26',top:'#e955b4',plat:'#e955b4'}},
- {name:'Os Olhos do Líder',sub:'Fugir sem que o líder veja',seed:51,len:4800,eGap:480,weights:{flat:2,gap:2,stairs:1,bridge:1,hide:4,air:1},theme:'templo',stealth:true,en:['person','eye'],boss:'lider',bossName:'O Líder da Seita',bossSub:'Ele vê tudo (ou quase)',
-  story:['Querido diário,','O líder enxerga tudo. É o que dizem. Mas até o olho mais atento pisca, e é nessa hora que eu passo.','O templo está cheio de fiéis, olhos vigilantes e bancos de madeira muito úteis pra se esconder.'],
-  pal:{sky1:'#ff6a6f',sky2:'#c91622',wave:'#a8101b',ground:'#4f1f5f',top:'#fff21a',plat:'#fff21a'}},
- {name:'A Saída do Crush',sub:'Ele chamou a minha amiga pra sair',seed:67,len:5000,eGap:420,weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2},theme:'festa',en:['person','spark'],boss:'ciume',bossName:'O Ciúme',bossSub:'Verde, grande e muito dramático',
-  story:['Querido diário,','Ele chamou a minha AMIGA pra sair. A amiga que me ajuda com tudo. Eu não vou ficar quieta! Respiro, conto até dez e… corro até lá.','Só que o ciúme resolveu me acompanhar. E ele é bem maior do que eu esperava.'],
-  pal:{sky1:'#8bd9d2',sky2:'#5ccdc4',wave:'#46b8b0',ground:'#4f1f5f',top:'#e955b4',plat:'#fff21a'}},
- {name:'Um Beijo, Por Favor',sub:'A última corrida',seed:83,len:5600,eGap:380,weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2,hide:2},theme:'final',stealth:true,en:['person','cat','paper','eye','spark'],boss:'expect',bossName:'As Expectativas',bossSub:'Todo mundo esperava algo da Amélia',
-  story:['Querido diário,','Depois de tanta fuga, só falta uma coisa entre mim e ele: o peso de todo mundo esperar que eu seja quem nunca fui.','Respira, Amélia. Hoje a gente se arrisca.'],
-  pal:{sky1:'#fff21a',sky2:'#ffb200',wave:'#ff8a00',ground:'#4f1f5f',top:'#ed212b',plat:'#e955b4'}},
+ {name:'Presa em Casa',sub:'Sem dinheiro, sem saída',seed:11,len:3800,eGap:560,time:200,weights:{flat:4,gap:2,stairs:2,bridge:1},theme:'com',en:['person'],boss:'irma',bossName:'Irmã Prudência',bossSub:'Guardiã dos Bons Costumes',
+  story:['Hoje quem escreve no diário é você, que veio ajudar.','Amélia está presa em casa, dentro da seita. Do outro lado da cidade, o garoto de cabelo encaracolado e sorriso radiante está marcando de sair com outra pessoa.','Se ela não escapar logo, a seita vai decidir que ela não pode mais estudar. Ajude Amélia a fugir antes que o relógio acabe! (← → andar · ↑ pular · X soltar opiniões)'],
+  tips:['Aperte X (ou o botão 💬) para soltar uma opinião. Balões de fala derrubam inimigos e chefões.','Pular na cabeça de inimigos funciona, e na da Irmã Prudência também! Cada pisão vale dois golpes.','Os "blás" baixos da Irmã você pula; os altos, você passa agachando com ↓. Ela cansa: continue atirando.'],
+  pal:{sky1:'#0d050c',sky2:'#3b0e1a',wave:'#26091a',ground:'#07030a',top:'#ed212b',plat:'#8a1a2c',moon:'rgba(237,33,43,.55)'}},
+ {name:'Um Emprego Escondido',sub:'Se perguntarem, é mentira',seed:23,len:4200,eGap:460,time:230,weights:{flat:3,gap:2,stairs:2,bridge:2,air:1,lift:1},theme:'job',en:['person','paper'],boss:'gerente',bossName:'O Gerente',bossSub:'Reunião marcada para ontem',
+  story:['Sem dinheiro, Amélia não vai a lugar nenhum. A família jura que ela nunca arrumaria um emprego. (Se você perguntar, ela vai dizer que isso é mentira.)','O relógio da seita continua correndo. Guie Amélia pelo centro da cidade, colete os corações e escape do gerente que só pensa em reunião.','Ela está contando com você.'],
+  tips:['Cada página do diário dá +15 segundos no relógio. Vale a pena subir nas plataformas!','Papéis URGENTES caem do teto. A sombra vermelha no chão mostra onde vão cair.','O Gerente avisa o ataque com um "!". Saia da frente e acerte ele quando parar tonto.'],
+  pal:{sky1:'#07071a',sky2:'#2a0f3f',wave:'#1a0c30',ground:'#06040c',top:'#e955b4',plat:'#5a2f80',moon:'rgba(233,85,180,.4)'}},
+ {name:'Janela do Quarto',sub:'Fugir sem que os pais vejam',seed:37,len:4200,eGap:560,time:240,weights:{flat:2,gap:1,stairs:1,bridge:1,hide:4},theme:'casa',stealth:true,en:['cat','person'],boss:'pais',bossName:'Mãe Radar & Pai Lanterna',bossSub:'Eles sempre sabem de tudo',
+  story:['É noite. Os pais de Amélia acham que ela está dormindo. A casa está escura, o corredor é comprido e a lanterna do pai varre tudo.','Se a luz pegar Amélia, ela volta pra cama, e o relógio não espera. Esconda-a atrás dos móveis (↓) e corra quando a luz se afastar.'],
+  tips:['Aperte ↓ na frente de um armário para esconder a Amélia. Enquanto estiver escondida, a luz não a vê.','O foco de luz balança como um pêndulo. Espere ele se afastar e corra até o próximo esconderijo.','Contra Mãe e Pai: esconda-se quando o Pai acender a lanterna, ataque a Mãe quando ela lançar os chinelos.'],
+  pal:{sky1:'#040208',sky2:'#170a22',wave:'#10061a',ground:'#030205',top:'#7a2a5a',plat:'#6a2a60',moon:null}},
+ {name:'Os Olhos do Líder',sub:'Fugir sem que o líder veja',seed:51,len:4600,eGap:500,time:260,weights:{flat:2,gap:2,stairs:1,bridge:1,hide:4,air:1},theme:'templo',stealth:true,en:['person','eye'],boss:'lider',bossName:'O Líder da Seita',bossSub:'Ele vê tudo (ou quase)',
+  story:['O Templo. Todo mundo diz que o líder é Deus na terra e que ele vê tudo.','Mas até o olho mais atento pisca. Ajude Amélia a atravessar o salão, entre fiéis, olhos vigilantes e bancos de madeira, antes que ela seja chamada para o altar.'],
+  tips:['Os olhos vigiam o templo. Bancos de madeira são esconderijos: aperte ↓.','O Líder só fica vulnerável quando está cansado e desce até o chão. Aí é a sua hora de atacar.','Raios do Líder avisam com uma faixa vermelha antes de cair. Saia de debaixo!'],
+  pal:{sky1:'#1c0205',sky2:'#4d0911',wave:'#2e050b',ground:'#080102',top:'#fff21a',plat:'#8a1a22',moon:null}},
+ {name:'A Saída do Crush',sub:'Ele chamou a outra pra sair',seed:67,len:4800,eGap:440,time:260,weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2},theme:'festa',en:['person','spark'],boss:'ciume',bossName:'O Ciúme',bossSub:'Verde, grande e muito dramático',
+  story:['Já é quase hora do encontro. O garoto está a algumas ruas de distância, e Amélia, a muitas fugas de distância.','O ciúme resolveu acompanhá-la. E ele é bem maior do que ela esperava. Corra, antes que ele escolha outra companhia!'],
+  tips:['O Ciúme pula em direção a você. Fuja da sombra dele e pule as ondas verdes do chão.','Quando o Ciúme pousa, ele fica parado um instante. É a hora de atacar.','Faíscas verdes seguem você. Destrua com balões ou fique em movimento.'],
+  pal:{sky1:'#021412',sky2:'#0b3633',wave:'#082624',ground:'#030a09',top:'#e955b4',plat:'#1f6b66',moon:'rgba(92,205,196,.35)'}},
+ {name:'Um Beijo, Por Favor',sub:'A última corrida',seed:83,len:5400,eGap:400,time:300,weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2,hide:2},theme:'final',stealth:true,en:['person','cat','paper','eye','spark'],boss:'expect',bossName:'As Expectativas',bossSub:'Todo mundo esperava algo da Amélia',
+  story:['O sol está nascendo e a última porta ainda está fechada. Entre Amélia e o garoto, só falta uma coisa: o peso de todo mundo esperar que ela seja quem nunca foi.','Acredite nela. Agora é a hora de se arriscar!'],
+  tips:['As Expectativas atacam em ciclo: blás, chinelos, raios e ondas. Aprenda a ordem.','Elas só ficam vulneráveis entre um ataque e outro. Atire nessas pausas!','Não pare. O relógio corre e o garoto está esperando.'],
+  pal:{sky1:'#10051a',sky2:'#6a2410',wave:'#3a1408',ground:'#07030a',top:'#ed212b',plat:'#e955b4',moon:'rgba(255,200,40,.45)'}},
 ];
 const FINAL_STORY=['Querido diário,','Cheguei. Ele está ali, a poucos passos, e eu estou com o coração batendo mais alto do que qualquer pregação…'];
 
 /* ================= BASE ================= */
 const cv=document.getElementById('c'),ctx=cv.getContext('2d');
 const W=960,H=540,GY=440,GRAV=1900;
+const PHR={com:['Sem dinheiro, você não sai!','Seu lugar é aqui, em casa.','Jovens não precisam estudar.','O líder é Deus na terra.','Moça direita não pensa nisso!','Estudar pra quê? Case logo.'],
+ job:['Sem experiência, sem vaga.','Aqui não contratamos sonhadoras.','Currículo? Volte amanhã.','Dinheiro não nasce em diário.'],
+ casa:['Volte pra cama, já!','Jovens não precisam estudar.','O líder está vendo você.','Pensamento impuro!'],
+ templo:['O líder é Deus na terra.','Obedecer é servir.','Quem sai, não volta.','Você não precisa de livros.'],
+ festa:['Ele já tem companhia.','Chegou tarde, Amélia.','Volte pra casa!','Quem você pensa que é?'],
+ final:['O líder é Deus na terra.','Sem dinheiro, você não sai!','Jovens não precisam estudar.','Ele não é pra você.']};
 const COL={red:'#ed212b',lime:'#e4ec14',yellow:'#fff21a',pink:'#e955b4',purple:'#4f1f5f',cream:'#fde4cf',teal:'#5ccdc4',dark:'#2b0f3a'};
 const $=id=>document.getElementById(id);
 const IMG={};
@@ -151,7 +164,7 @@ const lerp=(a,b,t)=>a+(b-a)*t;
 const hit=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
 
 /* ================= ÁUDIO ================= */
-let AC=null,muted=false,musicOn=false,mTimer=null,mStep=0,mLvl=0;
+let AC=null,muted=false,musicOn=false,mTimer=null,mLvl=0;
 function audio(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(AC&&AC.state==='suspended')AC.resume()}
 function tone(f1,f2,dur,type='square',vol=.08,delay=0){
   if(!AC||muted)return;const t=AC.currentTime+delay,o=AC.createOscillator(),g=AC.createGain();
@@ -163,16 +176,38 @@ const SFX={jump:()=>tone(300,650,.16),shoot:()=>tone(900,350,.12,'triangle',.1),
  boss:()=>tone(160,60,.2,'sawtooth',.12),alarm:()=>{tone(700,700,.12,'square',.1);tone(500,500,.12,'square',.1,.14);tone(700,700,.12,'square',.1,.28)},
  win:()=>[523,659,784,1047,1319].forEach((f,i)=>tone(f,f,.18,'square',.08,i*.11)),die:()=>[400,330,260,180].forEach((f,i)=>tone(f,f*.9,.22,'triangle',.1,i*.18)),
  warn:()=>tone(500,520,.1,'square',.05),door:()=>tone(300,1200,.4,'triangle',.1)};
-const SCALES=[[0,3,7,10],[0,4,7,12],[0,3,7,8],[0,3,6,10],[0,4,9,7],[0,4,7,11]];
-function music(on){
-  musicOn=on;clearInterval(mTimer);if(!on)return;
-  mTimer=setInterval(()=>{
-    if(!AC||muted||state!=='play')return;
-    const sc=SCALES[mLvl%SCALES.length],base=[110,98,123,104,117,131][mLvl%6],s=mStep++%16;
-    if(s%4===0)tone(base*(s<8?1:.89),base*(s<8?1:.89)*.99,.22,'triangle',.07);
-    if(s%2===0&&s%8!==6)tone(base*4*Math.pow(2,sc[(s>>1)%4]/12),base*4*Math.pow(2,sc[(s>>1)%4]/12),.1,'square',.025);
-  },150);
+const ROOTS=[82.4,87.3,73.4,77.8,92.5,69.3],RIFF=[0,-1,0,0,-1,0,-1,1,0,-1,0,0,-1,6,-1,1],LEADN=[0,1,6,5,0,1,8,6];
+let mst={step:0,next:0},noiseBuf=null;
+function noiseAt(t,dur,vol,hpf){
+  if(!AC)return;if(!noiseBuf){noiseBuf=AC.createBuffer(1,AC.sampleRate,AC.sampleRate);const d=noiseBuf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}
+  const src=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();src.buffer=noiseBuf;f.type='highpass';f.frequency.value=hpf;
+  g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);src.connect(f);f.connect(g);g.connect(AC.destination);src.start(t,Math.random()*.5);src.stop(t+dur+.02);
 }
+function toneAt(f1,f2,t,dur,type,vol,lp){
+  if(!AC)return;const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.setValueAtTime(f1,t);if(f2!==f1)o.frequency.exponentialRampToValueAtTime(Math.max(20,f2),t+dur);
+  g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);let n=o;
+  if(lp){const f=AC.createBiquadFilter();f.type='lowpass';f.frequency.value=lp;o.connect(f);n=f}
+  n.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+dur+.02);
+}
+function playStep(n,t,intense,sd){
+  const root=ROOTS[mLvl%6],s=n%16;
+  const r=RIFF[s];
+  if(r>=0)toneAt(root*Math.pow(2,r/12),root*Math.pow(2,r/12)*.97,t,sd*1.7,'sawtooth',.11,intense?900:420);
+  if(s===0||s===8||(intense&&s%4===0)||s===10)toneAt(150,38,t,.2,'sine',.3);
+  if(s===4||s===12)noiseAt(t,.14,.13,1400);
+  if(intense?true:s%2===0)noiseAt(t,.035,intense?.05:.03,7000);
+  if(n%32===0){toneAt(root*2,root*2*1.0,t,sd*30,'sine',.04);toneAt(root*2*Math.pow(2,6/12),root*2*Math.pow(2,6/12),t,sd*30,'sine',.025)}
+  if(n%32===0&&!intense)toneAt(root*16*Math.pow(2,6/12),root*16*Math.pow(2,6/12),t,1.4,'sine',.03);
+  if(intense&&s%4===2){const ln=LEADN[(n>>2)%8];toneAt(root*8*Math.pow(2,ln/12),root*8*Math.pow(2,ln/12),t,sd*2,'square',.035,2500)}
+}
+function sched(){
+  if(!AC||muted||state!=='play'||!G){mst.next=0;return}
+  const now=AC.currentTime;if(mst.next<now)mst.next=now+.05;
+  const b=G.boss,intense=!!(b&&b.alive)||G.time<30;
+  const bpm=intense?148:112,sd=60/bpm/4;
+  while(mst.next<now+.12){playStep(mst.step++,mst.next,intense,sd);mst.next+=sd}
+}
+function music(on){musicOn=on;clearInterval(mTimer);mst.step=0;mst.next=0;if(on)mTimer=setInterval(sched,25)}
 
 /* ================= ENTRADA ================= */
 const keys={},edge={},touch={};
@@ -184,7 +219,8 @@ addEventListener('keydown',e=>{
   if(!keys[e.code]){for(const a in MAP)if(MAP[a].includes(e.code))edge[a]=true;
     if(e.code==='KeyP'||e.code==='Escape')togglePause();
     if(e.code==='KeyM')toggleMute();
-    if((e.code==='Enter'||e.code==='Space')&&$('story').classList.contains('on'))storyNext();
+    if((e.code==='Enter'||e.code==='Space')&&state==='tip')closeTip();
+    else if((e.code==='Enter'||e.code==='Space')&&$('story').classList.contains('on'))storyNext();
     else if(e.code==='Enter'){for(const id of['over','clear'])if($(id).classList.contains('on'))$(id==='over'?'bRetry':'bNext').click()}}
   keys[e.code]=true;audio();
 });
@@ -212,9 +248,9 @@ function build(cfg,idx){
   const ground=(a,b)=>L.solids.push({x:a,y:GY,w:b-a,h:240});
   const plat=(px,py,w)=>L.plats.push({x:px,y:py,w,h:14});
   const heart=(hx,hy)=>L.pickups.push({id:pid++,t:'heart',x:hx,y:hy,w:26,h:26});
-  const page=(hx,hy)=>{L.pickups.push({id:pid++,t:'page',x:hx,y:hy,w:30,h:36})};
+  const page=(hx,hy)=>{L.pickups.push({id:pid++,t:'page',tip:L.pickups.filter(q=>q.t==='page').length,x:hx,y:hy,w:30,h:36})};
   const kind=()=>cfg.en[Math.floor(r()*cfg.en.length)];
-  const walker=(a,b,y,k)=>{k=k||kind();if(k==='paper'||k==='eye'||k==='spark')return flyer(a,b,y-90);L.enemies.push({t:'walk',k,x:(a+b)/2,y:y-44,w:36,h:44,vx:(r()<.5?-1:1)*(55+idx*8),min:a,max:b,dead:0,ph:r()*6})};
+  const walker=(a,b,y,k)=>{k=k||kind();if(k==='paper'||k==='eye'||k==='spark')return flyer(a,b,y-90);L.enemies.push({t:'walk',k,sy:Math.floor(r()*99),x:(a+b)/2,y:y-44,w:36,h:44,vx:(r()<.5?-1:1)*(55+idx*8),min:a,max:b,dead:0,ph:r()*6})};
   const flyer=(a,b,y)=>{const k=cfg.en.filter(e=>['paper','eye','spark'].includes(e));L.enemies.push({t:'fly',k:k.length?k[Math.floor(r()*k.length)]:'paper',x:(a+b)/2,y,w:34,h:30,x0:(a+b)/2,y0:y,vx:(r()<.5?-1:1)*(70+idx*10),min:a,max:b,dead:0,ph:r()*6})};
   ground(-200,500);x=500;
   while(x<cfg.len){
@@ -287,12 +323,12 @@ function startLevel(i,cpx){
   // remove coletáveis já pegos
   L.pickups=L.pickups.filter(p=>!stat.got.has(i+':'+p.id));
   const cp=cpx!=null?cpx:80;
-  G={lvl:i,cfg,L,P:newPlayer(cp),cam:Math.max(0,cp-380),cpx:cp,cpy:GY-88,shots:[],es:[],parts:[],txt:[],boss:null,arena:false,t:0,flash:0,shake:0,door:null,cut:null,banner:0,dead:0,freeze:0,leftWall:null,crush:null};
+  G={lvl:i,cfg,L,time:cfg.time,beat:0,reason:'',P:newPlayer(cp),cam:Math.max(0,cp-380),cpx:cp,cpy:GY-88,shots:[],es:[],parts:[],txt:[],boss:null,arena:false,t:0,flash:0,shake:0,door:null,cut:null,banner:0,dead:0,freeze:0,leftWall:null,crush:null};
   mLvl=i;saved=Math.max(saved,i);try{localStorage.setItem('amelia_lvl',saved)}catch(e){}
   show(null);state='play';$('hudbtn').style.display='flex';music(true);
   if(params.has('boss')){G.P.x=L.ax-60;G.cam=L.ax-420}
 }
-function show(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id))}
+function show(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id));$('touch').style.visibility=id?'hidden':'visible'}
 
 /* ================= HISTÓRIA ================= */
 let storyLines=[],storyIdx=0,storyFull='',storyPos=0,storyTimer=null,storyThen=null;
@@ -342,7 +378,7 @@ function hurt(by,respawn){
 }
 function die(){const P=G.P;G.dead=1;SFX.die();music(false);
   spawnParts(P.x+14,P.y+40,26,[COL.pink,COL.yellow,COL.red]);
-  setTimeout(()=>{if(G&&G.dead){state='over';$('ovP').textContent=G.arena?'O chefão venceu essa rodada. Respira fundo e tenta de novo!':'Respira fundo, anota no diário e tenta de novo.';show('over')}},1100)}
+  setTimeout(()=>{if(G&&G.dead){state='over';const tm=G.reason==='time';$('ovH').textContent=tm?'O tempo acabou':'Pegaram a Amélia';$('ovP').textContent=tm?'A seita decidiu: Amélia não pode mais estudar. Tente de novo, e mais rápido!':(G.arena?'O chefão venceu essa rodada. Respire fundo e tente de novo!':'Respire fundo e tente de novo.');show('over')}},1100)}
 function addScore(n){stat.score+=n}
 
 /* ================= JOGADOR ================= */
@@ -449,7 +485,7 @@ function updateWorld(dt){
     if(p.got)continue;
     if(hit(P,p)){p.got=1;stat.got.add(G.lvl+':'+p.id);
       if(p.t==='heart'){addScore(10);stat.hearts++;SFX.coin();spawnParts(p.x+13,p.y+13,5,[COL.red,COL.pink]);}
-      else{addScore(200);stat.pages++;SFX.page();floatText(p.x-20,p.y-20,'Página do diário! +200',COL.yellow);spawnParts(p.x+15,p.y+18,12,[COL.cream,COL.yellow,COL.pink])}
+      else{addScore(200);stat.pages++;G.time+=15;SFX.page();spawnParts(p.x+15,p.y+18,12,[COL.cream,COL.yellow,COL.pink]);openTip(G.cfg.tips[p.tip%3]);}
       // cura com 25 corações
       if(p.t==='heart'&&stat.hearts%25===0&&P.hp<3){P.hp++;floatText(P.x-10,P.y-30,'+1 vida!',COL.pink)}
     }
@@ -460,16 +496,20 @@ function updateWorld(dt){
   const L=G.L;
   if(!G.arena&&P.x>L.ax+90&&!G.dead){
     G.arena=true;G.leftWall={x:L.ax-60,y:-400,w:60,h:1200};G.cpx=L.ax-80;
-    G.boss=makeBoss(G.cfg.boss,L.ax);G.banner=3.2;music(true);
+    G.boss=makeBoss(G.cfg.boss,L.ax);G.banner=3.2;
   }
   // porta de saída
   if(G.door&&!G.cut&&hit(P,G.door)){
     if(G.lvl===LEVELS.length-1)startEnding();else levelClear();
   }
 }
+function openTip(t){state='tip';$('tipP').textContent=t;show('tip')}
+function closeTip(){if(state==='tip'){state='play';show(null)}}
+$('bTip').onclick=()=>{audio();closeTip()};
 function levelClear(){
   state='clear';SFX.win();music(false);$('hudbtn').style.display='none';
-  $('clP').textContent='Corações: '+stat.hearts+'   ·   Páginas do diário: '+stat.pages+'/'+(LEVELS.length*3)+'   ·   Pontos: '+stat.score;
+  const bonus=Math.floor(G.time)*5;addScore(bonus);
+  $('clP').textContent='Tempo sobrando: '+Math.floor(G.time)+'s (+'+bonus+')   ·   Corações: '+stat.hearts+'   ·   Páginas: '+stat.pages+'/'+(LEVELS.length*3)+'   ·   Pontos: '+stat.score;
   show('clear');
 }
 
@@ -479,7 +519,7 @@ function makeBoss(k,ax){
     invuln(){return this.intro>0||this.vuln===false},vuln:true};
   const arenaMid=ax+W/2;
   switch(k){
-    case'irma':return Object.assign(base,{name:'Irmã Prudência',hp:8,max:8,w:72,h:122,x:ax+700,y:GY-122,v:46});
+    case'irma':return Object.assign(base,{name:'Irmã Prudência',hp:7,max:7,w:72,h:122,x:ax+700,y:GY-122,v:38});
     case'gerente':return Object.assign(base,{name:'O Gerente',hp:10,max:10,w:78,h:124,x:ax+700,y:GY-124,mode:'idle',mt:1.5,dashV:0});
     case'pais':return Object.assign(base,{name:'Mãe Radar & Pai Lanterna',hp:12,max:12,w:74,h:124,x:ax+740,y:GY-124,mode:'throw',mt:5.5,beamA:0,sweepT:0,hidesAdded:false});
     case'lider':return Object.assign(base,{name:'O Líder da Seita',hp:14,max:14,w:96,h:130,x:arenaMid-48,y:GY-330,mode:'float',mt:4,beams:[],fl:0,vuln:false,spawned:0});
@@ -487,8 +527,8 @@ function makeBoss(k,ax){
     case'expect':return Object.assign(base,{name:'As Expectativas',hp:20,max:20,w:120,h:210,x:ax+720,y:GY-210,mode:'rest',mt:1.5,beams:[],att:0});
   }
 }
-function bossHit(b){
-  b.hp--;b.flash=.14;SFX.boss();G.shake=.15;addScore(25);
+function bossHit(b,d=1){
+  b.hp-=d;b.flash=.14;SFX.boss();G.shake=.15;addScore(25);
   spawnParts(b.x+b.w/2,b.y+b.h/2,8,[COL.yellow,COL.cream]);
   if(b.hp<=0)bossDie(b);
 }
@@ -504,24 +544,26 @@ function eshot(x,y,vx,vy,o){G.es.push(Object.assign({x,y,vx,vy,r:15,life:6,g:0,k
 function bossFacing(b){return G.P.x+14<b.x+b.w/2?-1:1}
 function updateBoss(dt){
   const b=G.boss,P=G.P;if(!b)return;
-  b.t+=dt;if(b.flash>0)b.flash-=dt;if(!b.alive)b.deadT=(b.deadT||0)+dt;
+  b.t+=dt;if(b.flash>0)b.flash-=dt;if(b.stompCd>0)b.stompCd-=dt;if(!b.alive)b.deadT=(b.deadT||0)+dt;
   if(b.intro>0){b.intro-=dt;if(b.kind==='lider'){b.y=GY-330+Math.sin(b.t*2)*8}return}
   if(!b.alive)return;
   const ax=b.ax,L=G.L,lo=ax+30,hi=ax+W-30;
   b.dir=bossFacing(b);
   const rate=1+(1-b.hp/b.max)*.6;
-  const touch=()=>{if(!G.dead&&b.vuln!==false&&hit(P,{x:b.x+10,y:b.y+8,w:b.w-20,h:b.h-12}))hurt(b)};
+  const touch=(rc)=>{if(G.dead||G.cut)return;const r=rc||{x:b.x+10,y:b.y+8,w:b.w-20,h:b.h-12};if(!hit(P,r))return;
+    if(P.vy>60&&P.y+P.h<b.y+b.h*.55){P.vy=-560;P.y=Math.min(P.y,r.y-P.h);if(!b.invuln()&&!(b.stompCd>0)){b.stompCd=.6;bossHit(b,2);floatText(b.x+b.w/2-20,b.y-30,'PISÃO!',COL.yellow)}else if(b.invuln())floatText(b.x+b.w/2-30,b.y-30,'Ainda não!',COL.cream)}
+    else if(b.vuln!==false)hurt(b)};
   switch(b.kind){
   case'irma':{
     const dx=P.x-b.x;const want=Math.abs(dx)<300?-Math.sign(dx):Math.sign(dx)*.4;
     b.x=clamp(b.x+want*b.v*rate*dt,ax+60,hi-b.w-20);
     b.cd-=dt;if(b.cd<=0){
-      b.cd=2.4/rate;const d=b.dir,sx=b.x+b.w/2;
+      b.cd=2.9/rate;const d=b.dir,sx=b.x+b.w/2;
       const pat=Math.floor(Math.random()*3);
       if(pat===0)eshot(sx,GY-26,d*(250+60*rate),0);
       else if(pat===1)eshot(sx,GY-98,d*(250+60*rate),0);
       else{eshot(sx,GY-26,d*220,0);setTimeout(()=>{if(G&&G.boss===b&&b.alive)eshot(b.x+b.w/2,GY-98,b.dir*240,0)},650)}
-      floatText(b.x,b.y-14,['Que absurdo!','Eu ouvi dizer…','Isso é pecado!'][Math.floor(Math.random()*3)],COL.purple);
+      floatText(b.x,b.y-14,['Sem dinheiro, você não sai!','O líder é Deus na terra!','Jovens não precisam estudar!'][Math.floor(Math.random()*3)],COL.purple);
     }
     touch();break}
   case'gerente':{
@@ -576,7 +618,7 @@ function updateBoss(dt){
         const cx=b.x+b.w/2;eshot(cx,GY-16,-300*rate,0,{k:'wave',r:14,t:''});eshot(cx,GY-16,300*rate,0,{k:'wave',r:14,t:''});
         if(Math.random()<.6)eshot(cx,b.y-10,0,-200,{k:'spark',r:13,t:'',home:1,life:5})}
     }
-    if(!G.dead&&hit(P,{x:b.x+14,y:b.y+12,w:b.w-28,h:b.h-14}))hurt(b);
+    touch({x:b.x+14,y:b.y+12,w:b.w-28,h:b.h-14});
     break}
   case'expect':{
     b.mt-=dt;b.x=ax+W-180+Math.sin(b.t*.8)*30;
@@ -644,6 +686,9 @@ function frame(ts){
 }
 function step(dt){
   G.t+=dt;if(G.freeze>0){G.freeze-=dt;return}
+  if(!G.cut&&!G.dead){G.time-=dt;
+    if(G.time<30){G.beat-=dt;if(G.beat<=0){G.beat=G.time<10?.5:1;tone(70,40,.18,'sine',.22)}}
+    if(G.time<=0){G.time=0;G.reason='time';die()}}
   if(G.banner>0)G.banner-=dt;
   for(const l of G.L.lifts){}
   updateWorld(dt);updatePlayer(dt);
@@ -680,19 +725,27 @@ function drawBG(){
     ctx.globalAlpha=.55;ctx.fill();ctx.globalAlpha=1;
   }
   // cenário temático (parallax .4)
-  const off=cam*.4;ctx.save();ctx.fillStyle='rgba(43,15,58,.28)';
-  if(th==='com'||th==='festa'){for(let i=0;i<14;i++){const x=i*340-off%340+(-340);const hh=110+(i*37%5)*20;ctx.fillRect(x,GY-hh,130,hh);ctx.beginPath();ctx.moveTo(x-10,GY-hh);ctx.lineTo(x+65,GY-hh-60);ctx.lineTo(x+140,GY-hh);ctx.fill();ctx.fillStyle='rgba(255,242,26,.55)';ctx.fillRect(x+25,GY-hh+30,26,32);ctx.fillRect(x+80,GY-hh+30,26,32);ctx.fillStyle='rgba(43,15,58,.28)'}}
-  else if(th==='job'||th==='final'){for(let i=0;i<14;i++){const x=i*210-off%210-210;const hh=150+(i*53%7)*30;ctx.fillRect(x,GY-hh,150,hh);ctx.fillStyle='rgba(255,242,26,.5)';for(let a=0;a<3;a++)for(let b=0;b<Math.floor(hh/50);b++)ctx.fillRect(x+16+a*44,GY-hh+14+b*46,22,26);ctx.fillStyle='rgba(43,15,58,.28)'}}
+  if(c.moon){ctx.fillStyle=c.moon;ctx.beginPath();ctx.arc(W*.78-(cam*.03)%120,110,56,0,6.3);ctx.fill();ctx.fillStyle='rgba(0,0,0,.18)';ctx.beginPath();ctx.arc(W*.78-(cam*.03)%120+14,100,48,0,6.3);ctx.fill()}
+  const off=cam*.4;ctx.save();ctx.fillStyle='rgba(0,0,0,.55)';
+  if(th==='com'||th==='festa'){for(let i=0;i<14;i++){const x=i*340-off%340+(-340);const hh=110+(i*37%5)*20;ctx.fillRect(x,GY-hh,130,hh);ctx.beginPath();ctx.moveTo(x-10,GY-hh);ctx.lineTo(x+65,GY-hh-60);ctx.lineTo(x+140,GY-hh);ctx.fill();ctx.fillStyle=(i%3)?'rgba(255,200,40,.55)':'rgba(40,0,0,.6)';ctx.fillRect(x+25,GY-hh+30,26,32);ctx.fillStyle=(i%2)?'rgba(255,200,40,.5)':'rgba(40,0,0,.6)';ctx.fillRect(x+80,GY-hh+30,26,32);ctx.fillStyle='rgba(0,0,0,.55)'}}
+  else if(th==='job'||th==='final'){for(let i=0;i<14;i++){const x=i*210-off%210-210;const hh=150+(i*53%7)*30;ctx.fillRect(x,GY-hh,150,hh);for(let a=0;a<3;a++)for(let b=0;b<Math.floor(hh/50);b++){ctx.fillStyle=((i*7+a*3+b*5)%4)?'rgba(10,0,20,.7)':'rgba(255,200,40,.55)';ctx.fillRect(x+16+a*44,GY-hh+14+b*46,22,26)}ctx.fillStyle='rgba(0,0,0,.55)'}}
   else if(th==='casa'){for(let i=0;i<8;i++){const x=i*300-off%300-300;ctx.fillStyle='rgba(233,85,180,.18)';ctx.fillRect(x+30,60,170,260);ctx.fillStyle='rgba(255,242,26,.55)';ctx.beginPath();ctx.arc(x+160,130,26,0,6.3);ctx.fill();ctx.fillStyle='rgba(15,5,25,.5)';ctx.beginPath();ctx.arc(x+170,124,24,0,6.3);ctx.fill()}}
   else if(th==='templo'){for(let i=0;i<10;i++){const x=i*260-off%260-260;ctx.fillStyle='rgba(43,15,58,.4)';ctx.fillRect(x+50,0,60,GY);ctx.fillStyle='rgba(255,242,26,.35)';ctx.beginPath();ctx.ellipse(x+190,150,46,24,0,0,6.3);ctx.fill();ctx.fillStyle='rgba(43,15,58,.5)';ctx.beginPath();ctx.arc(x+190,150,14,0,6.3);ctx.fill()}}
   ctx.restore();
   // doodles do livro
-  ctx.globalAlpha=.3;
+  ctx.globalAlpha=.16;
   for(const d of G.L.decor){const x=((d.x-cam*d.p)%(G.L.ax+W+400)+(G.L.ax+W+400))%(G.L.ax+W+400)-200;if(x<-80||x>W+80)continue;
     const im=[IMG.heart,IMG.spark,IMG.star,IMG.crown][d.k];if(!im)continue;const s=d.s*.8,bob=Math.sin(G.t*1.5+d.x)*6;ctx.drawImage(im,x,d.y+bob,im.width*s*.8,im.height*s*.8)}
   ctx.globalAlpha=1;
   if(th==='final'||G.cfg.theme==='templo'){ // explosão amarela atrás
-    ctx.fillStyle='rgba(255,242,26,.16)';ctx.save();ctx.translate(W*.7,200);ctx.rotate(G.t*.1);ctx.beginPath();for(let i=0;i<24;i++){const a=i/24*6.283,r=i%2?180:300;ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r)}ctx.fill();ctx.restore()}
+    ctx.fillStyle='rgba(255,242,26,.07)';ctx.save();ctx.translate(W*.7,200);ctx.rotate(G.t*.1);ctx.beginPath();for(let i=0;i<24;i++){const a=i/24*6.283,r=i%2?180:300;ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r)}ctx.fill();ctx.restore()}
+}
+let VIG=null;
+function drawVig(){
+  if(!VIG){VIG=ctx.createRadialGradient(W/2,H/2,H*.32,W/2,H/2,W*.62);VIG.addColorStop(0,'rgba(0,0,0,0)');VIG.addColorStop(1,'rgba(0,0,0,.78)')}
+  ctx.fillStyle=VIG;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='rgba(180,170,200,.035)';for(let i=0;i<3;i++){const fx=((G.t*14*(i+1)+i*400)%(W+400))-200;ctx.fillRect(fx-200,GY-40-i*30,400,70)}
+  if(G.time<30){const a=.12+.1*Math.sin(G.t*(G.time<10?12:6));ctx.fillStyle='rgba(237,33,43,'+a+')';ctx.fillRect(0,0,W,H)}
 }
 function drawGround(){
   const c=G.cfg.pal,cam=G.cam;
@@ -767,8 +820,8 @@ function drawPerson(x,fy,h,o){
   else{ctx.beginPath();ctx.arc(0,-95,17,Math.PI*.95,Math.PI*2.05);ctx.lineTo(10,-96);ctx.lineTo(-12,-98);ctx.closePath();ctx.fill();ctx.stroke()}
   if(o.glasses){ctx.strokeStyle=COL.purple;ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(2,-92,5,0,6.3);ctx.arc(12,-92,5,0,6.3);ctx.stroke()}
   // rosto
-  ctx.fillStyle=COL.purple;const ang=o.angry;
-  ctx.beginPath();ctx.arc(6,-92,2.4,0,6.3);ctx.arc(-3,-92,2.4,0,6.3);ctx.fill();
+  ctx.fillStyle=o.eye||COL.purple;const ang=o.angry;
+  ctx.beginPath();ctx.arc(6,-92,2.8,0,6.3);ctx.arc(-3,-92,2.8,0,6.3);ctx.fill();ctx.fillStyle=COL.purple;
   ctx.strokeStyle=COL.purple;ctx.lineWidth=2.5;ctx.beginPath();
   if(ang){ctx.moveTo(-8,-100);ctx.lineTo(0,-96);ctx.moveTo(11,-100);ctx.lineTo(4,-96)}
   ctx.stroke();
@@ -782,9 +835,9 @@ function drawEnemy(e){
   if(e.dead){ctx.translate(x+e.w/2,e.y+e.h);ctx.scale(1.2,sq);ctx.translate(-(x+e.w/2),-(e.y+e.h))}
   const dir=e.vx>0?1:-1;
   if(e.k==='person'){
-    const pal=G.cfg.theme==='templo'?{robe:'#7a2a8a',body:'#c33'}:G.cfg.theme==='job'?{body:'#5ccdc4',tie:1,glasses:1}:G.cfg.theme==='festa'?{body:'#fff21a'}:{body:'#fde4cf'};
-    drawPerson(x+e.w/2,e.y+e.h,e.h*1.45,Object.assign({t:e.ph,dir:dir,walk:1,angry:1,skin:['#d98a5b','#c47a4a','#f0b58a'][Math.floor(e.ph*0+((e.min|0)%3))],hair:['#2b0f3a','#6a3a1a','#c9a02a'][(e.min|0)%3]},pal));
-    if(Math.sin(e.ph*2)>.7){ctx.fillStyle='#fff';ctx.strokeStyle=COL.purple;ctx.lineWidth=2.5;ctx.beginPath();ctx.ellipse(x+e.w/2+8,e.y-34,18,10,0,0,6.3);ctx.fill();ctx.stroke();ctx.fillStyle=COL.purple;ctx.font='12px "Patrick Hand",cursive';ctx.textAlign='center';ctx.fillText('blá',x+e.w/2+8,e.y-30)}
+    const pal=G.cfg.theme==='templo'?{robe:'#1a0a22',body:'#7a1a2a'}:G.cfg.theme==='job'?{body:'#3a3a52',tie:1,glasses:1}:G.cfg.theme==='festa'?{body:'#3a2a4a'}:{body:'#2c1d2e'};
+    drawPerson(x+e.w/2,e.y+e.h,e.h*1.45,Object.assign({t:e.ph,dir:dir,walk:1,angry:1,skin:['#b08a78','#9a7060','#c8a898'][(e.min|0)%3],hair:'#050205',eye:'#ff2b2b'},pal));
+    if(Math.abs(e.x-G.P.x)<430&&!e.dead){const ph=PHR[G.cfg.theme]||PHR.com;e.say=e.say||ph[(e.sy||0)%ph.length];ctx.restore();ctx.save();speak(x+e.w/2,e.y-30,e.say)}
   }else if(e.k==='cat'){
     const cx=x+e.w/2,cy=e.y+e.h;ctx.translate(cx,cy);ctx.scale(dir,1);ctx.fillStyle='#2b0f3a';ctx.strokeStyle=COL.purple;ctx.lineWidth=2;
     ctx.beginPath();ctx.ellipse(0,-14,20,12,0,0,6.3);ctx.fill();ctx.beginPath();ctx.arc(16,-24,10,0,6.3);ctx.fill();
@@ -806,10 +859,19 @@ function drawEnemy(e){
   }
   ctx.restore();
 }
+function speak(x,y,text){
+  ctx.font='15px "Patrick Hand",cursive';const words=text.split(' ');let lines=[],cur='';
+  for(const w of words){const t=cur?cur+' '+w:w;if(ctx.measureText(t).width>130&&cur){lines.push(cur);cur=w}else cur=t}lines.push(cur);
+  const bw=Math.max(...lines.map(l=>ctx.measureText(l).width))+16,bh=lines.length*17+10,bx=clamp(x-bw/2,6,W-bw-6),by=y-bh;
+  ctx.fillStyle='#f4ecff';ctx.strokeStyle='#000';ctx.lineWidth=2.5;rr(bx,by,bw,bh,9);ctx.fill();ctx.stroke();
+  ctx.beginPath();ctx.moveTo(x-6,by+bh-1);ctx.lineTo(x,by+bh+9);ctx.lineTo(x+6,by+bh-1);ctx.fill();ctx.stroke();ctx.fillStyle=COL.dark;ctx.textAlign='center';
+  lines.forEach((l,i)=>ctx.fillText(l,bx+bw/2,by+17+i*17));
+}
 function drawAmelia(){
   const P=G.P;if(G.dead&&P.y>H+100)return;
   if(P.inv>0&&Math.floor(P.inv*14)%2&&!G.dead)return;
   const cx=P.x+P.w/2-G.cam,fy=P.y+P.h;
+  const gl=ctx.createRadialGradient(cx,fy-45,4,cx,fy-45,85);gl.addColorStop(0,'rgba(253,228,207,.2)');gl.addColorStop(1,'rgba(253,228,207,0)');ctx.fillStyle=gl;ctx.fillRect(cx-90,fy-135,180,180);
   ctx.save();ctx.translate(cx,fy);if(P.hid)ctx.globalAlpha=.5;ctx.scale(P.face,1);
   const walk=P.on?Math.min(1,Math.abs(P.vx)/200):0,ph=P.ph;
   const legL=26,tH=62,tW=tH*275/464;
@@ -902,7 +964,7 @@ function drawShots(){
 }
 function drawPickups(){
   for(const p of G.L.pickups){const x=p.x-G.cam;if(x<-40||x>W+40)continue;const bob=Math.sin(G.t*4+p.x*.02)*4;
-    if(p.t==='heart'){ctx.fillStyle='rgba(255,255,255,.35)';ctx.beginPath();ctx.arc(x+13,p.y+13+bob,15,0,6.3);ctx.fill();ctx.drawImage(IMG.heart,x,p.y+bob,26,28)}
+    if(p.t==='heart'){ctx.fillStyle='rgba(237,33,43,.28)';ctx.beginPath();ctx.arc(x+13,p.y+13+bob,15,0,6.3);ctx.fill();ctx.drawImage(IMG.heart,x,p.y+bob,26,28)}
     else{ctx.save();ctx.translate(x+15,p.y+18+bob);ctx.rotate(Math.sin(G.t*3)*.12);ctx.fillStyle=COL.cream;ctx.strokeStyle=COL.purple;ctx.lineWidth=3;rr(-14,-17,28,34,3);ctx.fill();ctx.stroke();ctx.strokeStyle='#e6a99b';ctx.lineWidth=1.5;for(let i=0;i<4;i++){ctx.beginPath();ctx.moveTo(-9,-8+i*7);ctx.lineTo(9,-8+i*7);ctx.stroke()}ctx.fillStyle=COL.red;ctx.font='16px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('♥',0,-2);ctx.restore();
       ctx.drawImage(IMG.spark,x-6+Math.sin(G.t*5)*3,p.y-10,18,18)}}
   for(const c of G.L.checks){if(c.arena)continue;const x=c.x-G.cam;if(x<-40||x>W+40)continue;ctx.strokeStyle=COL.purple;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(x,GY);ctx.lineTo(x,GY-90);ctx.stroke();ctx.fillStyle=c.on?COL.yellow:COL.cream;ctx.beginPath();ctx.moveTo(x,GY-90);ctx.lineTo(x+40,GY-76);ctx.lineTo(x,GY-60);ctx.fill();ctx.stroke()}
@@ -921,11 +983,17 @@ function drawHUD(){
   ctx.strokeText('♥ '+stat.hearts+'    📖 '+stat.pages,100,66);ctx.fillText('♥ '+stat.hearts+'    📖 '+stat.pages,100,66);
   ctx.textAlign='right';ctx.strokeText(String(stat.score).padStart(6,'0'),W-130,40);ctx.fillText(String(stat.score).padStart(6,'0'),W-130,40);
   ctx.font='20px "Patrick Hand",cursive';ctx.strokeText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-130,64);ctx.fillText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-130,64);
+  // relógio da seita
+  {const tm=Math.max(0,G.time),mm=Math.floor(tm/60),ss=Math.floor(tm%60),low=tm<30,pul=low?1+.08*Math.sin(G.t*10):1;
+   ctx.save();ctx.translate(W/2,30);ctx.scale(pul,pul);ctx.textAlign='center';ctx.font='15px "Patrick Hand",cursive';ctx.fillStyle=low?COL.red:'#cfc2d8';ctx.fillText('a seita decide em',0,-14);
+   ctx.font='38px "Caveat Brush",cursive';ctx.lineWidth=6;ctx.strokeStyle='#000';const tx='⏳ '+mm+':'+String(ss).padStart(2,'0');ctx.strokeText(tx,0,20);ctx.fillStyle=low?COL.red:COL.cream;ctx.fillText(tx,0,20);ctx.restore()}
+  if(G.lvl===0&&G.t<12&&!G.boss){ctx.fillStyle='rgba(0,0,0,.55)';rr(W/2-300,H-52,600,34,10);ctx.fill();ctx.fillStyle=COL.cream;ctx.font='20px "Patrick Hand",cursive';ctx.textAlign='center';ctx.fillText('← → andar   ·   ↑ pular   ·   X soltar opinião   ·   ↓ esconder',W/2,H-29)}
   // barra de chefão
   const b=G.boss;if(b&&b.alive&&(b.intro<=0||G.banner<2.6)){
     const w=420,x=W/2-w/2,y=H-38;ctx.fillStyle='rgba(43,15,58,.85)';rr(x-6,y-6,w+12,28,10);ctx.fill();
     ctx.fillStyle=COL.cream;rr(x,y,w,16,8);ctx.fill();ctx.fillStyle=COL.red;rr(x,y,Math.max(0,w*b.hp/b.max),16,8);ctx.fill();
-    ctx.font='22px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillStyle=COL.yellow;ctx.fillText(b.name,W/2,y-12)}
+    ctx.font='22px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillStyle=COL.yellow;ctx.fillText(b.name,W/2,y-12);
+    if(G.lvl===0||b.hp===b.max){ctx.font='18px "Patrick Hand",cursive';ctx.fillStyle=COL.cream;ctx.fillText('Aperte X (💬) para soltar opiniões · ou pule na cabeça '+(G.lvl===0?'dela!':'dele!'),W/2,y-38)}}
   // banner do chefão
   if(G.banner>0&&G.boss){const a=G.banner>.5?1:G.banner/.5,k=Math.min(1,(3.2-G.banner)*5);
     ctx.save();ctx.globalAlpha=a;ctx.translate(W/2,H/2-40);ctx.scale(.6+.4*k,.6+.4*k);ctx.fillStyle=COL.yellow;ctx.beginPath();for(let i=0;i<28;i++){const an=i/28*6.283,r=i%2?150:220;ctx.lineTo(Math.cos(an)*r*1.5,Math.sin(an)*r*.55)}ctx.fill();
@@ -934,7 +1002,7 @@ function drawHUD(){
 }
 function render(){
   ctx.clearRect(0,0,W,H);
-  if(!G||(state!=='play'&&state!=='pause'&&state!=='over'&&state!=='clear')){ctx.fillStyle=COL.red;ctx.fillRect(0,0,W,H);if(G&&state!=='title'&&state!=='story'){}return}
+  if(!G||(state!=='play'&&state!=='pause'&&state!=='over'&&state!=='clear'&&state!=='tip')){ctx.fillStyle=COL.red;ctx.fillRect(0,0,W,H);if(G&&state!=='title'&&state!=='story'){}return}
   ctx.save();
   if(G.shake>0)ctx.translate((Math.random()-.5)*10,(Math.random()-.5)*10);
   drawBG();drawGround();drawHides();
@@ -946,6 +1014,7 @@ function render(){
   for(const t of G.txt){ctx.globalAlpha=Math.min(1,t.life*2);ctx.font='26px "Caveat Brush",cursive';ctx.textAlign='center';ctx.strokeStyle=COL.purple;ctx.lineWidth=5;ctx.strokeText(t.t,t.x-G.cam,t.y);ctx.fillStyle=t.c;ctx.fillText(t.t,t.x-G.cam,t.y);ctx.globalAlpha=1}
   // beijo final
   if(G.kissed){const c=G.crush;ctx.drawImage(IMG.heart,c.x-G.cam-60+Math.sin(G.kissT*4)*8,c.y-60-G.kissT*30,70,76);ctx.globalAlpha=Math.min(1,G.kissT/3);ctx.fillStyle=COL.red;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1}
+  drawVig();
   ctx.restore();
   if(G.flash>0){ctx.fillStyle='rgba(237,33,43,'+G.flash+')';ctx.fillRect(0,0,W,H)}
   drawHUD();
