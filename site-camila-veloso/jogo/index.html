@@ -69,12 +69,20 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
 .notif{position:absolute;left:6px;right:6px;top:36px;background:#ed212b;color:#fff;border:2px solid #000;border-radius:12px;padding:.4em .6em;font-size:clamp(13px,2.2vw,20px);animation:pop .3s ease-out;box-shadow:0 6px 0 rgba(0,0,0,.4)}
 .cliff-note{max-width:40%;font-family:'Caveat Brush',cursive;font-size:clamp(24px,5vw,56px);color:var(--yellow);text-shadow:3px 3px 0 var(--red);line-height:1.05;min-height:5em;display:flex;align-items:center}
 .promo{border:3px dashed var(--yellow);border-radius:12px;padding:.3em .7em;margin:.2em auto .5em;font-size:clamp(11px,min(2.2vw,4vh),22px);background:rgba(255,242,26,.1);max-width:92%}
+.promo.cupom{margin:.1em auto .35em;border-style:solid;background:rgba(233,85,180,.18);border-color:var(--pink);padding:.2em .6em}
 .promo b{color:var(--yellow);font-weight:400;font-family:'Caveat Brush',cursive;font-size:1.15em}
 #end .txt{display:flex;flex-direction:column;align-items:center;justify-content:center;max-height:98%}
 #end h2{font-size:clamp(20px,min(4.6vw,8.5vh),50px)}
 #end .txt>p{font-size:clamp(11px,min(2.1vw,3.9vh),21px);margin:.1em 0 .35em;line-height:1.15}
 #end .btn{font-size:clamp(13px,min(2.7vw,5vh),27px);padding:.15em .7em;margin:.15em}
 #end .btn.small{font-size:clamp(11px,min(2vw,3.6vh),19px)}
+@media (max-height:430px){
+ #end h2{font-size:22px}#end .txt>p{font-size:11.5px;margin:.05em 0 .2em;line-height:1.1}
+ #end .promo{font-size:11px;padding:.12em .5em;margin:.1em auto .2em;border-width:2px}
+ #end .btn{font-size:14px;padding:.1em .6em;border-width:2px;box-shadow:0 3px 0 var(--purple)}
+ #end .btn.small{font-size:12px}#endStats{display:none}#end img{height:74%}
+ #title h1{font-size:44px}#title p{font-size:12px}#title .btn{font-size:18px}
+}
 #end img{height:82%;border-radius:8px;transform:rotate(2deg);box-shadow:0 10px 0 rgba(43,15,58,.5)}
 #end .txt{max-width:48%}
 #select{background:rgba(43,15,58,.92)}
@@ -82,11 +90,14 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
 #select .lv{background:var(--cream);color:var(--purple);border:3px solid var(--purple);border-radius:12px;padding:.3em;font-size:clamp(13px,2.2vw,22px);cursor:pointer}
 #select .lv b{display:block;font-family:'Caveat Brush',cursive;font-size:1.5em;font-weight:400;color:var(--red)}
 #select .lv.lock{opacity:.4;pointer-events:none}
-#touch{position:absolute;inset:auto 0 0 0;height:36%;display:none;pointer-events:none}
-.tb{position:absolute;bottom:5%;width:15%;aspect-ratio:1;max-width:96px;border-radius:50%;background:rgba(255,242,26,.45);border:3px solid rgba(79,31,95,.7);color:var(--purple);font-family:'Caveat Brush',cursive;font-size:clamp(14px,3vw,30px);display:flex;align-items:center;justify-content:center;pointer-events:auto}
-.tb.on{background:rgba(233,85,180,.8)}
-#bL{left:3%}#bR{left:20%}#bD{left:11.5%;bottom:24%;width:11%}
-#bJ{right:3%}#bS{right:20%}
+#touch{position:absolute;inset:auto 0 0 0;height:36%;display:none;pointer-events:none;visibility:hidden}
+.tb{position:absolute;bottom:1%;width:14%;aspect-ratio:1;max-width:112px;border-radius:50%;background:rgba(255,242,26,.55);border:4px solid #4f1f5f;color:#4f1f5f;font-family:'Caveat Brush',cursive;font-size:clamp(30px,6.4vw,64px);line-height:1;display:flex;align-items:center;justify-content:center;pointer-events:auto;box-shadow:0 5px 0 rgba(0,0,0,.45);text-shadow:0 2px 0 rgba(255,255,255,.4)}
+.tb.on{background:rgba(233,85,180,.9);transform:scale(.94)}
+#bL{left:2%}#bR{left:18.5%}
+#bD{right:2%;width:13%;font-size:clamp(22px,4.6vw,46px)}
+#bS{right:17%;width:15%}
+.sndhint{position:absolute;top:3%;right:3%;font-size:clamp(12px,2vw,20px);background:rgba(0,0,0,.55);padding:.25em .7em;border-radius:20px;color:var(--yellow);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.45}}
 .hudbtn{position:absolute;top:1.5%;right:1.5%;display:none;gap:6px}
 .hudbtn button{font-family:'Caveat Brush',cursive;background:rgba(255,242,26,.85);border:2px solid var(--purple);color:var(--purple);border-radius:8px;font-size:clamp(12px,2.2vw,20px);padding:.1em .5em;cursor:pointer}
 #rot{position:fixed;inset:0;background:var(--dark);display:none;align-items:center;justify-content:center;text-align:center;font-size:24px;z-index:9;padding:20px;font-family:'Caveat Brush',cursive}
@@ -101,6 +112,7 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
   <section class="panel on" id="title">
     <div class="hero"><svg class="burst" viewBox="-100 -100 200 200"><polygon points="0.0,-89.0 8.3,-44.3 33.3,-85.9 24.0,-38.7 57.8,-63.4 38.3,-28.9 91.4,-45.5 50.0,-14.2 98.7,-9.2 46.0,4.3 91.2,25.9 41.9,20.8 70.1,52.9 30.4,33.3 46.6,75.3 19.2,49.7 18.4,98.7 0.0,52.1 -18.3,98.1 -16.6,42.8 -47.6,76.9 -33.9,37.1 -78.6,59.4 -47.0,23.4 -97.5,27.7 -44.7,4.1 -95.7,-8.9 -48.8,-13.9 -84.3,-42.0 -36.5,-27.6 -63.0,-69.2 -23.6,-38.2 -37.0,-95.5 -9.7,-51.8" fill="#fff21a"/></svg><img src="assets/amelia_torso.png" alt="Amélia"></div>
     <div class="txt">
+      <div class="sndhint" id="sndhint">🔊 toque na tela para ligar a música</div>
       <h1>Fuga <b>da Seita</b></h1>
       <p>Amélia nasceu numa seita e o crush dela marcou de sair com outra pessoa. Presa na seita, ela não pode fazer nada. Ajude-a nessa fuga para ela dar seu primeiro beijo.</p>
       <button class="btn" id="bPlay">▶ Jogar</button><button class="btn alt" id="bCont" style="display:none">Continuar</button><br>
@@ -112,7 +124,7 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
   <section class="panel" id="how" style="background:rgba(43,15,58,.94)">
     <h2 style="font-size:clamp(30px,6vw,64px);color:var(--yellow)">Como jogar</h2>
     <p style="font-size:clamp(14px,2.6vw,28px);max-width:80%;line-height:1.3">
-      <b>← → / A D</b> andar · <b>↑ / W / Espaço</b> pular (segure para pular mais alto)<br>
+      📱 <b>Celular:</b> setas na tela para andar e <b>toque em qualquer lugar para pular</b><br><b>← → / A D</b> andar · <b>↑ / W / Espaço</b> pular (segure para pular mais alto)<br>
       <b>Pule na cabeça</b> dos inimigos e dos chefões · depois da primeira fase, <b>X / J</b> (ou 💬) solta <b>balões de opinião</b><br>⏳ Fique de olho no <b>relógio da seita</b>: páginas do diário dão tempo extra!<br>
       <b>↓ / S</b> agachar · atrás de móveis e bancos, <b>↓</b> faz a Amélia se esconder<br>
       Pule na cabeça dos inimigos · Fuja do foco de luz de quem vigia · <b>P</b> pausa · <b>M</b> som</p>
@@ -132,15 +144,16 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
     <div class="txt"><h2>E agora?</h2>
       <p>Amélia impediu o beijo e aceitou a carona do Lucca, mas os pais dela estão em casa e vão ver ela chegando. A seita vai saber. E agora? Eles conseguem ficar juntos?<br><b>Só o livro responde.</b></p>
       <div class="promo" id="promo"><b>📚 Pré-venda em promoção e AUTOGRAFADA</b><br>só nas compras feitas até <b>23 de outubro</b>, com brindes exclusivos<span id="promoDays"></span></div>
+      <div class="promo cupom"><b>🎟️ Cupom MELINHA</b>: 5% de desconto</div>
       <p id="endStats" style="font-size:clamp(11px,1.8vw,18px);margin:.1em"></p>
       <a class="btn" id="bBook2" target="_blank" rel="noopener">📖 Quero meu exemplar autografado</a><br>
-      <button class="btn alt small" id="bShare">Compartilhar o jogo</button><button class="btn alt small" id="bMenu2">Jogar de novo</button></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2px"><button class="btn alt small" id="bCupom">Copiar cupom</button><button class="btn alt small" id="bShare">Compartilhar o jogo</button><button class="btn alt small" id="bMenu2">Jogar de novo</button></div></div>
   </section>
 </div>
 <div class="hudbtn" id="hudbtn"><button id="bPause">❚❚</button><button id="bMute">♪</button></div>
 <div id="touch">
   <div class="tb" id="bL" data-k="left">◀</div><div class="tb" id="bR" data-k="right">▶</div><div class="tb" id="bD" data-k="down">▼</div>
-  <div class="tb" id="bS" data-k="shoot">💬</div><div class="tb" id="bJ" data-k="jump">PULA</div>
+  <div class="tb" id="bS" data-k="shoot">💬</div>
 </div>
 </div></div>
 
@@ -235,7 +248,7 @@ function playAmb(n,t){
   if(s===4||s===12){const ln=LEADN[(n>>2)%8];toneAt(root*16*Math.pow(2,ln/12),root*16*Math.pow(2,ln/12),t,1.8,'sine',.025)}
 }
 function sched(){
-  if(!AC||muted||(state!=='play'&&state!=='story'&&state!=='cliff')){mst.next=0;return}
+  if(!AC||muted||(state!=='play'&&state!=='story'&&state!=='cliff'&&state!=='title')){mst.next=0;return}
   const now=AC.currentTime;if(mst.next<now)mst.next=now+.05;
   const b=state==='play'&&G&&G.boss,intense=state==='play'&&G&&(!!(b&&b.alive)||G.time<30);
   const amb=state==='story'||state==='cliff',bpm=amb?80:(intense?166:134),sd=60/bpm/4;
@@ -265,7 +278,13 @@ document.querySelectorAll('.tb').forEach(b=>{
   b.addEventListener('pointerdown',on);b.addEventListener('pointerup',off);b.addEventListener('pointercancel',off);b.addEventListener('pointerleave',off);
   b.addEventListener('contextmenu',e=>e.preventDefault());
 });
-if('ontouchstart' in window||matchMedia('(pointer:coarse)').matches)$('touch').style.display='block';
+const IS_TOUCH='ontouchstart' in window||matchMedia('(pointer:coarse)').matches;
+if(IS_TOUCH)$('touch').style.display='block';
+// toque em qualquer lugar da tela = pular
+{const taps=new Set();const stg=$('stage');
+ stg.addEventListener('pointerdown',e=>{if(state!=='play')return;if(e.target.closest('.tb,.hudbtn,.panel.on,button,a'))return;audio();taps.add(e.pointerId);touch.jump=true;edge.jump=true});
+ const up=e=>{if(taps.delete(e.pointerId)&&taps.size===0)touch.jump=false};
+ stg.addEventListener('pointerup',up);stg.addEventListener('pointercancel',up);stg.addEventListener('pointerleave',up)}
 
 /* ================= ASSETS ================= */
 function loadAll(cb){
@@ -369,12 +388,14 @@ function startLevel(i,cpx){
   const cfg=LEVELS[i],L=build(cfg,i);
   // remove coletáveis já pegos
   L.pickups=L.pickups.filter(p=>!stat.got.has(i+':'+p.id));
-  const cp=cpx!=null?safeX(L,cpx):80;
+  const cp=cpx!=null?safeX(L,cpx):300;
   G={lvl:i,cfg,L,time:cfg.time,beat:0,reason:'',P:newPlayer(cp,cfg.hp),cam:Math.max(0,cp-380),cpx:cp,cpy:GY-88,shots:[],es:[],parts:[],txt:[],boss:null,arena:false,t:0,flash:0,shake:0,door:null,cut:null,banner:0,dead:0,freeze:0,leftWall:null,crush:null};
   mLvl=i;saved=Math.max(saved,i);try{localStorage.setItem('amelia_lvl',saved)}catch(e){}
   $('bS').style.display=i>=1?'':'none';show(null);state='play';$('hudbtn').style.display='flex';music(true);
   if(params.has('boss')){G.P.x=L.ax-60;G.cam=L.ax-420}
 }
+function unlockAudio(){audio();if(state==='title'&&!musicOn)music(true);const h=$('sndhint');if(h)h.style.display='none'}
+['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,unlockAudio,{capture:true,passive:true}));
 function show(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id));$('touch').style.visibility=id?'hidden':'visible'}
 
 /* ================= HISTÓRIA ================= */
@@ -391,12 +412,13 @@ function playLevel(i){mLvl=i;const c=LEVELS[i];showStory('Fase '+(i+1)+' · '+c.
 /* ================= MENUS ================= */
 $('bBook').href=CFG.BOOK_URL;$('bBook2').href=CFG.BOOK_URL;
 if(saved>0){$('bCont').style.display='';$('bCont').textContent='Continuar (fase '+(saved+1)+')'}
-$('bPlay').onclick=()=>{audio();stat.score=0;stat.pages=0;stat.hearts=0;stat.got.clear();playLevel(0)};
+$('bPlay').onclick=()=>{audio();if(IS_TOUCH){try{const de=document.documentElement;(de.requestFullscreen||de.webkitRequestFullscreen||(()=>{})).call(de);if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{})}catch(e){}}stat.score=0;stat.pages=0;stat.hearts=0;stat.got.clear();playLevel(0)};
 $('bCont').onclick=()=>{audio();playLevel(saved)};
 $('bHow').onclick=()=>show('how');$('bHowOk').onclick=()=>show('title');
 $('bRetry').onclick=()=>{audio();startLevel(G.lvl,G.cpx)};
-$('bMenu1').onclick=$('bMenu2').onclick=()=>{state='title';music(false);$('hudbtn').style.display='none';if(saved>0){$('bCont').style.display='';$('bCont').textContent='Continuar (fase '+(saved+1)+')'}show('title')};
+$('bMenu1').onclick=$('bMenu2').onclick=()=>{state='title';music(true);$('hudbtn').style.display='none';if(saved>0){$('bCont').style.display='';$('bCont').textContent='Continuar (fase '+(saved+1)+')'}show('title')};
 $('bNext').onclick=()=>{audio();const n=G.lvl+1;if(n<LEVELS.length)playLevel(n)};
+$('bCupom').onclick=async()=>{const b=$('bCupom');try{await navigator.clipboard.writeText('MELINHA');b.textContent='Cupom copiado ✓'}catch(e){try{const t=document.createElement('textarea');t.value='MELINHA';document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();b.textContent='Cupom copiado ✓'}catch(_){b.textContent='Cupom: MELINHA'}}};
 $('bShare').onclick=()=>{const d={title:'O Diário de Amélia — O Jogo',text:CFG.SHARE_TEXT,url:location.href.split('?')[0]};
   if(navigator.share)navigator.share(d).catch(()=>{});else{try{navigator.clipboard.writeText(d.text+' '+d.url);$('bShare').textContent='Link copiado!'}catch(e){}}};
 function togglePause(force){if(state!=='play'&&state!=='pause')return;if(state==='play'){state='pause'}else if(!force){state='play'}}
@@ -774,7 +796,7 @@ function step(dt){
   if(G.flash>0)G.flash-=dt;if(G.shake>0)G.shake-=dt;
   // câmera
   const L=G.L,P=G.P;
-  let tx=P.x-W*.38;if(G.arena)tx=L.ax;
+  let tx=P.x-W*(IS_TOUCH?.5:.38);if(G.arena)tx=L.ax;
   tx=clamp(tx,0,L.ax);
   G.cam=lerp(G.cam,tx,Math.min(1,dt*(G.arena?5:8)));
 }
@@ -1104,12 +1126,12 @@ function drawHUD(){
   ctx.fillStyle=COL.cream;ctx.strokeStyle=COL.purple;ctx.lineWidth=5;ctx.font='28px "Caveat Brush",cursive';ctx.textAlign='left';
   ctx.strokeText('♥ '+stat.hearts+'    📖 '+stat.pages,100,66);ctx.fillText('♥ '+stat.hearts+'    📖 '+stat.pages,100,66);
   ctx.textAlign='right';
-  ctx.font='20px "Patrick Hand",cursive';ctx.strokeText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-130,40);ctx.fillText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-130,40);
+  ctx.font='20px "Patrick Hand",cursive';ctx.strokeText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-175,40);ctx.fillText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-175,40);
   // relógio da seita
   {const tm=Math.max(0,G.time),mm=Math.floor(tm/60),ss=Math.floor(tm%60),low=tm<30,pul=low?1+.08*Math.sin(G.t*10):1;
    ctx.save();ctx.translate(W/2,30);ctx.scale(pul,pul);ctx.textAlign='center';ctx.font='15px "Patrick Hand",cursive';ctx.fillStyle=low?COL.red:'#cfc2d8';ctx.fillText(G.cfg.clock||'a seita decide em',0,-14);
    ctx.font='38px "Caveat Brush",cursive';ctx.lineWidth=6;ctx.strokeStyle='#000';const tx='⏳ '+mm+':'+String(ss).padStart(2,'0');ctx.strokeText(tx,0,20);ctx.fillStyle=low?COL.red:COL.cream;ctx.fillText(tx,0,20);ctx.restore()}
-  if(G.lvl===0&&G.t<12&&!G.boss){ctx.fillStyle='rgba(0,0,0,.55)';rr(W/2-300,H-52,600,34,10);ctx.fill();ctx.fillStyle=COL.cream;ctx.font='20px "Patrick Hand",cursive';ctx.textAlign='center';ctx.fillText('← → andar   ·   ↑ pular   ·   ↓ esconder',W/2,H-29)}
+  if(G.lvl===0&&G.t<12&&!G.boss){ctx.fillStyle='rgba(0,0,0,.55)';rr(W/2-300,H-52,600,34,10);ctx.fill();ctx.fillStyle=COL.cream;ctx.font='20px "Patrick Hand",cursive';ctx.textAlign='center';ctx.fillText(IS_TOUCH?'◀ ▶ andar   ·   toque na tela para pular':'← → andar   ·   ↑ pular   ·   ↓ esconder',W/2,H-29)}
   if(G.lvl===1&&G.t<6){ctx.save();ctx.globalAlpha=Math.min(1,(6-G.t));ctx.fillStyle='rgba(0,0,0,.65)';rr(W/2-310,92,620,40,12);ctx.fill();ctx.strokeStyle=COL.yellow;ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=COL.yellow;ctx.font='24px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('Nova habilidade! Aperte X (💬) para soltar opiniões',W/2,119);ctx.restore()}
   // barra de chefão
   const b=G.boss;if(b&&b.alive&&(b.intro<=0||G.banner<2.6)){
