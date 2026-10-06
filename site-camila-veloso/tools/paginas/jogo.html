@@ -1,0 +1,59 @@
+<section class="pt"><div class="w"><span class="etq">Jogo</span><h1 class="fat" style="margin-top:1rem">Amélia em fuga</h1><p>Pegue as <mark>ideias</mark> e desvie das <b>regras</b>. Três vidas. Quanto mais ideias, mais rápido fica.</p></div></section>
+<section class="sec"><div class="w jogo">
+ <div class="jogo__box">
+  <canvas id="tela" width="360" height="540" aria-label="Área do jogo: Amélia pega estrelas de ideias e desvia de blocos de regras" role="img"></canvas>
+  <div class="jogo__hud" aria-live="polite"><span>Ideias: <b id="pts">0</b></span><span id="vidas" aria-label="vidas">♥♥♥</span><span>Recorde: <b id="rec">0</b></span></div>
+  <div class="jogo__ov" id="ov"><div><h2 class="fat" id="ovT">Pronta?</h2><p id="ovP">Arraste o dedo (ou use ← →) para mover a Amélia.</p><button class="btn btn--am" id="go" type="button">Jogar</button></div></div>
+ </div>
+ <p style="margin-block:1.6rem 1rem;font-weight:500;font-size:1.15rem">Gostou? Conheça a história completa.</p>
+ <div class="cta"><a class="btn btn--g" href="{{LINK}}" target="_blank" rel="noopener">Garantir na pré-venda</a><a class="btn btn--br" href="/">Voltar ao início</a></div>
+</div></section>
+<script>
+(function(){
+var cv=document.getElementById('tela'),c=cv.getContext('2d'),W=cv.width,H=cv.height;
+var ptsEl=document.getElementById('pts'),recEl=document.getElementById('rec'),vEl=document.getElementById('vidas'),ov=document.getElementById('ov'),go=document.getElementById('go');
+var rec=0;try{rec=+localStorage.getItem('amelia-rec')||0}catch(e){} recEl.textContent=rec;
+var COR={sol:'#E8341C',roxo:'#5B1D66',marinho:'#0A0A0A',azul:'#1E8CFF',am:'#FFD83D',creme:'#FFF4DF'};
+var P,items,pts,vidas,t,spawn,run=false,keys={},raf;
+function reset(){P={x:W/2,w:46,h:70};items=[];pts=0;vidas=3;t=0;spawn=0;upd()}
+function upd(){ptsEl.textContent=pts;vEl.textContent='♥'.repeat(vidas)+'♡'.repeat(3-vidas)}
+function estrela(x,y,r){c.beginPath();for(var i=0;i<16;i++){var a=i*Math.PI/8-Math.PI/2,rr=i%2?r*.62:r;c.lineTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr)}c.closePath();c.fill()}
+function amelia(){var x=P.x,y=H-P.h-10;
+ c.fillStyle=COR.marinho;c.fillRect(x-12,y+48,10,22);c.fillRect(x+2,y+48,10,22);   // pernas
+ c.fillStyle='#FF5FA2';c.fillRect(x-12,y+58,10,12);c.fillRect(x+2,y+58,10,12);
+ c.fillStyle=COR.roxo;c.fillRect(x-17,y+36,34,16);                                   // short
+ c.fillStyle=COR.creme;c.beginPath();c.roundRect?c.roundRect(x-20,y+14,40,28,8):c.rect(x-20,y+14,40,28);c.fill(); // moletom
+ c.fillStyle='#7a3b1d';c.beginPath();c.arc(x,y+8,13,0,7);c.fill();                  // cabelo
+ c.fillStyle='#F2B28C';c.beginPath();c.arc(x+1,y+10,10,0,7);c.fill();
+ c.fillStyle=COR.am;c.fillRect(x+10,y+14,5,30)}                                      // alça
+function loop(){
+ t++;var vel=2.2+pts*.06;
+ if(keys.L)P.x-=6;if(keys.R)P.x+=6;P.x=Math.max(26,Math.min(W-26,P.x));
+ if(--spawn<=0){spawn=Math.max(18,48-pts*.8);var boa=Math.random()<.62;items.push({x:24+Math.random()*(W-48),y:-30,boa:boa,r:boa?16:0,w:boa?0:50+Math.random()*30,s:vel*(.8+Math.random()*.5)})}
+ c.clearRect(0,0,W,H);
+ var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#FFF4DF');g.addColorStop(1,'#FFD83D');c.fillStyle=g;c.fillRect(0,0,W,H);
+ var py=H-P.h-10;
+ for(var i=items.length-1;i>=0;i--){var it=items[i];it.y+=it.s;
+  if(it.boa){c.fillStyle=(t%20<10)?COR.sol:'#FF5FA2';estrela(it.x,it.y,it.r)}
+  else{c.fillStyle='#4a4553';c.fillRect(it.x-it.w/2,it.y-14,it.w,28);c.fillStyle='#fff';c.font='700 13px sans-serif';c.textAlign='center';c.fillText('NÃO',it.x,it.y+5)}
+  var hx=it.boa?it.r:it.w/2,hy=it.boa?it.r:14;
+  if(it.y+hy>py&&it.y-hy<py+P.h&&Math.abs(it.x-P.x)<hx+16){
+   if(it.boa){pts++}else{vidas--;c.fillStyle='rgba(204,52,27,.35)';c.fillRect(0,0,W,H)}
+   items.splice(i,1);upd();if(vidas<=0){return fim()}continue}
+  if(it.y>H+40)items.splice(i,1)}
+ amelia();
+ raf=requestAnimationFrame(loop)}
+function fim(){run=false;cancelAnimationFrame(raf);
+ var novo=pts>rec;if(novo){rec=pts;recEl.textContent=rec;try{localStorage.setItem('amelia-rec',rec)}catch(e){}}
+ document.getElementById('ovT').textContent=pts>=15?'Você é livre! ✺':'Fim de jogo';
+ document.getElementById('ovP').textContent='Você pegou '+pts+' ideias'+(novo&&pts>0?' — novo recorde!':'.')+' Quer tentar de novo?';
+ go.textContent='Jogar de novo';ov.hidden=false}
+function start(){reset();ov.hidden=true;run=true;cancelAnimationFrame(raf);loop()}
+go.addEventListener('click',start);
+addEventListener('keydown',function(e){if(e.key==='ArrowLeft')keys.L=1;if(e.key==='ArrowRight')keys.R=1;if(run&&(e.key==='ArrowLeft'||e.key==='ArrowRight'))e.preventDefault()});
+addEventListener('keyup',function(e){if(e.key==='ArrowLeft')keys.L=0;if(e.key==='ArrowRight')keys.R=0});
+function move(e){if(!run)return;var r=cv.getBoundingClientRect();P.x=(e.clientX-r.left)*W/r.width}
+cv.addEventListener('pointerdown',move);cv.addEventListener('pointermove',move);
+reset();c.fillStyle=COR.creme;c.fillRect(0,0,W,H);amelia();
+})();
+</script>

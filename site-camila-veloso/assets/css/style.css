@@ -208,3 +208,36 @@ details p{padding:0 1.2rem 1.1rem}
 .pag-links .fix{display:none}
 .pag-links{padding-bottom:0}
 @media(max-width:30rem){.livros .livro p{-webkit-line-clamp:8;line-clamp:8;min-height:11.6em}}
+
+/* capa clicavel que leva ao jogo */
+.hero__cap{display:flex;flex-direction:column;align-items:center;gap:2rem;justify-self:center;width:100%}
+.capa--jogo{display:block;text-decoration:none}
+.capa--jogo img{animation:balanca 3.2s ease-in-out infinite;transform-origin:50% 90%;transition:filter .15s}
+.capa--jogo:hover img{animation-play-state:paused;transform:rotate(1deg) scale(1.04)}
+.jogue{position:absolute;left:-.8rem;bottom:1.2rem;width:6.4rem;aspect-ratio:1;display:grid;place-items:center;text-align:center;background:var(--rosa);color:var(--tinta);border:3px solid var(--tinta);border-radius:50%;font-family:var(--titulo);font-weight:800;font-size:.95rem;line-height:1.02;box-shadow:4px 4px 0 var(--tinta);animation:pop 1.8s ease-in-out infinite}
+.dica{position:absolute;left:.2rem;top:-.6rem;display:flex;align-items:center;gap:.3rem;background:var(--branco);border:3px solid var(--tinta);border-radius:3rem;padding:.25rem .8rem .25rem .5rem;font-family:var(--titulo);font-weight:800;font-size:.85rem;animation:aponta 1.4s ease-in-out infinite}
+.btn--jogo{position:relative;background:var(--roxo);color:var(--branco);font-size:1.15rem;padding:1rem 1.8rem;z-index:1}
+.btn--jogo .pulso{position:absolute;inset:-3px;border-radius:3rem;border:3px solid var(--roxo);animation:onda 1.8s ease-out infinite;z-index:-1}
+@keyframes balanca{0%,100%{transform:rotate(3deg) translateY(0)}50%{transform:rotate(-1deg) translateY(-8px)}}
+@keyframes pop{0%,100%{transform:rotate(-10deg) scale(1)}50%{transform:rotate(-4deg) scale(1.12)}}
+@keyframes aponta{0%,100%{transform:translate(0,0)}50%{transform:translate(8px,-6px)}}
+@keyframes onda{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.3,1.8);opacity:0}}
+@media(prefers-reduced-motion:reduce){.capa--jogo img,.jogue,.dica,.btn--jogo .pulso{animation:none}}
+@media(max-width:46rem){.hero__cap{order:-1;gap:1.6rem}.hero__cap .capa{width:min(80%,20rem)}.jogue{width:5.4rem;font-size:.8rem;left:-.4rem}.hero__rabisco{display:none}}
+.lkb--j{background:var(--roxo);color:var(--branco)}
+.lkb--j .lkb__i{background:var(--rosa);color:var(--tinta)}
+mark{background:var(--rosa);color:var(--tinta);padding:0 .25em;border-radius:.3em}
+
+/* jogo */
+.jogo{max-width:30rem}
+.jogo__box{position:relative;border:3px solid var(--tinta);border-radius:1.4rem;overflow:hidden;box-shadow:8px 8px 0 var(--tinta);background:var(--branco);touch-action:none}
+.jogo__box canvas{display:block;width:100%;height:auto;touch-action:none}
+.jogo__hud{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:.6rem .9rem;font-family:var(--titulo);font-weight:800;pointer-events:none}
+.jogo__hud #vidas{color:var(--vermelho);letter-spacing:.1em}
+.jogo__ov{position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:rgba(10,10,10,.85);color:var(--creme);padding:1.5rem}
+.jogo__ov[hidden]{display:none}
+.jogo__ov h2{color:var(--amarelo);margin-bottom:.6rem}
+.jogo__ov p{margin-bottom:1.2rem}
+html{overflow-x:hidden}
+
+.pag-jogo .fix{display:none}.pag-jogo{padding-bottom:0}
