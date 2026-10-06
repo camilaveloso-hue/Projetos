@@ -18,7 +18,7 @@ SITE = {
     "aldeia": "https://aaldeialiteraria.com.br/",
     # Contagem de visitas e cliques (GoatCounter, grátis e sem cookies). Crie a conta em goatcounter.com,
     # escolha um código (ex.: camilaveloso) e escreva aqui. Vazio = sem medição.
-    "goatcounter": "",
+    "goatcounter": "camilaveloso",
 }
 LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de-amelia-1amj0/"
 PRECO = "59,90"       # preço da pré-venda: tem que bater com o da loja da Editora Fissura
