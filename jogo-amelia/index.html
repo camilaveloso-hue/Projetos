@@ -142,7 +142,7 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
   <section class="panel" id="end">
     <img src="assets/capa.png" alt="Capa do livro">
     <div class="txt"><h2>E agora?</h2>
-      <p>Amélia impediu o beijo e aceitou a carona do Lucca, mas os pais dela estão em casa e vão ver ela chegando. A seita vai saber. E agora? Eles conseguem ficar juntos?<br><b>Só o livro responde.</b></p>
+      <p>Amélia impediu o beijo e aceitou a carona do Lucca, mas o pai dela viu os dois chegando e olhou bravo para ele. A seita vai saber. E agora? Eles conseguem ficar juntos?<br><b>Só o livro responde.</b></p>
       <div class="promo" id="promo"><b>📚 Pré-venda em promoção e AUTOGRAFADA</b><br>só nas compras feitas até <b>23 de outubro</b>, com brindes exclusivos<span id="promoDays"></span></div>
       <div class="promo cupom"><b>🎟️ Cupom MELINHA</b>: 5% de desconto</div>
       <p id="endStats" style="font-size:clamp(11px,1.8vw,18px);margin:.1em"></p>
@@ -748,16 +748,17 @@ async function showCliff(){
   const sayL=async(txt,wait)=>{const t=typing();await sleep(wait);if(!alive())return false;t.remove();bubble('l',txt);tone(900,1300,.12,'triangle',.08);return true};
   await sleep(700);if(!alive())return;
   for(const [x,w] of [['Amélia?! Você veio até aqui…',1000],['Já tá tarde. Quer uma carona pra casa?',1500]]){if(!await sayL(x,w))return}
-  const choice=await new Promise(res=>{for(const t of ['Aceito! 🚗','Aceito, mas me deixa na esquina…']){const b=document.createElement('button');b.className='btn small';b.textContent=t;b.onclick=()=>{audio();res(t)};btns.appendChild(b)}});
+  const choice=await new Promise(res=>{const b=document.createElement('button');b.className='btn small';b.textContent='Aceito! 🚗';b.onclick=()=>{audio();res('Aceito! 🚗')};btns.appendChild(b)});
   if(!alive())return;btns.innerHTML='';bubble('r',choice);
-  await sleep(700);if(!await sayL(choice.startsWith('Aceito!')?'Bora! Tô na frente.':'Combinado. Te deixo na esquina.',1000))return;
-  await sleep(800);if(!alive())return;bubble('sys','🚗 20 minutos depois…');await sleep(1500);if(!alive())return;
-  if(!await sayL('Chegamos.',800))return;
-  if(!await sayL('Amélia… por que tem tanta gente na porta da sua casa?',1800))return;
+  await sleep(700);if(!await sayL('Bora! Tô na frente.',1000))return;
+  await sleep(800);if(!alive())return;bubble('sys','🚗 20 minutos depois…');await sleep(1300);if(!alive())return;
+  bubble('sys','🏠 Lucca deixou a Amélia em casa');await sleep(1600);if(!alive())return;
+  if(!await sayL('Amélia…',900))return;
+  if(!await sayL('Por que seu pai olhou tão bravo pra mim?',1800))return;
   await sleep(600);if(!alive())return;
   const n=document.createElement('div');n.className='notif';n.innerHTML='📞 <b>Mãe</b><br>14 ligações perdidas';phone.appendChild(n);phone.classList.add('buzz');SFX.alarm();
   await sleep(1300);phone.classList.remove('buzz');if(!alive())return;
-  for(const t of ['Os pais dela estão em casa.','Eles vão ver a Amélia chegando.','A seita vai saber.','E agora?']){note.textContent=t;await sleep(2200);if(!alive())return}
+  for(const t of ['O pai dela viu os dois chegando.','Ele olhou bravo para o Lucca.','A seita vai saber.','E agora?']){note.textContent=t;await sleep(2200);if(!alive())return}
   showEnd();
 }
 $('bSkip').onclick=()=>{audio();cliffRun++;showEnd()};
