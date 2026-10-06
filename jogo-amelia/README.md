@@ -1,4 +1,4 @@
-# O Diário de Amélia — O Jogo
+# Fuga da Seita (inspirado em O Diário de Amélia)
 
 Jogo de plataforma 2D (estilo Mario) que roda direto no navegador, no PC e no celular. Sem instalação, sem build: é só `index.html` + a pasta `assets/`.
 
@@ -9,8 +9,8 @@ cd jogo-amelia && python3 -m http.server 8000   # abra http://localhost:8000
 Atalho para testar fases: `?fase=3` (começa na fase 3), `&boss` (vai direto ao chefão), `&god` (invencível).
 
 ## Fases e chefões
-1. A Comunidade, **Irmã Prudência**
-2. Currículo na Mão, **O Gerente**
+1. Presa em Casa, **O Porteiro** (3 pisões; sem balões ainda)
+2. Um Emprego Escondido, **O Gerente** (libera os balões de opinião, tecla X)
 3. Janela do Quarto (fuga furtiva), **Mãe Radar & Pai Lanterna**
 4. Os Olhos do Líder (fuga furtiva), **O Líder da Seita**
 5. A Saída do Crush, **O Ciúme**
