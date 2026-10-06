@@ -4,7 +4,7 @@
 Uso:  python3 tools/build.py            (roda na pasta site-camila-veloso/)
 Para trocar o domínio, redes sociais ou links de compra, edite só o bloco SITE.
 """
-import json, pathlib, datetime
+import json, pathlib, datetime, hashlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -24,6 +24,11 @@ LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de
 PRECO = "59,90"       # preço da pré-venda: tem que bater com o da loja da Editora Fissura
 PRECO_DE = "69,99"
 HOJE = datetime.date.today().isoformat()
+
+def _versao(caminho):
+    # muda quando o arquivo muda: evita que o navegador use CSS/JS antigo guardado em cache
+    return hashlib.md5((ROOT / caminho).read_bytes()).hexdigest()[:8]
+
 
 FONTS = ("https://fonts.googleapis.com/css2?family=Shrikhand&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800"
          "&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap")
@@ -163,7 +168,7 @@ def footer():
   <nav class="nav" aria-label="Rodapé"><a href="/o-diario-de-amelia/">O Diário de Amélia</a><a href="/livros/">Livros</a><a href="/sobre/">Sobre</a><a href="/manifesto/">Manifesto</a><a href="/leituras/">Leituras</a><a href="/links/">Links</a>{sociais}</nav>
 </div></footer>
 <div class="fix"><span>O Diário de Amélia · pré-venda <b>R$ {PRECO}</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></div>
-<script src="/assets/js/site.js" defer></script>"""
+<script src="/assets/js/site.js?v={_versao("assets/js/site.js")}" defer></script>"""
 
 def medicao():
     c = SITE["goatcounter"]
@@ -209,7 +214,7 @@ def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={_versao("assets/css/style.css")}">
 <script type="application/ld+json">{jsonld}</script>
 {medicao()}
 </head>
