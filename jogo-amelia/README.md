@@ -9,12 +9,11 @@ cd jogo-amelia && python3 -m http.server 8000   # abra http://localhost:8000
 Atalho para testar fases: `?fase=3` (começa na fase 3), `&boss` (vai direto ao chefão), `&god` (invencível).
 
 ## Fases e chefões
-1. Presa em Casa, **O Porteiro** (3 pisões; sem balões ainda)
-2. Um Emprego Escondido, **O Gerente** (libera os balões de opinião, tecla X)
-3. Janela do Quarto (fuga furtiva), **Mãe Radar & Pai Lanterna**
-4. Os Olhos do Líder (fuga furtiva), **O Líder da Seita**
-5. A Saída do Crush, **O Ciúme**
-6. Um Beijo, Por Favor, **As Expectativas**, com final em cliffhanger e botão para o livro
+1. Presa em Casa, **O Porteiro** (2 pisões; sem balões ainda)
+2. Um Emprego Escondido, **O Tesoureiro** (libera os balões de opinião, tecla X)
+3. Ronda da Noite (furtiva), **O Vigia**
+4. Antes do Beijo (correr antes que o Lucca beije a Michelle), **O Ciúme**
+5. Um Beijo, Por Favor, **As Expectativas**, com final em cliffhanger e botão para o livro
 
 ## Personalizar
 No topo do `<script>` do `index.html`: `CFG.BOOK_URL` (link de compra), `CFG.SHARE_TEXT` e o array `LEVELS` (nomes, textos do diário, chefões).

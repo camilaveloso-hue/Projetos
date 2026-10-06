@@ -98,7 +98,7 @@ h1,h2,.hand{font-family:'Caveat Brush','Comic Sans MS',cursive;font-weight:400;m
   <section class="panel" id="end">
     <img src="assets/capa.png" alt="Capa do livro">
     <div class="txt"><h2>...e então?</h2>
-      <p>Amélia respira fundo, o coração dispara, o garoto vira o rosto e…<br><b>Será que o beijo acontece?</b><br>Essa resposta só está no livro.</p>
+      <p>Amélia respira fundo, o coração dispara, Lucca vira o rosto e…<br><b>Será que o beijo acontece?</b><br>Essa resposta só está no livro.</p>
       <p id="endStats" style="font-size:clamp(12px,2vw,22px)"></p>
       <a class="btn" id="bBook2" target="_blank" rel="noopener">📖 Quero ler O Diário de Amélia</a><br>
       <button class="btn alt small" id="bShare">Compartilhar o jogo</button><button class="btn alt small" id="bMenu2">Jogar de novo</button></div>
@@ -122,27 +122,18 @@ const CFG={
 const LEVELS=[
  {name:'Presa em Casa',after:'Amélia escapou de casa, mas sem dinheiro não vai longe. A cidade espera, e um emprego escondido também.',sub:'Sair de casa é a primeira etapa',seed:11,len:6200,eGap:260,time:270,script:['flat','tower','double','flat','bridge','tower','gap','stairs','flat','double','tower','flat','bridge'],weights:{flat:3,gap:2,stairs:2,bridge:2,tower:3,double:2},theme:'com',en:['person'],boss:'porteiro',bossName:'O Porteiro',bossSub:'Guardião do portão. Ninguém sai sem autorização.',
   story:['Você precisa ajudar a Amélia a escapar. Fique de olho no timer na parte superior: ele mostra quanto tempo você tem para passar dessa fase. O futuro da Amélia depende de você.'],
-  tips:['Aperte X (ou o botão 💬) para soltar uma opinião. Balões de fala derrubam inimigos e chefões.','Pular na cabeça de inimigos funciona, e na da Irmã Prudência também! Cada pisão vale dois golpes.','Os "blás" baixos da Irmã você pula; os altos, você passa agachando com ↓. Ela cansa: continue atirando.'],
   pal:{sky1:'#0d050c',sky2:'#3b0e1a',wave:'#26091a',ground:'#07030a',top:'#ed212b',plat:'#8a1a2c',moon:'rgba(237,33,43,.55)'}},
- {name:'Um Emprego Escondido',after:'Com algum dinheiro no bolso, falta o mais difícil: sair de casa sem que os pais vejam. A noite caiu.',sub:'Se perguntarem, é mentira',seed:23,len:6200,eGap:280,time:300,pages:6,script:['flat','stairs','tower','double','bridge','flat','tower','air','stairs','double','bridge','tower','lift','flat'],weights:{flat:3,gap:2,stairs:2,bridge:2,air:1,lift:1,tower:2,double:1},theme:'job',en:['person','paper'],boss:'gerente',bossName:'O Cobrador',bossSub:'Garante que ela nunca terá dinheiro pra escapar.',
+ {name:'Um Emprego Escondido',after:'Com algum dinheiro no bolso, falta o mais difícil: atravessar o complexo da seita à noite, sem que o vigia veja.',sub:'Se perguntarem, é mentira',seed:23,len:6200,eGap:280,time:300,pages:6,script:['flat','stairs','tower','double','bridge','flat','tower','air','stairs','double','bridge','tower','lift','flat'],cutFlyers:4,weights:{flat:3,gap:2,stairs:2,bridge:2,air:1,lift:1,tower:2,double:1},theme:'job',en:['person','paper'],boss:'gerente',bossName:'O Tesoureiro',bossSub:'Guarda o dinheiro da seita e jura que ela nunca vai escapar.',
   story:['Sem dinheiro, Amélia não vai a lugar nenhum. Ela precisa de um emprego escondido.','Nova habilidade: aperte X (ou 💬) para soltar opiniões!'],
-  tips:['Cada página do diário dá +15 segundos no relógio. Vale a pena subir nas plataformas!','Papéis URGENTES caem do teto. A sombra vermelha no chão mostra onde vão cair.','O Gerente avisa o ataque com um "!". Saia da frente e acerte ele quando parar tonto.'],
   pal:{sky1:'#07071a',sky2:'#2a0f3f',wave:'#1a0c30',ground:'#06040c',top:'#e955b4',plat:'#5a2f80',moon:'rgba(233,85,180,.4)'}},
- {name:'Janela do Quarto',after:'Os pais ficaram para trás, mas o templo guarda o caminho. O líder vê tudo, e Amélia precisa passar sem ser vista.',sub:'Fugir sem que os pais vejam',seed:37,len:4200,eGap:560,time:240,weights:{flat:2,gap:1,stairs:1,bridge:1,hide:4},theme:'casa',stealth:true,en:['cat','person'],boss:'pais',bossName:'Mãe Radar & Pai Lanterna',bossSub:'Eles sempre sabem de tudo',
-  story:['É noite. Os pais de Amélia acham que ela está dormindo. A casa está escura, o corredor é comprido e a lanterna do pai varre tudo.','Se a luz pegar Amélia, ela volta pra cama, e o relógio não espera. Esconda-a atrás dos móveis (↓) e corra quando a luz se afastar.'],
-  tips:['Aperte ↓ na frente de um armário para esconder a Amélia. Enquanto estiver escondida, a luz não a vê.','O foco de luz balança como um pêndulo. Espere ele se afastar e corra até o próximo esconderijo.','Contra Mãe e Pai: esconda-se quando o Pai acender a lanterna, ataque a Mãe quando ela lançar os chinelos.'],
+ {name:'Ronda da Noite',after:'Amélia saiu do complexo da seita! Mas Lucca e Michelle, a melhor amiga dela, marcaram de sair. Corra antes que ele a beije!',sub:'Fugir sem que o vigia veja',seed:37,len:4200,eGap:560,time:280,hp:7,weights:{flat:2,gap:1,stairs:1,bridge:1,hide:4},theme:'casa',stealth:true,en:['rat','person'],boss:'vigia',bossName:'O Vigia',bossSub:'Faz a ronda do complexo. Nada escapa dele.',
+  story:['É noite no complexo da seita. O vigia faz a ronda com holofotes e lanternas que varrem tudo.','Se a luz pegar Amélia, ela volta para o dormitório. Esconda-a atrás das caixas (↓) e corra quando a luz se afastar.'],
   pal:{sky1:'#040208',sky2:'#170a22',wave:'#10061a',ground:'#030205',top:'#7a2a5a',plat:'#6a2a60',moon:null}},
- {name:'Os Olhos do Líder',after:'Livre da seita, Amélia ouve o pior: o garoto já está a caminho da festa com outra pessoa. O ciúme aperta.',sub:'Fugir sem que o líder veja',seed:51,len:4600,eGap:500,time:260,weights:{flat:2,gap:2,stairs:1,bridge:1,hide:4,air:1},theme:'templo',stealth:true,en:['person','eye'],boss:'lider',bossName:'O Líder da Seita',bossSub:'Ele vê tudo (ou quase)',
-  story:['O Templo. Todo mundo diz que o líder é Deus na terra e que ele vê tudo.','Mas até o olho mais atento pisca. Ajude Amélia a atravessar o salão, entre fiéis, olhos vigilantes e bancos de madeira, antes que ela seja chamada para o altar.'],
-  tips:['Os olhos vigiam o templo. Bancos de madeira são esconderijos: aperte ↓.','O Líder só fica vulnerável quando está cansado e desce até o chão. Aí é a sua hora de atacar.','Raios do Líder avisam com uma faixa vermelha antes de cair. Saia de debaixo!'],
-  pal:{sky1:'#1c0205',sky2:'#4d0911',wave:'#2e050b',ground:'#080102',top:'#fff21a',plat:'#8a1a22',moon:null}},
- {name:'A Saída do Crush',after:'A última corrida. O sol está nascendo e a última porta ainda está fechada.',sub:'Ele chamou a outra pra sair',seed:67,len:4800,eGap:440,time:260,weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2},theme:'festa',en:['person','spark'],boss:'ciume',bossName:'O Ciúme',bossSub:'Verde, grande e muito dramático',
-  story:['Já é quase hora do encontro. O garoto está a algumas ruas de distância, e Amélia, a muitas fugas de distância.','O ciúme resolveu acompanhá-la. E ele é bem maior do que ela esperava. Corra, antes que ele escolha outra companhia!'],
-  tips:['O Ciúme pula em direção a você. Fuja da sombra dele e pule as ondas verdes do chão.','Quando o Ciúme pousa, ele fica parado um instante. É a hora de atacar.','Faíscas verdes seguem você. Destrua com balões ou fique em movimento.'],
+ {name:'Antes do Beijo',after:'A última corrida. O sol está nascendo e a última porta ainda está fechada. Lucca está a poucos passos.',sub:'Corra antes que o Lucca beije a Michelle',seed:67,len:4800,eGap:440,time:250,hp:6,clock:'o beijo acontece em',timeMsg:'Tarde demais: Lucca e Michelle já saíram juntos. Tente de novo, e mais rápido!',weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2},theme:'festa',en:['person','spark'],boss:'ciume',bossName:'O Ciúme',bossSub:'Verde, grande e muito dramático',
+  story:['Amélia conseguiu sair do complexo! Mas Lucca e Michelle, a melhor amiga dela, marcaram de sair, e o beijo pode acontecer a qualquer momento.','Corra, antes que ele beije a Michelle!'],
   pal:{sky1:'#021412',sky2:'#0b3633',wave:'#082624',ground:'#030a09',top:'#e955b4',plat:'#1f6b66',moon:'rgba(92,205,196,.35)'}},
- {name:'Um Beijo, Por Favor',sub:'A última corrida',seed:83,len:5400,eGap:400,time:300,weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2,hide:2},theme:'final',stealth:true,en:['person','cat','paper','eye','spark'],boss:'expect',bossName:'As Expectativas',bossSub:'Todo mundo esperava algo da Amélia',
-  story:['O sol está nascendo e a última porta ainda está fechada. Entre Amélia e o garoto, só falta uma coisa: o peso de todo mundo esperar que ela seja quem nunca foi.','Acredite nela. Agora é a hora de se arriscar!'],
-  tips:['As Expectativas atacam em ciclo: blás, chinelos, raios e ondas. Aprenda a ordem.','Elas só ficam vulneráveis entre um ataque e outro. Atire nessas pausas!','Não pare. O relógio corre e o garoto está esperando.'],
+ {name:'Um Beijo, Por Favor',sub:'A última porta',seed:83,len:5400,eGap:400,time:300,hp:6,clock:'agora ou nunca',timeMsg:'O momento passou. Tente de novo!',weights:{flat:2,gap:3,stairs:2,bridge:2,air:2,lift:2,hide:2},theme:'final',stealth:true,en:['person','rat','paper','eye','spark'],boss:'expect',bossName:'As Expectativas',bossSub:'Todo mundo esperava algo da Amélia',
+  story:['Chegou a hora. Lucca está a poucos passos, e entre Amélia e ele só falta o peso de todo mundo esperar que ela seja quem nunca foi.','Acredite nela. Agora é a hora de se arriscar!'],
   pal:{sky1:'#10051a',sky2:'#6a2410',wave:'#3a1408',ground:'#07030a',top:'#ed212b',plat:'#e955b4',moon:'rgba(255,200,40,.45)'}},
 ];
 const FINAL_STORY=['Querido diário,','Cheguei. Ele está ali, a poucos passos, e eu estou com o coração batendo mais alto do que qualquer pregação…'];
@@ -152,9 +143,9 @@ const cv=document.getElementById('c'),ctx=cv.getContext('2d');
 const W=960,H=540,GY=440,GRAV=1900;
 const PHR={com:['A seita é soberana.','A seita é muito boa pra você.','Fora da seita não há salvação.','O líder é Deus na terra.','Jovens não precisam estudar.','Seja grata pela seita!','Moça direita não pensa nisso!','Obedecer é a maior virtude.'],
  job:['Sem dinheiro, você não sai!','Dinheiro não nasce em diário.','Emprego? Você nunca vai conseguir.','A seita provê. Pra que dinheiro?','Jovens não precisam estudar.'],
- casa:['Volte pra cama, já!','Jovens não precisam estudar.','O líder está vendo você.','Pensamento impuro!'],
+ casa:['Volte pro dormitório!','O vigia vê tudo.','A seita é soberana.','Jovens não precisam estudar.','Pensamento impuro!'],
  templo:['O líder é Deus na terra.','Obedecer é servir.','Quem sai, não volta.','Você não precisa de livros.'],
- festa:['Ele já tem companhia.','Chegou tarde, Amélia.','Volte pra casa!','Quem você pensa que é?'],
+ festa:['O Lucca está esperando outra pessoa.','Chegou tarde, Amélia.','Volte pra casa!','A seita é soberana.'],
  final:['O líder é Deus na terra.','Sem dinheiro, você não sai!','Jovens não precisam estudar.','Ele não é pra você.']};
 const COL={red:'#ed212b',lime:'#e4ec14',yellow:'#fff21a',pink:'#e955b4',purple:'#4f1f5f',cream:'#fde4cf',teal:'#5ccdc4',dark:'#2b0f3a'};
 const $=id=>document.getElementById(id);
@@ -252,7 +243,7 @@ function build(cfg,idx){
   const heart=(hx,hy)=>L.pickups.push({id:pid++,t:'heart',x:hx,y:hy,w:26,h:26});
   const page=(hx,hy)=>{L.pickups.push({id:pid++,t:'page',tip:L.pickups.filter(q=>q.t==='page').length,x:hx,y:hy,w:30,h:36})};
   const kind=()=>cfg.en[Math.floor(r()*cfg.en.length)];
-  const walker=(a,b,y,k)=>{k=k||kind();if(k==='paper'||k==='eye'||k==='spark')return flyer(a,b,y-90);L.enemies.push({t:'walk',k,sy:Math.floor(r()*99),x:(a+b)/2,y:y-44,w:36,h:44,vx:(r()<.5?-1:1)*(55+idx*8),min:a,max:b,dead:0,ph:r()*6})};
+  const walker=(a,b,y,k)=>{k=k||kind();if(k==='paper'||k==='eye'||k==='spark')return flyer(a,b,y-90);const hh=k==='rat'?28:44;L.enemies.push({t:'walk',k,sy:Math.floor(r()*99),x:(a+b)/2,y:y-hh,w:k==='rat'?40:36,h:hh,vx:(r()<.5?-1:1)*(55+idx*8),min:a,max:b,dead:0,ph:r()*6})};
   const flyer=(a,b,y)=>{const k=cfg.en.filter(e=>['paper','eye','spark'].includes(e));L.enemies.push({t:'fly',k:k.length?k[Math.floor(r()*k.length)]:'paper',x:(a+b)/2,y,w:34,h:30,x0:(a+b)/2,y0:y,vx:(r()<.5?-1:1)*(70+idx*10),min:a,max:b,dead:0,ph:r()*6})};
   ground(-200,500);x=500;
   while(x<cfg.len){
@@ -304,7 +295,7 @@ function build(cfg,idx){
       x+=len;
     }else if(seg==='hide'){
       const len=760;ground(x,x+len);
-      const hk=cfg.theme==='templo'?'banco':cfg.theme==='casa'?'armario':'planta';
+      const hk=cfg.theme==='templo'?'banco':cfg.theme==='casa'?'caixote':'planta';
       L.hides.push({x:x+40,y:GY-96,w:76,h:96,k:hk});
       L.hides.push({x:x+len/2-35,y:GY-96,w:76,h:96,k:hk});
       L.hides.push({x:x+len-120,y:GY-96,w:76,h:96,k:hk});
@@ -316,6 +307,7 @@ function build(cfg,idx){
   }
   // garante 3 páginas
   while(pages<PG){const px=700+pages*1300;page(px,GY-70);pages++}
+  if(cfg.cutFlyers){for(let k=0;k<cfg.cutFlyers;k++){const fl=L.enemies.filter(e=>e.t==='fly');let best=null,bd=1e9;for(let a=0;a<fl.length;a++)for(let b2=a+1;b2<fl.length;b2++){const d=Math.abs(fl[a].x-fl[b2].x);if(d<bd){bd=d;best=fl[b2]}}if(best)L.enemies.splice(L.enemies.indexOf(best),1)}}
   // arena do chefão
   const ax=x+120;ground(x,ax+W+80);
   L.ax=ax;L.endX=ax+W;
@@ -330,7 +322,7 @@ function build(cfg,idx){
 let state='title',G=null,saved=0,paused=false;
 try{saved=+localStorage.getItem('amelia_lvl')||0}catch(e){}
 const stat={score:0,pages:0,hearts:0,got:new Set()};
-function newPlayer(x){return{x,y:GY-88,w:28,h:88,vx:0,vy:0,on:false,face:1,hp:5,inv:0,hid:false,cd:0,coy:0,buf:0,ph:0,crouch:false,hurtT:0,ride:null,lock:false,auto:0}}
+function newPlayer(x,hp){return{x,y:GY-88,w:28,h:88,vx:0,vy:0,on:false,face:1,hp:hp||5,max:hp||5,inv:0,hid:false,cd:0,coy:0,buf:0,ph:0,crouch:false,hurtT:0,ride:null,lock:false,auto:0}}
 function groundAt(L,x){return L.solids.some(q=>q.y===GY&&x>=q.x+6&&x+28<=q.x+q.w-6)}
 function safeX(L,x){let t=x;for(let i=0;i<600&&!groundAt(L,t);i++)t-=10;return Math.max(0,t)}
 function startLevel(i,cpx){
@@ -338,7 +330,7 @@ function startLevel(i,cpx){
   // remove coletáveis já pegos
   L.pickups=L.pickups.filter(p=>!stat.got.has(i+':'+p.id));
   const cp=cpx!=null?safeX(L,cpx):80;
-  G={lvl:i,cfg,L,time:cfg.time,beat:0,reason:'',P:newPlayer(cp),cam:Math.max(0,cp-380),cpx:cp,cpy:GY-88,shots:[],es:[],parts:[],txt:[],boss:null,arena:false,t:0,flash:0,shake:0,door:null,cut:null,banner:0,dead:0,freeze:0,leftWall:null,crush:null};
+  G={lvl:i,cfg,L,time:cfg.time,beat:0,reason:'',P:newPlayer(cp,cfg.hp),cam:Math.max(0,cp-380),cpx:cp,cpy:GY-88,shots:[],es:[],parts:[],txt:[],boss:null,arena:false,t:0,flash:0,shake:0,door:null,cut:null,banner:0,dead:0,freeze:0,leftWall:null,crush:null};
   mLvl=i;saved=Math.max(saved,i);try{localStorage.setItem('amelia_lvl',saved)}catch(e){}
   $('bS').style.display=i>=1?'':'none';show(null);state='play';$('hudbtn').style.display='flex';music(true);
   if(params.has('boss')){G.P.x=L.ax-60;G.cam=L.ax-420}
@@ -383,7 +375,7 @@ function hurt(by,respawn){
 }
 function die(){const P=G.P;G.dead=1;SFX.die();music(false);
   spawnParts(P.x+14,P.y+40,26,[COL.pink,COL.yellow,COL.red]);
-  setTimeout(()=>{if(G&&G.dead){state='over';const tm=G.reason==='time';$('ovH').textContent=tm?'O tempo acabou':'Pegaram a Amélia';$('ovP').textContent=tm?'A seita decidiu: Amélia não pode mais estudar. Tente de novo, e mais rápido!':(G.arena?'O chefão venceu essa rodada. Respire fundo e tente de novo!':'Respire fundo e tente de novo.');show('over')}},1100)}
+  setTimeout(()=>{if(G&&G.dead){state='over';const tm=G.reason==='time';$('ovH').textContent=tm?'O tempo acabou':'Pegaram a Amélia';$('ovP').textContent=tm?(G.cfg.timeMsg||'A seita decidiu: Amélia não pode mais estudar. Tente de novo, e mais rápido!'):(G.arena?'O chefão venceu essa rodada. Respire fundo e tente de novo!':'Respire fundo e tente de novo.');show('over')}},1100)}
 function addScore(n){stat.score+=n}
 
 /* ================= JOGADOR ================= */
@@ -492,7 +484,7 @@ function updateWorld(dt){
       if(p.t==='heart'){addScore(10);stat.hearts++;SFX.coin();spawnParts(p.x+13,p.y+13,5,[COL.red,COL.pink]);}
       else{addScore(200);stat.pages++;G.time+=15;SFX.page();spawnParts(p.x+15,p.y+18,12,[COL.cream,COL.yellow,COL.pink]);}
       // cura com 25 corações
-      if(p.t==='heart'&&stat.hearts%25===0&&P.hp<5){P.hp++;floatText(P.x-10,P.y-30,'+1 vida!',COL.pink)}
+      if(p.t==='heart'&&stat.hearts%25===0&&P.hp<P.max){P.hp++;floatText(P.x-10,P.y-30,'+1 vida!',COL.pink)}
     }
   }
   G.L.pickups=G.L.pickups.filter(p=>!p.got);
@@ -523,8 +515,8 @@ function makeBoss(k,ax){
   const arenaMid=ax+W/2;
   switch(k){
     case'porteiro':return Object.assign(base,{name:'O Porteiro',hp:2,max:2,w:72,h:122,x:ax+700,y:GY-122,v:34,stompDmg:1});
-    case'gerente':return Object.assign(base,{name:'O Cobrador',hp:6,max:6,w:78,h:124,x:ax+700,y:GY-124,mode:'idle',mt:2.2,dashV:0});
-    case'pais':return Object.assign(base,{name:'Mãe Radar & Pai Lanterna',hp:12,max:12,w:74,h:124,x:ax+740,y:GY-124,mode:'throw',mt:5.5,beamA:0,sweepT:0,hidesAdded:false});
+    case'gerente':return Object.assign(base,{name:'O Tesoureiro',hp:6,max:6,w:78,h:124,x:ax+700,y:GY-124,mode:'idle',mt:2.2,dashV:0});
+    case'vigia':return Object.assign(base,{name:'O Vigia',hp:6,max:6,w:74,h:124,x:ax+740,y:GY-124,mode:'walk',mt:5,beamA:0,sweepT:0,hidesAdded:false,v:55});
     case'lider':return Object.assign(base,{name:'O Líder da Seita',hp:14,max:14,w:96,h:130,x:arenaMid-48,y:GY-330,mode:'float',mt:4,beams:[],fl:0,vuln:false,spawned:0});
     case'ciume':return Object.assign(base,{name:'O Ciúme',hp:16,max:16,w:130,h:112,x:ax+720,y:GY-112,mode:'rest',mt:1.4,vx:0,vy:0,sq:0});
     case'expect':return Object.assign(base,{name:'As Expectativas',hp:20,max:20,w:120,h:210,x:ax+720,y:GY-210,mode:'rest',mt:1.5,beams:[],att:0});
@@ -578,18 +570,17 @@ function updateBoss(dt){
     else if(b.mode==='papers'){if(b.mt<=0){b.mode='idle';b.mt=2/rate}}
     if(b.mode==='dash')touch();else if(b.mode!=='stun')touch();
     break}
-  case'pais':{
-    if(!b.hidesAdded){b.hidesAdded=true;L.hides.push({x:ax+300,y:GY-96,w:76,h:96,k:'armario',temp:1},{x:ax+520,y:GY-96,w:76,h:96,k:'armario',temp:1})}
+  case'vigia':{
+    if(!b.hidesAdded){b.hidesAdded=true;L.hides.push({x:ax+300,y:GY-96,w:76,h:96,k:'caixote',temp:1},{x:ax+560,y:GY-96,w:76,h:96,k:'caixote',temp:1})}
     b.mt-=dt;
-    if(b.mode==='throw'){
-      b.cd-=dt;if(b.cd<=0){b.cd=1.5/rate;const sx=b.x+10,sy=b.y+30,T=.95,tx=P.x+14,ty=GY-24,g=900;
-        eshot(sx,sy,(tx-sx)/T,(ty-sy-.5*g*T*T)/T,{g:g,k:'chinelo',r:16,t:''});floatText(b.x,b.y-14,['TOMA!','Menina!','Chinelo!'][Math.floor(Math.random()*3)],COL.purple)}
-      if(b.mt<=0){b.mode='warn';b.mt=1.1;b.sweepT=0}
-    }else if(b.mode==='warn'){if(b.mt<=0){b.mode='sweep';b.mt=5}}
+    if(b.mode==='walk'){
+      const dx=P.x-b.x;if(Math.abs(dx)>190)b.x=clamp(b.x+Math.sign(dx)*b.v*rate*dt,ax+60,hi-b.w-20);
+      if(b.mt<=0){b.mode='warn';b.mt=1.3;b.sweepT=0;floatText(b.x,b.y-14,'HOLOFOTES!',COL.cream)}
+    }else if(b.mode==='warn'){if(b.mt<=0){b.mode='sweep';b.mt=4.5}}
     else if(b.mode==='sweep'){
-      b.sweepT+=dt;b.beamA=1.05*Math.sin(b.sweepT*(1.2*rate)-0.8);
+      b.sweepT+=dt;b.beamA=1.05*Math.sin(b.sweepT*(1.0*rate)-0.8);
       if(!P.hid&&!G.dead&&inCone(ax+W/2,GY-420,b.beamA,.2,640)){alarm('TE VIU!');hurt(null,false)}
-      if(b.mt<=0){b.mode='throw';b.mt=6;b.cd=1}
+      if(b.mt<=0){b.mode='walk';b.mt=6;floatText(b.x,b.y-14,'A seita é soberana!',COL.cream)}
     }
     touch();break}
   case'lider':{
@@ -647,7 +638,7 @@ function updateEShots(dt){
     s.vy+=s.g*dt;s.x+=s.vx*dt;s.y+=s.vy*dt;s.life-=dt;
     if(s.fall&&s.y>GY){s.life=0}
     const pr={x:P.x+3,y:P.y+3,w:P.w-6,h:P.h-6};
-    if(!G.dead&&s.x>pr.x-s.r&&s.x<pr.x+pr.w+s.r&&s.y>pr.y-s.r&&s.y<pr.y+pr.h+s.r){
+    if(!G.dead&&!P.hid&&s.x>pr.x-s.r&&s.x<pr.x+pr.w+s.r&&s.y>pr.y-s.r&&s.y<pr.y+pr.h+s.r){
       if(s.k==='wave'&&!P.on){continue}
       if(s.k==='wave'&&P.y+P.h<GY-26){continue}
       hurt(null);s.life=0}
@@ -774,6 +765,7 @@ function drawHides(){
     const P=G.P,near=P.x+P.w/2>h.x&&P.x+P.w/2<h.x+h.w;
     ctx.save();ctx.translate(x,h.y);
     if(h.k==='armario'){ctx.fillStyle='#7a3a5a';rr(0,0,h.w,h.h,6);ctx.fill();ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.stroke();ctx.beginPath();ctx.moveTo(h.w/2,4);ctx.lineTo(h.w/2,h.h-4);ctx.stroke();ctx.fillStyle=COL.yellow;ctx.fillRect(h.w/2-8,h.h/2,4,10);ctx.fillRect(h.w/2+4,h.h/2,4,10)}
+    else if(h.k==='caixote'){ctx.fillStyle='#6a4a2a';ctx.strokeStyle='#000';ctx.lineWidth=3;rr(0,6,h.w,h.h-6,4);ctx.fill();ctx.stroke();ctx.strokeStyle='#3a2410';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(0,34);ctx.lineTo(h.w,34);ctx.moveTo(0,64);ctx.lineTo(h.w,64);ctx.moveTo(6,10);ctx.lineTo(h.w-6,h.h-4);ctx.moveTo(h.w-6,10);ctx.lineTo(6,h.h-4);ctx.stroke()}
     else if(h.k==='banco'){ctx.fillStyle='#8a4a2a';rr(0,18,h.w,16,4);ctx.fill();ctx.fillRect(4,34,8,h.h-34);ctx.fillRect(h.w-12,34,8,h.h-34);ctx.fillStyle='#a8603a';rr(0,0,h.w,14,4);ctx.fill();ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.strokeRect(0,0,h.w,14)}
     else{ctx.fillStyle='#4aa05a';for(let i=0;i<6;i++){ctx.beginPath();ctx.ellipse(h.w/2+(i-2.5)*9,h.h-34-(i%2)*14,10,36,(i-2.5)*.25,0,6.3);ctx.fill()}ctx.fillStyle='#b05030';rr(h.w/2-24,h.h-34,48,34,5);ctx.fill();ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.stroke()}
     if(near&&!G.P.hid&&G.P.on){ctx.fillStyle=COL.yellow;ctx.font='22px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('↓ esconder',h.w/2,-10)}
@@ -843,13 +835,16 @@ function drawEnemy(e){
     const pal=G.cfg.theme==='templo'?{robe:'#1a0a22',body:'#7a1a2a'}:G.cfg.theme==='job'?{body:'#3a3a52',tie:1,glasses:1}:G.cfg.theme==='festa'?{body:'#3a2a4a'}:{body:'#2c1d2e'};
     drawPerson(x+e.w/2,e.y+e.h,e.h*1.45,Object.assign({t:e.ph,dir:dir,walk:1,angry:1,skin:['#8aa088','#7a9080','#9ab09a'][(e.min|0)%3],hair:'#050205',eye:'#ff2b2b',arm:-6},pal));
     if(Math.abs(e.x-G.P.x)<430&&!e.dead){const ph=PHR[G.cfg.theme]||PHR.com;e.say=e.say||ph[(e.sy||0)%ph.length];ctx.restore();ctx.save();speak(x+e.w/2,e.y-30,e.say)}
-  }else if(e.k==='cat'){
-    const cx=x+e.w/2,cy=e.y+e.h;ctx.translate(cx,cy);ctx.scale(dir,1);ctx.fillStyle='#2b0f3a';ctx.strokeStyle=COL.purple;ctx.lineWidth=2;
-    ctx.beginPath();ctx.ellipse(0,-14,20,12,0,0,6.3);ctx.fill();ctx.beginPath();ctx.arc(16,-24,10,0,6.3);ctx.fill();
-    ctx.beginPath();ctx.moveTo(10,-31);ctx.lineTo(12,-42);ctx.lineTo(17,-33);ctx.moveTo(18,-33);ctx.lineTo(24,-41);ctx.lineTo(24,-29);ctx.fill();
-    ctx.strokeStyle='#2b0f3a';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(-18,-16);ctx.quadraticCurveTo(-34,-30+Math.sin(e.ph*8)*4,-26,-42);ctx.stroke();
-    ctx.fillStyle=COL.yellow;ctx.beginPath();ctx.arc(18,-26,2.5,0,6.3);ctx.arc(24,-26,2.5,0,6.3);ctx.fill();
-    ctx.fillStyle='#2b0f3a';ctx.fillRect(-14+Math.sin(e.ph*10)*3,-4,6,4);ctx.fillRect(8-Math.sin(e.ph*10)*3,-4,6,4);
+  }else if(e.k==='rat'){
+    const cx=x+e.w/2,cy=e.y+e.h;ctx.translate(cx,cy);ctx.scale(dir,1);
+    ctx.strokeStyle='#8a5a6a';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-16,-10);ctx.quadraticCurveTo(-34,-4+Math.sin(e.ph*8)*5,-38,-20);ctx.stroke();
+    ctx.strokeStyle='#000';ctx.lineWidth=2.5;ctx.fillStyle='#4a4650';
+    ctx.beginPath();ctx.ellipse(-2,-12,20,11,0,0,6.3);ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.moveTo(12,-22);ctx.lineTo(34,-12);ctx.lineTo(12,-4);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.arc(12,-24,6,0,6.3);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#ff2b2b';ctx.beginPath();ctx.arc(21,-15,2.6,0,6.3);ctx.fill();
+    ctx.fillStyle='#e8d8d0';ctx.beginPath();ctx.moveTo(29,-9);ctx.lineTo(31,-3);ctx.lineTo(26,-7);ctx.fill();
+    ctx.fillStyle='#000';ctx.fillRect(-12+Math.sin(e.ph*12)*3,-3,6,3);ctx.fillRect(6-Math.sin(e.ph*12)*3,-3,6,3);
   }else if(e.k==='paper'){
     ctx.translate(x+e.w/2,e.y+e.h/2);ctx.rotate(Math.sin(e.ph*2.2)*.15);const fl=Math.sin(e.ph*14);
     ctx.fillStyle='#145a24';ctx.strokeStyle='#000';ctx.lineWidth=2.5;
@@ -915,11 +910,9 @@ function drawBoss(){
     case'gerente':drawPerson(x+b.w/2,ground,b.h*1.2,{t,dir:b.mode==='dash'?Math.sign(b.dashV):dir,body:'#fde4cf',robe:'#2a0f3a',skin:'#c8a898',hair:COL.dark,bald:1,glasses:1,eye:'#ff2b2b',angry:1,walk:b.mode==='dash',arm:b.mode==='tele'?-20:0});
       if(b.mode==='tele'){ctx.fillStyle=COL.red;ctx.font='56px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('!',x+b.w/2,b.y-8)}
       if(b.mode==='stun'){ctx.fillStyle=COL.yellow;ctx.font='30px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('★ ★ ★',x+b.w/2,b.y-6+Math.sin(t*10)*3)}break;
-    case'pais':
-      drawPerson(x+b.w/2,ground,b.h*1.2,{t,dir:dir,long:1,body:COL.pink,skin:'#c47a4a',hair:COL.dark,bun:1,angry:1,chin:1,arm:b.mode==='throw'?-12:0});
-      // Pai na sacada
-      {const px=W/2-30;ctx.fillStyle=COL.purple;ctx.fillRect(W/2-90,70,180,12);ctx.fillRect(W/2-90,70,6,52);ctx.fillRect(W/2+84,70,6,52);
-       drawPerson(px+30,70,64,{t,dir:1,body:'#5ccdc4',skin:'#c47a4a',hair:COL.dark,angry:1,lamp:1,bald:1});}
+    case'vigia':
+      drawPerson(x+b.w/2,ground,b.h*1.2,{t,dir:dir,body:'#1f2a36',pants:'#10161c',skin:'#b08a78',hair:COL.dark,cap:1,lamp:1,angry:1,eye:'#ff2b2b',walk:b.mode==='walk'&&Math.abs(G.P.x-b.x)>190});
+      ctx.restore();ctx.save();ctx.fillStyle='#1a1a24';ctx.strokeStyle=COL.purple;ctx.lineWidth=3;rr(W/2-32,-4,64,26,7);ctx.fill();ctx.stroke();ctx.fillStyle=b.mode==='sweep'||b.mode==='warn'?COL.yellow:'#555';ctx.beginPath();ctx.ellipse(W/2,24,18,6,0,0,6.3);ctx.fill();
       if(b.mode==='warn'){ctx.fillStyle=COL.red;ctx.font='46px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('SE ESCONDE! ↓',W/2,150)}
       break;
     case'lider':{
@@ -952,7 +945,7 @@ function drawBoss(){
   if(b.beams)for(const q of b.beams){const bx=q.x-G.cam;
     if(!q.on){ctx.fillStyle='rgba(237,33,43,.25)';ctx.fillRect(bx,0,q.w,GY);ctx.strokeStyle=COL.red;ctx.setLineDash([8,8]);ctx.strokeRect(bx,0,q.w,GY);ctx.setLineDash([])}
     else{const g=ctx.createLinearGradient(bx,0,bx+q.w,0);g.addColorStop(0,'rgba(255,242,26,0)');g.addColorStop(.5,'#fff');g.addColorStop(1,'rgba(255,242,26,0)');ctx.fillStyle=g;ctx.fillRect(bx-10,0,q.w+20,GY);ctx.fillStyle=COL.yellow;ctx.fillRect(bx+q.w*.3,0,q.w*.4,GY)}}
-  if(b.kind==='pais'&&(b.mode==='sweep'||b.mode==='warn'))drawCone(b.ax+W/2,GY-420,b.mode==='warn'?-.8:b.beamA,.2,640,'lanterna',b.mode==='warn'?.1:.4);
+  if(b.kind==='vigia'&&(b.mode==='sweep'||b.mode==='warn'))drawCone(b.ax+W/2,GY-420,b.mode==='warn'?-.8:b.beamA,.2,640,'lanterna',b.mode==='warn'?.1:.4);
 }
 function drawEShots(){
   for(const s of G.es){const x=s.x-G.cam;if(s.fall&&s.tele>0){ctx.fillStyle='rgba(237,33,43,.35)';ctx.beginPath();ctx.ellipse(x,GY+4,18,6,0,0,6.3);ctx.fill();continue}
@@ -986,14 +979,14 @@ function drawHUD(){
   // retrato
   ctx.save();ctx.translate(14,12);ctx.fillStyle=COL.yellow;ctx.strokeStyle=COL.purple;ctx.lineWidth=4;ctx.beginPath();ctx.arc(34,34,36,0,6.3);ctx.fill();ctx.stroke();
   ctx.save();ctx.beginPath();ctx.arc(34,34,31,0,6.3);ctx.clip();ctx.fillStyle=COL.red;ctx.fillRect(0,0,70,70);if(IMG.face.width)ctx.drawImage(IMG.face,-6,-4,80,87);ctx.restore();ctx.restore();
-  for(let i=0;i<5;i++){const x=100+i*34,y=20;ctx.save();ctx.translate(x,y);ctx.fillStyle=i<P.hp?COL.red:'rgba(43,15,58,.45)';ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(14,26);ctx.bezierCurveTo(-10,10,4,-6,14,6);ctx.bezierCurveTo(24,-6,38,10,14,26);ctx.fill();ctx.stroke();ctx.restore()}
+  for(let i=0;i<P.max;i++){const x=100+i*34,y=20;ctx.save();ctx.translate(x,y);ctx.fillStyle=i<P.hp?COL.red:'rgba(43,15,58,.45)';ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(14,26);ctx.bezierCurveTo(-10,10,4,-6,14,6);ctx.bezierCurveTo(24,-6,38,10,14,26);ctx.fill();ctx.stroke();ctx.restore()}
   ctx.fillStyle=COL.cream;ctx.strokeStyle=COL.purple;ctx.lineWidth=5;ctx.font='28px "Caveat Brush",cursive';ctx.textAlign='left';
   ctx.strokeText('♥ '+stat.hearts+'    📖 '+stat.pages,100,66);ctx.fillText('♥ '+stat.hearts+'    📖 '+stat.pages,100,66);
   ctx.textAlign='right';ctx.strokeText(String(stat.score).padStart(6,'0'),W-130,40);ctx.fillText(String(stat.score).padStart(6,'0'),W-130,40);
   ctx.font='20px "Patrick Hand",cursive';ctx.strokeText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-130,64);ctx.fillText('Fase '+(G.lvl+1)+' · '+G.cfg.name,W-130,64);
   // relógio da seita
   {const tm=Math.max(0,G.time),mm=Math.floor(tm/60),ss=Math.floor(tm%60),low=tm<30,pul=low?1+.08*Math.sin(G.t*10):1;
-   ctx.save();ctx.translate(W/2,30);ctx.scale(pul,pul);ctx.textAlign='center';ctx.font='15px "Patrick Hand",cursive';ctx.fillStyle=low?COL.red:'#cfc2d8';ctx.fillText('a seita decide em',0,-14);
+   ctx.save();ctx.translate(W/2,30);ctx.scale(pul,pul);ctx.textAlign='center';ctx.font='15px "Patrick Hand",cursive';ctx.fillStyle=low?COL.red:'#cfc2d8';ctx.fillText(G.cfg.clock||'a seita decide em',0,-14);
    ctx.font='38px "Caveat Brush",cursive';ctx.lineWidth=6;ctx.strokeStyle='#000';const tx='⏳ '+mm+':'+String(ss).padStart(2,'0');ctx.strokeText(tx,0,20);ctx.fillStyle=low?COL.red:COL.cream;ctx.fillText(tx,0,20);ctx.restore()}
   if(G.lvl===0&&G.t<12&&!G.boss){ctx.fillStyle='rgba(0,0,0,.55)';rr(W/2-300,H-52,600,34,10);ctx.fill();ctx.fillStyle=COL.cream;ctx.font='20px "Patrick Hand",cursive';ctx.textAlign='center';ctx.fillText('← → andar   ·   ↑ pular   ·   ↓ esconder',W/2,H-29)}
   if(G.lvl===1&&G.t<6){ctx.save();ctx.globalAlpha=Math.min(1,(6-G.t));ctx.fillStyle='rgba(0,0,0,.65)';rr(W/2-310,92,620,40,12);ctx.fill();ctx.strokeStyle=COL.yellow;ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=COL.yellow;ctx.font='24px "Caveat Brush",cursive';ctx.textAlign='center';ctx.fillText('Nova habilidade! Aperte X (💬) para soltar opiniões',W/2,119);ctx.restore()}
