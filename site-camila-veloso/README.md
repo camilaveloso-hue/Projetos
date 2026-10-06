@@ -3,7 +3,13 @@
 Site estático (HTML + CSS + um arquivo de JavaScript, sem dependências). Funciona em qualquer hospedagem: Netlify, Vercel, Cloudflare Pages, GitHub Pages, Hostinger etc. Basta publicar esta pasta.
 
 ## Páginas
-Home, **O Diário de Amélia** (venda: contagem regressiva, brindes, autógrafo, perguntas frequentes), Livros, Sobre, **Links** (para a bio das redes), Manifesto, Leituras (4 artigos para busca) e 404.
+Só quatro, de propósito:
+- **Home** (`/`): venda do livro (brindes, contagem regressiva, estante, FAQ). A capa e o botão "Jogar com a Amélia" são animados e levam ao jogo. O FAQ e os dados do livro para o Google ficam aqui.
+- **Aldeia** (`/aldeia/`): links da Aldeia Literária (site oficial e TikTok).
+- **Links** (`/links/`): para a bio das redes; o primeiro botão é o jogo.
+- **Jogo** (`/jogo/`): jogo de plataforma, cópia de `jogo-amelia/`. Fora do menu.
+
+As páginas O Diário de Amélia, Livros, Sobre, Manifesto e Leituras foram removidas; o `netlify.toml` redireciona os endereços antigos para a Home (Sobre vai para a Aldeia).
 
 ## Antes de publicar
 1. **Domínio:** em `tools/build.py` troque `SITE["dominio"]` e rode `python3 tools/build.py`.

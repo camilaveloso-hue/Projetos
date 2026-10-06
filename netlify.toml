@@ -8,6 +8,57 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
+# Páginas removidas no enxugamento do site: quem tinha o link antigo cai na Home.
+[[redirects]]
+  from = "/o-diario-de-amelia/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/o-diario-de-amelia"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/livros/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/livros"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sobre/*"
+  to = "/aldeia/"
+  status = 301
+
+[[redirects]]
+  from = "/sobre"
+  to = "/aldeia/"
+  status = 301
+
+[[redirects]]
+  from = "/manifesto/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/manifesto"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/leituras/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/leituras"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/links-aldeia"
   to = "/aldeia/"
