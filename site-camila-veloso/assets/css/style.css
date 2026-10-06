@@ -214,7 +214,10 @@ details p{padding:0 1.2rem 1.1rem}
 .lk--aldeia h1{color:var(--creme)}
 .lk--aldeia .lkb{box-shadow:5px 5px 0 var(--rosa)}
 .lk--aldeia .lkb__i{background:var(--rosa)}
-.abas{background:var(--amarelo);border-bottom:3px solid var(--tinta)}
-.abas__in{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;padding-block:.7rem}
-.abas a{text-decoration:none;font-weight:800;font-size:.95rem;color:var(--tinta);background:var(--branco);border:2px solid var(--tinta);border-radius:2rem;padding:.4rem .9rem}
-.abas a:hover{background:var(--rosa)}
+@media(max-width:46rem){
+ .pag-aldeia .topo__in{flex-direction:column;align-items:center;gap:.4rem}
+ .pag-aldeia .menu-btn{display:none}
+ .pag-aldeia .nav{display:flex;position:static;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:0;background:none}
+ .pag-aldeia .nav a{font-size:.9rem;padding:.35rem .7rem}
+ .pag-aldeia .nav .btn{margin:0}
+}
