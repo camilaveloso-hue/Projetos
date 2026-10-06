@@ -20,3 +20,7 @@ No topo do `<script>` do `index.html`: `CFG.BOOK_URL` (link de compra), `CFG.SHA
 
 ## Arte
 Amélia, crush, coração, estrela, coroa e brilhos foram recortados da capa/guardas do livro (`assets/`). Pernas, inimigos e chefões são desenhados em código com a paleta do livro.
+
+## Publicação
+Uma cópia pronta para o site está em `site-camila-veloso/jogo/`. Com o merge na branch publicada pelo Netlify, o jogo fica em `https://www.camilaveloso.com.br/jogo/`. Ao editar `jogo-amelia/`, copie `index.html` e `assets/` para essa pasta.
+Link da pré-venda: `CFG.BOOK_URL`. Data da promoção: `CFG.PROMO_DAY` e `CFG.PROMO_MONTH`.
