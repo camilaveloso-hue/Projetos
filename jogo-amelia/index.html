@@ -120,12 +120,12 @@ const CFG={
   SHARE_TEXT:'Ajude a Amélia a fugir da seita e beijar o crush! Jogue o jogo de "O Diário de Amélia", livro de Camila Veloso:',
 };
 const LEVELS=[
- {name:'Presa em Casa',after:'Amélia escapou de casa, mas sem dinheiro não vai longe. A cidade espera, e um emprego escondido também.',sub:'Sem dinheiro, sem saída',seed:11,len:6200,eGap:260,time:270,script:['flat','tower','double','flat','bridge','tower','gap','stairs','flat','double','tower','flat','bridge'],weights:{flat:3,gap:2,stairs:2,bridge:2,tower:3,double:2},theme:'com',en:['person'],boss:'porteiro',bossName:'O Porteiro',bossSub:'Guardião do portão. Ninguém sai sem autorização.',
+ {name:'Presa em Casa',after:'Amélia escapou de casa, mas sem dinheiro não vai longe. A cidade espera, e um emprego escondido também.',sub:'Sair de casa é a primeira etapa',seed:11,len:6200,eGap:260,time:270,script:['flat','tower','double','flat','bridge','tower','gap','stairs','flat','double','tower','flat','bridge'],weights:{flat:3,gap:2,stairs:2,bridge:2,tower:3,double:2},theme:'com',en:['person'],boss:'porteiro',bossName:'O Porteiro',bossSub:'Guardião do portão. Ninguém sai sem autorização.',
   story:['Você precisa ajudar a Amélia a escapar. Fique de olho no timer na parte superior: ele mostra quanto tempo você tem para passar dessa fase. O futuro da Amélia depende de você.'],
   tips:['Aperte X (ou o botão 💬) para soltar uma opinião. Balões de fala derrubam inimigos e chefões.','Pular na cabeça de inimigos funciona, e na da Irmã Prudência também! Cada pisão vale dois golpes.','Os "blás" baixos da Irmã você pula; os altos, você passa agachando com ↓. Ela cansa: continue atirando.'],
   pal:{sky1:'#0d050c',sky2:'#3b0e1a',wave:'#26091a',ground:'#07030a',top:'#ed212b',plat:'#8a1a2c',moon:'rgba(237,33,43,.55)'}},
- {name:'Um Emprego Escondido',after:'Com algum dinheiro no bolso, falta o mais difícil: sair de casa sem que os pais vejam. A noite caiu.',sub:'Se perguntarem, é mentira',seed:23,len:4200,eGap:460,time:230,weights:{flat:3,gap:2,stairs:2,bridge:2,air:1,lift:1},theme:'job',en:['person','paper'],boss:'gerente',bossName:'Irmão Tesoureiro',bossSub:'Líder do dízimo: "Você nunca vai sair daqui."',
-  story:['Sem dinheiro, Amélia não vai a lugar nenhum. A família jura que ela nunca arrumaria um emprego.','O relógio da seita continua correndo. Depois de enfrentar o porteiro, Amélia descobriu que tem voz. Nova habilidade: aperte X (ou 💬) para soltar opiniões!','Guie-a pelo centro da cidade e escape do Irmão Tesoureiro, o líder do dízimo, que jura que ela nunca vai escapar da seita.'],
+ {name:'Um Emprego Escondido',after:'Com algum dinheiro no bolso, falta o mais difícil: sair de casa sem que os pais vejam. A noite caiu.',sub:'Se perguntarem, é mentira',seed:23,len:6200,eGap:280,time:300,pages:6,script:['flat','stairs','tower','double','bridge','flat','tower','air','stairs','double','bridge','tower','lift','flat'],weights:{flat:3,gap:2,stairs:2,bridge:2,air:1,lift:1,tower:2,double:1},theme:'job',en:['person','paper'],boss:'gerente',bossName:'O Cobrador',bossSub:'Garante que ela nunca terá dinheiro pra escapar.',
+  story:['Sem dinheiro, Amélia não vai a lugar nenhum. Ela precisa de um emprego escondido.','Nova habilidade: aperte X (ou 💬) para soltar opiniões!'],
   tips:['Cada página do diário dá +15 segundos no relógio. Vale a pena subir nas plataformas!','Papéis URGENTES caem do teto. A sombra vermelha no chão mostra onde vão cair.','O Gerente avisa o ataque com um "!". Saia da frente e acerte ele quando parar tonto.'],
   pal:{sky1:'#07071a',sky2:'#2a0f3f',wave:'#1a0c30',ground:'#06040c',top:'#e955b4',plat:'#5a2f80',moon:'rgba(233,85,180,.4)'}},
  {name:'Janela do Quarto',after:'Os pais ficaram para trás, mas o templo guarda o caminho. O líder vê tudo, e Amélia precisa passar sem ser vista.',sub:'Fugir sem que os pais vejam',seed:37,len:4200,eGap:560,time:240,weights:{flat:2,gap:1,stairs:1,bridge:1,hide:4},theme:'casa',stealth:true,en:['cat','person'],boss:'pais',bossName:'Mãe Radar & Pai Lanterna',bossSub:'Eles sempre sabem de tudo',
@@ -150,8 +150,8 @@ const FINAL_STORY=['Querido diário,','Cheguei. Ele está ali, a poucos passos, 
 /* ================= BASE ================= */
 const cv=document.getElementById('c'),ctx=cv.getContext('2d');
 const W=960,H=540,GY=440,GRAV=1900;
-const PHR={com:['Sem dinheiro, você não sai!','Seu lugar é aqui, em casa.','Jovens não precisam estudar.','O líder é Deus na terra.','Moça direita não pensa nisso!','Estudar pra quê? Case logo.'],
- job:['Sem experiência, sem vaga.','Aqui não contratamos sonhadoras.','Currículo? Volte amanhã.','Dinheiro não nasce em diário.'],
+const PHR={com:['A seita é soberana.','A seita é muito boa pra você.','Fora da seita não há salvação.','O líder é Deus na terra.','Jovens não precisam estudar.','Seja grata pela seita!','Moça direita não pensa nisso!','Obedecer é a maior virtude.'],
+ job:['Sem dinheiro, você não sai!','Dinheiro não nasce em diário.','Emprego? Você nunca vai conseguir.','A seita provê. Pra que dinheiro?','Jovens não precisam estudar.'],
  casa:['Volte pra cama, já!','Jovens não precisam estudar.','O líder está vendo você.','Pensamento impuro!'],
  templo:['O líder é Deus na terra.','Obedecer é servir.','Quem sai, não volta.','Você não precisa de livros.'],
  festa:['Ele já tem companhia.','Chegou tarde, Amélia.','Volte pra casa!','Quem você pensa que é?'],
@@ -246,7 +246,7 @@ function loadAll(cb){
 function pick(r,w){let t=0;for(const k in w)t+=w[k];let x=r()*t;for(const k in w){x-=w[k];if(x<=0)return k}return Object.keys(w)[0]}
 function build(cfg,idx){
   const r=rng(cfg.seed),L={solids:[],plats:[],lifts:[],enemies:[],pickups:[],watchers:[],hides:[],checks:[],decor:[],pits:[]};
-  let x=0,pid=0,pages=0,nextCheck=1400,si=0;
+  let x=0,pid=0,pages=0,nextCheck=1400,si=0;const PG=cfg.pages||3;
   const ground=(a,b)=>L.solids.push({x:a,y:GY,w:b-a,h:240});
   const plat=(px,py,w)=>L.plats.push({x:px,y:py,w,h:14});
   const heart=(hx,hy)=>L.pickups.push({id:pid++,t:'heart',x:hx,y:hy,w:26,h:26});
@@ -256,7 +256,7 @@ function build(cfg,idx){
   const flyer=(a,b,y)=>{const k=cfg.en.filter(e=>['paper','eye','spark'].includes(e));L.enemies.push({t:'fly',k:k.length?k[Math.floor(r()*k.length)]:'paper',x:(a+b)/2,y,w:34,h:30,x0:(a+b)/2,y0:y,vx:(r()<.5?-1:1)*(70+idx*10),min:a,max:b,dead:0,ph:r()*6})};
   ground(-200,500);x=500;
   while(x<cfg.len){
-    if(x>nextCheck){L.checks.push({x:x+30});nextCheck+=1500}
+    if(x>nextCheck){L.checks.push({x:x-70});nextCheck+=1500}
     const seg=cfg.script&&si<cfg.script.length?cfg.script[si++]:pick(r,cfg.weights);
     if(seg==='flat'){
       const len=300+Math.floor(r()*220);ground(x,x+len);
@@ -264,7 +264,7 @@ function build(cfg,idx){
       for(let i=0;i<4;i++)heart(x+60+i*50,GY-60);
       x+=len;
     }else if(seg==='gap'){
-      const gw=100+Math.floor(r()*(40+idx*4));
+      const gw=100+Math.floor(r()*(30+idx*2));
       L.pits.push({x:x,w:gw});
       for(let i=0;i<4;i++){const a=i/3;heart(x+10+a*(gw-20),GY-95-Math.sin(a*Math.PI)*70)}
       x+=gw;ground(x,x+260);if(r()<.5)walker(x+30,x+230,GY);x+=260;
@@ -272,7 +272,7 @@ function build(cfg,idx){
       const len=840;ground(x,x+len);
       plat(x+60,GY-90,100);plat(x+200,GY-180,100);plat(x+340,GY-270,170);plat(x+570,GY-180,100);plat(x+710,GY-90,100);
       heart(x+90,GY-130);heart(x+230,GY-220);for(let i=0;i<4;i++)heart(x+355+i*38,GY-312);heart(x+600,GY-220);heart(x+740,GY-130);
-      if(pages<3){page(x+425,GY-330);pages++}
+      if(pages<PG){page(x+425,GY-330);pages++}
       walker(x+345,x+505,GY-270);walker(x+120,x+len-120,GY);walker(x+400,x+len-30,GY);
       x+=len;
     }else if(seg==='double'){
@@ -288,14 +288,14 @@ function build(cfg,idx){
       const len=640;ground(x,x+len);
       plat(x+90,GY-85,130);plat(x+260,GY-170,130);plat(x+430,GY-85,120);
       heart(x+130,GY-125);heart(x+160,GY-125);heart(x+300,GY-210);heart(x+330,GY-210);
-      if(pages<3&&r()<.7){page(x+345,GY-215);pages++}
+      if(pages<PG){page(x+345,GY-215);pages++}
       walker(x+440,x+len-20,GY);
       x+=len;
     }else if(seg==='bridge'){
       const len=520;ground(x,x+len);plat(x+80,GY-95,360);
       for(let i=0;i<5;i++)heart(x+110+i*60,GY-140);
       walker(x+90,x+430,GY-95);walker(x+60,x+len-60,GY);
-      if(pages<3&&r()<.6){page(x+260,GY-185);pages++}
+      if(pages<PG){page(x+260,GY-185);pages++}
       x+=len;
     }else if(seg==='air'){
       const len=520;ground(x,x+len);
@@ -310,12 +310,12 @@ function build(cfg,idx){
       L.hides.push({x:x+len-120,y:GY-96,w:76,h:96,k:hk});
       L.watchers.push({x:x+len/2,y:GY-330,a0:0,amp:cfg.theme==='casa'?.85:.95,spd:.7+idx*.04,ph:r()*6,len:470,half:.2,k:cfg.theme==='templo'?'olho':'lanterna'});
       for(let i=0;i<3;i++)heart(x+160+i*160,GY-60);
-      if(pages<3){page(x+len/2+10,GY-70);pages++}
+      if(pages<PG){page(x+len/2+10,GY-70);pages++}
       x+=len;
     }
   }
   // garante 3 páginas
-  while(pages<3){const px=700+pages*1300;page(px,GY-70);pages++}
+  while(pages<PG){const px=700+pages*1300;page(px,GY-70);pages++}
   // arena do chefão
   const ax=x+120;ground(x,ax+W+80);
   L.ax=ax;L.endX=ax+W;
@@ -331,11 +331,13 @@ let state='title',G=null,saved=0,paused=false;
 try{saved=+localStorage.getItem('amelia_lvl')||0}catch(e){}
 const stat={score:0,pages:0,hearts:0,got:new Set()};
 function newPlayer(x){return{x,y:GY-88,w:28,h:88,vx:0,vy:0,on:false,face:1,hp:5,inv:0,hid:false,cd:0,coy:0,buf:0,ph:0,crouch:false,hurtT:0,ride:null,lock:false,auto:0}}
+function groundAt(L,x){return L.solids.some(q=>q.y===GY&&x>=q.x+6&&x+28<=q.x+q.w-6)}
+function safeX(L,x){let t=x;for(let i=0;i<600&&!groundAt(L,t);i++)t-=10;return Math.max(0,t)}
 function startLevel(i,cpx){
   const cfg=LEVELS[i],L=build(cfg,i);
   // remove coletáveis já pegos
   L.pickups=L.pickups.filter(p=>!stat.got.has(i+':'+p.id));
-  const cp=cpx!=null?cpx:80;
+  const cp=cpx!=null?safeX(L,cpx):80;
   G={lvl:i,cfg,L,time:cfg.time,beat:0,reason:'',P:newPlayer(cp),cam:Math.max(0,cp-380),cpx:cp,cpy:GY-88,shots:[],es:[],parts:[],txt:[],boss:null,arena:false,t:0,flash:0,shake:0,door:null,cut:null,banner:0,dead:0,freeze:0,leftWall:null,crush:null};
   mLvl=i;saved=Math.max(saved,i);try{localStorage.setItem('amelia_lvl',saved)}catch(e){}
   $('bS').style.display=i>=1?'':'none';show(null);state='play';$('hudbtn').style.display='flex';music(true);
@@ -373,11 +375,11 @@ $('bPause').onclick=()=>togglePause();$('bMute').onclick=toggleMute;
 function spawnParts(x,y,n,cols,sp=220){for(let i=0;i<n;i++){const a=Math.random()*6.28,s=sp*(.3+Math.random());G.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-100,life:.6+Math.random()*.4,c:cols[i%cols.length],img:Math.random()<.35?'spark':null,s:6+Math.random()*8})}}
 function floatText(x,y,t,c=COL.yellow){G.txt.push({x,y,t,c,life:1.1})}
 function hurt(by,respawn){
-  const P=G.P;if(G.cut)return;if(GOD){if(respawn){P.x=G.cpx;P.y=G.cpy;P.vx=P.vy=0;G.cam=Math.max(0,P.x-380)}return}if(P.inv>0)return;
-  P.hp--;SFX.hurt();G.shake=.3;P.inv=1.8;
-  if(P.hp<=0){die();return}
-  if(respawn){P.x=G.cpx;P.y=G.cpy;P.vx=P.vy=0;G.cam=Math.max(0,P.x-380)}
-  else{P.vy=-320;P.vx=-P.face*220}
+  const P=G.P;if(G.cut||G.dead)return;
+  const immune=GOD||P.inv>0;
+  if(!immune){P.hp--;SFX.hurt();G.shake=.3;P.inv=1.8;if(P.hp<=0){die();return}}
+  if(respawn){P.x=safeX(G.L,G.cpx);P.y=G.cpy;P.vx=P.vy=0;G.cam=Math.max(0,P.x-380);P.inv=Math.max(P.inv,1.2)}
+  else if(!immune){P.vy=-320;P.vx=-P.face*220}
 }
 function die(){const P=G.P;G.dead=1;SFX.die();music(false);
   spawnParts(P.x+14,P.y+40,26,[COL.pink,COL.yellow,COL.red]);
@@ -521,7 +523,7 @@ function makeBoss(k,ax){
   const arenaMid=ax+W/2;
   switch(k){
     case'porteiro':return Object.assign(base,{name:'O Porteiro',hp:2,max:2,w:72,h:122,x:ax+700,y:GY-122,v:34,stompDmg:1});
-    case'gerente':return Object.assign(base,{name:'Irmão Tesoureiro',hp:6,max:6,w:78,h:124,x:ax+700,y:GY-124,mode:'idle',mt:2.2,dashV:0});
+    case'gerente':return Object.assign(base,{name:'O Cobrador',hp:6,max:6,w:78,h:124,x:ax+700,y:GY-124,mode:'idle',mt:2.2,dashV:0});
     case'pais':return Object.assign(base,{name:'Mãe Radar & Pai Lanterna',hp:12,max:12,w:74,h:124,x:ax+740,y:GY-124,mode:'throw',mt:5.5,beamA:0,sweepT:0,hidesAdded:false});
     case'lider':return Object.assign(base,{name:'O Líder da Seita',hp:14,max:14,w:96,h:130,x:arenaMid-48,y:GY-330,mode:'float',mt:4,beams:[],fl:0,vuln:false,spawned:0});
     case'ciume':return Object.assign(base,{name:'O Ciúme',hp:16,max:16,w:130,h:112,x:ax+720,y:GY-112,mode:'rest',mt:1.4,vx:0,vy:0,sq:0});
@@ -564,12 +566,12 @@ function updateBoss(dt){
       if(pat===0)eshot(sx,GY-26,d*(240+40*rate),0,{k:'chave',r:14});
       else if(pat===1)eshot(sx,GY-98,d*(240+40*rate),0,{k:'chave',r:14});
       else{eshot(sx,GY-26,d*220,0,{k:'chave',r:14});setTimeout(()=>{if(G&&G.boss===b&&b.alive)eshot(b.x+b.w/2,GY-98,b.dir*230,0,{k:'chave',r:14})},650)}
-      floatText(b.x,b.y-14,['Sem dinheiro, você não sai!','Só com autorização!','Jovens não precisam estudar!'][Math.floor(Math.random()*3)],COL.purple);
+      floatText(b.x,b.y-14,['A seita é soberana!','Ninguém sai sem autorização!','Jovens não precisam estudar!'][Math.floor(Math.random()*3)],COL.purple);
     }
     touch();break}
   case'gerente':{
     b.mt-=dt;
-    if(b.mode==='idle'){b.vuln=true;if(b.mt<=0){b.mode=Math.random()<.55?'tele':'papers';b.mt=b.mode==='tele'?1.1:2.4;floatText(b.x,b.y-14,['Você não tem dinheiro!','Nunca vai sair daqui!','O dízimo é obrigatório!'][Math.floor(Math.random()*3)],COL.cream);if(b.mode==='papers')for(let i=0;i<4;i++){const px=lo+Math.random()*(hi-lo-20);G.es.push({x:px,y:-40-i*80,vx:0,vy:0,r:16,life:6,g:0,fall:true,k:'paper',tele:1.2+i*.35,t:''})}}}
+    if(b.mode==='idle'){b.vuln=true;if(b.mt<=0){b.mode=Math.random()<.55?'tele':'papers';b.mt=b.mode==='tele'?1.1:2.4;floatText(b.x,b.y-14,['Você não tem dinheiro!','Nunca vai sair daqui!','Sem dinheiro, sem fuga!'][Math.floor(Math.random()*3)],COL.cream);if(b.mode==='papers')for(let i=0;i<4;i++){const px=lo+Math.random()*(hi-lo-20);G.es.push({x:px,y:-40-i*80,vx:0,vy:0,r:16,life:6,g:0,fall:true,k:'paper',tele:1.2+i*.35,t:''})}}}
     else if(b.mode==='tele'){b.dashV=b.dir*470;b.vuln=true;if(b.mt<=0){b.mode='dash';b.mt=1.6}}
     else if(b.mode==='dash'){b.x+=b.dashV*dt;if(b.x<lo+10){b.x=lo+10;b.mode='stun';b.mt=3;G.shake=.25}if(b.x>hi-b.w){b.x=hi-b.w;b.mode='stun';b.mt=3;G.shake=.25}}
     else if(b.mode==='stun'){b.vuln=true;if(b.mt<=0){b.mode='idle';b.mt=2/rate}}
@@ -671,7 +673,7 @@ function updateCut(dt){
 }
 function showEnd(){
   state='end';music(false);$('hudbtn').style.display='none';
-  $('endStats').textContent='Você coletou '+stat.pages+' de '+(LEVELS.length*3)+' páginas do diário e fez '+stat.score+' pontos!';
+  $('endStats').textContent='Você coletou '+stat.pages+' de '+(LEVELS.reduce((q,l)=>q+(l.pages||3),0))+' páginas do diário e fez '+stat.score+' pontos!';
   try{localStorage.setItem('amelia_lvl',0)}catch(e){}
   show('end');
 }
@@ -849,10 +851,12 @@ function drawEnemy(e){
     ctx.fillStyle=COL.yellow;ctx.beginPath();ctx.arc(18,-26,2.5,0,6.3);ctx.arc(24,-26,2.5,0,6.3);ctx.fill();
     ctx.fillStyle='#2b0f3a';ctx.fillRect(-14+Math.sin(e.ph*10)*3,-4,6,4);ctx.fillRect(8-Math.sin(e.ph*10)*3,-4,6,4);
   }else if(e.k==='paper'){
-    ctx.translate(x+e.w/2,e.y+e.h/2);ctx.rotate(Math.sin(e.ph*2.2)*.2);ctx.fillStyle='#fff';ctx.strokeStyle=COL.purple;ctx.lineWidth=2.5;rr(-14,-17,28,34,3);ctx.fill();ctx.stroke();
-    ctx.strokeStyle='#c8a';ctx.lineWidth=1.5;for(let i=0;i<4;i++){ctx.beginPath();ctx.moveTo(-9,-9+i*7);ctx.lineTo(9,-9+i*7);ctx.stroke()}
-    const fl=Math.sin(e.ph*14)*8;ctx.fillStyle='rgba(255,255,255,.8)';ctx.beginPath();ctx.ellipse(-18,-4,10,4+Math.abs(fl)*.3,-.5,0,6.3);ctx.ellipse(18,-4,10,4+Math.abs(fl)*.3,.5,0,6.3);ctx.fill();
-    ctx.fillStyle=COL.red;ctx.font='bold 12px sans-serif';ctx.textAlign='center';ctx.fillText('CV',0,4);
+    ctx.translate(x+e.w/2,e.y+e.h/2);ctx.rotate(Math.sin(e.ph*2.2)*.15);const fl=Math.sin(e.ph*14);
+    ctx.fillStyle='#145a24';ctx.strokeStyle='#000';ctx.lineWidth=2.5;
+    for(const sd of[-1,1]){ctx.beginPath();ctx.moveTo(sd*10,-6);ctx.lineTo(sd*32,-16+fl*6);ctx.lineTo(sd*24,0);ctx.lineTo(sd*34,8+fl*4);ctx.lineTo(sd*10,8);ctx.closePath();ctx.fill();ctx.stroke()}
+    ctx.fillStyle='#43c94a';ctx.beginPath();ctx.moveTo(-13,-17);ctx.lineTo(13,-17);ctx.lineTo(13,14);for(let i=0;i<4;i++){ctx.lineTo(13-i*6.5-3.2,19);ctx.lineTo(13-i*6.5-6.5,14)}ctx.lineTo(-13,14);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.fillStyle='#ff2b2b';ctx.beginPath();ctx.moveTo(-9,-9);ctx.lineTo(-2,-5);ctx.lineTo(-9,-3);ctx.fill();ctx.beginPath();ctx.moveTo(9,-9);ctx.lineTo(2,-5);ctx.lineTo(9,-3);ctx.fill();
+    ctx.strokeStyle='#000';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(-8,5);for(let i=0;i<5;i++)ctx.lineTo(-8+i*4+2,i%2?5:10);ctx.stroke();
   }else if(e.k==='eye'){
     ctx.translate(x+e.w/2,e.y+e.h/2);ctx.fillStyle=COL.cream;ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,0,19,13,0,0,6.3);ctx.fill();ctx.stroke();
     ctx.fillStyle=COL.red;ctx.beginPath();ctx.arc(Math.sin(e.ph*3)*5,0,8,0,6.3);ctx.fill();ctx.fillStyle=COL.dark;ctx.beginPath();ctx.arc(Math.sin(e.ph*3)*5,0,3.5,0,6.3);ctx.fill();
@@ -956,7 +960,7 @@ function drawEShots(){
     if(s.k==='gossip'){ctx.fillStyle='#e8e0f0';ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,0,22,15,0,0,6.3);ctx.fill();ctx.stroke();ctx.beginPath();ctx.moveTo(-6*Math.sign(s.vx||1),12);ctx.lineTo(-14*Math.sign(s.vx||1),22);ctx.lineTo(0,14);ctx.fill();ctx.stroke();ctx.fillStyle=COL.purple;ctx.font='16px "Patrick Hand",cursive';ctx.textAlign='center';ctx.fillText('blá',0,5)}
     else if(s.k==='chave'){ctx.rotate(G.t*10);ctx.fillStyle=COL.yellow;ctx.strokeStyle='#000';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(-10,0,8,0,6.3);ctx.fill();ctx.stroke();ctx.fillRect(-3,-2.5,20,5);ctx.strokeRect(-3,-2.5,20,5);ctx.fillRect(10,2,4,7);ctx.fillRect(15,2,4,5);ctx.fillStyle='#000';ctx.beginPath();ctx.arc(-10,0,3,0,6.3);ctx.fill()}
     else if(s.k==='chinelo'){ctx.rotate(s.x*.03);ctx.fillStyle=COL.pink;ctx.strokeStyle=COL.purple;ctx.lineWidth=3;rr(-10,-18,20,36,10);ctx.fill();ctx.stroke();ctx.strokeStyle=COL.cream;ctx.beginPath();ctx.moveTo(-8,-6);ctx.lineTo(0,4);ctx.lineTo(8,-6);ctx.stroke()}
-    else if(s.k==='paper'){ctx.rotate(Math.sin(G.t*8+s.x)*.3);ctx.fillStyle='#fff';ctx.strokeStyle=COL.purple;ctx.lineWidth=2.5;rr(-13,-16,26,32,3);ctx.fill();ctx.stroke();ctx.fillStyle=COL.red;ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.fillText('DÍZIMO',0,4)}
+    else if(s.k==='paper'){ctx.rotate(Math.sin(G.t*8+s.x)*.3);ctx.fillStyle='#43c94a';ctx.strokeStyle='#000';ctx.lineWidth=2.5;rr(-14,-16,28,32,3);ctx.fill();ctx.stroke();ctx.fillStyle='#7a0a12';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.fillText('DÍVIDA',0,4)}
     else if(s.k==='wave'){ctx.fillStyle='#43c94a';ctx.strokeStyle=COL.purple;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-14,12);ctx.quadraticCurveTo(-10,-22,8*Math.sign(s.vx),-22);ctx.quadraticCurveTo(24*Math.sign(s.vx),-6,18*Math.sign(s.vx),12);ctx.closePath();ctx.fill();ctx.stroke()}
     else{ctx.rotate(G.t*4);ctx.fillStyle='#43c94a';ctx.strokeStyle=COL.purple;ctx.lineWidth=2.5;ctx.beginPath();for(let i=0;i<10;i++){const a=i/10*6.283,r=i%2?8:15;ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r)}ctx.closePath();ctx.fill();ctx.stroke()}
     ctx.restore()}
