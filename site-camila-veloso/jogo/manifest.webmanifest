@@ -1,0 +1,26 @@
+{
+ "name": "Fuga da Seita",
+ "short_name": "Fuga da Seita",
+ "description": "Jogo inspirado no livro O Diário de Amélia, de Camila Veloso.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "fullscreen",
+ "orientation": "landscape",
+ "background_color": "#0a0204",
+ "theme_color": "#0a0204",
+ "lang": "pt-BR",
+ "icons": [
+  {
+   "src": "assets/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any maskable"
+  },
+  {
+   "src": "assets/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ]
+}
