@@ -761,3 +761,25 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-nav a{display:none}
   .av-nav a.av-nav__keep{display:inline-flex;font-size:11px;letter-spacing:.1em;padding:8px 6px;min-height:38px}
 }
+
+
+/* ==========================================================================
+   v19 — celular: cabeçalho transparente sobre a foto do topo; selo abaixo do título; 11x menor
+   ========================================================================== */
+@media (max-width:767px){
+  .av-header{background:linear-gradient(180deg,rgba(5,26,45,.55),rgba(5,26,45,0));-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom-color:transparent;box-shadow:none;margin-bottom:-57px;transition:background .25s}
+  .av-header.is-scrolled{background:rgba(5,26,45,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+  .av-nav a.av-nav__keep{color:#fff}
+  .av-hero .av-h1+.av-badge{margin:10px auto 16px}
+}
+@media (min-width:768px){
+  .av-hero .av-h1+.av-badge{margin:0 0 22px}
+}
+/* "11x de" pequeno, acima do valor da mensalidade */
+.av-table .av-table__price small{display:block;font:600 10px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-graphite);margin:0 0 3px;opacity:.8}
+
+@media (max-width:767px){
+  .av-header .av-wrap{border-bottom:0}
+  .av-header{border-bottom:0;border-bottom-color:transparent}
+  .av-hero--sobre{padding-bottom:36px}
+}

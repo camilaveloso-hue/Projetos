@@ -1,4 +1,4 @@
-<!-- aldeia-sobre-v5 · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->
+<!-- aldeia-sobre-v6 · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->
 <style>/* Aldeia Literária — Página de vendas (plugin) — gerado por tools/build_plugin.py */
 /* ===== Fontes locais ===== */
 @font-face{font-family:'Cinzel';font-style:normal;font-weight:700;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/Cinzel-700-normal.woff2") format('woff2')}
@@ -790,6 +790,28 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-nav a.av-nav__keep{display:inline-flex;font-size:11px;letter-spacing:.1em;padding:8px 6px;min-height:38px}
 }
 
+
+/* ==========================================================================
+   v19 — celular: cabeçalho transparente sobre a foto do topo; selo abaixo do título; 11x menor
+   ========================================================================== */
+@media (max-width:767px){
+  .av-header{background:linear-gradient(180deg,rgba(5,26,45,.55),rgba(5,26,45,0));-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom-color:transparent;box-shadow:none;margin-bottom:-57px;transition:background .25s}
+  .av-header.is-scrolled{background:rgba(5,26,45,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+  .av-nav a.av-nav__keep{color:#fff}
+  .av-hero .av-h1+.av-badge{margin:10px auto 16px}
+}
+@media (min-width:768px){
+  .av-hero .av-h1+.av-badge{margin:0 0 22px}
+}
+/* "11x de" pequeno, acima do valor da mensalidade */
+.av-table .av-table__price small{display:block;font:600 10px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-graphite);margin:0 0 3px;opacity:.8}
+
+@media (max-width:767px){
+  .av-header .av-wrap{border-bottom:0}
+  .av-header{border-bottom:0;border-bottom-color:transparent}
+  .av-hero--sobre{padding-bottom:36px}
+}
+
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
    Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).
@@ -923,7 +945,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     <p class="av-badge">Sobre a Aldeia Literária</p>
     <h1 class="av-h1"><span>Onde o sonho de escrever</span><span>e publicar livros se realiza</span></h1>
     <p class="av-sub">Desde 2023, ajudamos escritores iniciantes a transformar a ideia em livro, com professores mestres e doutores e uma comunidade ao seu lado.</p>
-    <div class="av-cta-row"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></div>
   </div>
 </div></section>
 
@@ -1103,6 +1124,13 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   var hero=document.querySelector('.av-hero'),bar=document.querySelector('.av-sticky');
   if(hero&&bar&&'IntersectionObserver' in window){
     new IntersectionObserver(function(es){bar.classList.toggle('is-on',!es[0].isIntersecting)}).observe(hero);
+  }
+
+  /* Cabeçalho: transparente sobre a foto do topo (celular) e sólido depois de rolar */
+  var hd=document.querySelector('.av-header');
+  if(hd){
+    var onScroll=function(){hd.classList.toggle('is-scrolled',(window.pageYOffset||document.documentElement.scrollTop)>24)};
+    onScroll();window.addEventListener('scroll',onScroll,{passive:true});
   }
 })();
 </script>

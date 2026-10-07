@@ -764,6 +764,28 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-nav a{display:none}
   .av-nav a.av-nav__keep{display:inline-flex;font-size:11px;letter-spacing:.1em;padding:8px 6px;min-height:38px}
 }
+
+
+/* ==========================================================================
+   v19 — celular: cabeçalho transparente sobre a foto do topo; selo abaixo do título; 11x menor
+   ========================================================================== */
+@media (max-width:767px){
+  .av-header{background:linear-gradient(180deg,rgba(5,26,45,.55),rgba(5,26,45,0));-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom-color:transparent;box-shadow:none;margin-bottom:-57px;transition:background .25s}
+  .av-header.is-scrolled{background:rgba(5,26,45,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+  .av-nav a.av-nav__keep{color:#fff}
+  .av-hero .av-h1+.av-badge{margin:10px auto 16px}
+}
+@media (min-width:768px){
+  .av-hero .av-h1+.av-badge{margin:0 0 22px}
+}
+/* "11x de" pequeno, acima do valor da mensalidade */
+.av-table .av-table__price small{display:block;font:600 10px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-graphite);margin:0 0 3px;opacity:.8}
+
+@media (max-width:767px){
+  .av-header .av-wrap{border-bottom:0}
+  .av-header{border-bottom:0;border-bottom-color:transparent}
+  .av-hero--sobre{padding-bottom:36px}
+}
 :root{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png");--av-sobre-banner:url("assets/img/sobre-banner.jpg")}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="https://aaldeialiteraria.com.br/"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="https://aaldeialiteraria.com.br/">Início</a><a href="#historia">Nossa história</a><a href="#professores">Quem somos</a><a href="#comunidade">Comunidade</a></nav>
@@ -777,7 +799,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     <p class="av-badge">Sobre a Aldeia Literária</p>
     <h1 class="av-h1"><span>Onde o sonho de escrever</span><span>e publicar livros se realiza</span></h1>
     <p class="av-sub">Desde 2023, ajudamos escritores iniciantes a transformar a ideia em livro, com professores mestres e doutores e uma comunidade ao seu lado.</p>
-    <div class="av-cta-row"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></div>
   </div>
 </div></section>
 
@@ -955,6 +976,13 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   var hero=document.querySelector('.av-hero'),bar=document.querySelector('.av-sticky');
   if(hero&&bar&&'IntersectionObserver' in window){
     new IntersectionObserver(function(es){bar.classList.toggle('is-on',!es[0].isIntersecting)}).observe(hero);
+  }
+
+  /* Cabeçalho: transparente sobre a foto do topo (celular) e sólido depois de rolar */
+  var hd=document.querySelector('.av-header');
+  if(hd){
+    var onScroll=function(){hd.classList.toggle('is-scrolled',(window.pageYOffset||document.documentElement.scrollTop)>24)};
+    onScroll();window.addEventListener('scroll',onScroll,{passive:true});
   }
 })();
 </script></body></html>

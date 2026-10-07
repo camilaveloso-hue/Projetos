@@ -36,7 +36,7 @@ inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/
 assert "../" not in inline_css.replace("url(\"../", "") or True
 inline_js = js
 assert "</script" not in inline_js
-fragment = ('<!-- aldeia-vendas-v15 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
+fragment = ('<!-- aldeia-vendas-v16 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
             + '<style>' + inline_css + '</style>\n'
             + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n'
             + '<script>' + inline_js + '</script>\n')
@@ -46,7 +46,7 @@ open(os.path.join(ROOT, "wordpress/plano-b-pagina-html-unico.html"), "w", encodi
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
 tpl = {
     "version": "0.4",
-    "title": "ALDEIA v15 — Página de vendas (final)",
+    "title": "ALDEIA v16 — Página de vendas (final)",
     "type": "page",
     "content": [{
         "id": "a1b2c3d", "elType": "container", "isInner": False,

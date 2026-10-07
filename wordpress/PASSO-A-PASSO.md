@@ -1,12 +1,12 @@
-# Como colocar a página de vendas no ar (versão final v15)
+# Como colocar a página de vendas no ar (versão final v16)
 
 Você recebeu 3 arquivos:
 
 | Arquivo | Para que serve |
 |---|---|
 | `aldeia-vendas.zip` | **Plugin**: guarda as fontes, as imagens (capas, fotos, brasão) e o estilo. Instala uma vez. |
-| `aldeia-pagina-v15.json` | **Modelo de página do Elementor**: a página inteira, pronta. |
-| `aldeia-pagina-v15-colar-no-widget-html.html` | O mesmo conteúdo, para **colar** num widget HTML. Plano B se o modelo não funcionar. |
+| `aldeia-pagina-v16.json` | **Modelo de página do Elementor**: a página inteira, pronta. |
+| `aldeia-pagina-v16-colar-no-widget-html.html` | O mesmo conteúdo, para **colar** num widget HTML. Plano B se o modelo não funcionar. |
 
 A página nova nasce num endereço próprio. **A Home atual continua no ar** até você decidir trocar.
 
@@ -24,14 +24,14 @@ Faça um backup do site (plugin de backup ou o da hospedagem). Nada abaixo mexe 
 ## Passo 3 — Importar o modelo
 1. Abra: `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_library&tabs_group=library`
    (ou pelo menu **Elementor**, no painel, procure **Modelos** / **Modelos salvos**).
-2. Clique em **Importar modelos**, escolha `aldeia-pagina-v15.json` → **Importar agora**.
-3. Confirme que aparece **"ALDEIA v15 — Página de vendas (final)"**.
+2. Clique em **Importar modelos**, escolha `aldeia-pagina-v16.json` → **Importar agora**.
+3. Confirme que aparece **"ALDEIA v16 — Página de vendas (final)"**.
 4. **Apague os modelos antigos** da lista (v3, v4, v5, v6, v7, "Página de vendas"…). Assim não dá para inserir o errado.
 
 ## Passo 4 — Criar a página e inserir o modelo
 1. **Páginas → Adicionar nova**. Título sugerido: `Escrita Criativa — Turma 2027`.
 2. Clique em **Editar com Elementor**.
-3. Na área vazia, clique no círculo da **pasta preta** (Adicionar modelo) → aba **Meus modelos** → **Inserir** ao lado de **ALDEIA v15**.
+3. Na área vazia, clique no círculo da **pasta preta** (Adicionar modelo) → aba **Meus modelos** → **Inserir** ao lado de **ALDEIA v16**.
 4. Se a página já tinha conteúdo, apague tudo antes: abra o **Navegador** (ícone de camadas, na barra de cima), clique com o botão direito em cada bloco → **Excluir**. O modelo é **adicionado**, não substitui.
 5. Clique no ícone da **folha com engrenagem** (Configurações da página) → **Layout da página** → **Elementor Canvas**. Isso tira o menu duplicado do tema, porque a página já traz o próprio cabeçalho.
 6. Clique em **Publicar** (ou **Atualizar**, se a página já estava publicada).
@@ -70,7 +70,7 @@ A página é **um único bloco HTML**: o texto não se edita clicando nele, como
 
 **Cuidados**
 - Nunca apague os nomes que começam com `av-`: é o que aplica o visual.
-- **Guarde o arquivo original** `aldeia-pagina-v15-colar-no-widget-html.html`. Se algo quebrar, cole tudo de novo.
+- **Guarde o arquivo original** `aldeia-pagina-v16-colar-no-widget-html.html`. Se algo quebrar, cole tudo de novo.
 - O **Histórico** do Elementor (ícone de relógio) permite voltar a uma versão anterior.
 - Mudanças grandes: faça como rascunho e confira na pré-visualização antes de publicar.
 
@@ -90,7 +90,7 @@ A página é **um único bloco HTML**: o texto não se edita clicando nele, como
 | Imagens não aparecem | Confirme que o plugin está ativo. A pasta dele precisa se chamar exatamente `aldeia-vendas` |
 | Carrossel/abas parados | WP Rocket: veja o Passo 5, item 3 |
 | No editor do Elementor tudo aparece parado | É proposital: as animações ficam desligadas dentro do editor. No site publicado funcionam |
-| A importação do modelo deu erro | Use o **Plano B**: crie a página, arraste **um** widget **HTML**, cole todo o conteúdo de `aldeia-pagina-v15-colar-no-widget-html.html` e escolha o layout **Elementor Canvas** |
+| A importação do modelo deu erro | Use o **Plano B**: crie a página, arraste **um** widget **HTML**, cole todo o conteúdo de `aldeia-pagina-v16-colar-no-widget-html.html` e escolha o layout **Elementor Canvas** |
 | Quero desfazer tudo | Mande a página para a lixeira e desative o plugin. Nada mais no site foi alterado |
 
 ---
@@ -108,7 +108,7 @@ A página é **um único bloco HTML**: o texto não se edita clicando nele, como
 ---
 
 ## Qual versão está no ar?
-A página não mostra mais nenhuma linha de versão. Para saber qual está no ar, abra o código do bloco HTML no Elementor: a primeira linha é um comentário (invisível no site) com o nome, por exemplo `aldeia-vendas-v15`.
+A página não mostra mais nenhuma linha de versão. Para saber qual está no ar, abra o código do bloco HTML no Elementor: a primeira linha é um comentário (invisível no site) com o nome, por exemplo `aldeia-vendas-v16`.
 
 ## Link para a página Sobre
 O menu do topo e o rodapé apontam para `https://aaldeialiteraria.com.br/novo-sobre/`. No celular, o menu mostra só o link "Sobre". Se um dia a nova Sobre passar a ficar em `/sobre/`, troque `/novo-sobre/` por `/sobre/` no código (use Ctrl+F).

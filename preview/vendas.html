@@ -764,6 +764,28 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-nav a{display:none}
   .av-nav a.av-nav__keep{display:inline-flex;font-size:11px;letter-spacing:.1em;padding:8px 6px;min-height:38px}
 }
+
+
+/* ==========================================================================
+   v19 — celular: cabeçalho transparente sobre a foto do topo; selo abaixo do título; 11x menor
+   ========================================================================== */
+@media (max-width:767px){
+  .av-header{background:linear-gradient(180deg,rgba(5,26,45,.55),rgba(5,26,45,0));-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom-color:transparent;box-shadow:none;margin-bottom:-57px;transition:background .25s}
+  .av-header.is-scrolled{background:rgba(5,26,45,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+  .av-nav a.av-nav__keep{color:#fff}
+  .av-hero .av-h1+.av-badge{margin:10px auto 16px}
+}
+@media (min-width:768px){
+  .av-hero .av-h1+.av-badge{margin:0 0 22px}
+}
+/* "11x de" pequeno, acima do valor da mensalidade */
+.av-table .av-table__price small{display:block;font:600 10px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-graphite);margin:0 0 3px;opacity:.8}
+
+@media (max-width:767px){
+  .av-header .av-wrap{border-bottom:0}
+  .av-header{border-bottom:0;border-bottom-color:transparent}
+  .av-hero--sobre{padding-bottom:36px}
+}
 :root{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="#topo"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a href="#professores">Quem conduz</a><a href="#jornada">Jornada</a><a href="#duvidas">Dúvidas</a><a class="av-nav__keep" href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a></nav>
@@ -774,11 +796,11 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <!-- HERO -->
 <section class="av-hero"><div class="av-wrap av-hero__grid">
   <div class="av-reveal">
-    <p class="av-badge">Extensão universitária • Certificado MEC</p>
     <h1 class="av-h1"><span>Escrita Criativa:</span><span>Desenvolvimento e Prática</span></h1>
+    <p class="av-badge">Extensão universitária • Certificado MEC</p>
     <p class="av-sub">Formação online da Aldeia Literária para quem está começando. <br>Aulas ao vivo, comunidade, feedback de mestres e doutores.</p>
     <div class="av-cta-row"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></div>
-    <p class="av-hero__pay">Próxima turma em janeiro de 2027</p>
+    <p class="av-hero__pay">Matrículas abrem em janeiro de 2027</p>
   </div>
 </div></section>
 
@@ -874,7 +896,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   <aside class="av-reveal av-sum">
     <table class="av-table"><thead><tr><th scope="col"><span class="sr-only">Plano</span></th><th scope="col">1 módulo</th><th scope="col" class="av-hl av-hl--top">2 módulos<small>Plano indicado</small></th></tr></thead><tbody>
         <tr><th scope="row">Aulas ao vivo por mês</th><td>3 aulas<small>4h30</small></td><td class="av-hl">6 aulas<small>9h</small></td></tr>
-        <tr class="av-table__price"><th scope="row">Mensalidade</th><td>R$ 186</td><td class="av-hl">R$ 262</td></tr>
+        <tr class="av-table__price"><th scope="row">Mensalidade</th><td><small>11x de</small>R$ 186</td><td class="av-hl"><small>11x de</small>R$ 262</td></tr>
         <tr class="av-table__total"><th scope="row">Investimento total<small>em 11 parcelas</small></th><td>R$ 2.046</td><td class="av-hl">R$ 2.882</td></tr>
         <tr class="av-table__time"><th scope="row">Tempo de curso</th><td>2 anos e meio</td><td class="av-hl av-hl--end">1 ano e meio</td></tr>
         <tr class="av-table__fee"><th scope="row">Taxa de matrícula</th><td colspan="2"><strong>R$ 105</strong> com 40% de desconto para os primeiros inscritos</td></tr>
@@ -939,7 +961,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <section class="av-section" id="duvidas"><div class="av-wrap av-center">
   <h2 class="av-h2">Perguntas frequentes</h2>
   <div class="av-reveal av-faq" style="text-align:left">
-    <details open><summary>Quando começa a turma?</summary><div class="av-ans"><p>Em janeiro de 2027.</p></div></details>
+    <details open><summary>Quando começam as aulas?</summary><div class="av-ans"><p>Ainda não temos a data de início das aulas. As matrículas abrem em janeiro de 2027, e por enquanto só temos essa previsão para o novo período de matrículas.</p></div></details>
     <details><summary>Já posso me matricular?</summary><div class="av-ans"><p>Ainda não. As matrículas abrem em janeiro de 2027. Por enquanto, temos apenas a lista de espera.</p></div></details>
     <details><summary>Como são as aulas?</summary><div class="av-ans"><p>Ao vivo, 3 por mês em cada módulo, às 19h30, com 1h30 de duração. As aulas ficam disponíveis enquanto você estiver matriculado na Aldeia Literária: você pode assistir às gravações sempre que quiser.</p></div></details>
     <details><summary>Preciso ter algo escrito antes?</summary><div class="av-ans"><p>O curso é para quem está começando. Você não precisa ter nada pronto, só vontade de escrever ficção.</p></div></details>
@@ -956,9 +978,8 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 <!-- IX · CHAMADO FINAL -->
 <section class="av-final av-mark av-mark--left"><div class="av-meander av-meander--top"></div><div class="av-wrap">
   <h2 class="av-h2">O chamado já chegou.</h2>
-  <p>A turma de janeiro de 2027 tem vagas limitadas: 35 por módulo. As matrículas abrem em janeiro; por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>
+  <p>As matrículas abrem em janeiro de 2027, com vagas limitadas: 35 por módulo. Por enquanto, temos apenas a lista de espera. Se este é o seu momento de escrever o livro, a Aldeia te espera.</p>
   <p style="margin:32px auto 18px"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></p>
-  <p class="av-small">Ficou com dúvida? <a class="av-link" style="min-height:44px" href="https://chat.whatsapp.com/ChsnBR1LbBW6pkZRI17hnw">Fale com a gente no WhatsApp</a></p>
 </div></section>
 </main>
 
@@ -1063,6 +1084,13 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   var hero=document.querySelector('.av-hero'),bar=document.querySelector('.av-sticky');
   if(hero&&bar&&'IntersectionObserver' in window){
     new IntersectionObserver(function(es){bar.classList.toggle('is-on',!es[0].isIntersecting)}).observe(hero);
+  }
+
+  /* Cabeçalho: transparente sobre a foto do topo (celular) e sólido depois de rolar */
+  var hd=document.querySelector('.av-header');
+  if(hd){
+    var onScroll=function(){hd.classList.toggle('is-scrolled',(window.pageYOffset||document.documentElement.scrollTop)>24)};
+    onScroll();window.addEventListener('scroll',onScroll,{passive:true});
   }
 })();
 </script></body></html>

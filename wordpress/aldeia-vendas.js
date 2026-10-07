@@ -98,4 +98,11 @@
   if(hero&&bar&&'IntersectionObserver' in window){
     new IntersectionObserver(function(es){bar.classList.toggle('is-on',!es[0].isIntersecting)}).observe(hero);
   }
+
+  /* Cabeçalho: transparente sobre a foto do topo (celular) e sólido depois de rolar */
+  var hd=document.querySelector('.av-header');
+  if(hd){
+    var onScroll=function(){hd.classList.toggle('is-scrolled',(window.pageYOffset||document.documentElement.scrollTop)>24)};
+    onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  }
 })();
