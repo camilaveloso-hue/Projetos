@@ -10,7 +10,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 # ---------------------------------------------------------------- CONFIG
 SITE = {
-    "dominio": "https://www.camilaveloso.com.br",  # TROCAR pelo domínio real
+    "dominio": "https://camilaveloso.netlify.app",  # endereço atual do site; troque se registrar um domínio próprio
     "nome": "Camila Veloso",
     "email": "",  # opcional: contato@seudominio.com.br
     "instagram": "",  # opcional: URL completa do perfil
@@ -20,7 +20,7 @@ SITE = {
     # escolha um código (ex.: camilaveloso) e escreva aqui. Vazio = sem medição.
     "goatcounter": "camilaveloso",
 }
-LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de-amelia-1amj0/"
+LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de-amelia/"
 PRECO = "59,90"       # preço da pré-venda: tem que bater com o da loja da Editora Fissura
 PRECO_DE = "69,99"
 HOJE = datetime.date.today().isoformat()

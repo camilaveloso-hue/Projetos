@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.camilaveloso.com.br/sitemap.xml
+Sitemap: https://camilaveloso.netlify.app/sitemap.xml
