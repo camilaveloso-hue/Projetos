@@ -70,7 +70,7 @@ def footer():
     return f"""<footer class="rod"><div class="w rod__g">
   <div><div class="marca">camila veloso</div><small>Escritora · Aldeia Literária · Patricinha Literária</small>
   <small>© {datetime.date.today().year} Camila Veloso. Todos os direitos reservados.</small></div>
-  <nav class="nav" aria-label="Rodapé"><a href="/aldeia/">Aldeia</a><a href="/links/">Links</a><a href="/jogo/">Jogo da Amélia</a>{sociais}</nav>
+  <nav class="nav" aria-label="Rodapé"><a href="/aldeia/">Aldeia</a><a href="/links/">Links</a>{sociais}</nav>
 </div></footer>
 <div class="fix"><span>O Diário de Amélia · pré-venda <b>R$ {PRECO}</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></div>
 <script src="/assets/js/site.js?v={_versao("assets/js/site.js")}" defer></script>"""
