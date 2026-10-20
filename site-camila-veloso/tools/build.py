@@ -13,6 +13,7 @@ SITE = {
     "dominio": "https://camilaveloso.netlify.app",  # endereço atual do site; troque se registrar um domínio próprio
     "nome": "Camila Veloso",
     "email": "",  # opcional: contato@seudominio.com.br
+    "instagram_fundadora": "",  # URL completa do Instagram da fundadora (link na página Aldeia)
     "instagram": "",  # opcional: URL completa do perfil
     "podcast": "",  # opcional: URL do podcast Patricinha Literária
     "aldeia": "https://aaldeialiteraria.com.br/",
@@ -44,20 +45,19 @@ def preencher(html):
             .replace("{{PRECO}}", PRECO))
 
 def fragmento(nome):
-    return preencher((ROOT / "tools" / "paginas" / f"{nome}.html").read_text(encoding="utf-8"))
+    insta = SITE["instagram_fundadora"]
+    bloco = (f'<a class="lkb" data-goatcounter-click="aldeia-instagram-fundadora" data-goatcounter-title="Link aldeia: aldeia-instagram-fundadora" href="{insta}" target="_blank" rel="noopener"><span class="lkb__i" aria-hidden="true">◎</span><span class="lkb__t"><b>Instagram da fundadora</b><small>Camila Veloso, autora e fundadora da Aldeia.</small></span><span class="lkb__s" aria-hidden="true">→</span></a>\n  ' if insta else "")
+    return preencher((ROOT / "tools" / "paginas" / f"{nome}.html").read_text(encoding="utf-8").replace("{{INSTA_FUNDADORA}}", bloco))
 
-def header(atual, links=False):
-    aviso = (f'<div class="aviso aviso--camila">Pré-venda com brindes exclusivos + livro autografado por <b>R$ {PRECO}</b>. Últimos dias.</div>' if links else
-             f'<div class="aviso">🎉 Pré-venda: livro <b>autografado</b> + brindes por <b>R$ {PRECO}</b> · últimos dias</div>')
+def header(atual, enxuto=False):
     itens = "".join(
         f'<a href="{h}"{" class=on aria-current=page" if atual == h else ""}>{t}</a>' for h, t in NAV[1:])
+    home = "" if enxuto else f'<a class="marca" href="/" aria-label="Página inicial"{" aria-current=page" if atual == "/" else ""}>Home</a>\n  '
+    comprar = "" if enxuto else f'\n    <a class="btn" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a>'
     return f"""<a class="skip" href="#conteudo">Pular para o conteúdo</a>
-{aviso}
 <header class="topo"><div class="w topo__in">
-  <a class="marca" href="/" aria-label="Página inicial"{" aria-current=page" if atual == "/" else ""}>Home</a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-  <nav class="nav" id="nav" aria-label="Principal">{itens}
-    <a class="btn" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></nav>
+  {home}<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav" aria-label="Principal">{itens}{comprar}</nav>
 </div></header>"""
 
 def footer():
@@ -124,7 +124,7 @@ def pagina(caminho, titulo, desc, corpo, ld=None, og_img="/assets/img/og-diario-
 {medicao()}
 </head>
 <body{f' class="{classe}"' if classe else ""}>
-{header(atual or caminho, "pag-links" in classe and "pag-aldeia" not in classe)}
+{header(atual or caminho, "pag-aldeia" in classe)}
 <main id="conteudo">
 {corpo}
 </main>
