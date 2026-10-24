@@ -53,7 +53,7 @@ def header(atual, enxuto=False):
     itens = "".join(
         f'<a href="{h}"{" class=on aria-current=page" if atual == h else ""}>{t}</a>' for h, t in NAV[1:])
     home = "" if enxuto else f'<a class="marca" href="/" aria-label="Página inicial"{" aria-current=page" if atual == "/" else ""}>Home</a>\n  '
-    comprar = "" if enxuto else f'\n    <a class="btn" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a>'
+    comprar = "" if enxuto else f'\n    <a class="btn" href="{LINK_EDITORA}" target="_blank" rel="noopener">Compre agora</a>'
     return f"""<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo"><div class="w topo__in">
   {home}<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
@@ -72,7 +72,7 @@ def footer():
   <small>© {datetime.date.today().year} Camila Veloso. Todos os direitos reservados.</small></div>
   <nav class="nav" aria-label="Rodapé"><a href="/aldeia/">Aldeia</a><a href="/links/">Links</a>{sociais}</nav>
 </div></footer>
-<div class="fix"><span>O Diário de Amélia · pré-venda <b>R$ {PRECO}</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Quero o meu</a></div>
+<div class="fix"><span>O Diário de Amélia · <b>já disponível</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Compre agora</a></div>
 <script src="/assets/js/site.js?v={_versao("assets/js/site.js")}" defer></script>"""
 
 def medicao():
@@ -144,10 +144,10 @@ def migalhas_ld(itens):
 
 paginas = []
 FAQ = [
-    ("O livro vem autografado?", "Sim. Quem compra na pré-venda recebe o livro autografado pela Camila. Ela só vai autografar nesta etapa e não haverá sessão de lançamento."),
-    ("Quais são os brindes?", "Marcador de página duplo, cartela de adesivos e o Manual de sobrevivência do jovem adulto, um card exclusivo com conteúdo extra, só para quem compra na pré-venda."),
-    ("Quando sai O Diário de Amélia?", "A edição impressa, pela Editora Fissura, sai em 23 de outubro de 2026. A pré-venda já está aberta."),
-    ("Onde eu compro?", "O livro físico autografado está em pré-venda na loja da Editora Fissura."),
+    ("O livro vem autografado?", "Os exemplares autografados eram exclusivos da pré-venda, que já terminou."),
+    ("Quais são os brindes?", "Os brindes (marcador de página, adesivos e o Manual de sobrevivência do jovem adulto) eram exclusivos da pré-venda, que já terminou."),
+    ("Quando sai O Diário de Amélia?", "A edição impressa, pela Editora Fissura, foi lançada em 23 de outubro de 2026 e já está disponível."),
+    ("Onde eu compro?", "O livro físico está à venda na loja da Editora Fissura."),
     ("É pra quem?", "Para jovens e adultos que gostam de romance de amadurecimento, autodescoberta, amizade e primeiro amor, com humor e emoção."),
     ("Quantas páginas tem?", "250 páginas, brochura de 14 × 21 cm, miolo em papel Pólen 80 g/m² e capa em Cartão Supremo 300 g/m²."),
     ("Quem escreveu?", "Camila Veloso, escritora, produtora editorial, fundadora da Aldeia Literária e apresentadora do podcast Patricinha Literária."),
@@ -168,7 +168,7 @@ book_ld = [
      "workExample": [{"@type": "Book", "bookFormat": "https://schema.org/Paperback", "numberOfPages": 250, "inLanguage": "pt-BR",
         "datePublished": "2026-10-23",
         "offers": {"@type": "Offer", "url": LINK_EDITORA, "priceCurrency": "BRL", "price": PRECO.replace(",", "."),
-                   "availability": "https://schema.org/PreOrder", "itemCondition": "https://schema.org/NewCondition"}}],
+                   "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition"}}],
      "review": [{"@type": "Review", "author": {"@type": "Person", "name": "Karine Leôncio"}, "reviewBody": "Um livro para rir, mas com o peito apertado do começo ao fim."},
                 {"@type": "Review", "author": {"@type": "Person", "name": "Amanda Gambogi"}, "reviewBody": "História sobre autodescoberta e amizades, um abraço carinhoso."}]},
     {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
@@ -177,12 +177,12 @@ book_ld = [
 
 home_ld = [{"@type": "WebPage", "@id": SITE["dominio"] + "/#pagina", "url": SITE["dominio"] + "/", "name": "Camila Veloso, escritora",
             "isPartOf": {"@id": SITE["dominio"] + "/#site"}, "about": {"@id": SITE["dominio"] + "/#camila"}}] + book_ld[:2]
-paginas.append(pagina("/", "O Diário de Amélia, romance de Camila Veloso sobre liberdade | Pré-venda autografada",
-    f"O Diário de Amélia, de Camila Veloso: romance jovem-adulto sobre liberdade, família opressora e primeiras vezes. 250 páginas, Editora Fissura. Pré-venda por R$ {PRECO}, autografada e com brindes.",
+paginas.append(pagina("/", "O Diário de Amélia, romance de Camila Veloso sobre liberdade | Já disponível",
+    f"O Diário de Amélia, de Camila Veloso: romance jovem-adulto sobre liberdade, família opressora e primeiras vezes. 250 páginas, Editora Fissura. Já disponível na loja da Editora Fissura.",
     com_faq(fragmento("home")), ld=home_ld, tipo="book"))
 
 # ---------------------------------------------------------------- LINKS (bio das redes)
-paginas.append(pagina("/links/", "Links da Camila Veloso e da Aldeia Literária", "Pré-venda de O Diário de Amélia, newsletter, YouTube, Aldeia Literária e TikTok.",
+paginas.append(pagina("/links/", "Links da Camila Veloso e da Aldeia Literária", "O Diário de Amélia, newsletter, YouTube, Aldeia Literária e TikTok.",
     fragmento("links"), classe="pag-links", noindex=True))
 
 # ---------------------------------------------------------------- ALDEIA LITERÁRIA (links do TikTok)
