@@ -250,3 +250,5 @@ html{overflow-x:hidden}
 .lkb__cta{display:inline-block;margin-top:.8rem;background:var(--vermelho);color:var(--branco);font-family:var(--titulo);font-weight:800;font-size:1.05rem;padding:.55rem 1.2rem;border-radius:3rem;border:3px solid var(--tinta);animation:cta 2s ease-in-out infinite}
 @keyframes cta{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 @media(prefers-reduced-motion:reduce){.lkb__cta{animation:none}}
+.estrela b{font-size:1.3rem;line-height:1.1}
+.estrela{width:7.6rem!important;padding:.7rem}
