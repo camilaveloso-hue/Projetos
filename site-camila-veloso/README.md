@@ -35,4 +35,4 @@ python3 -m http.server 8000   # prévia em http://localhost:8000
 ```
 
 ## Depois do lançamento (23/10/2026)
-Atualize preço e selos de pré-venda e o `availability` dos dados estruturados em `tools/build.py`.
+Textos de pré-venda já foram trocados por "já disponível". Se o preço mudar, ajuste `PRECO` em `tools/build.py`.
