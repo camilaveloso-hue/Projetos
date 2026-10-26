@@ -22,8 +22,8 @@ SITE = {
     "goatcounter": "camilaveloso",
 }
 LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de-amelia/"
-PRECO = "59,90"       # preço da pré-venda: tem que bater com o da loja da Editora Fissura
-PRECO_DE = "69,99"
+PRECO = "69,90"       # preço de lançamento: tem que bater com o da loja da Editora Fissura
+PRECO_DE = "69,90"
 HOJE = datetime.date.today().isoformat()
 
 def _versao(caminho):
@@ -72,7 +72,7 @@ def footer():
   <small>© {datetime.date.today().year} Camila Veloso. Todos os direitos reservados.</small></div>
   <nav class="nav" aria-label="Rodapé"><a href="/aldeia/">Aldeia</a><a href="/links/">Links</a>{sociais}</nav>
 </div></footer>
-<div class="fix"><span>O Diário de Amélia · <b>já disponível</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Compre agora</a></div>
+<div class="fix"><span>O Diário de Amélia · <b>lançamento · estoque acabando</b></span><a class="btn btn--am" href="{LINK_EDITORA}" target="_blank" rel="noopener">Compre agora</a></div>
 <script src="/assets/js/site.js?v={_versao("assets/js/site.js")}" defer></script>"""
 
 def medicao():
@@ -145,6 +145,7 @@ def migalhas_ld(itens):
 paginas = []
 FAQ = [
     ("O livro vem autografado?", "Os exemplares autografados eram exclusivos da pré-venda, que já terminou."),
+    ("Por que comprar agora?", "A tiragem é pequena e o estoque está acabando. Se você quer o seu exemplar, garanta já na loja da Editora Fissura."),
     ("Quais são os brindes?", "Os brindes (marcador de página, adesivos e o Manual de sobrevivência do jovem adulto) eram exclusivos da pré-venda, que já terminou."),
     ("Quando sai O Diário de Amélia?", "A edição impressa, pela Editora Fissura, foi lançada em 23 de outubro de 2026 e já está disponível."),
     ("Onde eu compro?", "O livro físico está à venda na loja da Editora Fissura."),
@@ -177,8 +178,8 @@ book_ld = [
 
 home_ld = [{"@type": "WebPage", "@id": SITE["dominio"] + "/#pagina", "url": SITE["dominio"] + "/", "name": "Camila Veloso, escritora",
             "isPartOf": {"@id": SITE["dominio"] + "/#site"}, "about": {"@id": SITE["dominio"] + "/#camila"}}] + book_ld[:2]
-paginas.append(pagina("/", "O Diário de Amélia, romance de Camila Veloso sobre liberdade | Já disponível",
-    f"O Diário de Amélia, de Camila Veloso: romance jovem-adulto sobre liberdade, família opressora e primeiras vezes. 250 páginas, Editora Fissura. Já disponível na loja da Editora Fissura.",
+paginas.append(pagina("/", "O Diário de Amélia, romance de Camila Veloso sobre liberdade | Lançamento, tiragem pequena",
+    f"O Diário de Amélia, de Camila Veloso: romance jovem-adulto sobre liberdade, família opressora e primeiras vezes. 250 páginas, Editora Fissura. Lançamento em tiragem pequena, com estoque acabando, na loja da Editora Fissura.",
     com_faq(fragmento("home")), ld=home_ld, tipo="book"))
 
 # ---------------------------------------------------------------- LINKS (bio das redes)
