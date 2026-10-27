@@ -21,7 +21,7 @@ SITE = {
     # escolha um código (ex.: camilaveloso) e escreva aqui. Vazio = sem medição.
     "goatcounter": "camilaveloso",
 }
-LINK_EDITORA = "https://www.editorafissura.com.br/produtos/pre-venda-o-diario-de-amelia/"
+LINK_EDITORA = "https://www.editorafissura.com.br/produtos/o-diario-de-amelia1/"
 PRECO = "69,90"       # preço de lançamento: tem que bater com o da loja da Editora Fissura
 PRECO_DE = "69,90"
 HOJE = datetime.date.today().isoformat()
