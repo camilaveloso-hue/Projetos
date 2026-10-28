@@ -1,0 +1,74 @@
+/* Aldeia Literária: tipografia dos títulos e estilo das páginas de professores.
+   Fonte dos títulos: Literata (Google Fonts, licença OFL). */
+
+:root {
+  --al-verde: #2f5d4e;
+  --al-tinta: #1f2421;
+  --al-suave: #5d645f;
+  --al-linha: #dcd8cf;
+  --al-fundo: #f6f4f0;
+  --al-fonte-titulo: "Literata", Georgia, "Times New Roman", serif;
+}
+
+/* ---- Títulos do site inteiro (home, Sobre e demais páginas) ---- */
+h1, h2, h3,
+.elementor-widget-heading .elementor-heading-title,
+.elementor-widget-theme-post-title .elementor-heading-title,
+.elementor-widget-theme-page-title .elementor-heading-title,
+.elementor-widget-text-editor h1,
+.elementor-widget-text-editor h2,
+.elementor-widget-text-editor h3 {
+  font-family: var(--al-fonte-titulo);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Botões, menu e textos de apoio continuam na fonte do tema: não alteramos. */
+.elementor-button, .elementor-nav-menu a, nav a { font-family: inherit; }
+
+/* ---- Páginas de professores ---- */
+.al-prof { max-width: 860px; margin: 0 auto; padding: 8px 16px 64px; color: var(--al-tinta); line-height: 1.7; font-size: 1.0625rem; }
+.al-prof * { box-sizing: border-box; }
+.al-prof h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 0 0 .4em; }
+.al-prof h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); line-height: 1.2; margin: 2.2em 0 .6em; }
+.al-prof h3 { font-size: 1.15rem; margin: 1.4em 0 .3em; }
+.al-prof p { margin: 0 0 1em; max-width: 68ch; }
+.al-prof a { color: var(--al-verde); text-underline-offset: 3px; }
+
+.al-prof__topo { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: center; padding: 24px 0 8px; }
+.al-prof__foto { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; background: var(--al-fundo); }
+.al-prof__cargo { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--al-verde); margin: 0 0 .6em; }
+.al-prof__resumo { font-size: 1.2rem; line-height: 1.55; margin: 0; }
+
+.al-prof__ficha { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin: 32px 0 0; border-top: 1px solid var(--al-linha); border-bottom: 1px solid var(--al-linha); }
+.al-prof__ficha div { padding: 16px 20px 16px 0; min-width: 0; }
+.al-prof__ficha dt { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--al-suave); margin: 0 0 4px; }
+.al-prof__ficha dd { margin: 0; }
+
+.al-prof ul { padding-left: 1.2em; }
+.al-prof li { margin-bottom: .5em; max-width: 68ch; }
+
+.al-prof__faq details { border-bottom: 1px solid var(--al-linha); padding: 14px 0; }
+.al-prof__faq summary { cursor: pointer; font-family: var(--al-fonte-titulo); font-size: 1.1rem; font-weight: 500; }
+.al-prof__faq details p { margin: .6em 0 0; }
+
+.al-prof__cta { margin-top: 3em; padding: 28px; background: var(--al-fundo); border-radius: 6px; }
+.al-prof__cta h2 { margin-top: 0; }
+.al-botao { display: inline-block; padding: 12px 22px; background: var(--al-verde); color: #fff !important; border-radius: 4px; text-decoration: none !important; font-weight: 600; font-family: system-ui, sans-serif; }
+.al-botao:hover, .al-botao:focus-visible { background: #244a3e; }
+.al-prof__atualizado { font-size: .85rem; color: var(--al-suave); margin-top: 2em; }
+
+/* ---- Índice "Professores do semestre" ---- */
+.al-indice { max-width: 1040px; margin: 0 auto; padding: 8px 16px 64px; }
+.al-indice__lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; list-style: none; padding: 0; margin: 32px 0; }
+.al-indice__item { min-width: 0; }
+.al-indice__item img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 6px; background: var(--al-fundo); }
+.al-indice__item h3 { font-size: 1.25rem; margin: 14px 0 4px; }
+.al-indice__item p { margin: 0 0 10px; color: var(--al-suave); font-size: .95rem; }
+
+@media (max-width: 600px) {
+  .al-prof__topo { grid-template-columns: 1fr; gap: 18px; }
+  .al-prof__foto { width: 120px; height: 120px; }
+}

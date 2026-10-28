@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prévia Aldeia Literária</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Inter:wght@400;600&display=swap">
+<style>
+/* Aldeia Literária: tipografia dos títulos e estilo das páginas de professores.
+   Fonte dos títulos: Literata (Google Fonts, licença OFL). */
+
+:root {
+  --al-verde: #2f5d4e;
+  --al-tinta: #1f2421;
+  --al-suave: #5d645f;
+  --al-linha: #dcd8cf;
+  --al-fundo: #f6f4f0;
+  --al-fonte-titulo: "Literata", Georgia, "Times New Roman", serif;
+}
+
+/* ---- Títulos do site inteiro (home, Sobre e demais páginas) ---- */
+h1, h2, h3,
+.elementor-widget-heading .elementor-heading-title,
+.elementor-widget-theme-post-title .elementor-heading-title,
+.elementor-widget-theme-page-title .elementor-heading-title,
+.elementor-widget-text-editor h1,
+.elementor-widget-text-editor h2,
+.elementor-widget-text-editor h3 {
+  font-family: var(--al-fonte-titulo);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Botões, menu e textos de apoio continuam na fonte do tema: não alteramos. */
+.elementor-button, .elementor-nav-menu a, nav a { font-family: inherit; }
+
+/* ---- Páginas de professores ---- */
+.al-prof { max-width: 860px; margin: 0 auto; padding: 8px 16px 64px; color: var(--al-tinta); line-height: 1.7; font-size: 1.0625rem; }
+.al-prof * { box-sizing: border-box; }
+.al-prof h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 0 0 .4em; }
+.al-prof h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); line-height: 1.2; margin: 2.2em 0 .6em; }
+.al-prof h3 { font-size: 1.15rem; margin: 1.4em 0 .3em; }
+.al-prof p { margin: 0 0 1em; max-width: 68ch; }
+.al-prof a { color: var(--al-verde); text-underline-offset: 3px; }
+
+.al-prof__topo { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: center; padding: 24px 0 8px; }
+.al-prof__foto { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; background: var(--al-fundo); }
+.al-prof__cargo { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--al-verde); margin: 0 0 .6em; }
+.al-prof__resumo { font-size: 1.2rem; line-height: 1.55; margin: 0; }
+
+.al-prof__ficha { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin: 32px 0 0; border-top: 1px solid var(--al-linha); border-bottom: 1px solid var(--al-linha); }
+.al-prof__ficha div { padding: 16px 20px 16px 0; min-width: 0; }
+.al-prof__ficha dt { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--al-suave); margin: 0 0 4px; }
+.al-prof__ficha dd { margin: 0; }
+
+.al-prof ul { padding-left: 1.2em; }
+.al-prof li { margin-bottom: .5em; max-width: 68ch; }
+
+.al-prof__faq details { border-bottom: 1px solid var(--al-linha); padding: 14px 0; }
+.al-prof__faq summary { cursor: pointer; font-family: var(--al-fonte-titulo); font-size: 1.1rem; font-weight: 500; }
+.al-prof__faq details p { margin: .6em 0 0; }
+
+.al-prof__cta { margin-top: 3em; padding: 28px; background: var(--al-fundo); border-radius: 6px; }
+.al-prof__cta h2 { margin-top: 0; }
+.al-botao { display: inline-block; padding: 12px 22px; background: var(--al-verde); color: #fff !important; border-radius: 4px; text-decoration: none !important; font-weight: 600; font-family: system-ui, sans-serif; }
+.al-botao:hover, .al-botao:focus-visible { background: #244a3e; }
+.al-prof__atualizado { font-size: .85rem; color: var(--al-suave); margin-top: 2em; }
+
+/* ---- Índice "Professores do semestre" ---- */
+.al-indice { max-width: 1040px; margin: 0 auto; padding: 8px 16px 64px; }
+.al-indice__lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; list-style: none; padding: 0; margin: 32px 0; }
+.al-indice__item { min-width: 0; }
+.al-indice__item img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 6px; background: var(--al-fundo); }
+.al-indice__item h3 { font-size: 1.25rem; margin: 14px 0 4px; }
+.al-indice__item p { margin: 0 0 10px; color: var(--al-suave); font-size: .95rem; }
+
+@media (max-width: 600px) {
+  .al-prof__topo { grid-template-columns: 1fr; gap: 18px; }
+  .al-prof__foto { width: 120px; height: 120px; }
+}
+
+/* Só para a prévia: simula a página do site */
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#1f2421;background:#fff;line-height:1.6}
+.aviso{background:#2f5d4e;color:#fff;padding:10px 16px;font-size:14px;text-align:center}
+.nav{display:flex;gap:24px;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid #dcd8cf;flex-wrap:wrap}
+.nav b{font-family:var(--al-fonte-titulo);font-size:1.3rem;font-weight:600}
+.nav a{margin-left:20px;color:#1f2421;text-decoration:none;font-size:.95rem}
+.sec{max-width:1040px;margin:0 auto;padding:56px 16px}
+.sec.alt{background:#f6f4f0;max-width:none}.sec.alt>div{max-width:1040px;margin:0 auto}
+.hero h1{font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.08;margin:12px 0 16px}
+.hero .sel{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--al-verde)}
+.nums{display:flex;flex-wrap:wrap;gap:32px;margin-top:28px}.nums div{min-width:0}.nums strong{display:block;font-family:var(--al-fonte-titulo);font-size:2rem;font-weight:500}
+.sec h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.card{border:1px solid #dcd8cf;border-radius:6px;padding:22px;background:#fff;min-width:0}
+.card h3{font-size:1.2rem;margin:0 0 6px}.card p{margin:0 0 12px;color:#5d645f;font-size:.95rem}
+.card a.s{color:var(--al-verde);font-weight:600;font-size:.95rem}
+.av{width:72px;height:72px;border-radius:50%;background:#e7efe9;margin-bottom:14px;display:grid;place-items:center;font-family:var(--al-fonte-titulo);color:var(--al-verde);font-size:1.4rem}
+.btn{display:inline-block;padding:12px 22px;background:var(--al-verde);color:#fff;border-radius:4px;text-decoration:none;font-weight:600}
+footer{padding:32px 24px;border-top:1px solid #dcd8cf;color:#5d645f;font-size:.9rem;text-align:center}
+.page{display:none}.page:target,.page.padrao{display:block}
+.page.padrao:has(~ .page:target){display:none}
+</style></head><body>
+<div class="aviso">Prévia visual. A tipografia é a nova (Literata); o restante simula a estrutura da sua home. Navegue pelo menu.</div>
+<div class="nav"><b>Aldeia Literária</b><div><a href="#home">Home</a><a href="#sobre">Sobre</a><a href="#professor">Página de professor (oculta)</a><a href="#professores">Índice (oculto)</a></div></div>
+
+<main>
+<div id="home" class="page padrao">
+ <section class="sec hero"><span class="sel">Extensão universitária · Certificado MEC</span>
+  <h1>Escrita Criativa: Desenvolvimento e Prática</h1>
+  <p style="max-width:58ch;font-size:1.15rem">Aulas ao vivo às 19h30, atividades corrigidas pelos professores e uma comunidade de escritores que terminam o que começam.</p>
+  <p><a class="btn" href="#home">Entrar na lista de espera</a></p>
+  <div class="nums"><div><strong>+500</strong>escritores</div><div><strong>9h</strong>de aula ao vivo por mês</div><div><strong>35</strong>vagas por módulo</div></div></section>
+
+ <div class="sec alt"><div><h2>Quem conduz</h2>
+  <p style="max-width:62ch">Camila Veloso fundou a Aldeia Literária em 2023 para ajudar escritores iniciantes. Ela lidera uma equipe de professores com formação em Letras, Literatura e Comunicação.</p>
+  <div class="grid">
+   <div class="card"><div class="av">LM</div><h3>Laura Marques</h3><p>Produtora editorial, mestranda em Comunicação pela UFSM e leitora crítica.</p><a class="s" href="#professor">Saiba mais →</a></div>
+   <div class="card"><div class="av">LO</div><h3>Lucas Oliveira</h3><p>Mestre e doutor em Literatura Portuguesa pela UFRJ.</p><a class="s" href="#professor">Saiba mais →</a></div>
+   <div class="card"><div class="av">LN</div><h3>Lavínia Neres</h3><p>Produtora editorial, bacharel em Letras e mestra em Comunicação pela UFSM.</p><a class="s" href="#professor">Saiba mais →</a></div>
+   <div class="card"><div class="av">AR</div><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG.</p><a class="s" href="#professor">Saiba mais →</a></div>
+  </div></div></div>
+
+ <section class="sec"><h2>Você tem a ideia. Falta a técnica.</h2>
+  <p style="max-width:62ch">Quatro situações que escritores iniciantes conhecem: começar e não terminar, não saber se o texto é bom, travar no meio do enredo, não saber como publicar.</p></section>
+
+ <div class="sec alt"><div><h2>Aulas e atividades práticas, um módulo por vez.</h2>
+  <div class="grid">
+   <div class="card"><h3>I. Fundamentos da Narrativa</h3><p>Estrutura, personagem e ponto de vista.</p></div>
+   <div class="card"><h3>II. Técnicas Avançadas</h3><p>Ritmo, diálogo e construção de cena.</p></div>
+   <div class="card"><h3>III. Processos criativos</h3><p>Rotina, bloqueios e revisão.</p></div>
+   <div class="card"><h3>IV. Gramática e produção literária</h3><p>Norma culta a serviço da voz do autor.</p></div>
+   <div class="card"><h3>V. Publicação Independente</h3><p>Do original ao livro pronto.</p></div>
+  </div></div></div>
+ <section class="sec" style="text-align:center"><h2>O chamado já chegou.</h2><p>Matrículas abrem em janeiro de 2027.</p><a class="btn" href="#home">Entrar na lista de espera</a></section>
+</div>
+
+<div id="sobre" class="page">
+ <section class="sec"><span class="sel" style="font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#2f5d4e">Sobre</span>
+  <h1 style="font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.1;margin:12px 0 20px">Uma aldeia para quem escreve.</h1>
+  <p style="max-width:62ch;font-size:1.1rem">A Aldeia Literária nasceu em 2023 para ajudar escritores iniciantes a transformar ideias em livros, com técnica, acompanhamento e comunidade.</p>
+  <h2 style="margin-top:48px">Como ensinamos</h2>
+  <p style="max-width:62ch">Aulas ao vivo, feedback individual e atividades práticas, um módulo por vez.</p>
+  <h2 style="margin-top:40px">Certificados</h2>
+  <p style="max-width:62ch">Certificado por módulo e certificado de extensão universitária emitido pela Anhanguera.</p></section>
+</div>
+
+<div id="professor" class="page">
+<article class="al-prof">
+ <header class="al-prof__topo"><div class="al-prof__foto" style="display:grid;place-items:center;font-family:var(--al-fonte-titulo);font-size:2.4rem;color:#2f5d4e;background:#e7efe9">LN</div>
+ <div><p class="al-prof__cargo">Professora · Aldeia Literária</p><h1>Lavínia Neres</h1>
+ <p class="al-prof__resumo">Lavínia Neres é produtora editorial, bacharel em Letras e mestra em Comunicação pela UFSM, e leciona na Aldeia Literária.</p></div></header>
+ <dl class="al-prof__ficha"><div><dt>Leciona</dt><dd>[preencher: módulo]</dd></div><div><dt>Formação</dt><dd>Mestra em Comunicação, UFSM</dd></div><div><dt>Áreas</dt><dd>[preencher]</dd></div><div><dt>Curso</dt><dd>Escrita Criativa: Desenvolvimento e Prática</dd></div></dl>
+ <h2>Sobre Lavínia Neres</h2><p>[Texto livre escrito no editor do WordPress: trajetória, método de ensino e o que o aluno pode esperar.]</p>
+ <h2>Formação acadêmica e profissional</h2><ul><li>Mestra em Comunicação, Universidade Federal de Santa Maria (UFSM)</li><li>Bacharel em Letras</li><li>Produtora editorial</li></ul>
+ <h2>Onde confirmar essas informações</h2><ul><li><a href="#professor">Currículo Lattes de Lavínia Neres</a> <em>(link a preencher)</em></li><li><a href="#professor">ORCID de Lavínia Neres</a> <em>(link a preencher)</em></li></ul>
+ <section class="al-prof__faq"><h2>Perguntas frequentes sobre Lavínia Neres</h2>
+  <details open><summary>Quem é Lavínia Neres?</summary><p>Lavínia Neres é produtora editorial, bacharel em Letras e mestra em Comunicação pela UFSM, professora da Aldeia Literária.</p></details>
+  <details open><summary>Que curso Lavínia Neres leciona?</summary><p>Ela leciona no curso Escrita Criativa: Desenvolvimento e Prática, da Aldeia Literária, voltado a escritores iniciantes.</p></details>
+  <details open><summary>Como estudar com Lavínia Neres?</summary><p>As matrículas abrem em janeiro de 2027. Enquanto isso, é possível entrar na lista de espera no site da Aldeia Literária.</p></details></section>
+ <section class="al-prof__cta"><h2>Estude com Lavínia Neres na Aldeia Literária</h2><p>A Aldeia Literária é uma escola de escrita criativa para escritores iniciantes, criada em 2023.</p><p><a class="al-botao" href="#home">Conheça o curso</a> &nbsp; <a href="#professores">Ver todos os professores</a></p></section>
+ <p class="al-prof__atualizado">Atualizado em 28/10/2026.</p>
+</article></div>
+
+<div id="professores" class="page"><div class="al-indice"><h1 style="font-size:clamp(2rem,5vw,3rem)">Professores do semestre</h1>
+ <p>A equipe de professores da Aldeia Literária reúne produtores editoriais, mestres e doutores em Letras, Literatura e Comunicação. Escolha um nome para conhecer a formação, as obras e o que cada professor ensina.</p>
+ <ul class="al-indice__lista">
+  <li class="al-indice__item"><div class="av" style="width:100%;height:auto;aspect-ratio:1;border-radius:6px">CV</div><h3><a href="#professor">Camila Veloso</a></h3><p>Fundadora da Aldeia Literária</p><a href="#professor">Saiba mais</a></li>
+  <li class="al-indice__item"><div class="av" style="width:100%;height:auto;aspect-ratio:1;border-radius:6px">LM</div><h3><a href="#professor">Laura Marques</a></h3><p>Professora e leitora crítica</p><a href="#professor">Saiba mais</a></li>
+  <li class="al-indice__item"><div class="av" style="width:100%;height:auto;aspect-ratio:1;border-radius:6px">LO</div><h3><a href="#professor">Lucas Oliveira</a></h3><p>Professor</p><a href="#professor">Saiba mais</a></li>
+  <li class="al-indice__item"><div class="av" style="width:100%;height:auto;aspect-ratio:1;border-radius:6px">LN</div><h3><a href="#professor">Lavínia Neres</a></h3><p>Professora</p><a href="#professor">Saiba mais</a></li>
+ </ul></div></div>
+</main>
+<footer>Aldeia Literária · Todos os direitos reservados</footer>
+</body></html>
