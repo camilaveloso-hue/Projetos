@@ -126,7 +126,7 @@ p{margin:0}
 .sel small{font-size:1rem;display:block;font-family:var(--texto);font-weight:700}
 @keyframes gira{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.sel{animation:none}}
-.fotoa{width:100%;height:auto;max-width:18rem;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border:3px solid var(--tinta);border-radius:1.6rem;box-shadow:8px 8px 0 var(--tinta);transform:rotate(2deg);justify-self:center}
+.fotoa{width:100%;height:auto;max-width:18rem;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border:3px solid var(--tinta);border-radius:1.6rem;box-shadow:8px 8px 0 var(--tinta);transform:rotate(2deg);justify-self:center}
 .nums{display:flex;gap:1rem;flex-wrap:wrap;margin-block:1.2rem}
 .nums div{background:var(--tinta);color:var(--creme);border-radius:1rem;padding:.7rem 1.1rem}
 .nums b{display:block;font-family:var(--display);font-weight:400;font-size:1.8rem;color:var(--amarelo);line-height:1.1}
@@ -163,7 +163,7 @@ details p{padding:0 1.2rem 1.1rem}
 /* links (estilo linktree) */
 .lk{background:var(--rosa);padding-block:2.5rem 3.5rem;border-bottom:3px solid var(--tinta)}
 .lk__c{max-width:30rem;margin-inline:auto;display:grid;gap:1rem;justify-items:center;text-align:center}
-.lk__foto{width:8.5rem;height:auto;aspect-ratio:1;object-fit:cover;object-position:50% 18%;border-radius:50%;border:3px solid var(--tinta);box-shadow:5px 5px 0 var(--tinta);background:var(--amarelo)}
+.lk__foto{width:8.5rem;height:auto;aspect-ratio:1;object-fit:cover;object-position:50% 35%;border-radius:50%;border:3px solid var(--tinta);box-shadow:5px 5px 0 var(--tinta);background:var(--amarelo)}
 .lk h1{font-size:clamp(2.2rem,9vw,3.2rem)}
 .lk__sub{font-weight:500;font-size:1.1rem;margin-bottom:.4rem}
 .lkb{display:flex;align-items:center;gap:1rem;width:100%;text-align:left;text-decoration:none;background:var(--branco);color:var(--tinta);border:3px solid var(--tinta);border-radius:1.4rem;padding:.9rem 1.1rem;box-shadow:5px 5px 0 var(--tinta);transition:transform .12s,box-shadow .12s}
@@ -250,3 +250,5 @@ html{overflow-x:hidden}
 .lkb__cta{display:inline-block;margin-top:.8rem;background:var(--vermelho);color:var(--branco);font-family:var(--titulo);font-weight:800;font-size:1.05rem;padding:.55rem 1.2rem;border-radius:3rem;border:3px solid var(--tinta);animation:cta 2s ease-in-out infinite}
 @keyframes cta{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 @media(prefers-reduced-motion:reduce){.lkb__cta{animation:none}}
+.estrela b{font-size:1.3rem;line-height:1.1}
+.estrela{width:7.6rem!important;padding:.7rem}
