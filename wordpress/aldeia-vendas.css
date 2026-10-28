@@ -1,7 +1,7 @@
 /* ==========================================================================
    ALDEIA LITERÁRIA — Página de vendas (Blueprint v1, turma jan/2027)
    Identidade da logo: azul-marinho + vermelho + branco, meandro grego e medalhão do ômega
-   Fontes: Cinzel + EB Garamond + Montserrat
+   Fontes: Libre Caslon Text (títulos) + EB Garamond + Montserrat
    COMO USAR: Elementor > Configurações do Site > CSS Personalizado (ou CSS da página).
    Na página de vendas: Configurações da Página > Avançado > Classes CSS = "av-page".
    Veja GUIA-PAGINA-VENDAS.md.
@@ -17,7 +17,7 @@
   --av-parch-dark:#F1F5F9;    /* fundo alternativo: cinza-azulado muito claro */
   --av-graphite:#26303B;
   --av-line:rgba(13,55,86,.14);
-  --av-display:"Cinzel",Georgia,serif;
+  --av-display:"Libre Caslon Text","Iowan Old Style",Georgia,serif;
   --av-body:"EB Garamond",Georgia,serif;
   --av-ui:"Montserrat",system-ui,sans-serif;
   --av-wrap:1160px;
@@ -66,10 +66,10 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-label::before{content:"";width:32px;height:2px;background:var(--av-bronze)}
 .av-section--navy .av-label,.av-section--dark .av-label,.av-hero .av-label{color:var(--av-parch);opacity:.88}
 
-/* Títulos: Cinzel Bold, alinhados à esquerda (padrão em F) */
+/* Títulos: Libre Caslon Text Bold, alinhados à esquerda (padrão em F) */
 .av-h1,.av-h2{font-family:var(--av-display);font-weight:700;color:var(--av-navy);margin:0 0 22px;line-height:1.15;letter-spacing:.005em}
-.av-h1{font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.1}
-.av-h2{font-size:clamp(1.45rem,2.7vw,2.15rem)}
+.av-h1{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.12}
+.av-h2{font-size:clamp(1.6rem,3vw,2.45rem);line-height:1.18}
 .av-section--navy .av-h2,.av-section--dark .av-h2,.av-hero .av-h1{color:var(--av-parch)}
 .av-lead{font-size:1.05em;max-width:62ch;margin:0 0 28px}
 .av-small{font-size:.8em;opacity:.85}
@@ -112,7 +112,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-badge{display:inline-flex;align-items:center;gap:10px;font:600 12px/1.3 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;color:#fff;
   padding:9px 18px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);margin:0 0 26px}
 .av-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--av-terra);box-shadow:0 0 0 4px rgba(204,53,28,.3)}
-.av-hero .av-h1{font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:24px;white-space:nowrap}
+.av-hero .av-h1{font-size:clamp(1.6rem,2.7vw,2.25rem);margin-bottom:24px;white-space:nowrap}
 .av-hero .av-h1 span{display:block}
 .av-hero .av-sub{font-size:1.05em;max-width:34em;margin:0 0 6px}
 .av-hero .av-hero__pay{font:500 13px/1.6 var(--av-ui);letter-spacing:.02em;opacity:.85;margin:0;display:flex;gap:10px;align-items:flex-start}
@@ -188,7 +188,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 /* ---------- Faixa de capas (livros escritos aqui) ---------- */
 .av-books{padding:72px 0 8px;position:relative}
 .av-books__head{text-align:center;margin-bottom:30px;padding-inline:20px}
-.av-books__head .av-h2{font-size:clamp(1.3rem,2.3vw,1.75rem)}
+.av-books__head .av-h2{font-size:clamp(1.45rem,2.6vw,2rem)}
 .av-books__head .av-h2::after{margin-inline:auto}
 .av-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .av-marquee__track{--flex-direction:row;display:flex;flex-direction:row;gap:22px;width:max-content;animation:av-scroll 70s linear infinite;padding:14px 0 30px}
@@ -346,7 +346,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero{padding:64px 0 130px;min-height:0}
   .av-hero::before{width:100%;opacity:.5;-webkit-mask-image:none;mask-image:none;background-position:68% center}
   .av-logo{font-size:22px}
-  .av-hero .av-h1{white-space:normal;font-size:1.4rem}
+  .av-hero .av-h1{white-space:normal;font-size:1.5rem}
   .av-stats{margin-top:-64px}
   .av-stats__card{padding:40px 16px 30px}
   .av-stat+.av-stat::before,.av-stat-box+.av-stat-box::before{display:none}
@@ -391,7 +391,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero>.av-wrap{padding-top:0;margin-top:-34px}
   .av-hero__grid>div{max-width:none}
   .av-badge{font-size:10px;letter-spacing:.1em;padding:7px 14px;margin:0 0 16px}
-  .av-hero .av-h1{font-size:1.3rem;line-height:1.2;margin-bottom:14px}
+  .av-hero .av-h1{font-size:1.5rem;line-height:1.18;margin-bottom:14px}
   .av-hero .av-sub{font-size:14.5px;line-height:1.55;margin:0 auto 4px;max-width:30em}
   .av-hero .av-cta-row{justify-content:center;margin:22px 0 14px}
   .av-hero .av-hero__pay{font-size:11.5px;line-height:1.5;justify-content:center;text-align:center;opacity:.8}
@@ -462,9 +462,9 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 @media (max-width:767px){
   /* títulos bem menores */
-  .av-h2{font-size:1.2rem;line-height:1.25;margin-bottom:16px}
+  .av-h2{font-size:1.45rem;line-height:1.22;margin-bottom:16px}
   .av-h2::after{width:64px;margin-top:12px}
-  .av-hero .av-h1{font-size:1.15rem}
+  .av-hero .av-h1{font-size:1.5rem}
   .av-stat strong{font-size:1.7rem}
   .av-lead{font-size:1em}
   .av-problem p{font-size:1.1rem}
@@ -638,7 +638,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-sobre-art{order:0;width:min(250px,64vw);margin-bottom:20px}
   .av-hero--sobre>.av-wrap{margin-top:0}
   .av-hero--sobre .av-hero__txt{order:1}
-  .av-hero--sobre .av-h1{font-size:1.15rem}
+  .av-hero--sobre .av-h1{font-size:1.4rem}
   .av-hero--sobre .av-sub{display:none}
   .av-hero--sobre .av-cta-row{justify-content:center}
   .av-timeline{grid-template-columns:1fr;gap:0;margin-top:34px;padding-left:0}

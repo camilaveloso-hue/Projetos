@@ -58,7 +58,7 @@ add_action( 'wp_head', function () {
 	if ( ! aldeia_vendas_precisa_carregar() ) {
 		return;
 	}
-	foreach ( array( 'Cinzel-700-normal.woff2', 'EBGaramond-400-normal.woff2', 'Montserrat-600-normal.woff2' ) as $f ) {
+	foreach ( array( 'LibreCaslonText-700-normal.woff2', 'EBGaramond-400-normal.woff2', 'Montserrat-600-normal.woff2' ) as $f ) {
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
 			esc_url( plugins_url( 'assets/fonts/' . $f, __FILE__ ) )
