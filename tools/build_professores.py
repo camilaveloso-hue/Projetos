@@ -26,40 +26,43 @@ UPDATED_TXT, UPDATED_ISO = "outubro de 2026", "2026-10-29"
 # Dados de contato (telefone, endereço) do Lattes NÃO são publicados.
 LATTES = "http://lattes.cnpq.br/"
 PROFS = [
- dict(slug="camila-veloso", nome="Camila Veloso", nome_completo="Camila Alves Veloso dos Santos", f=True, foto="prof-camila.jpg",
-      papel="Fundadora e mediadora das aulas", cred="Produtora Editorial (UFSM)",
+ dict(slug="camila-veloso", nome="Camila Veloso", nome_completo="Camila Veloso", f=True, foto="prof-camila.jpg",
+      papel="Fundadora da Aldeia Literária", cred="Produtora Editorial (UFSM)",
       job="Fundadora e CEO da Aldeia Literária", alma=["Universidade Federal de Santa Maria"],
       alt=["Camila Alves Veloso dos Santos", "VELOSO, C. A. S."],
-      resumo="Camila Veloso é Produtora Editorial formada pela UFSM (Comunicação Social – Produção Editorial) e fundadora da Aldeia Literária, curso on-line de escrita criativa para escritores iniciantes. Criou a Aldeia em 2023, é sua CEO e faz a mediação das aulas ao vivo.",
+      resumo="Camila Veloso é Produtora Editorial formada pela UFSM e fundadora da Aldeia Literária, curso de escrita criativa para escritores iniciantes. Atualmente cuida da administração do curso e mediação das aulas.",
+      funcao_curso="Administração e mediação das aulas. Se você tiver dúvidas sobre o mercado editorial ou quiser conversar por whatsapp sobre algum exercício da Aldeia Literária, ou mesmo um feedback sobre o seu livro, você falará com ela.",
+      atua="Camila Veloso é a fundadora da Aldeia Literária, cuida da administração do curso e faz a mediação das aulas",
       funcao="Fundadora e mediadora das aulas", formacao="Graduada em Comunicação Social – Produção Editorial (UFSM, 2020)",
-      bio=["Camila Alves Veloso dos Santos, conhecida como Camila Veloso, é graduada em Comunicação Social – Produção Editorial pela Universidade Federal de Santa Maria (UFSM). Fundou a Aldeia Literária em 2023 e é sua CEO.",
-           "Na UFSM, foi bolsista de iniciação científica da FAPERGS em 2019, no grupo de estudos Consumo e Culturas Digitais, e fez mobilidade acadêmica na Universidad Autónoma de Tlaxcala, no México. Também cursou disciplinas como aluna especial na USP (2021) e na UFSCar (2023).",
-           "Antes da Aldeia, atuou como analista de conteúdo e de marketing (2021–2023) e como produtora de conteúdo no YouTube. Também escreve ficção: entre seus textos literários estão “Cartas ao Sol” (2021) e “Encontrei um Pote com Tempo dentro” (2022).",
-           "A Aldeia Literária é baseada no Cohort Learning Method: os alunos avançam juntos, em comunidade, e são guiados por instrutores e mentores até completar cada etapa. Em agosto de 2024, o curso passou a ser oferecido como extensão universitária, com certificados com a logo da Faculdade Anhanguera."],
+      bio=["Camila Veloso foi bolsista de iniciação científica da FAPERGS em 2019, no grupo de estudos Consumo e Culturas Digitais. Fez mobilidade acadêmica na Universidad Autónoma de Tlaxcala, no México, onde estudou criatividade e tutoria educativa, matérias que a ajudaram a fundar a Aldeia Literária mais tarde. Também cursou disciplinas na pós-graduação da USP (2021 e 2026) e da UFSCar (2023), sobre séries televisivas, microeconomia e estudos de recepção.",
+           "Antes da Aldeia, atuou como analista de conteúdo e de marketing (2021–2023), e o conhecimento adquirido no mundo corporativo foi essencial para a carreira no empreendedorismo.",
+           "Em 2023, fundou a Aldeia Literária, baseada no Cohort Learning Method. Aqui, os alunos avançam juntos, em comunidade, e são guiados por mestres e doutores em literatura e produção editorial."],
       ensina=["Escrita criativa", "Produção editorial", "Criação de conteúdo e mídias digitais", "Narrativas audiovisuais"],
       destaques=["Prêmio Camaleão Dourado, da Coordenação do Curso de Produção Editorial da UFSM (2018)",
                  "Prêmio de melhor produção audiovisual para mídias digitais, no Intercom Sul (2020)"],
       links=[("Currículo Lattes", LATTES + "4829305175751173")], lattes="4829305175751173",
       imprensa=[("Aldeia Literária passa a ser um curso de extensão universitária", "PublishNews", "28 de agosto de 2024", "https://www.publishnews.com.br/materias/2024/08/28/aldeia-literaria-passa-a-ser-um-curso-de-extensao-universitaria/")]),
- dict(slug="laura-marques", nome="Laura Marques", nome_completo="Laura Simon Marques", f=False, foto="prof-laura.jpg",
-      papel="Professora de escrita criativa e produção editorial", cred="Produtora Editorial, mestranda em comunicação (UFSM) & Leitora Crítica",
-      job="Professora de escrita criativa e produção editorial", alma=["Universidade Federal de Santa Maria", "Universidade do Vale do Rio dos Sinos"],
+ dict(slug="laura-marques", nome="Laura Marques", nome_completo="Laura Marques", f=False, foto="prof-laura.jpg",
+      papel="Professora de escrita criativa e leitora crítica", cred="Produtora Editorial, mestranda em comunicação (UFSM) & Leitora Crítica",
+      job="Professora de escrita criativa e leitora crítica", alma=["Universidade Federal de Santa Maria", "Universidade do Vale do Rio dos Sinos"],
       alt=["Laura Simon Marques", "MARQUES, L. S."],
-      resumo="Laura Marques é graduada em Comunicação Social – Produção Editorial pela UFSM, especialista em Relações Internacionais e Diplomacia pela UNISINOS e leitora crítica. É professora de produção editorial e escrita criativa na Aldeia Literária desde 2024.",
-      funcao="Professora de escrita criativa e produção editorial", formacao="Graduada em Comunicação Social – Produção Editorial (UFSM, 2019); especialista em Relações Internacionais e Diplomacia (UNISINOS, 2021)",
-      bio=["Laura Simon Marques, conhecida como Laura Marques, é graduada em Comunicação Social – Produção Editorial pela Universidade Federal de Santa Maria (UFSM, 2019) e especialista em Relações Internacionais e Diplomacia pela UNISINOS (2021). Atua como leitora crítica e, desde 2024, é professora de produção editorial e escrita criativa na Aldeia Literária.",
-           "Na UFSM, foi bolsista de iniciação científica em 2018, no projeto “Construção do feminino: do livro às redes sociais digitais”, que estudou como livros de referência sobre feminismo circulam e são usados nas redes sociais. Seu trabalho de conclusão de curso analisou o fenômeno editorial de “50 Tons de Cinza” e depois virou capítulo do livro Estudos Editoriais: série caleidoscópio (pE.com, 2023).",
-           "Em 2025, ministrou o curso de curta duração “Todo escritor é primeiro um leitor: desmistificando a escrita criativa”."],
+      resumo="Laura Marques é graduada em Comunicação Social – Produção Editorial pela UFSM, especialista em Relações Internacionais e Diplomacia pela UNISINOS e mestranda em Produção Editorial (UFSM). Trabalha como leitora crítica e dá aulas na Aldeia Literária.",
+      funcao_curso="Aulas sobre estrutura da narrativa e de exercícios, ajudando os escritores a destravarem a escrita e fugirem de bloqueios criativos. Também faz palestras sobre leitura beta, leitura crítica e tendências do mercado editorial brasileiro.",
+      funcao="Professora de escrita criativa e produção editorial", formacao="Graduada em Comunicação Social – Produção Editorial (UFSM, 2019); especialista em Relações Internacionais e Diplomacia (UNISINOS, 2021); Mestranda em Produção Editorial (UFSM, 2026)",
+      formacao_faq="Graduada em Comunicação Social – Produção Editorial (UFSM, 2019); especialista em Relações Internacionais e Diplomacia (UNISINOS, 2021) e mestranda em Produção Editorial (UFSM, 2026)",
+      bio=["Laura Marques é graduada em Comunicação Social – Produção Editorial pela Universidade Federal de Santa Maria (UFSM, 2019) e especialista em Relações Internacionais e Diplomacia pela UNISINOS (2021).",
+           "Na UFSM, foi bolsista de iniciação científica em 2018, no projeto “Construção do feminino: do livro às redes sociais digitais”, que estudou como livros de referência sobre feminismo circulam e são usados nas redes sociais. Seu trabalho de conclusão de curso analisou o fenômeno editorial de “50 Tons de Cinza” e depois virou capítulo do livro Estudos Editoriais: série caleidoscópio (pE.com, 2023)."],
       ensina=["Escrita criativa", "Produção editorial", "Leitura crítica", "Estudos editoriais: best-sellers e mercado do livro"],
       destaques=["“50 Tons de um best-seller: o impacto de 50 Tons de Cinza no mercado editorial”, capítulo em Estudos Editoriais: série caleidoscópio (pE.com, 2023)",
                  "“As mulheres da capa: leitura das mudanças editoriais da GQ Magazine Brasil”, artigo na revista Animus (2022)",
                  "“Vai malandra: Anitta e as discussões no Twitter acerca da representatividade da mulher brasileira”, artigo na revista Cambiassu (2020)"],
       links=[("Currículo Lattes", LATTES + "2026357811720354")], lattes="2026357811720354", imprensa=[]),
  dict(slug="lucas-oliveira", nome="Lucas Oliveira", nome_completo="Lucas Laurentino de Oliveira", f=False, foto="prof-lucas.jpg",
-      papel="Professor de Escrita Criativa", cred="Mestre e Doutor em Literatura Portuguesa (UFRJ)",
+      papel="Mestre e Doutor em Literatura Portuguesa (UFRJ)", cred="Mestre e Doutor em Literatura Portuguesa (UFRJ)",
       job="Professor de Escrita Criativa", alma=["Universidade Federal do Rio de Janeiro"],
       alt=["Lucas Laurentino de Oliveira", "OLIVEIRA, L. L.", "LAURENTINO, Lucas"],
-      resumo="Lucas Oliveira é Doutor em Letras (Letras Vernáculas) pela UFRJ, na área de Literatura Portuguesa, com pesquisa sobre o poeta Jorge de Sena. É professor do curso Escrita Criativa: Desenvolvimento e Prática, da Aldeia Literária, voltado a escritores iniciantes.",
+      resumo="Lucas Oliveira é Doutor em Letras (Letras Vernáculas) pela UFRJ, na área de Literatura Portuguesa, com pesquisa sobre o poeta Jorge de Sena.",
+      funcao_curso="Aulas de repertório teórico em literatura brasileira, diálogos, tom de voz e narração. Também traz exemplos de mangás e animes, mostrando técnica literária com viés contemporâneo.",
       funcao="Professor de Escrita Criativa", formacao="Doutor em Letras – Letras Vernáculas (UFRJ, 2025); mestre em Letras (UFRJ, 2020); graduado em Letras – Português e Literaturas de Língua Portuguesa (UFRJ, 2018)",
       bio=["Lucas Laurentino de Oliveira, conhecido como Lucas Oliveira, é Doutor em Letras (Letras Vernáculas) pela Universidade Federal do Rio de Janeiro, na área de Literatura Portuguesa. Defendeu em 2025 a tese “Pedagogia das testemunhas: leitura de Jorge de Sena enquanto professor”, com bolsa do CNPq. No mestrado (UFRJ, 2020), escreveu “Lampejos nos tempos sombrios: Hannah Arendt e Jorge de Sena”. Cursou a graduação em Letras – Português e Literaturas de Língua Portuguesa na mesma universidade (2018).",
            "Pesquisa poesia portuguesa do século XX, com foco em Jorge de Sena e na relação entre poesia e ensaio, e cultura pop, em especial o horror audiovisual. Administra o site Ler Jorge de Sena, dedicado a divulgar a obra e os estudos sobre o autor.",
@@ -71,14 +74,15 @@ PROFS = [
                  "“A ‘esperança desesperada’ de Jorge de Sena ou os paradoxos da revolução”, capítulo em 25 de abril, 50 anos depois (Parábola, 2025)"],
       links=[("Currículo Lattes", LATTES + "7845502157662932"), ("ORCID", "https://orcid.org/0000-0002-5475-2000")], lattes="7845502157662932", imprensa=[]),
  dict(slug="lavinia-neres", nome="Lavínia Neres", nome_completo="Lavínia Neres Feronato", f=False, foto="prof-lavinia.jpg",
-      papel="Professora de Escrita Criativa", cred="Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)",
+      papel="Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)", cred="Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)",
       job="Professora de Escrita Criativa", alma=["Universidade Federal de Santa Maria"],
       alt=["Lavínia Neres Feronato", "FERONATO, L. N."],
-      resumo="Lavínia Neres é mestra em Comunicação pela UFSM, com pesquisa sobre leitura de livros digitais, e graduada em Comunicação Social – Produção Editorial e em Letras. É professora do curso Escrita Criativa: Desenvolvimento e Prática, da Aldeia Literária, voltado a escritores iniciantes.",
+      resumo="Lavínia Neres é mestra em Comunicação pela UFSM, com pesquisa sobre leitura de livros digitais, e graduada em Produção Editorial e Letras (UFSM).",
+      funcao_curso="Aulas de gramática focadas em construção de ritmo e construção de emoção. Ajuda os alunos a perceberem as possibilidades da língua portuguesa e o que ela oferece aos escritores como ferramenta.",
       funcao="Professora de Escrita Criativa", formacao="Mestra em Comunicação (UFSM, 2024); graduada em Comunicação Social – Produção Editorial (UFSM, 2019); graduada em Letras – Língua Portuguesa (UFSM)",
       bio=["Lavínia Neres Feronato, conhecida como Lavínia Neres, é mestra em Comunicação pela Universidade Federal de Santa Maria (UFSM, 2024), na linha Mídias e Identidades Contemporâneas. Sua dissertação, “Leituras em um clique: consumo e práticas de leitura de livros digitais”, foi orientada por Sandra Dalcul Depexe e contou com bolsa da CAPES. É graduada em Comunicação Social – Produção Editorial (2019) e em Letras – Língua Portuguesa, também pela UFSM.",
            "Pesquisa consumo cultural, leitura digital e mercado editorial, com estudos sobre o BookTok e sobre as tendências do campo editorial. Desde 2024, coordena a pesquisa “A portas fechadas: a gravidez na literatura”.",
-           "Atua com revisão e edição de texto: integrou a Grámmatos Júnior, empresa júnior de revisão textual da UFSM (2021–2023), e fez formações em Formação de Editor de Textos (2019) e Revisão Editorial (2026). Em 2022, apresentou a palestra “Publicando meu livro na Amazon: diário de uma escritora independente”."],
+           "Atua com revisão e edição de texto: integrou a Grámmatos Júnior, empresa júnior de revisão textual da UFSM (2021–2023), e fez os cursos Formação de Editor de Textos (2019) e Revisão Editorial (2026). Em 2022, apresentou a palestra “Publicando meu livro na Amazon: diário de uma escritora independente”."],
       ensina=["Leitura e consumo de livros", "Mercado editorial", "Revisão e edição de textos", "Literatura brasileira, gênero e narrativa"],
       destaques=["Dissertação “Leituras em um clique: consumo e práticas de leitura de livros digitais” (UFSM, 2024)",
                  "“Leitura de livro digital: consumo e acesso pela pirataria”, artigo na revista Eco-Pós (2024)",
@@ -87,7 +91,7 @@ PROFS = [
       links=[("Currículo Lattes", LATTES + "8933104647688517")], lattes="8933104647688517", imprensa=[]),
 
  dict(slug="ana-ribeiro", nome="Ana Ribeiro", nome_completo="Ana Ribeiro", f=False, foto="prof-ana.jpg",
-      papel="Professora de Escrita Criativa", cred="Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG",
+      papel="Professora de Escrita Criativa · Aldeia Literária", cred="Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG",
       job="Professora de Escrita Criativa", alma=["Centro Federal de Educação Tecnológica de Minas Gerais"],
       resumo="Ana Ribeiro é Produtora Editorial e Mestra em Estudos de Linguagens pelo CEFET-MG. É professora do curso Escrita Criativa: Desenvolvimento e Prática, da Aldeia Literária, voltado a escritores iniciantes.",
       funcao="Professora de Escrita Criativa", formacao="Produtora editorial; mestra em Estudos de Linguagens (CEFET-MG)",
@@ -118,7 +122,7 @@ def person_ld(p, with_url=True):
          "description": p["resumo"], "image": f"{PLUGIN_BASE}img/{p['foto']}", "url": url(p),
          "worksFor": {"@type": "Organization", "name": ORG, "url": SITE + "/"},
          "alumniOf": [{"@type": "CollegeOrUniversity", "name": n} for n in p["alma"]]}
-    if p.get("alt"): d["alternateName"] = p["alt"]
+    if p.get("alt") and p["nome_completo"] != p["nome"]: d["alternateName"] = p["alt"]
     if p.get("lattes"): d["identifier"] = {"@type": "PropertyValue", "propertyID": "Currículo Lattes", "value": p["lattes"]}
     if p["links"]: d["sameAs"] = [u for _, u in p["links"]]
     if p["ensina"]: d["knowsAbout"] = p["ensina"]
@@ -133,13 +137,14 @@ def page_prof(p):
     outros = [q for q in PROFS if q is not p]
     a = art(p)
     n, pn = p["nome"], primeiro(p)
-    atua = f"{n} atua como {p['funcao'][0].lower() + p['funcao'][1:]} na {ORG}"
+    atua = p.get("atua") or f"{n} atua como {p['funcao'][0].lower() + p['funcao'][1:]} na {ORG}"
+    ff = p.get("formacao_faq", p["formacao"])
     faq = [
       (f"Quem pode me ajudar a transformar a minha ideia em livro, sendo escritor iniciante?",
        f"A {ORG} é um curso on-line de escrita criativa feito para escritores iniciantes. {atua}. Lá, o professor que passa a atividade corrige o texto do aluno e ajuda a melhorá-lo."),
-      (f"Qual é a formação de {n}?", f"{p['formacao']}."),
+      (f"Qual é a formação de {n}?", f"{ff}."),
       ("Existe curso de escrita criativa para iniciantes com professores mestres e doutores?",
-       f"Sim. O corpo docente da {ORG} inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está {n}: {p['formacao'][0].lower() + p['formacao'][1:]}."),
+       f"Sim. O corpo docente da {ORG} inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está {n}: {ff[0].lower() + ff[1:]}."),
       (f"Em quais temas {n} é especialista?", f"Áreas de atuação de {n}: " + "; ".join(p["ensina"]) + "." ) if p["ensina"] else None,
       (f"Como funciona o curso {CURSO}?",
        f"São aulas ao vivo on-line, com três aulas por mês em cada módulo, e as gravações ficam disponíveis enquanto o aluno estiver matriculado. Cada módulo dura 6 meses. Há comunidade de escritores no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores."),
@@ -148,9 +153,11 @@ def page_prof(p):
        "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão."),
     ]
     faq = [q for q in faq if q]
-    fatos = [("Nome", f"{p['nome_completo']} ({p['nome']})" if p["nome_completo"] != p["nome"] else p["nome"]), ("Formação", p["formacao"]),
-             ("Curso", f"{CURSO}, na {ORG}")]
+    fatos = [("Nome", f"{p['nome_completo']} ({p['nome']})" if p["nome_completo"] != p["nome"] else p["nome"]), ("Formação", p["formacao"])]
     dl = "".join(f"<dt>{k}</dt><dd>{E(v)}</dd>" for k, v in fatos)
+    fc = p.get("funcao_curso")
+    if fc: dl += f"<dt>Função no curso</dt><dd>{E(fc)}</dd>"
+    elif not WP: dl += f'<dt>Função no curso</dt><dd><div class="pv-slot">Aqui entra o que {primeiro(p)} faz no curso (aulas, temas, atendimento aos alunos).</div></dd>'
     dest = ('<h3 class="av-prose__h">Destaques</h3><ul>' + "".join(f"<li>{E(t)}</li>" for t in p["destaques"]) + '</ul>') if p.get("destaques") else ""
     imp = p.get("imprensa", [])
     imprensa = ('<h3 class="av-prose__h">Na imprensa</h3><ul>' + "".join(f'<li><a href="{u}" rel="noopener" target="_blank">{E(t)}</a> — {E(f)}, {E(d)}</li>' for t, f, d, u in imp) + '</ul>') if imp else ""
@@ -167,11 +174,11 @@ def page_prof(p):
   <div class="av-reveal">
     <p class="av-breadcrumb"><a href="{SITE}/">Início</a> · <a href="{SITE}/professores/">Professores</a></p>
     <h1 class="av-h1">{p["nome"]}</h1>
-    <p class="av-prof__role">{p["papel"]} · {ORG}</p>
+    <p class="av-prof__role">{p["papel"]}</p>
     <p class="av-prof__summary">{E(p["resumo"])}</p>
     <div class="av-cta-row"><a class="av-btn" href="{FORM}">Entrar na lista de espera</a></div>
   </div>
-  <figure class="av-prof__photo av-reveal"><img src="assets/img/{p["foto"]}" alt="Foto de {p["nome"]}, {p["papel"].lower()} na {ORG}" width="520" height="650"></figure>
+  <figure class="av-prof__photo av-reveal"><img src="assets/img/{p["foto"]}" alt="Foto de {p["nome"]}, {p["job"][0].lower() + p["job"][1:]}" width="520" height="650"></figure>
 </div></section>
 
 <section class="av-section"><div class="av-wrap">
