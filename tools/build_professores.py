@@ -97,12 +97,10 @@ def page_prof(p):
       (f"Onde {primeiro(p)} dá aulas?", f"{p['nome']} integra o corpo docente da {ORG}, curso on-line de escrita criativa para iniciantes. As aulas são ao vivo e as gravações ficam disponíveis enquanto o aluno estiver matriculado."),
       (f"Como estudar com {primeiro(p)}?", f"As matrículas da {ORG} abrem em janeiro de 2027. Enquanto isso, é possível entrar na lista de espera para ser avisado em primeira mão."),
     ]
-    fatos = [("Nome", p["nome"]), ("Função", p["funcao"]), ("Formação", p["formacao"]),
-             ("Instituição", ORG + ' · <a href="' + SITE + '/novo-sobre/">conheça a escola</a>'),
-             ("Curso", f"{CURSO}: aulas ao vivo on-line, feedback individual e comunidade de escritores")]
-    if p["links"]:
-        fatos.append(("Perfis e publicações", " · ".join(f'<a href="{u}" rel="me noopener" target="_blank">{E(t)}</a>' for t, u in p["links"])))
-    dl = "".join(f"<dt>{k}</dt><dd>{v if k in ('Instituição','Perfis e publicações') else E(v)}</dd>" for k, v in fatos)
+    fatos = [("Nome", p["nome"]), ("Formação", p["formacao"]),
+             ("Curso", f"{CURSO}, na {ORG}")]
+    dl = "".join(f"<dt>{k}</dt><dd>{E(v)}</dd>" for k, v in fatos)
+    links = ('<p class="av-prof__links"><strong>Perfis e publicações:</strong> ' + " · ".join(f'<a href="{u}" rel="me noopener" target="_blank">{E(t)}</a>' for t, u in p["links"]) + '</p>') if p["links"] else ""
     bio = ("".join(f"<p>{E(t)}</p>" for t in p["bio"]) or slot(f"Aqui entra a trajetória {'da' if a=='a' else 'do'} {primeiro(p)} em 2 a 4 parágrafos (formação, pesquisa, experiência com livros e escritores). Só fatos que você consegue comprovar."))
     ensina = ("<ul>" + "".join(f"<li>{E(t)}</li>" for t in p["ensina"]) + "</ul>") if p["ensina"] else slot(f"Aqui entram os temas e módulos que {primeiro(p)} ensina (lista curta, uma linha cada).")
     faqh = "".join(f'<details><summary>{E(q)}</summary><div class="av-ans"><p>{E(r)}</p></div></details>' for q, r in faq)
@@ -129,7 +127,7 @@ def page_prof(p):
 
 <section class="av-section av-section--soft"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Trajetória</h2>
-  <div class="av-prose av-reveal">{bio}</div>
+  <div class="av-prose av-reveal">{bio}{links}</div>
   <h2 class="av-h2 av-reveal" style="margin-top:56px">O que {primeiro(p)} ensina na {ORG}</h2>
   <div class="av-prose av-reveal">{ensina}</div>
   <p class="av-updated">Página atualizada em {UPDATED_TXT}</p>
