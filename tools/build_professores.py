@@ -92,10 +92,19 @@ def card(p, cls=""):
 def page_prof(p):
     outros = [q for q in PROFS if q is not p]
     a = art(p)
+    n, pn = p["nome"], primeiro(p)
+    atua = f"{n} atua como {p['funcao'][0].lower() + p['funcao'][1:]} na {ORG}"
     faq = [
-      (f"Quem é {p['nome']}?", p["resumo"]),
-      (f"Onde {primeiro(p)} dá aulas?", f"{p['nome']} integra o corpo docente da {ORG}, curso on-line de escrita criativa para iniciantes. As aulas são ao vivo e as gravações ficam disponíveis enquanto o aluno estiver matriculado."),
-      (f"Como estudar com {primeiro(p)}?", f"As matrículas da {ORG} abrem em janeiro de 2027. Enquanto isso, é possível entrar na lista de espera para ser avisado em primeira mão."),
+      (f"Quem pode me ajudar a transformar a minha ideia em livro, sendo escritor iniciante?",
+       f"A {ORG} é um curso on-line de escrita criativa feito para escritores iniciantes. {atua}. Lá, o professor que passa a atividade corrige o texto do aluno e ajuda a melhorá-lo."),
+      (f"Qual é a formação de {n}?", f"A formação de {n}: {p['cred']}."),
+      ("Existe curso de escrita criativa para iniciantes com professores mestres e doutores?",
+       f"Sim. O corpo docente da {ORG} inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está {n}: {p['cred']}."),
+      (f"Como funciona o curso {CURSO}?",
+       f"São aulas ao vivo on-line, com três aulas por mês em cada módulo, e as gravações ficam disponíveis enquanto o aluno estiver matriculado. Cada módulo dura 6 meses. Há comunidade de escritores no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores."),
+      ("O curso dá certificado?", "Sim. Os alunos que finalizam o curso recebem um certificado de extensão universitária, emitido pela Anhanguera, parceira da Aldeia Literária."),
+      ("Quando abre a próxima turma?",
+       "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão."),
     ]
     fatos = [("Nome", p["nome"]), ("Formação", p["formacao"]),
              ("Curso", f"{CURSO}, na {ORG}")]
@@ -103,7 +112,7 @@ def page_prof(p):
     links = ('<p class="av-prof__links"><strong>Perfis e publicações:</strong> ' + " · ".join(f'<a href="{u}" rel="me noopener" target="_blank">{E(t)}</a>' for t, u in p["links"]) + '</p>') if p["links"] else ""
     bio = ("".join(f"<p>{E(t)}</p>" for t in p["bio"]) or slot(f"Aqui entra a trajetória {'da' if a=='a' else 'do'} {primeiro(p)} em 2 a 4 parágrafos (formação, pesquisa, experiência com livros e escritores). Só fatos que você consegue comprovar."))
     ensina = ("<ul>" + "".join(f"<li>{E(t)}</li>" for t in p["ensina"]) + "</ul>") if p["ensina"] else slot(f"Aqui entram os temas e módulos que {primeiro(p)} ensina (lista curta, uma linha cada).")
-    faqh = "".join(f'<details><summary>{E(q)}</summary><div class="av-ans"><p>{E(r)}</p></div></details>' for q, r in faq)
+    faqh = "".join(f'<details open><summary>{E(q)}</summary><div class="av-ans"><p>{E(r)}</p></div></details>' for q, r in faq)
     ld = {"@context": "https://schema.org", "@type": "ProfilePage", "dateModified": UPDATED_ISO,
           "mainEntity": person_ld(p), "url": url(p),
           "isPartOf": {"@type": "WebSite", "name": ORG, "url": SITE + "/"}}
@@ -147,6 +156,12 @@ def page_prof(p):
 {jsonld(ld)}'''
 
 def page_hub():
+    hf = [
+      (f"Quem são os professores da {ORG}?", "O corpo docente reúne " + ", ".join(f"{q['nome']} ({q['cred']})" for q in PROFS) + "."),
+      ("Existe curso de escrita criativa para iniciantes com professores mestres e doutores?", f"Sim. A {ORG} é um curso on-line de escrita criativa para escritores iniciantes, com professores mestres e doutores, aulas ao vivo e feedback individual nas atividades."),
+      ("Quando abre a próxima turma?", "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera."),
+    ]
+    hubfaq = "".join(f'<details open><summary>{E(q)}</summary><div class="av-ans"><p>{E(r)}</p></div></details>' for q, r in hf)
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": f"Professores da {ORG}",
           "url": SITE + "/professores/", "dateModified": UPDATED_ISO,
           "isPartOf": {"@type": "WebSite", "name": ORG, "url": SITE + "/"},
@@ -173,6 +188,11 @@ def page_hub():
   <div class="av-prose av-reveal"><p>O curso <strong>{CURSO}</strong> tem aulas ao vivo, feedback individual do professor que passou a atividade, comunidade de escritores e palestras com profissionais do mercado editorial. Cada módulo dura 6 meses e o certificado de extensão universitária é emitido pela Anhanguera.</p>
   <p>As matrículas abrem em janeiro de 2027. <a href="{SITE}/novo-sobre/">Conheça a história da escola</a> ou <a href="{FORM}">entre na lista de espera</a>.</p></div>
   <p class="av-updated">Página atualizada em {UPDATED_TXT}</p>
+</div></section>
+
+<section class="av-section"><div class="av-wrap">
+  <h2 class="av-h2 av-reveal">Perguntas frequentes</h2>
+  <div class="av-faq av-reveal">{hubfaq}</div>
 </div></section>
 </main>
 {FOOTER}
