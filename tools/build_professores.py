@@ -29,7 +29,11 @@ PROFS = [
       job="Fundadora e mediadora das aulas", alma=["UFSM"],
       resumo="Camila Veloso é Produtora Editorial formada pela UFSM e fundadora da Aldeia Literária, curso on-line de escrita criativa para escritores iniciantes. Criou a Aldeia em novembro de 2023 e faz a mediação das aulas ao vivo.",
       funcao="Fundadora e mediadora das aulas", formacao="Produtora Editorial (UFSM)",
-      bio=[], ensina=[], links=[]),
+      bio=["Camila Veloso idealizou e fundou a Aldeia Literária, curso on-line de escrita criativa para escritores iniciantes lançado em novembro de 2023. Também faz a mediação das aulas ao vivo.",
+           "Em agosto de 2024, o curso passou a ser oferecido como extensão universitária, depois de passar por avaliação pedagógica (módulos, aulas, carga horária e bibliografia básica). Os certificados levam a logo da Faculdade Anhanguera.",
+           "A Aldeia usa uma metodologia baseada em mentorias e jornadas coletivas de aprendizado, com acompanhamento do processo criativo e conversas com especialistas do mercado literário."],
+      ensina=[], links=[],
+      imprensa=[("Aldeia Literária passa a ser um curso de extensão universitária", "PublishNews", "28 de agosto de 2024", "https://www.publishnews.com.br/materias/2024/08/28/aldeia-literaria-passa-a-ser-um-curso-de-extensao-universitaria/")]),
  dict(slug="laura-marques", nome="Laura Marques", f=False, foto="prof-laura.jpg",
       papel="Professora de Escrita Criativa", cred="Produtora Editorial, mestranda em Comunicação (UFSM) e Leitora Crítica",
       job="Professora de Escrita Criativa", alma=["UFSM"],
@@ -109,6 +113,8 @@ def page_prof(p):
     fatos = [("Nome", p["nome"]), ("Formação", p["formacao"]),
              ("Curso", f"{CURSO}, na {ORG}")]
     dl = "".join(f"<dt>{k}</dt><dd>{E(v)}</dd>" for k, v in fatos)
+    imp = p.get("imprensa", [])
+    imprensa = ('<h3 class="av-prose__h">Na imprensa</h3><ul>' + "".join(f'<li><a href="{u}" rel="noopener" target="_blank">{E(t)}</a> — {E(f)}, {E(d)}</li>' for t, f, d, u in imp) + '</ul>') if imp else ""
     links = ('<p class="av-prof__links"><strong>Perfis e publicações:</strong> ' + " · ".join(f'<a href="{u}" rel="me noopener" target="_blank">{E(t)}</a>' for t, u in p["links"]) + '</p>') if p["links"] else ""
     bio = ("".join(f"<p>{E(t)}</p>" for t in p["bio"]) or slot(f"Aqui entra a trajetória {'da' if a=='a' else 'do'} {primeiro(p)} em 2 a 4 parágrafos (formação, pesquisa, experiência com livros e escritores). Só fatos que você consegue comprovar."))
     ensina = ("<ul>" + "".join(f"<li>{E(t)}</li>" for t in p["ensina"]) + "</ul>") if p["ensina"] else slot(f"Aqui entram os temas e módulos que {primeiro(p)} ensina (lista curta, uma linha cada).")
@@ -136,7 +142,7 @@ def page_prof(p):
 
 <section class="av-section av-section--soft"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Trajetória</h2>
-  <div class="av-prose av-reveal">{bio}{links}</div>
+  <div class="av-prose av-reveal">{bio}{links}{imprensa}</div>
   <h2 class="av-h2 av-reveal" style="margin-top:56px">O que {primeiro(p)} ensina na {ORG}</h2>
   <div class="av-prose av-reveal">{ensina}</div>
   <p class="av-updated">Página atualizada em {UPDATED_TXT}</p>

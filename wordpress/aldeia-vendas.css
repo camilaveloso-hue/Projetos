@@ -854,3 +854,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-pcards--5 .av-tcard{width:calc((100% - 12px)/2)}
   .av-tmore{font-size:10.5px;padding:7px 12px}
 }
+
+.av-prose__h{font:700 1.05rem var(--av-display);color:var(--av-navy);margin:28px 0 10px}
+.av-prose a{color:var(--av-navy)}
