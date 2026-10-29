@@ -857,3 +857,5 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 .av-prose__h{font:700 1.05rem var(--av-display);color:var(--av-navy);margin:28px 0 10px}
 .av-prose a{color:var(--av-navy)}
+
+.av-hero--prof .av-prof__summary:last-child{margin-bottom:0}

@@ -122,7 +122,6 @@ def person_ld(p, with_url=True):
          "description": p["resumo"], "image": f"{PLUGIN_BASE}img/{p['foto']}", "url": url(p),
          "worksFor": {"@type": "Organization", "name": ORG, "url": SITE + "/"},
          "alumniOf": [{"@type": "CollegeOrUniversity", "name": n} for n in p["alma"]]}
-    if p.get("alt") and p["nome_completo"] != p["nome"]: d["alternateName"] = p["alt"]
     if p.get("lattes"): d["identifier"] = {"@type": "PropertyValue", "propertyID": "Currículo Lattes", "value": p["lattes"]}
     if p["links"]: d["sameAs"] = [u for _, u in p["links"]]
     if p["ensina"]: d["knowsAbout"] = p["ensina"]
@@ -153,7 +152,7 @@ def page_prof(p):
        "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão."),
     ]
     faq = [q for q in faq if q]
-    fatos = [("Nome", f"{p['nome_completo']} ({p['nome']})" if p["nome_completo"] != p["nome"] else p["nome"]), ("Formação", p["formacao"])]
+    fatos = [("Nome", p["nome"]), ("Formação", p["formacao"])]
     dl = "".join(f"<dt>{k}</dt><dd>{E(v)}</dd>" for k, v in fatos)
     fc = p.get("funcao_curso")
     if fc: dl += f"<dt>Função no curso</dt><dd>{E(fc)}</dd>"
@@ -176,7 +175,6 @@ def page_prof(p):
     <h1 class="av-h1">{p["nome"]}</h1>
     <p class="av-prof__role">{p["papel"]}</p>
     <p class="av-prof__summary">{E(p["resumo"])}</p>
-    <div class="av-cta-row"><a class="av-btn" href="{FORM}">Entrar na lista de espera</a></div>
   </div>
   <figure class="av-prof__photo av-reveal"><img src="assets/img/{p["foto"]}" alt="Foto de {p["nome"]}, {p["job"][0].lower() + p["job"][1:]}" width="520" height="650"></figure>
 </div></section>
