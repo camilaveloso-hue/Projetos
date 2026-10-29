@@ -786,6 +786,77 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-header{border-bottom:0;border-bottom-color:transparent}
   .av-hero--sobre{padding-bottom:36px}
 }
+
+
+/* ==========================================================================
+   v20 — PROFESSORES: perfil individual, lista /professores/ e botão "Saiba mais"
+   ========================================================================== */
+.av-tmore{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font:700 11px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-terra-dark);text-decoration:none;border:1.5px solid var(--av-terra);border-radius:99px;padding:8px 16px;min-height:36px;box-sizing:border-box;transition:background .2s,color .2s}
+.av-tmore::after{content:"→";transition:transform .2s}
+.av-tmore:hover{background:var(--av-terra);color:#fff}
+.av-tmore:hover::after{transform:translateX(3px)}
+.av-tmore:focus-visible{outline:3px solid var(--av-bronze);outline-offset:3px}
+
+/* topo do perfil */
+.av-hero--prof::before{display:none}
+.av-hero--prof{background:radial-gradient(760px 480px at 82% 40%,rgba(204,53,28,.22),transparent 62%),linear-gradient(90deg,#051A2D 0%,#082A46 50%,#0D3756 100%);min-height:0;padding:72px 0 96px}
+.av-hero--prof .av-hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;max-width:calc(var(--av-wrap) + 48px)}
+.av-hero--prof .av-hero__grid>div{max-width:none}
+.av-hero--prof .av-h1{white-space:normal;font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:10px}
+.av-prof__role{font:600 12px/1.5 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);margin:0 0 22px}
+.av-prof__summary{font-size:1.12em;line-height:1.55;max-width:34em;margin:0 0 28px;color:var(--av-parch)}
+.av-prof__photo{margin:0;justify-self:center;width:min(340px,100%);position:relative}
+.av-prof__photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;border-radius:28px;border:3px solid rgba(255,255,255,.92);box-shadow:0 30px 70px rgba(0,0,0,.45);position:relative;z-index:1}
+.av-prof__photo::before{content:"";position:absolute;inset:-12px -14px 12px 14px;border:2px solid var(--av-terra);border-radius:28px}
+.av-hero--prof .av-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ficha rápida */
+.av-facts{display:grid;grid-template-columns:220px 1fr;margin:36px 0 0;background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);overflow:hidden;box-shadow:0 14px 34px rgba(13,55,86,.08)}
+.av-facts dt,.av-facts dd{margin:0;padding:18px 24px;border-top:1px solid var(--av-line)}
+.av-facts dt:first-of-type,.av-facts dt:first-of-type+dd{border-top:0}
+.av-facts dt{font:700 11px/1.5 var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-terra-dark);background:rgba(13,55,86,.04)}
+.av-facts dd{font-size:1em;line-height:1.5}
+.av-facts dd a{color:var(--av-navy);font-weight:600}
+
+/* texto corrido do perfil */
+.av-prose{max-width:760px}
+.av-prose p{margin:0 0 18px}
+.av-prose ul{margin:0 0 18px;padding-left:22px}
+.av-prose li{margin-bottom:8px}
+.av-updated{font:600 11px var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite);opacity:.7;margin-top:28px}
+.av-pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+.av-pcards .av-tcard{width:auto;display:flex;flex-direction:column}
+.av-pcards .av-tcard img{aspect-ratio:4/5}
+.av-pcards .av-tcard__txt{display:flex;flex-direction:column;align-items:center;flex:1;padding:16px 14px 20px}
+.av-pcards .av-tcard__txt p{font-size:.82em}
+.av-pcards .av-tmore{margin-top:auto;align-self:center}
+.av-pcards .av-tcard__txt p{margin-bottom:12px}
+.av-pcards--5{display:flex;flex-wrap:wrap;justify-content:center}
+.av-pcards--5 .av-tcard{box-sizing:border-box;width:calc((100% - 37px)/3)}
+.av-breadcrumb{font:600 11px var(--av-ui);letter-spacing:.1em;text-transform:uppercase;margin:0 0 18px;color:rgba(255,255,255,.75)}
+.av-breadcrumb a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+
+@media (max-width:1024px){
+  .av-hero--prof .av-hero__grid{grid-template-columns:1fr;gap:36px}
+  .av-prof__photo{order:-1}
+  .av-pcards{grid-template-columns:1fr 1fr}
+  .av-pcards--5 .av-tcard{width:calc((100% - 18px)/2)}
+}
+@media (max-width:767px){
+  .av-hero--prof{padding:0 0 56px;text-align:center}
+  .av-hero--prof .av-hero__grid{padding-top:34px;gap:28px}
+  .av-prof__photo{width:min(240px,64vw)}
+  .av-prof__summary{font-size:1.02em;margin-inline:auto}
+  .av-hero--prof .av-cta-row{justify-content:center}
+  .av-facts{grid-template-columns:1fr}
+  .av-facts dt{padding:14px 18px 4px;border-top:1px solid var(--av-line)}
+  .av-facts dd{padding:0 18px 14px;border-top:0}
+  .av-facts dt:first-of-type{border-top:0}
+  .av-pcards{grid-template-columns:1fr 1fr;gap:12px}
+  .av-pcards--5{gap:12px}
+  .av-pcards--5 .av-tcard{width:calc((100% - 12px)/2)}
+  .av-tmore{font-size:10.5px;padding:7px 12px}
+}
 :root{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="#topo"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a href="#professores">Quem conduz</a><a href="#jornada">Jornada</a><a href="#duvidas">Dúvidas</a><a class="av-nav__keep" href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a></nav>
@@ -841,14 +912,15 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     <div>
       <h2 class="av-h2">Conheça os professores</h2>
       <p>Em 2023, Camila Veloso fundou a Aldeia Literária com o objetivo de ajudar escritores iniciantes. Desde então, a Aldeia cresceu, e hoje conta com mestres e doutores que vão te ajudar a escrever seu próximo livro.</p>
+      <a class="av-tmore" href="professor-camila-veloso.html" aria-label="Saiba mais sobre Camila Veloso">Saiba mais sobre a fundadora</a>
     </div>
   </div>
 </div>
 <div class="av-wrap"><div class="av-tgrid">
-  <article class="av-reveal av-tcard"><img src="assets/img/prof-laura.jpg" alt="Foto de Laura Marques" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div></article>
-  <article class="av-reveal av-tcard"><img src="assets/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div></article>
-  <article class="av-reveal av-tcard"><img src="assets/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div></article>
-  <article class="av-reveal av-tcard"><img src="assets/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p></div></article>
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-laura.jpg" alt="Foto de Laura Marques" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p><a class="av-tmore" href="professor-laura-marques.html" aria-label="Saiba mais sobre Laura Marques">Saiba mais</a></div></article>
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p><a class="av-tmore" href="professor-lucas-oliveira.html" aria-label="Saiba mais sobre Lucas Oliveira">Saiba mais</a></div></article>
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p><a class="av-tmore" href="professor-lavinia-neres.html" aria-label="Saiba mais sobre Lavínia Neres">Saiba mais</a></div></article>
+  <article class="av-reveal av-tcard"><img src="assets/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p><a class="av-tmore" href="professor-ana-ribeiro.html" aria-label="Saiba mais sobre Ana Ribeiro">Saiba mais</a></div></article>
 </div></div>
 </section>
 
