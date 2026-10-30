@@ -112,7 +112,7 @@ Publicar não basta: o buscador precisa **indexar**. Faça isto:
 
 | Página | Título SEO | Meta descrição |
 |---|---|---|
-| Home | Curso de escrita criativa para iniciantes | Aldeia Literária | Curso on-line de escrita criativa para iniciantes, com aulas ao vivo e feedback de mestres e doutores. Matrículas abrem em janeiro de 2027. |
+| Home | Curso de escrita criativa para iniciantes — Aldeia Literária | Curso on-line de escrita criativa para iniciantes, com aulas ao vivo e feedback de mestres e doutores. Matrículas abrem em janeiro de 2027. |
 | Sobre | Sobre a Aldeia Literária — nossa história e equipe | Conheça a história da Aldeia Literária, fundada em 2023 por Camila Veloso, e a equipe que ajuda escritores iniciantes a transformar a ideia em livro. |
 | Lista | Professores da Aldeia Literária — curso de escrita criativa | Conheça os professores da Aldeia Literária, curso on-line de escrita criativa para iniciantes: mestres, doutores e produtoras editoriais. |
 | Camila | Camila Veloso — fundadora da Aldeia Literária | Camila Veloso é Produtora Editorial formada pela UFSM e fundadora da Aldeia Literária, curso de escrita criativa para escritores iniciantes. |
