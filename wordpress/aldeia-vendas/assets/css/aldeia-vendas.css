@@ -1,6 +1,6 @@
 /* Aldeia Literária — Página de vendas (plugin) — gerado por tools/build_plugin.py */
 /* ===== Fontes locais ===== */
-@font-face{font-family:'Cinzel';font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/Cinzel-700-normal.woff2") format('woff2')}
+@font-face{font-family:'Libre Caslon Text';font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/LibreCaslonText-700-normal.woff2") format('woff2')}
 @font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/EBGaramond-400-italic.woff2") format('woff2')}
 @font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/EBGaramond-400-normal.woff2") format('woff2')}
 @font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/EBGaramond-500-normal.woff2") format('woff2')}
@@ -28,7 +28,7 @@
 /* ==========================================================================
    ALDEIA LITERÁRIA — Página de vendas (Blueprint v1, turma jan/2027)
    Identidade da logo: azul-marinho + vermelho + branco, meandro grego e medalhão do ômega
-   Fontes: Cinzel + EB Garamond + Montserrat
+   Fontes: Libre Caslon Text (títulos) + EB Garamond + Montserrat
    COMO USAR: Elementor > Configurações do Site > CSS Personalizado (ou CSS da página).
    Na página de vendas: Configurações da Página > Avançado > Classes CSS = "av-page".
    Veja GUIA-PAGINA-VENDAS.md.
@@ -44,7 +44,7 @@
   --av-parch-dark:#F1F5F9;    /* fundo alternativo: cinza-azulado muito claro */
   --av-graphite:#26303B;
   --av-line:rgba(13,55,86,.14);
-  --av-display:"Cinzel",Georgia,serif;
+  --av-display:"Libre Caslon Text","Iowan Old Style",Georgia,serif;
   --av-body:"EB Garamond",Georgia,serif;
   --av-ui:"Montserrat",system-ui,sans-serif;
   --av-wrap:1160px;
@@ -93,10 +93,10 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-label::before{content:"";width:32px;height:2px;background:var(--av-bronze)}
 .av-section--navy .av-label,.av-section--dark .av-label,.av-hero .av-label{color:var(--av-parch);opacity:.88}
 
-/* Títulos: Cinzel Bold, alinhados à esquerda (padrão em F) */
+/* Títulos: Libre Caslon Text Bold, alinhados à esquerda (padrão em F) */
 .av-h1,.av-h2{font-family:var(--av-display);font-weight:700;color:var(--av-navy);margin:0 0 22px;line-height:1.15;letter-spacing:.005em}
-.av-h1{font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.1}
-.av-h2{font-size:clamp(1.45rem,2.7vw,2.15rem)}
+.av-h1{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.12}
+.av-h2{font-size:clamp(1.6rem,3vw,2.45rem);line-height:1.18}
 .av-section--navy .av-h2,.av-section--dark .av-h2,.av-hero .av-h1{color:var(--av-parch)}
 .av-lead{font-size:1.05em;max-width:62ch;margin:0 0 28px}
 .av-small{font-size:.8em;opacity:.85}
@@ -139,7 +139,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .av-badge{display:inline-flex;align-items:center;gap:10px;font:600 12px/1.3 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;color:#fff;
   padding:9px 18px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);margin:0 0 26px}
 .av-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--av-terra);box-shadow:0 0 0 4px rgba(204,53,28,.3)}
-.av-hero .av-h1{font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:24px;white-space:nowrap}
+.av-hero .av-h1{font-size:clamp(1.6rem,2.7vw,2.25rem);margin-bottom:24px;white-space:nowrap}
 .av-hero .av-h1 span{display:block}
 .av-hero .av-sub{font-size:1.05em;max-width:34em;margin:0 0 6px}
 .av-hero .av-hero__pay{font:500 13px/1.6 var(--av-ui);letter-spacing:.02em;opacity:.85;margin:0;display:flex;gap:10px;align-items:flex-start}
@@ -215,7 +215,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 /* ---------- Faixa de capas (livros escritos aqui) ---------- */
 .av-books{padding:72px 0 8px;position:relative}
 .av-books__head{text-align:center;margin-bottom:30px;padding-inline:20px}
-.av-books__head .av-h2{font-size:clamp(1.3rem,2.3vw,1.75rem)}
+.av-books__head .av-h2{font-size:clamp(1.45rem,2.6vw,2rem)}
 .av-books__head .av-h2::after{margin-inline:auto}
 .av-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .av-marquee__track{--flex-direction:row;display:flex;flex-direction:row;gap:22px;width:max-content;animation:av-scroll 70s linear infinite;padding:14px 0 30px}
@@ -373,7 +373,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero{padding:64px 0 130px;min-height:0}
   .av-hero::before{width:100%;opacity:.5;-webkit-mask-image:none;mask-image:none;background-position:68% center}
   .av-logo{font-size:22px}
-  .av-hero .av-h1{white-space:normal;font-size:1.4rem}
+  .av-hero .av-h1{white-space:normal;font-size:1.5rem}
   .av-stats{margin-top:-64px}
   .av-stats__card{padding:40px 16px 30px}
   .av-stat+.av-stat::before,.av-stat-box+.av-stat-box::before{display:none}
@@ -418,7 +418,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero>.av-wrap{padding-top:0;margin-top:-34px}
   .av-hero__grid>div{max-width:none}
   .av-badge{font-size:10px;letter-spacing:.1em;padding:7px 14px;margin:0 0 16px}
-  .av-hero .av-h1{font-size:1.3rem;line-height:1.2;margin-bottom:14px}
+  .av-hero .av-h1{font-size:1.5rem;line-height:1.18;margin-bottom:14px}
   .av-hero .av-sub{font-size:14.5px;line-height:1.55;margin:0 auto 4px;max-width:30em}
   .av-hero .av-cta-row{justify-content:center;margin:22px 0 14px}
   .av-hero .av-hero__pay{font-size:11.5px;line-height:1.5;justify-content:center;text-align:center;opacity:.8}
@@ -489,9 +489,9 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 @media (max-width:767px){
   /* títulos bem menores */
-  .av-h2{font-size:1.2rem;line-height:1.25;margin-bottom:16px}
+  .av-h2{font-size:1.45rem;line-height:1.22;margin-bottom:16px}
   .av-h2::after{width:64px;margin-top:12px}
-  .av-hero .av-h1{font-size:1.15rem}
+  .av-hero .av-h1{font-size:1.5rem}
   .av-stat strong{font-size:1.7rem}
   .av-lead{font-size:1em}
   .av-problem p{font-size:1.1rem}
@@ -665,7 +665,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-sobre-art{order:0;width:min(250px,64vw);margin-bottom:20px}
   .av-hero--sobre>.av-wrap{margin-top:0}
   .av-hero--sobre .av-hero__txt{order:1}
-  .av-hero--sobre .av-h1{font-size:1.15rem}
+  .av-hero--sobre .av-h1{font-size:1.4rem}
   .av-hero--sobre .av-sub{display:none}
   .av-hero--sobre .av-cta-row{justify-content:center}
   .av-timeline{grid-template-columns:1fr;gap:0;margin-top:34px;padding-left:0}
@@ -810,6 +810,82 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-header{border-bottom:0;border-bottom-color:transparent}
   .av-hero--sobre{padding-bottom:36px}
 }
+
+
+/* ==========================================================================
+   v20 — PROFESSORES: perfil individual, lista /professores/ e botão "Saiba mais"
+   ========================================================================== */
+.av-tmore{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font:700 11px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-terra-dark);text-decoration:none;border:1.5px solid var(--av-terra);border-radius:99px;padding:8px 16px;min-height:36px;box-sizing:border-box;transition:background .2s,color .2s}
+.av-tmore::after{content:"→";transition:transform .2s}
+.av-tmore:hover{background:var(--av-terra);color:#fff}
+.av-tmore:hover::after{transform:translateX(3px)}
+.av-tmore:focus-visible{outline:3px solid var(--av-bronze);outline-offset:3px}
+
+/* topo do perfil */
+.av-hero--prof::before{display:none}
+.av-hero--prof{background:radial-gradient(760px 480px at 82% 40%,rgba(204,53,28,.22),transparent 62%),linear-gradient(90deg,#051A2D 0%,#082A46 50%,#0D3756 100%);min-height:0;padding:72px 0 96px}
+.av-hero--prof .av-hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;max-width:calc(var(--av-wrap) + 48px)}
+.av-hero--prof .av-hero__grid>div{max-width:none}
+.av-hero--prof .av-h1{white-space:normal;font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:10px}
+.av-prof__role{font:600 12px/1.5 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);margin:0 0 22px}
+.av-prof__summary{font-size:1.12em;line-height:1.55;max-width:34em;margin:0 0 28px;color:var(--av-parch)}
+.av-prof__photo{margin:0;justify-self:center;width:min(340px,100%);position:relative}
+.av-prof__photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;border-radius:28px;border:3px solid rgba(255,255,255,.92);box-shadow:0 30px 70px rgba(0,0,0,.45);position:relative;z-index:1}
+.av-prof__photo::before{content:"";position:absolute;inset:-12px -14px 12px 14px;border:2px solid var(--av-terra);border-radius:28px}
+.av-hero--prof .av-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ficha rápida */
+.av-facts{display:grid;grid-template-columns:220px 1fr;margin:36px 0 0;background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);overflow:hidden;box-shadow:0 14px 34px rgba(13,55,86,.08)}
+.av-facts dt,.av-facts dd{margin:0;padding:18px 24px;border-top:1px solid var(--av-line)}
+.av-facts dt:first-of-type,.av-facts dt:first-of-type+dd{border-top:0}
+.av-facts dt{font:700 11px/1.5 var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-terra-dark);background:rgba(13,55,86,.04)}
+.av-facts dd{font-size:1em;line-height:1.5}
+.av-facts dd a{color:var(--av-navy);font-weight:600}
+
+/* texto corrido do perfil */
+.av-prose{max-width:760px}
+.av-prose p{margin:0 0 18px}
+.av-prose ul{margin:0 0 18px;padding-left:22px}
+.av-prose li{margin-bottom:8px}
+.av-updated{font:600 11px var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite);opacity:.7;margin-top:28px}
+.av-pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+.av-pcards .av-tcard{width:auto;display:flex;flex-direction:column}
+.av-pcards .av-tcard img{aspect-ratio:4/5}
+.av-pcards .av-tcard__txt{display:flex;flex-direction:column;align-items:center;flex:1;padding:16px 14px 20px}
+.av-pcards .av-tcard__txt p{font-size:.82em}
+.av-pcards .av-tmore{margin-top:auto;align-self:center}
+.av-pcards .av-tcard__txt p{margin-bottom:12px}
+.av-pcards--5{display:flex;flex-wrap:wrap;justify-content:center}
+.av-pcards--5 .av-tcard{box-sizing:border-box;width:calc((100% - 37px)/3)}
+.av-breadcrumb{font:600 11px var(--av-ui);letter-spacing:.1em;text-transform:uppercase;margin:0 0 18px;color:rgba(255,255,255,.75)}
+.av-breadcrumb a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+
+@media (max-width:1024px){
+  .av-hero--prof .av-hero__grid{grid-template-columns:1fr;gap:36px}
+  .av-prof__photo{order:-1}
+  .av-pcards{grid-template-columns:1fr 1fr}
+  .av-pcards--5 .av-tcard{width:calc((100% - 18px)/2)}
+}
+@media (max-width:767px){
+  .av-hero--prof{padding:0 0 56px;text-align:center}
+  .av-hero--prof .av-hero__grid{padding-top:34px;gap:28px}
+  .av-prof__photo{width:min(240px,64vw)}
+  .av-prof__summary{font-size:1.02em;margin-inline:auto}
+  .av-hero--prof .av-cta-row{justify-content:center}
+  .av-facts{grid-template-columns:1fr}
+  .av-facts dt{padding:14px 18px 4px;border-top:1px solid var(--av-line)}
+  .av-facts dd{padding:0 18px 14px;border-top:0}
+  .av-facts dt:first-of-type{border-top:0}
+  .av-pcards{grid-template-columns:1fr 1fr;gap:12px}
+  .av-pcards--5{gap:12px}
+  .av-pcards--5 .av-tcard{width:calc((100% - 12px)/2)}
+  .av-tmore{font-size:10.5px;padding:7px 12px}
+}
+
+.av-prose__h{font:700 1.05rem var(--av-display);color:var(--av-navy);margin:28px 0 10px}
+.av-prose a{color:var(--av-navy)}
+
+.av-hero--prof .av-prof__summary:last-child{margin-bottom:0}
 
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)

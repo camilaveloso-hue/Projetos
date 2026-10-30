@@ -6,7 +6,7 @@ CSS final = fontes locais + reset do Elementor + CSS base (prévia) + componente
 import os, re, shutil, zipfile
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
 OUT = os.path.join(ROOT, "wordpress", "aldeia-vendas")          # pasta do plugin
-ZIP = os.path.join(ROOT, "wordpress", "aldeia-vendas.zip")
+ZIP = os.path.join(ROOT, "wordpress", "entrega", "aldeia-vendas.zip")
 rd = lambda p: open(os.path.join(ROOT, p), encoding="utf-8").read()
 
 def fonts_css():
@@ -32,6 +32,7 @@ def build_css(for_sim=False):
 
 if __name__ == "__main__":
     shutil.rmtree(OUT, ignore_errors=True)
+    os.makedirs(os.path.dirname(ZIP), exist_ok=True)
     for d in ("assets/css", "assets/js", "assets/img", "assets/fonts"):
         os.makedirs(os.path.join(OUT, d))
     open(os.path.join(OUT, "assets/css/aldeia-vendas.css"), "w", encoding="utf-8").write(build_css())

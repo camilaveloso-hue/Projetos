@@ -95,9 +95,10 @@ PROFS = [
       job="Professora de Escrita Criativa", alma=["Centro Federal de Educação Tecnológica de Minas Gerais"],
       resumo="Ana Ribeiro é Produtora Editorial e Mestra em Estudos de Linguagens pelo CEFET-MG. É professora do curso Escrita Criativa: Desenvolvimento e Prática, da Aldeia Literária, voltado a escritores iniciantes.",
       funcao="Professora de Escrita Criativa", formacao="Produtora editorial; mestra em Estudos de Linguagens (CEFET-MG)",
-      bio=[], ensina=[], destaques=[], links=[], imprensa=[]),
+      bio=[], ensina=[], destaques=[], links=[], imprensa=[], pronta=False),
 ]
 E = html.escape
+READY = [q for q in PROFS if q.get("pronta", True)]   # só estas ganham página publicada e link
 def url(p): return f"{SITE}/professores/{p['slug']}/"
 def primeiro(p): return p["nome"].split()[0]
 def art(p): return "a" if p["nome"].split()[0] in ("Camila","Laura","Lavínia","Ana") else "o"
@@ -130,10 +131,11 @@ def person_ld(p, with_url=True):
 def card(p, cls=""):
     return (f'<article class="av-reveal av-tcard{cls}"><img src="assets/img/{p["foto"]}" alt="Foto de {p["nome"]}" loading="lazy" width="520" height="650">'
             f'<div class="av-tcard__txt"><h3>{p["nome"]}</h3><p>{p["cred"]}</p>'
-            f'<a class="av-tmore" href="{url(p)}" aria-label="Ver o perfil de {p["nome"]}">Ver perfil</a></div></article>')
+            + (f'<a class="av-tmore" href="{url(p)}" aria-label="Ver o perfil de {p["nome"]}">Ver perfil</a>' if p.get("pronta", True) else "")
+            + '</div></article>')
 
 def page_prof(p):
-    outros = [q for q in PROFS if q is not p]
+    outros = [q for q in READY if q is not p]
     a = art(p)
     n, pn = p["nome"], primeiro(p)
     atua = p.get("atua") or f"{n} atua como {p['funcao'][0].lower() + p['funcao'][1:]} na {ORG}"
@@ -216,7 +218,7 @@ def page_hub():
           "url": SITE + "/professores/", "dateModified": UPDATED_ISO,
           "isPartOf": {"@type": "WebSite", "name": ORG, "url": SITE + "/"},
           "mainEntity": {"@type": "ItemList", "itemListElement": [
-              {"@type": "ListItem", "position": i + 1, "url": url(p), "name": p["nome"]} for i, p in enumerate(PROFS)]}}
+              {"@type": "ListItem", "position": i + 1, "url": url(p), "name": p["nome"]} for i, p in enumerate(READY)]}}
     return f'''{header("hub")}
 <main id="topo">
 <section class="av-hero av-hero--prof"><div class="av-wrap av-hero__grid" style="grid-template-columns:1fr">
@@ -268,21 +270,22 @@ for t, b, n, _ in pages: preview(t, b, n)
 print("prévias:", len(pages))
 
 if WP:
-    out = os.path.join(ROOT, "wordpress/professores"); os.makedirs(out, exist_ok=True)
+    out = os.path.join(ROOT, "wordpress/entrega/professores"); os.makedirs(out, exist_ok=True)
     inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/").replace("../img/", PLUGIN_BASE + "img/")
     fix = ('<style>.e-con:has(>.elementor-widget-html .av-page){--padding-top:0px;--padding-right:0px;--padding-bottom:0px;--padding-left:0px;--gap:0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px}'
            '.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>\n')
     zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
     for t, b, n, p in pages:
-        slug = p["slug"] if p else "lista"
+        if p is not None and not p.get("pronta", True): continue
+        slug = p["slug"] if p else "lista-professores"
         frag_body = b.replace('src="assets/img/', 'src="' + PLUGIN_BASE + 'img/')
         assert 'src="assets/' not in frag_body and "pv-slot" not in frag_body
         frag = (f'<!-- aldeia-professor-{slug}-v1 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
         open(os.path.join(out, f"{slug}-colar-no-widget-html.html"), "w", encoding="utf-8").write(frag)
-        tpl = {"version": "0.4", "title": f"ALDEIA Professor — {p['nome'] if p else 'Lista'}", "type": "page",
+        tpl = {"version": "0.4", "title": f"ALDEIA Professor v1 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
                "content": [{"id": "b1c2d3e", "elType": "container", "isInner": False,
                             "settings": {"content_width": "full", "flex_direction": "column", "padding": zero, "margin": zero},
                             "elements": [{"id": "f4a5b6c", "elType": "widget", "widgetType": "html", "settings": {"html": frag}, "elements": []}]}],
                "page_settings": {"hide_title": "yes"}}
         json.dump(tpl, open(os.path.join(out, f"{slug}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print("wordpress/professores/: ok")
+    print("wordpress/entrega/professores/: ok")

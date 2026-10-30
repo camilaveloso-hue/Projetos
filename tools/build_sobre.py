@@ -12,7 +12,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.dirname(__file__))
 import build_plugin
 
-VERSION = "v6"
+VERSION = "v7"
 PLUGIN_BASE = "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/"
 body = open(os.path.join(ROOT, "tools/src/sobre.html"), encoding="utf-8").read()
 css_base = open(os.path.join(ROOT, "wordpress/aldeia-vendas.css"), encoding="utf-8").read()
@@ -30,10 +30,11 @@ fix = ('<style>.e-con:has(>.elementor-widget-html .av-page){--padding-top:0px;--
        '--gap:0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px}'
        '.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>\n')
 inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/").replace("../img/", PLUGIN_BASE + "img/")
-fragment = ('<!-- aldeia-sobre-v6 · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
+fragment = (f'<!-- aldeia-sobre-{VERSION} · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
             + '<style>' + inline_css + '</style>\n' + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n'
             + '<script>' + js + '</script>\n')
-open(os.path.join(ROOT, f"wordpress/aldeia-sobre-{VERSION}-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
+os.makedirs(os.path.join(ROOT, "wordpress/entrega"), exist_ok=True)
+open(os.path.join(ROOT, f"wordpress/entrega/sobre-{VERSION}-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
 
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
 tpl = {"version": "0.4", "title": f"ALDEIA Sobre {VERSION} — Página Sobre", "type": "page",
@@ -41,5 +42,5 @@ tpl = {"version": "0.4", "title": f"ALDEIA Sobre {VERSION} — Página Sobre", "
                     "settings": {"content_width": "full", "flex_direction": "column", "padding": zero, "margin": zero},
                     "elements": [{"id": "f4a5b6c", "elType": "widget", "widgetType": "html", "settings": {"html": fragment}, "elements": []}]}],
        "page_settings": {"hide_title": "yes"}}
-json.dump(tpl, open(os.path.join(ROOT, f"wordpress/aldeia-sobre-{VERSION}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(tpl, open(os.path.join(ROOT, f"wordpress/entrega/sobre-{VERSION}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("ok: sobre — prévia, modelo e arquivo para colar;", len(fragment) // 1024, "KB")
