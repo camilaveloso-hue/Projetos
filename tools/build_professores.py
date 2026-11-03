@@ -148,8 +148,8 @@ def page_prof(p):
        f"Sim. O corpo docente da {ORG} inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está {n}: {ff[0].lower() + ff[1:]}."),
       (f"Em quais temas {n} é especialista?", f"Áreas de atuação de {n}: " + "; ".join(p["ensina"]) + "." ) if p["ensina"] else None,
       (f"Como funciona o curso {CURSO}?",
-       f"São aulas ao vivo on-line, uma por semana (quatro por mês), e as gravações ficam disponíveis enquanto o aluno estiver matriculado. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. Há comunidade de escritores no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores."),
-      ("O curso dá certificado?", "Sim. Os alunos que finalizam o curso recebem um certificado de extensão universitária, emitido pela Anhanguera, parceira da Aldeia Literária."),
+       f"São aulas ao vivo on-line, uma por semana, toda quarta-feira às 19h30, com espaço para tirar dúvidas. Cada atividade é corrigida pelo professor que a passou. Há comunidade para networking no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. As gravações ficam disponíveis enquanto o aluno estiver matriculado."),
+      ("O curso dá certificado?", "Sim. Ao concluir o curso, o aluno recebe um certificado emitido pela Anhanguera. A Aldeia Literária é parceira da instituição, e essa parceria dá ao curso o selo MEC de extensão universitária."),
       ("Quando abre a próxima turma?",
        "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão."),
     ]
@@ -237,7 +237,7 @@ def page_hub():
 
 <section class="av-section av-section--soft"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Como é estudar na {ORG}</h2>
-  <div class="av-prose av-reveal"><p>O curso <strong>{CURSO}</strong> tem aulas ao vivo, feedback individual do professor que passou a atividade, comunidade de escritores e palestras com profissionais do mercado editorial. Cada módulo é um conjunto de 12 aulas, o curso dura 1 ano e meio e o certificado de extensão universitária é emitido pela Anhanguera.</p>
+  <div class="av-prose av-reveal"><p>O curso <strong>{CURSO}</strong> tem aula ao vivo toda quarta-feira às 19h30, feedback individual do professor que passou a atividade, comunidade para networking e palestras com profissionais do mercado editorial. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. O certificado é emitido pela Anhanguera, parceira da Aldeia Literária.</p>
   <p>As matrículas abrem em janeiro de 2027. <a href="{SITE}/novo-sobre/">Conheça a história da escola</a> ou <a href="{FORM}">entre na lista de espera</a>.</p></div>
   <p class="av-updated">Página atualizada em {UPDATED_TXT}</p>
 </div></section>

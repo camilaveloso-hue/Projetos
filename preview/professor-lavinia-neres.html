@@ -865,7 +865,39 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 /* v21 — Home: faixa de professores primeiro, fundadora abaixo */
 .av-founder--after{margin-top:72px}
 #professores .av-tgrid{margin-top:36px}
-@media (max-width:767px){.av-founder--after{margin-top:44px}}
+@media (max-width:767px){.av-founder--after{margin-top:44px}.av-founder--after .av-founder__fig{order:1;margin:0}.av-founder--after>div>p{order:2}.av-founder--after .av-tmore{order:3}}
+
+/* v22 — Home: seção "O que mais importa" (pesquisa) */
+.av-values{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.av-value{background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);padding:28px 26px 30px;box-shadow:0 14px 34px rgba(13,55,86,.08);display:flex;flex-direction:column;gap:10px}
+.av-value__n{display:block;font:700 12px var(--av-ui);letter-spacing:.14em;color:var(--av-terra-dark)}
+.av-value h3{font:700 1.15rem/1.3 var(--av-display);color:var(--av-navy);margin:0}
+.av-value p{margin:0;font-size:.97em;line-height:1.55}
+.av-value__stat{display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:14px;border-top:1px solid var(--av-line)}
+.av-value__stat b{font:700 1.7rem/1 var(--av-display);color:var(--av-terra-dark)}
+.av-value__stat span{font:600 12px/1.45 var(--av-ui);letter-spacing:.02em;color:var(--av-graphite)}
+.av-meter{height:8px;border-radius:99px;background:rgba(13,55,86,.12);overflow:hidden;margin-top:4px}
+.av-meter i{display:block;height:100%;border-radius:99px;background:var(--av-terra)}
+.av-value--lead{grid-column:1/-1;background:var(--av-navy);border-color:transparent;color:var(--av-parch);display:grid;grid-template-columns:.95fr 1.05fr;gap:12px 56px;align-items:center;padding:40px 48px;box-shadow:0 26px 54px rgba(13,55,86,.28)}
+.av-value--lead .av-value__big{display:flex;flex-direction:column;gap:10px}
+.av-value--lead .av-value__big b{font:700 clamp(2.6rem,5vw,3.8rem)/1 var(--av-display);color:#fff}
+.av-value--lead .av-value__big span{font:500 1.05em/1.5 var(--av-body);color:rgba(255,255,255,.9)}
+.av-value--lead .av-meter{background:rgba(255,255,255,.22);height:10px}
+.av-value--lead .av-meter i{background:#fff}
+.av-value--lead .av-value__n{color:rgba(255,255,255,.75);margin-bottom:8px}
+.av-value--lead h3{color:#fff;font-size:1.45rem}
+.av-value--lead p{color:rgba(255,255,255,.92);font-size:1.02em}
+.av-note{font:500 12px/1.6 var(--av-ui);letter-spacing:.02em;color:var(--av-graphite);opacity:.75;max-width:760px;margin:30px auto 0;text-align:center}
+.av-cert__card h3{margin-top:0}
+@media (max-width:1024px){.av-values{grid-template-columns:1fr 1fr}.av-value--lead{grid-template-columns:1fr;padding:34px 30px}}
+@media (max-width:767px){
+  .av-values{grid-template-columns:1fr;gap:14px;margin-top:30px}
+  .av-value{padding:24px 22px}
+  .av-value--lead{padding:28px 22px;gap:18px}
+  .av-note{font-size:11.5px;margin-top:22px}
+}
+
+.av-ans a{color:var(--av-navy);font-weight:600}
 :root{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}.pv-slot{border:2px dashed #CC351C;border-radius:16px;padding:18px 22px;color:#A82B16;background:rgba(204,53,28,.05);font:600 13px/1.5 Montserrat,sans-serif;max-width:760px}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="vendas.html"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="vendas.html">Início</a><a href="sobre.html">Sobre</a><a href="professores.html">Professores</a></nav>
@@ -897,7 +929,7 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 <section class="av-section"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Perguntas frequentes</h2>
-  <div class="av-faq av-reveal"><details open><summary>Quem pode me ajudar a transformar a minha ideia em livro, sendo escritor iniciante?</summary><div class="av-ans"><p>A Aldeia Literária é um curso on-line de escrita criativa feito para escritores iniciantes. Lavínia Neres atua como professora de Escrita Criativa na Aldeia Literária. Lá, o professor que passa a atividade corrige o texto do aluno e ajuda a melhorá-lo.</p></div></details><details open><summary>Qual é a formação de Lavínia Neres?</summary><div class="av-ans"><p>Mestra em Comunicação (UFSM, 2024); graduada em Comunicação Social – Produção Editorial (UFSM, 2019); graduada em Letras – Língua Portuguesa (UFSM).</p></div></details><details open><summary>Existe curso de escrita criativa para iniciantes com professores mestres e doutores?</summary><div class="av-ans"><p>Sim. O corpo docente da Aldeia Literária inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está Lavínia Neres: mestra em Comunicação (UFSM, 2024); graduada em Comunicação Social – Produção Editorial (UFSM, 2019); graduada em Letras – Língua Portuguesa (UFSM).</p></div></details><details open><summary>Em quais temas Lavínia Neres é especialista?</summary><div class="av-ans"><p>Áreas de atuação de Lavínia Neres: Leitura e consumo de livros; Mercado editorial; Revisão e edição de textos; Literatura brasileira, gênero e narrativa.</p></div></details><details open><summary>Como funciona o curso Escrita Criativa: Desenvolvimento e Prática?</summary><div class="av-ans"><p>São aulas ao vivo on-line, uma por semana (quatro por mês), e as gravações ficam disponíveis enquanto o aluno estiver matriculado. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. Há comunidade de escritores no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores.</p></div></details><details open><summary>O curso dá certificado?</summary><div class="av-ans"><p>Sim. Os alunos que finalizam o curso recebem um certificado de extensão universitária, emitido pela Anhanguera, parceira da Aldeia Literária.</p></div></details><details open><summary>Quando abre a próxima turma?</summary><div class="av-ans"><p>As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão.</p></div></details></div>
+  <div class="av-faq av-reveal"><details open><summary>Quem pode me ajudar a transformar a minha ideia em livro, sendo escritor iniciante?</summary><div class="av-ans"><p>A Aldeia Literária é um curso on-line de escrita criativa feito para escritores iniciantes. Lavínia Neres atua como professora de Escrita Criativa na Aldeia Literária. Lá, o professor que passa a atividade corrige o texto do aluno e ajuda a melhorá-lo.</p></div></details><details open><summary>Qual é a formação de Lavínia Neres?</summary><div class="av-ans"><p>Mestra em Comunicação (UFSM, 2024); graduada em Comunicação Social – Produção Editorial (UFSM, 2019); graduada em Letras – Língua Portuguesa (UFSM).</p></div></details><details open><summary>Existe curso de escrita criativa para iniciantes com professores mestres e doutores?</summary><div class="av-ans"><p>Sim. O corpo docente da Aldeia Literária inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está Lavínia Neres: mestra em Comunicação (UFSM, 2024); graduada em Comunicação Social – Produção Editorial (UFSM, 2019); graduada em Letras – Língua Portuguesa (UFSM).</p></div></details><details open><summary>Em quais temas Lavínia Neres é especialista?</summary><div class="av-ans"><p>Áreas de atuação de Lavínia Neres: Leitura e consumo de livros; Mercado editorial; Revisão e edição de textos; Literatura brasileira, gênero e narrativa.</p></div></details><details open><summary>Como funciona o curso Escrita Criativa: Desenvolvimento e Prática?</summary><div class="av-ans"><p>São aulas ao vivo on-line, uma por semana, toda quarta-feira às 19h30, com espaço para tirar dúvidas. Cada atividade é corrigida pelo professor que a passou. Há comunidade para networking no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. As gravações ficam disponíveis enquanto o aluno estiver matriculado.</p></div></details><details open><summary>O curso dá certificado?</summary><div class="av-ans"><p>Sim. Ao concluir o curso, o aluno recebe um certificado emitido pela Anhanguera. A Aldeia Literária é parceira da instituição, e essa parceria dá ao curso o selo MEC de extensão universitária.</p></div></details><details open><summary>Quando abre a próxima turma?</summary><div class="av-ans"><p>As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão.</p></div></details></div>
 </div></section>
 
 <section class="av-section av-section--soft"><div class="av-wrap">

@@ -16,7 +16,7 @@ PLUGIN_IMG = "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/a
 body = open(os.path.join(ROOT, "tools/src/body.html"), encoding="utf-8").read()
 
 # Valor da parcela do plano único de 2027 (inteiro, em reais). Enquanto for None, só a prévia é gerada.
-PARCELA = None
+PARCELA = 199
 PARCELAS = 11
 fmt = lambda v: "R$ " + f"{v:,}".replace(",", ".")
 import re
@@ -28,6 +28,7 @@ else:
     body_prev = body
 # na prévia, os botões "Saiba mais" abrem os arquivos locais
 body_prev = re.sub(r"https://aaldeialiteraria\.com\.br/professores/([a-z-]+)/", r"professor-\1.html", body_prev)
+body_prev = body_prev.replace("https://aaldeialiteraria.com.br/professores/", "professores.html").replace("https://aaldeialiteraria.com.br/novo-sobre/", "sobre.html")
 
 # 1) prévia (caminhos locais)
 css_base = open(os.path.join(ROOT, "wordpress/aldeia-vendas.css"), encoding="utf-8").read()
