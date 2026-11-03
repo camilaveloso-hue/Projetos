@@ -148,7 +148,7 @@ def page_prof(p):
        f"Sim. O corpo docente da {ORG} inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está {n}: {ff[0].lower() + ff[1:]}."),
       (f"Em quais temas {n} é especialista?", f"Áreas de atuação de {n}: " + "; ".join(p["ensina"]) + "." ) if p["ensina"] else None,
       (f"Como funciona o curso {CURSO}?",
-       f"São aulas ao vivo on-line, com três aulas por mês em cada módulo, e as gravações ficam disponíveis enquanto o aluno estiver matriculado. Cada módulo dura 6 meses. Há comunidade de escritores no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores."),
+       f"São aulas ao vivo on-line, uma por semana (quatro por mês), e as gravações ficam disponíveis enquanto o aluno estiver matriculado. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. Há comunidade de escritores no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores."),
       ("O curso dá certificado?", "Sim. Os alunos que finalizam o curso recebem um certificado de extensão universitária, emitido pela Anhanguera, parceira da Aldeia Literária."),
       ("Quando abre a próxima turma?",
        "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão."),
@@ -237,7 +237,7 @@ def page_hub():
 
 <section class="av-section av-section--soft"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Como é estudar na {ORG}</h2>
-  <div class="av-prose av-reveal"><p>O curso <strong>{CURSO}</strong> tem aulas ao vivo, feedback individual do professor que passou a atividade, comunidade de escritores e palestras com profissionais do mercado editorial. Cada módulo dura 6 meses e o certificado de extensão universitária é emitido pela Anhanguera.</p>
+  <div class="av-prose av-reveal"><p>O curso <strong>{CURSO}</strong> tem aulas ao vivo, feedback individual do professor que passou a atividade, comunidade de escritores e palestras com profissionais do mercado editorial. Cada módulo é um conjunto de 12 aulas, o curso dura 1 ano e meio e o certificado de extensão universitária é emitido pela Anhanguera.</p>
   <p>As matrículas abrem em janeiro de 2027. <a href="{SITE}/novo-sobre/">Conheça a história da escola</a> ou <a href="{FORM}">entre na lista de espera</a>.</p></div>
   <p class="av-updated">Página atualizada em {UPDATED_TXT}</p>
 </div></section>
@@ -280,9 +280,9 @@ if WP:
         slug = p["slug"] if p else "lista-professores"
         frag_body = b.replace('src="assets/img/', 'src="' + PLUGIN_BASE + 'img/')
         assert 'src="assets/' not in frag_body and "pv-slot" not in frag_body
-        frag = (f'<!-- aldeia-professor-{slug}-v1 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
+        frag = (f'<!-- aldeia-professor-{slug}-v2 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
         open(os.path.join(out, f"{slug}-colar-no-widget-html.html"), "w", encoding="utf-8").write(frag)
-        tpl = {"version": "0.4", "title": f"ALDEIA Professor v1 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
+        tpl = {"version": "0.4", "title": f"ALDEIA Professor v2 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
                "content": [{"id": "b1c2d3e", "elType": "container", "isInner": False,
                             "settings": {"content_width": "full", "flex_direction": "column", "padding": zero, "margin": zero},
                             "elements": [{"id": "f4a5b6c", "elType": "widget", "widgetType": "html", "settings": {"html": frag}, "elements": []}]}],

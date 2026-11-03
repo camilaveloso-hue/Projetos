@@ -2,8 +2,8 @@
 """Gera a versão "HTML único" da página de vendas (não depende das classes dos containers do Elementor).
 
 Saídas:
-  wordpress/entrega/home-v17-colar-no-widget-html.html (colar num widget HTML)
-  wordpress/entrega/home-v17.json                      (modelo pronto: 1 container + 1 widget HTML)
+  wordpress/entrega/home-v18-colar-no-widget-html.html (colar num widget HTML)
+  wordpress/entrega/home-v18.json                      (modelo pronto: 1 container + 1 widget HTML)
   preview/vendas.html                                 (prévia aprovada, abre direto no navegador)
 Fonte do conteúdo: tools/src/body.html
 """
@@ -15,16 +15,33 @@ import build_plugin
 PLUGIN_IMG = "https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/"
 body = open(os.path.join(ROOT, "tools/src/body.html"), encoding="utf-8").read()
 
+# Valor da parcela do plano único de 2027 (inteiro, em reais). Enquanto for None, só a prévia é gerada.
+PARCELA = None
+PARCELAS = 11
+fmt = lambda v: "R$ " + f"{v:,}".replace(",", ".")
+import re
+if PARCELA is None:
+    body_prev = body.replace("{{PARCELA}}", '<mark class="pv-slot-inline">R$ ___</mark>').replace("{{TOTAL}}", '<mark class="pv-slot-inline">R$ ___</mark>')
+    body = None
+else:
+    body = body.replace("{{PARCELA}}", fmt(PARCELA)).replace("{{TOTAL}}", fmt(PARCELA * PARCELAS))
+    body_prev = body
+# na prévia, os botões "Saiba mais" abrem os arquivos locais
+body_prev = re.sub(r"https://aaldeialiteraria\.com\.br/professores/([a-z-]+)/", r"professor-\1.html", body_prev)
+
 # 1) prévia (caminhos locais)
 css_base = open(os.path.join(ROOT, "wordpress/aldeia-vendas.css"), encoding="utf-8").read()
 js = open(os.path.join(ROOT, "wordpress/aldeia-vendas.js"), encoding="utf-8").read()
 prev = f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aldeia Literária — Prévia da página de vendas</title>
 <link rel="stylesheet" href="assets/fonts.css">
-<style>body{{margin:0}}{css_base}:root{{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}}.sr-only{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}</style></head><body class="av-page" id="top">{body}<script>{js}</script></body></html>'''
+<style>body{{margin:0}}{css_base}:root{{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}}.sr-only{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}.pv-slot-inline{{background:rgba(204,53,28,.12);color:#A82B16;border:2px dashed #CC351C;border-radius:8px;padding:0 8px}}</style></head><body class="av-page" id="top">{body_prev}<script>{js}</script></body></html>'''
 open(os.path.join(ROOT, "preview/vendas.html"), "w", encoding="utf-8").write(prev)
 
 # 2) fragmento para widget HTML do Elementor
+if body is None:
+    print("prévia gerada. FALTA o valor da parcela (PARCELA em tools/build_planb.py): modelo do Elementor NÃO gerado.")
+    sys.exit(0)
 frag_body = body.replace('src="assets/img/', 'src="' + PLUGIN_IMG)
 assert 'src="assets/' not in frag_body
 # o container do Elementor ao redor do widget HTML ganha padding 0 (senão o fundo não vai até a borda)
@@ -36,18 +53,18 @@ inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/
 assert "../" not in inline_css.replace("url(\"../", "") or True
 inline_js = js
 assert "</script" not in inline_js
-fragment = ('<!-- aldeia-home-v17 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
+fragment = ('<!-- aldeia-home-v18 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
             + '<style>' + inline_css + '</style>\n'
             + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n'
             + '<script>' + inline_js + '</script>\n')
 os.makedirs(os.path.join(ROOT, "wordpress/entrega"), exist_ok=True)
-open(os.path.join(ROOT, "wordpress/entrega/home-v17-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
+open(os.path.join(ROOT, "wordpress/entrega/home-v18-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
 
 # 3) modelo pronto do Elementor: 1 container (largura total, sem padding) + 1 widget HTML
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
 tpl = {
     "version": "0.4",
-    "title": "ALDEIA Home v17 — Página de vendas",
+    "title": "ALDEIA Home v18 — Página de vendas",
     "type": "page",
     "content": [{
         "id": "a1b2c3d", "elType": "container", "isInner": False,
@@ -56,5 +73,5 @@ tpl = {
     }],
     "page_settings": {"hide_title": "yes"},
 }
-json.dump(tpl, open(os.path.join(ROOT, "wordpress/entrega/home-v17.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(tpl, open(os.path.join(ROOT, "wordpress/entrega/home-v18.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("ok: prévia, plano B (html) e modelo JSON único gerados;", len(fragment) // 1024, "KB de HTML")

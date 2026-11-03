@@ -859,3 +859,8 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-prose a{color:var(--av-navy)}
 
 .av-hero--prof .av-prof__summary:last-child{margin-bottom:0}
+
+/* v21 — Home: faixa de professores primeiro, fundadora abaixo */
+.av-founder--after{margin-top:72px}
+#professores .av-tgrid{margin-top:36px}
+@media (max-width:767px){.av-founder--after{margin-top:44px}.av-founder--after .av-founder__fig{order:1;margin:0}.av-founder--after>div>p{order:2}.av-founder--after .av-tmore{order:3}}
