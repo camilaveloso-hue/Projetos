@@ -7,13 +7,12 @@ Tudo o que você precisa subir está nesta pasta (`wordpress/entrega/`). Faça a
 | Arquivo | Para que serve |
 |---|---|
 | `aldeia-vendas.zip` | **Plugin** (versão 1.2.0). Guarda as fontes (agora a Libre Caslon), as imagens e o estilo. Reinstale por cima do atual. |
-| `home-v21.json` | Modelo do Elementor da **Home** (página de vendas), com plano único de 1 aula por semana e botões "Saiba mais". |
+| `home-v22.json` | Modelo do Elementor da **Home** (página de vendas), com plano único de 1 aula por semana e botões "Saiba mais". |
 | `sobre-v8.json` | Modelo do Elementor da página **Sobre**, com a nova fonte. |
-| `professores/lista-professores.json` | Modelo da página **/professores/** (lista com os cinco professores). |
-| `professores/camila-veloso.json`, `laura-marques.json`, `lucas-oliveira.json`, `lavinia-neres.json` | Modelos das **páginas individuais**. |
+| `professores/camila-veloso.json`, `laura-marques.json`, `lucas-oliveira.json`, `lavinia-neres.json` | Modelos (v3) das **páginas individuais** dos professores, já com os endereços reais. |
 | arquivos `…-colar-no-widget-html.html` | O mesmo conteúdo para **colar** num widget HTML. É o **Plano B** se a importação do modelo falhar. |
 
-**Ana Ribeiro:** o card dela na Home já tem o botão "Saiba mais", mas a página dela ainda não existe (falta o Lattes e o texto de "Função no curso"). Até criar a página, o botão leva a uma página "não encontrada": crie a página dela o quanto antes ou me peça para esconder o botão. Na lista `/professores/` e em "Conheça também" ela aparece sem link até a página existir.
+**Ana Ribeiro:** a página dela ainda não existe (falta o Lattes e o texto de "Função no curso"). Por isso a Home v22 está **sem** o botão "Saiba mais" dela.
 
 ---
 
@@ -28,59 +27,45 @@ Faça um backup do site (plugin de backup ou o da hospedagem). Nada abaixo apaga
 
 ## Etapa 3 — Importar os modelos
 1. Abra `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_library&tabs_group=library` (ou **Elementor → Modelos → Modelos salvos**).
-2. Clique em **Importar modelos** e envie os 7 arquivos `.json` (pode ser um de cada vez).
+2. Clique em **Importar modelos** e envie os arquivos `.json` (pode ser um de cada vez).
 3. Devem aparecer:
-   - **ALDEIA Home v21 — Página de vendas**
+   - **ALDEIA Home v22 — Página de vendas**
    - **ALDEIA Sobre v8 — Página Sobre**
-   - **ALDEIA Professor v2 — Lista de professores**
-   - **ALDEIA Professor v2 — Camila Veloso**, **Laura Marques**, **Lucas Oliveira**, **Lavínia Neres**
+   - **ALDEIA Professor v3 — Camila Veloso**, **Laura Marques**, **Lucas Oliveira**, **Lavínia Neres**
 4. **Apague os modelos antigos** (Home v16, Sobre v6 e anteriores). Assim não dá para inserir o errado.
 
 ## Etapa 4 — Conferir o endereço das páginas (uma vez só)
 Os links entre as páginas dependem de endereços sem número. Vá em **Configurações → Links permanentes** e confirme que está **Nome do post**. Se estiver outra opção, escolha essa e clique em **Salvar alterações**.
 
-## Etapa 5 — Criar as páginas dos professores
-Faça **primeiro a página-mãe** (a lista) e depois as individuais.
+## Etapa 5 — Páginas dos professores (endereços que já existem no site)
+As páginas já foram criadas com estes endereços. Os links da Home e das páginas usam **exatamente** estes endereços, então **não mude os slugs**:
 
-### 5.1 Página-mãe: a lista
-1. **Páginas → Adicionar nova**. Título: `Professores da Aldeia Literária`.
-2. No painel da direita (**Resumo** ou **Endereço**), deixe o **slug** exatamente `professores`.
-3. Clique em **Editar com Elementor**.
-4. Na área vazia, clique na **pasta preta** (Adicionar modelo) → **Meus modelos** → **Inserir** ao lado de **ALDEIA Professor v2 — Lista de professores**.
-5. **Engrenagem (Configurações da página) → Layout da página → Elementor Canvas**. Isso tira o menu duplicado do tema, porque a página já traz o cabeçalho.
-6. Clique em **Publicar**.
-7. Abra `https://aaldeialiteraria.com.br/professores/`. A lista deve aparecer, com quatro botões **Ver perfil** (a Ana ainda não tem).
-
-### 5.2 Páginas individuais (repita 4 vezes)
-Use esta tabela. O **slug** precisa ser **idêntico**, porque a Home e a lista já apontam para esses endereços.
-
-| Título da página | Slug | Modelo a inserir |
+| Professor | Endereço | Modelo (versão 3) |
 |---|---|---|
-| Camila Veloso | `camila-veloso` | ALDEIA Professor v2 — Camila Veloso |
-| Laura Marques | `laura-marques` | ALDEIA Professor v2 — Laura Marques |
-| Lucas Oliveira | `lucas-oliveira` | ALDEIA Professor v2 — Lucas Oliveira |
-| Lavínia Neres | `lavinia-neres` | ALDEIA Professor v2 — Lavínia Neres |
+| Camila Veloso | `/sobre-a-fundadora/` | ALDEIA Professor v3 — Camila Veloso |
+| Laura Marques | `/professores-laura-marques/` | ALDEIA Professor v3 — Laura Marques |
+| Lucas Oliveira | `/professores-lucas-oliveira/` | ALDEIA Professor v3 — Lucas Oliveira |
+| Lavínia Neres | `/professora-lavinia/` | ALDEIA Professor v3 — Lavínia Neres |
 
-Para cada uma:
-1. **Páginas → Adicionar nova**, digite o título.
-2. No painel da direita, em **Atributos da página** (ou **Página**), escolha **Página-mãe: Professores da Aldeia Literária**. Assim o endereço fica `/professores/lucas-oliveira/`.
-3. Confira o **slug** (veja a tabela).
-4. **Editar com Elementor** → pasta preta → **Meus modelos → Inserir** o modelo da linha.
-5. **Engrenagem → Layout da página → Elementor Canvas**.
-6. **Publicar**.
-7. Abra o endereço (por exemplo `https://aaldeialiteraria.com.br/professores/lucas-oliveira/`) e confira a foto, o nome e as perguntas frequentes.
+**Atualize cada uma das 4 páginas com o modelo v3** (o conteúdo das versões anteriores tinha links para endereços que não existem):
+1. Abra a página no **Elementor**.
+2. No **Navegador** (camadas), apague todo o conteúdo e **Excluir**.
+3. Pasta preta → **Meus modelos** → **Inserir** o modelo da linha.
+4. **Engrenagem → Layout da página → Elementor Canvas**.
+5. Clique em **Atualizar**.
 
-### 5.3 Deixar as páginas fora do menu (mas públicas)
-- **Não** adicione essas páginas em **Aparência → Menus**.
-- Em **Aparência → Menus**, desmarque **"Adicionar automaticamente novas páginas de nível superior a este menu"**, se estiver marcado. Como as páginas individuais têm página-mãe, normalmente isso não as afeta; a mãe (lista) sim.
-- Em **Publicar → Visibilidade**, deixe **Pública** (não "Protegida por senha" nem "Privada"). Elas precisam ser públicas para o Google e as IAs lerem.
+Não coloque essas páginas em **Aparência → Menus** e deixe a visibilidade **Pública**.
+
+**Página-lista dos professores:** ainda não existe, e por isso nenhuma página aponta para ela. Quando quiser criá-la, me diga o endereço e eu gero o modelo e atualizo os links.
+
+**Ana Ribeiro:** a página dela ainda não existe. A Home v22 está **sem** o botão dela; quando a página estiver pronta, eu gero a versão com o botão.
 
 ## Etapa 6 — Atualizar a Home e a Sobre
-### 6.1 Home (v21)
+### 6.1 Home (v22)
 1. Abra a página da Home nova (a que usa o modelo v16, "Escrita Criativa — Turma 2027") no **Elementor**. Se ainda não existe, crie **Páginas → Adicionar nova** com esse título.
 2. Abra o **Histórico** (ícone de relógio) e confirme que há uma versão guardada, para poder voltar atrás.
 3. No **Navegador** (camadas), apague todo o conteúdo: botão direito em cada bloco → **Excluir**. O modelo é **adicionado**, não substitui.
-4. **Pasta preta → Meus modelos → Inserir** **ALDEIA Home v21**.
+4. **Pasta preta → Meus modelos → Inserir** **ALDEIA Home v22**.
 5. **Engrenagem → Layout da página → Elementor Canvas**.
 6. Clique em **Atualizar** (numa página já publicada só esse botão muda o que está no ar).
 
@@ -96,7 +81,6 @@ Abra tudo numa **janela anônima** (e limpe o cache: **WP Rocket → Limpar cach
 - [ ] Home: títulos na fonte nova; faixa dos professores **antes** da fundadora; tabela com **11x de R$ 199** (total R$ 2.189), **4 atividades por mês com feedback individual** e **1 ano e meio**; módulos com **12 aulas** e **Quarta, 19h30**; cada **Saiba mais** abre a página certa (a da Ana ainda não existe).
 - [ ] A Home e as demais páginas **não** mostram nenhuma linha de "versão".
 - [ ] Sobre: títulos na fonte nova e link **Sobre** do menu funcionando.
-- [ ] `/professores/`: lista com cinco cartões.
 - [ ] As 4 páginas individuais: foto, resumo, tabela, trajetória, perguntas frequentes e "Conheça também".
 - [ ] Teste no **celular** e no computador.
 - [ ] Se o carrossel, as abas ou as fotos não se mexerem: **WP Rocket → Otimização de arquivos** e adicione `/wp-content/plugins/aldeia-vendas/` às exclusões de JavaScript (atraso e minificação). Limpe o cache de novo.
@@ -105,7 +89,7 @@ Abra tudo numa **janela anônima** (e limpe o cache: **WP Rocket → Limpar cach
 Publicar não basta: o buscador precisa **indexar**. Faça isto:
 
 1. **Não bloquear a indexação:** **Configurações → Leitura** → deixe **desmarcada** a caixa *"Pedir aos mecanismos de busca para não indexarem este site"*.
-2. **Mapa do site:** abra `https://aaldeialiteraria.com.br/wp-sitemap.xml`, entre em `wp-sitemap-posts-page-1.xml` e confira que as páginas `/professores/…` aparecem. Se você usa Yoast, Rank Math ou SEOPress, o mapa deles é outro (por exemplo `/sitemap_index.xml`).
+2. **Mapa do site:** abra `https://aaldeialiteraria.com.br/wp-sitemap.xml`, entre em `wp-sitemap-posts-page-1.xml` e confira que as páginas dos professores (`/sobre-a-fundadora/`, `/professores-laura-marques/`, `/professores-lucas-oliveira/`, `/professora-lavinia/`) aparecem. Se você usa Yoast, Rank Math ou SEOPress, o mapa deles é outro (por exemplo `/sitemap_index.xml`).
 3. **robots.txt:** abra `https://aaldeialiteraria.com.br/robots.txt` e confira que **não** há `Disallow: /professores` nem bloqueio ao `Googlebot` e ao `OAI-SearchBot` (o robô de busca do ChatGPT).
 4. **Google Search Console:** adicione o site (se ainda não estiver), cole cada endereço no campo de cima (**Inspeção de URL**) e clique em **Solicitar indexação**: as 5 páginas dos professores, a Home e a Sobre.
 5. **Título e descrição de cada página:** o WordPress sozinho não tem esses campos. Instale um plugin gratuito de SEO (Yoast SEO, Rank Math ou SEOPress) e preencha, em cada página, o **título SEO** e a **meta descrição**. Sugestões:
@@ -151,7 +135,7 @@ Cada página é **um único bloco HTML**: o texto não se edita clicando nele. N
 | Quero desfazer | Mande a página para a lixeira (ou volte pelo Histórico) e reinstale o plugin antigo, se for o caso |
 
 ## Se você já tinha publicado a versão anterior
-Importe os modelos novos (Home v21, Sobre v8 e Professor v2), apague os antigos e, em **cada página já publicada**, repita o procedimento da Etapa 6.1: apague o conteúdo, insira o modelo novo, Elementor Canvas e **Atualizar**. Vale para a Home, a Sobre, a lista e as 4 páginas dos professores (o texto sobre o curso mudou em todas).
+Importe os modelos novos (Home v22, Sobre v8 e Professor v3), apague os antigos e, em **cada página já publicada**, repita o procedimento da Etapa 6.1: apague o conteúdo, insira o modelo novo, Elementor Canvas e **Atualizar**. Vale para a Home, a Sobre e as 4 páginas dos professores (o texto sobre o curso mudou em todas).
 
 ## Antes de divulgar, decida
 - [ ] **Foto da seção "Certificado emitido pela Anhanguera":** a foto atual mostra um certificado "do Módulo I". Troque por uma foto do certificado final, se tiver.

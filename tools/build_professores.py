@@ -13,6 +13,7 @@ import json, os, sys, html
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.dirname(__file__))
 import build_plugin
+from urls import PROF_URLS, HUB_URL
 
 WP = "--wp" in sys.argv
 SITE = "https://aaldeialiteraria.com.br"
@@ -99,7 +100,7 @@ PROFS = [
 ]
 E = html.escape
 READY = [q for q in PROFS if q.get("pronta", True)]   # só estas ganham página publicada e link
-def url(p): return f"{SITE}/professores/{p['slug']}/"
+def url(p): return PROF_URLS.get(p["slug"], f"{SITE}/professores/{p['slug']}/")
 def primeiro(p): return p["nome"].split()[0]
 def art(p): return "a" if p["nome"].split()[0] in ("Camila","Laura","Lavínia","Ana") else "o"
 
@@ -109,14 +110,18 @@ def slot(msg):
 def jsonld(d):
     return '<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False, separators=(",", ":")) + '</script>'
 
+HUB_NAV = f'<a href="{HUB_URL}">Professores</a>' if HUB_URL else ""
+HUB_FOOT = f' · <a href="{HUB_URL}">Professores</a>' if HUB_URL else ""
+CRUMB = f'<p class="av-breadcrumb"><a href="{SITE}/">Início</a> · <a href="{HUB_URL}">Professores</a></p>\n    ' if HUB_URL else ""
+
 def header(active):
     return f'''<header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="{SITE}/"><span>{ORG}</span></a>
-  <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="{SITE}/">Início</a><a href="{SITE}/novo-sobre/">Sobre</a><a href="{SITE}/professores/">Professores</a></nav>
+  <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="{SITE}/">Início</a><a href="{SITE}/novo-sobre/">Sobre</a>{HUB_NAV}</nav>
   <a class="av-btn" href="{FORM}">Entrar na lista de espera</a>
 </div></header>'''
 
-FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a> · <a href="{SITE}/professores/">Professores</a><br>© {ORG} · Curso de escrita para iniciantes · Todos os direitos reservados</footer>'''
+FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a>{HUB_FOOT}<br>© {ORG} · Curso de escrita para iniciantes · Todos os direitos reservados</footer>'''
 
 def person_ld(p, with_url=True):
     d = {"@type": "Person", "@id": url(p) + "#pessoa", "name": p["nome"], "jobTitle": p["job"],
@@ -173,8 +178,7 @@ def page_prof(p):
 <main id="topo">
 <section class="av-hero av-hero--prof"><div class="av-wrap av-hero__grid">
   <div class="av-reveal">
-    <p class="av-breadcrumb"><a href="{SITE}/">Início</a> · <a href="{SITE}/professores/">Professores</a></p>
-    <h1 class="av-h1">{p["nome"]}</h1>
+    {CRUMB}<h1 class="av-h1">{p["nome"]}</h1>
     <p class="av-prof__role">{p["papel"]}</p>
     <p class="av-prof__summary">{E(p["resumo"])}</p>
   </div>
@@ -215,7 +219,7 @@ def page_hub():
     ]
     hubfaq = "".join(f'<details open><summary>{E(q)}</summary><div class="av-ans"><p>{E(r)}</p></div></details>' for q, r in hf)
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": f"Professores da {ORG}",
-          "url": SITE + "/professores/", "dateModified": UPDATED_ISO,
+          "url": HUB_URL or (SITE + "/professores/"), "dateModified": UPDATED_ISO,
           "isPartOf": {"@type": "WebSite", "name": ORG, "url": SITE + "/"},
           "mainEntity": {"@type": "ItemList", "itemListElement": [
               {"@type": "ListItem", "position": i + 1, "url": url(p), "name": p["nome"]} for i, p in enumerate(READY)]}}
@@ -256,7 +260,7 @@ js = open(os.path.join(ROOT, "wordpress/aldeia-vendas.js"), encoding="utf-8").re
 
 def local(s):  # na prévia, os links entre as páginas abrem os arquivos locais
     for p in PROFS: s = s.replace(url(p), f"professor-{p['slug']}.html")
-    return s.replace(SITE + "/professores/", "professores.html").replace(SITE + "/novo-sobre/", "sobre.html").replace(f'href="{SITE}/"', 'href="vendas.html"')
+    return s.replace(HUB_URL or (SITE + "/professores/"), "professores.html").replace(SITE + "/novo-sobre/", "sobre.html").replace(f'href="{SITE}/"', 'href="vendas.html"')
 
 def preview(title, body, name):
     doc = f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -277,12 +281,13 @@ if WP:
     zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
     for t, b, n, p in pages:
         if p is not None and not p.get("pronta", True): continue
+        if p is None and not HUB_URL: continue   # a página-lista só é entregue quando o endereço existir
         slug = p["slug"] if p else "lista-professores"
         frag_body = b.replace('src="assets/img/', 'src="' + PLUGIN_BASE + 'img/')
         assert 'src="assets/' not in frag_body and "pv-slot" not in frag_body
-        frag = (f'<!-- aldeia-professor-{slug}-v2 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
+        frag = (f'<!-- aldeia-professor-{slug}-v3 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
         open(os.path.join(out, f"{slug}-colar-no-widget-html.html"), "w", encoding="utf-8").write(frag)
-        tpl = {"version": "0.4", "title": f"ALDEIA Professor v2 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
+        tpl = {"version": "0.4", "title": f"ALDEIA Professor v3 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
                "content": [{"id": "b1c2d3e", "elType": "container", "isInner": False,
                             "settings": {"content_width": "full", "flex_direction": "column", "padding": zero, "margin": zero},
                             "elements": [{"id": "f4a5b6c", "elType": "widget", "widgetType": "html", "settings": {"html": frag}, "elements": []}]}],
