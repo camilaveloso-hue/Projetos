@@ -896,3 +896,6 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 }
 
 .av-ans a{color:var(--av-navy);font-weight:600}
+
+.av-table .av-table__pay td{font:700 1rem var(--av-body)}
+.av-table .av-table__pay td small{font:600 10.5px/1.35 var(--av-ui);letter-spacing:.03em;opacity:.8}
