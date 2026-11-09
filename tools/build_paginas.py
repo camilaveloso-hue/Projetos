@@ -34,7 +34,7 @@ prof_links = " · ".join(f'<a href="{PROF_URLS[s]}">{n}</a>' for s, n in [("cami
 
 # ---------------------------------------------------------------- GUIA
 TOTAL_GERAL = "R$ " + f"{199*11+105:,}".replace(",", ".")
-BANNER = os.path.join(ROOT, "preview/assets/img/guia-banner.jpg")   # foto do banner (a Camila ainda vai enviar)
+BANNER = os.path.join(ROOT, "preview/assets/img/guia-banner.webp")   # foto do banner (a Camila ainda vai enviar)
 G_FAQ = [
  ("Qual é um bom curso de escrita criativa para iniciantes?", "Um bom curso para iniciantes tem aula ao vivo ou prática guiada, feedback individual nos seus textos, professores com formação que você consegue conferir, preço e regras de cancelamento por escrito e um certificado descrito com clareza. A Aldeia Literária é um curso on-line de escrita criativa para iniciantes que reúne esses pontos."),
  ("Preciso ter escrito algo antes de fazer um curso de escrita criativa?", "Não. Na Aldeia Literária você não precisa ter nada pronto, só vontade de escrever ficção."),
@@ -45,7 +45,7 @@ G_FAQ = [
 ]
 def guia():
     if os.path.exists(BANNER):
-        fig = '<figure class="av-prof__photo av-reveal"><img src="assets/img/guia-banner.jpg" alt="Escritora em aula de escrita criativa da Aldeia Literária" width="520" height="650"></figure>'
+        fig = '<figure class="av-prof__photo av-reveal"><img src="assets/img/guia-banner.webp" alt="Caderno aberto com anotações manuscritas, caneta e xícara sobre uma mesa" width="640" height="427" style="aspect-ratio:3/2"></figure>'
         cols = ".85fr 1.15fr"
     elif WP:
         fig, cols = "", "1fr"
@@ -209,6 +209,7 @@ if WP:
            '.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>\n')
     zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
     for title, body, name, slug in PAGES:
+        body = body.replace('src="assets/img/', 'src="' + PLUGIN_BASE + 'img/'); assert 'src="assets/' not in body
         frag = f'<!-- aldeia-{slug}-v1 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{body}\n</div>\n<script>{js}</script>\n'
         open(os.path.join(out, f"{slug}-colar-no-widget-html.html"), "w", encoding="utf-8").write(frag)
         tpl = {"version": "0.4", "title": f"ALDEIA {title} v1", "type": "page",
