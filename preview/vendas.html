@@ -903,6 +903,22 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-table .av-table__pay td{font:700 1rem var(--av-body)}
 .av-table .av-table__pay td small{font:600 10.5px/1.35 var(--av-ui);letter-spacing:.03em;opacity:.8}
 .av-table .av-table__price small.av-table__sub{text-transform:none;letter-spacing:.02em;font:500 11px/1.3 var(--av-ui);margin-top:5px;opacity:.8}
+
+/* v23 — Guia: banner "vazado" (foto sangrando na lateral esquerda, texto à direita), como na Sobre */
+:root{--av-guia-banner:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/guia-banner.webp")}
+.av-hero--guia{background:linear-gradient(270deg,#051A2D 0%,#082A46 55%,#0D3756 100%);color:var(--av-parch);min-height:min(66vh,580px);padding:104px 0 112px;overflow:hidden;display:flex;align-items:center;position:relative}
+.av-hero--guia::before{content:"";display:block;position:absolute;top:0;bottom:0;left:0;right:auto;width:50%;height:auto;background:var(--av-guia-banner) 40% 50%/cover no-repeat;-webkit-mask-image:linear-gradient(270deg,transparent 0,#000 40%);mask-image:linear-gradient(270deg,transparent 0,#000 40%)}
+.av-hero--guia::after{display:none}
+.av-hero--guia>.av-wrap{position:relative;z-index:2;width:100%}
+.av-hero--guia .av-hero__grid{display:block;max-width:calc(var(--av-wrap) + 48px)}
+.av-hero--guia .av-hero__txt{max-width:560px;margin-left:auto}
+.av-hero--guia .av-h1{white-space:normal;font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:16px}
+@media (max-width:767px){
+  .av-hero--guia{min-height:0;padding:0 0 64px;text-align:center;background:var(--av-navy-dark);display:block}
+  .av-hero--guia::before{position:relative;display:block;inset:auto;width:100%;height:min(62vw,260px);background-position:50% 50%;-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 100%);mask-image:linear-gradient(180deg,#000 50%,transparent 100%)}
+  .av-hero--guia>.av-wrap{margin-top:-26px}
+  .av-hero--guia .av-hero__txt{margin-inline:auto}
+}
 :root{--av-hero-img:url("assets/hero.jpg");--av-hero-img-m:url("assets/img/hero-mobile.jpg");--av-medal:url("assets/logo-medalhao.png")}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.pv-slot-inline{background:rgba(204,53,28,.12);color:#A82B16;border:2px dashed #CC351C;border-radius:8px;padding:0 8px}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="#topo"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a href="#professores">Quem conduz</a><a href="#jornada">Jornada</a><a href="#duvidas">Dúvidas</a><a class="av-nav__keep" href="sobre.html">Sobre</a></nav>

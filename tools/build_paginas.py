@@ -44,16 +44,8 @@ G_FAQ = [
  ("Quem são os professores?", f"O corpo docente conta com mestrandos, mestres e doutores, além de produtoras editoriais: {prof_links}."),
 ]
 def guia():
-    if os.path.exists(BANNER):
-        fig = '<figure class="av-prof__photo av-reveal"><img src="assets/img/guia-banner.webp" alt="Caderno aberto com anotações manuscritas, caneta e xícara sobre uma mesa" width="640" height="427" style="aspect-ratio:3/2"></figure>'
-        cols = ".85fr 1.15fr"
-    elif WP:
-        fig, cols = "", "1fr"
-    else:
-        fig, cols = '<div class="av-prof__photo pv-slot" style="padding:90px 20px;text-align:center">Aqui entra a foto do banner (canto esquerdo)</div>', ".85fr 1.15fr"
-    hero_html = f'''<section class="av-hero av-hero--prof"><div class="av-wrap av-hero__grid" style="grid-template-columns:{cols}">
-  {fig}
-  <div class="av-reveal"><h1 class="av-h1">Como escolher um curso de escrita criativa</h1>
+    hero_html = f'''<section class="av-hero av-hero--guia"><div class="av-wrap av-hero__grid">
+  <div class="av-reveal av-hero__txt"><h1 class="av-h1">Como escolher um curso de escrita criativa</h1>
   <h3 class="av-prof__summary">Escolha pelo que você vai receber de fato. Aqui na Aldeia Literária você terá feedback individual nas atividades, contrato transparente, comunidade para networking e muito mais. Veja os detalhes abaixo.</h3></div></div></section>'''
     body = f'''{HEADER}
 <main id="topo">
@@ -200,7 +192,7 @@ PAGES = [("Como escolher um curso de escrita criativa", guia(), "guia", "guia"),
 for title, body, name, slug in PAGES:
     loc = body.replace(CANC_URL, "cancelamento.html").replace(GUIA_URL, "guia.html").replace(IMP_URL, "imprensa.html").replace(SITE + "/novo-sobre/", "sobre.html").replace(f'href="{SITE}/"', 'href="vendas.html"')
     for s, p in PROF_URLS.items(): loc = loc.replace(p, f"professor-{s}.html")
-    open(os.path.join(ROOT, "preview", name + ".html"), "w", encoding="utf-8").write(f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} · Aldeia Literária</title><link rel="stylesheet" href="assets/fonts.css"><style>body{{margin:0}}{css_base}:root{{--av-medal:url("assets/logo-medalhao.png")}}.pv-slot{{border:2px dashed #CC351C;border-radius:16px;color:#A82B16;background:rgba(204,53,28,.05);font:600 13px/1.5 Montserrat,sans-serif}}</style></head><body class="av-page" id="top">{loc}<script>{js}</script></body></html>''')
+    open(os.path.join(ROOT, "preview", name + ".html"), "w", encoding="utf-8").write(f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} · Aldeia Literária</title><link rel="stylesheet" href="assets/fonts.css"><style>body{{margin:0}}{css_base}:root{{--av-medal:url("assets/logo-medalhao.png");--av-guia-banner:url("assets/img/guia-banner.webp")}}.pv-slot{{border:2px dashed #CC351C;border-radius:16px;color:#A82B16;background:rgba(204,53,28,.05);font:600 13px/1.5 Montserrat,sans-serif}}</style></head><body class="av-page" id="top">{loc}<script>{js}</script></body></html>''')
 print("prévias:", len(PAGES))
 if WP:
     out = os.path.join(ROOT, "wordpress/entrega/paginas"); os.makedirs(out, exist_ok=True)
