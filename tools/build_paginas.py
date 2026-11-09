@@ -6,7 +6,8 @@ import json, os, re, sys, html
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.dirname(__file__))
 import build_plugin
-from urls import PROF_URLS
+from urls import PROF_URLS, PAGE_URLS
+CANC_URL = PAGE_URLS["cancelamento"]
 WP = "--wp" in sys.argv
 SITE = "https://aaldeialiteraria.com.br"
 PLUGIN_BASE = SITE + "/wp-content/plugins/aldeia-vendas/assets/"
@@ -21,7 +22,7 @@ HEADER = f'''<header class="av-header"><div class="av-wrap">
   <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="{SITE}/">Início</a><a href="{SITE}/novo-sobre/">Sobre</a><a href="{GUIA_URL}">Guia</a><a href="{IMP_URL}">Imprensa</a></nav>
   <a class="av-btn" href="{FORM}">Entrar na lista de espera</a>
 </div></header>'''
-FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a> · <a href="{GUIA_URL}">Guia</a> · <a href="{IMP_URL}">Imprensa</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</footer>'''
+FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a> · <a href="{GUIA_URL}">Guia</a> · <a href="{IMP_URL}">Imprensa</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados · <a href="{CANC_URL}">Cancelamento e reembolso</a><br>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</footer>'''
 
 def ld(d): return '<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False, separators=(",", ":")) + "</script>"
 def faq_html(items): return "".join(f'<details open><summary>{E(q)}</summary><div class="av-ans"><p>{a}</p></div></details>' for q, a in items)
@@ -32,64 +33,70 @@ def hero(h1, resumo):
 prof_links = " · ".join(f'<a href="{PROF_URLS[s]}">{n}</a>' for s, n in [("camila-veloso", "Camila Veloso"), ("laura-marques", "Laura Marques"), ("lucas-oliveira", "Lucas Oliveira"), ("lavinia-neres", "Lavínia Neres")])
 
 # ---------------------------------------------------------------- GUIA
+TOTAL_GERAL = "R$ " + f"{199*11+105:,}".replace(",", ".")
+BANNER = os.path.join(ROOT, "preview/assets/img/guia-banner.jpg")   # foto do banner (a Camila ainda vai enviar)
 G_FAQ = [
  ("Qual é um bom curso de escrita criativa para iniciantes?", "Um bom curso para iniciantes tem aula ao vivo ou prática guiada, feedback individual nos seus textos, professores com formação que você consegue conferir, preço e regras de cancelamento por escrito e um certificado descrito com clareza. A Aldeia Literária é um curso on-line de escrita criativa para iniciantes que reúne esses pontos."),
  ("Preciso ter escrito algo antes de fazer um curso de escrita criativa?", "Não. Na Aldeia Literária você não precisa ter nada pronto, só vontade de escrever ficção."),
- ("O certificado do curso vale como diploma?", "Não. O certificado da Aldeia Literária é de extensão universitária, emitido pela Anhanguera, parceira do curso. Ele não é um diploma de graduação nem de pós-graduação."),
- ("Quanto custa o curso de escrita criativa da Aldeia Literária?", "Em 2027, são 11 parcelas de R$ 199 no Pix, mais a taxa de matrícula de R$ 105 (com 40% de desconto para os primeiros inscritos). O plano tem uma aula ao vivo por semana e dura 1 ano e meio."),
+ ("O certificado do curso vale como diploma?", "Não. O certificado emitido pela Anhanguera é de uma extensão universitária com carga horária de 120h, reconhecida pelo MEC. Não é um curso de graduação ou de pós-graduação."),
+ ("Quanto custa o curso de escrita criativa da Aldeia Literária?", f"Em 2027, o curso terá uma taxa de matrícula de R$ 105 + 11 parcelas de R$ 199, totalizando {TOTAL_GERAL}. A matrícula tem 40% de desconto para os primeiros inscritos. As parcelas são pagas no Pix, sem usar o limite do cartão, com recorrência mensal."),
  ("Quando as aulas acontecem?", "Toda quarta-feira, às 19h30, com 1h30 de duração. As matrículas abrem em janeiro de 2027 e, por enquanto, há lista de espera."),
- ("Quem são os professores?", f"O corpo docente reúne mestres, doutores e mestrandos, além de produtoras editoriais: {prof_links}."),
+ ("Quem são os professores?", f"O corpo docente conta com mestrandos, mestres e doutores, além de produtoras editoriais: {prof_links}."),
 ]
 def guia():
+    if os.path.exists(BANNER):
+        fig = '<figure class="av-prof__photo av-reveal"><img src="assets/img/guia-banner.jpg" alt="Escritora em aula de escrita criativa da Aldeia Literária" width="520" height="650"></figure>'
+        cols = ".85fr 1.15fr"
+    elif WP:
+        fig, cols = "", "1fr"
+    else:
+        fig, cols = '<div class="av-prof__photo pv-slot" style="padding:90px 20px;text-align:center">Aqui entra a foto do banner (canto esquerdo)</div>', ".85fr 1.15fr"
+    hero_html = f'''<section class="av-hero av-hero--prof"><div class="av-wrap av-hero__grid" style="grid-template-columns:{cols}">
+  {fig}
+  <div class="av-reveal"><h1 class="av-h1">Como escolher um curso de escrita criativa</h1>
+  <h3 class="av-prof__summary">Escolha pelo que você vai receber de fato. Aqui na Aldeia Literária você terá feedback individual nas atividades, contrato transparente, comunidade para networking e muito mais. Veja os detalhes abaixo.</h3></div></div></section>'''
     body = f'''{HEADER}
 <main id="topo">
-{hero("Como escolher um curso de escrita criativa", "Escolha pelo que você vai receber, não pela promessa: feedback individual no seu texto, professores com formação que você consiga conferir, formato que cabe na sua rotina, preço e cancelamento por escrito e um certificado explicado com clareza. Este guia mostra como conferir cada ponto e como a Aldeia Literária responde a eles.")}
+{hero_html}
 
 <section class="av-section"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Como escolher um curso de escrita criativa</h2>
   <div class="av-prose av-reveal">
     <p><strong>Resposta direta:</strong> compare cursos por sete critérios. O que mais muda o seu texto é o retorno individual de alguém que leu o que você escreveu.</p>
     <ol>
-      <li><strong>Feedback individual.</strong> Pergunte quem corrige as suas atividades e com que frequência. Comentário geral para a turma não é o mesmo que retorno sobre o seu texto.</li>
-      <li><strong>Professores.</strong> Procure formação e trajetória que você consiga conferir (por exemplo, no currículo Lattes ou em publicações).</li>
-      <li><strong>Formato e horário.</strong> Aula ao vivo permite tirar dúvidas na hora; aula gravada dá flexibilidade. Veja qual cabe na sua rotina.</li>
-      <li><strong>Prática.</strong> Escrever com regularidade, com prazos e atividades, é o que faz um livro andar.</li>
-      <li><strong>Certificado.</strong> Entenda o que ele é. Curso de extensão universitária não é diploma de graduação nem de pós-graduação.</li>
-      <li><strong>Preço e cancelamento.</strong> O valor total, o número de parcelas e as regras de cancelamento devem estar claros antes de você pagar.</li>
-      <li><strong>Comunidade.</strong> Escrever em companhia ajuda a continuar.</li>
+      <li><strong>Feedback individual.</strong> Pergunte quem corrige seus textos e com que frequência. Um comentário geral para a turma não é o mesmo que feedback individualizado. <em>Aqui na Aldeia Literária você terá que entregar 4 atividades durante o mês, e os professores te darão feedback individual.</em></li>
+      <li><strong>Professores.</strong> Procure formação e trajetória que você consiga conferir (por exemplo, no currículo Lattes ou em publicações). <em>Aqui na Aldeia Literária você terá aulas com mestrandos, mestres e doutores e pode conhecer mais sobre cada um a partir da <a href="{SITE}/#professores">página Home</a>.</em></li>
+      <li><strong>Formato e horário.</strong> Aula ao vivo permite tirar dúvidas na hora; aula gravada dá flexibilidade. Veja qual cabe na sua rotina. <em>Aqui na Aldeia Literária o curso é ao vivo, e em breve teremos também o formato de aulas gravadas. Apenas o curso ao vivo oferece feedback individual no seu texto.</em></li>
+      <li><strong>Prática.</strong> Escrever com regularidade, com prazos e atividades, é o que faz um livro andar. <em>Aqui na Aldeia Literária temos sprints de escrita para que você consiga escrever seu livro e tirar as ideias da cabeça.</em></li>
+      <li><strong>Preço e cancelamento.</strong> O valor total, o número de parcelas e as regras de cancelamento devem estar claros antes de você pagar. <em>Em 2027, o investimento no curso será uma taxa de matrícula de R$ 105 + 11 parcelas de R$ 199, totalizando {TOTAL_GERAL}. Aqui na Aldeia Literária as regras de cancelamento são: você pode desistir em até 7 dias corridos após a compra, com reembolso do valor pago (retorno em até 5 dias úteis). Depois desse prazo, antes do início das aulas, retemos 30% do valor total pago e devolvemos o restante em até 15 dias úteis. Depois do início das aulas, você quita a mensalidade do mês do pedido e paga multa de 30% sobre as parcelas restantes. <a href="{CANC_URL}">Veja a política completa.</a></em></li>
+      <li><strong>Networking.</strong> Escrever é só a primeira parte. Entender o mercado é importante para que você saiba suas oportunidades de publicação. <em>Aqui na Aldeia Literária tudo é feito em comunidade, para que você tenha apoio e construa networking durante a sua jornada na escrita.</em></li>
+      <li><strong>Certificado.</strong> Pergunte se o curso que você está fazendo emite significado e se ele tem validade para o currículo, horas complementares da faculdade, etc. <em>Aqui na Aldeia Literária somos  uma extensão universitária reconhecida pelo MEC. Nosso certificado é emitido pela Anhanguera.</em></li>
     </ol>
-    <p><strong>Na Aldeia Literária:</strong> cada atividade é corrigida pelo professor que a passou; os professores são {prof_links}, cada um com página própria e link para o currículo Lattes; a aula ao vivo é toda quarta-feira, às 19h30; há sprints de escrita e uma comunidade para networking; o certificado é de extensão universitária, emitido pela Anhanguera; e o preço é de 11 parcelas de R$ 199 no Pix, mais a matrícula de R$ 105.</p>
   </div>
 </div></section>
 
 <section class="av-section av-section--soft"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Curso de escrita criativa vale a pena?</h2>
   <div class="av-prose av-reveal">
-    <p><strong>Resposta direta:</strong> vale a pena quando você quer técnica, constância e retorno sobre o seu texto, e está disposta a escrever toda semana. Não vale a pena se a expectativa é garantia de publicação ou um diploma.</p>
-    <ul>
-      <li><strong>Vale a pena se</strong> você tem uma ideia e não sabe como estruturá-la, trava no meio do livro ou quer aprender a escrever descrições, diálogos e personagens com orientação.</li>
-      <li><strong>Pode não valer se</strong> você busca apenas conteúdo gravado para ver sem compromisso, quer um diploma ou espera que o curso publique o seu livro por você.</li>
-    </ul>
+    <p><strong>Resposta direta:</strong> vale a pena se você quer escrever e aprender coisas novas. Não vale a pena se você não está disposto(a) a escrever nem a começar algo novo.</p>
     <p>Na Aldeia Literária, os módulos são de 12 aulas e passam por estrutura de narrativa, técnicas de escrita, processos criativos, gramática aplicada à produção literária e publicação independente.</p>
   </div>
 </div></section>
 
 <section class="av-section"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Para quem é e para quem não é a Aldeia Literária</h2>
+  <h2 class="av-h2 av-reveal">Para quem é a Aldeia Literária</h2>
   <div class="av-prose av-reveal">
-    <p><strong>Resposta direta:</strong> a Aldeia Literária é para escritores iniciantes que querem escrever e terminar o próprio livro de ficção, com aula ao vivo e retorno individual. Não é para quem procura diploma, só aulas gravadas ou promessa de publicação.</p>
+    <p><strong>Resposta direta:</strong> a Aldeia Literária é para escritores iniciantes que querem escrever e terminar o próprio livro de ficção, com aula ao vivo e feedback individual.</p>
     <h3 class="av-prose__h">É para você se…</h3>
     <ul>
       <li>está começando e quer transformar a ideia em livro;</li>
       <li>prefere aula ao vivo, com espaço para dúvidas, às quartas-feiras, às 19h30;</li>
       <li>quer corrigir o seu texto com um professor e escrever em comunidade.</li>
     </ul>
-    <h3 class="av-prose__h">Não é para você se…</h3>
-    <ul>
-      <li>procura um diploma de graduação ou de pós-graduação (o certificado é de extensão universitária);</li>
-      <li>quer apenas aulas gravadas, sem horário fixo (as gravações existem, mas o curso é ao vivo);</li>
-      <li>espera que o curso garanta a publicação do livro.</li>
-    </ul>
+  </div>
+  <h2 class="av-h2 av-reveal" style="margin-top:56px">Para quem NÃO RECOMENDAMOS a Aldeia Literária</h2>
+  <div class="av-prose av-reveal">
+    <p>Não recomendamos para escritores que não estão dispostos a escrever, se arriscar na escrita e começar algo novo. Este é um curso para quem realmente deseja escrever, e não apenas assistir aulas.</p>
   </div>
 </div></section>
 
@@ -106,6 +113,51 @@ def guia():
    "author": {"@type": "Organization", "@id": SITE + "/#aldeia", "name": "Aldeia Literária"}, "publisher": {"@id": SITE + "/#aldeia"}},
   faq_ld(G_FAQ)]})}'''
     return body
+
+# ---------------------------------------------------------------- CANCELAMENTO
+C_FAQ = [
+ ("Posso me arrepender da compra do curso?", "Sim. Dentro de 7 dias corridos após a data da compra, você pode pedir a rescisão do contrato e o reembolso do valor pago, por e-mail ou pelo WhatsApp oficial da Aldeia Literária. O retorno ao pedido é dado em até 5 dias úteis, depois da confirmação da solicitação."),
+ ("E se eu quiser cancelar depois dos 7 dias?", "Depois do prazo de arrependimento, você pode cancelar a qualquer momento preenchendo o formulário oficial de cancelamento, cujo link deve ser solicitado ao suporte da Aldeia Literária."),
+ ("Quanto eu recebo de volta se cancelar antes do início das aulas?", "Fica retido 30% do valor total pago, como multa compensatória por custos administrativos e reserva de vaga. O saldo restante é devolvido em até 15 dias úteis."),
+ ("O que acontece se eu cancelar depois do início das aulas?", "Você quita integralmente a mensalidade do mês em que o pedido foi formalizado e paga uma multa rescisória de 30% calculada sobre as parcelas vincendas (os meses restantes até o término do contrato)."),
+ ("Perco o acesso ao curso quando cancelo?", "Sim. O acesso à plataforma, aos materiais didáticos e aos grupos de interação é bloqueado imediatamente após a formalização do pedido no formulário oficial. O pagamento da multa segue os trâmites normais de cobrança."),
+]
+def cancelamento():
+    return f'''{HEADER}
+<main id="topo">
+{hero("Política de cancelamento e reembolso", "Você pode desistir em até 7 dias corridos após a compra, com reembolso do valor pago. Depois disso, o cancelamento é feito pelo formulário oficial e há regras financeiras diferentes antes e depois do início das aulas.")}
+
+<section class="av-section"><div class="av-wrap">
+  <h2 class="av-h2 av-reveal">Direito de arrependimento (7 dias)</h2>
+  <div class="av-prose av-reveal">
+    <p>Dentro de 7 (sete) dias corridos após a data da compra, o contratante pode solicitar a rescisão do contrato e o reembolso do valor pago por e-mail ou pelo WhatsApp oficial da Aldeia Literária. O retorno é dado em até 5 (cinco) dias úteis, depois da confirmação da solicitação.</p>
+  </div>
+</div></section>
+
+<section class="av-section av-section--soft"><div class="av-wrap">
+  <h2 class="av-h2 av-reveal">Depois dos 7 dias: rescisão voluntária</h2>
+  <div class="av-prose av-reveal">
+    <p>O contrato é por prazo determinado e pode ser rescindido pelo contratante a qualquer momento, mediante o formulário oficial de cancelamento. O link do formulário deve ser solicitado ao suporte da Aldeia Literária.</p>
+    <h3 class="av-prose__h">Antes do início das aulas</h3>
+    <p>Fica retido 30% (trinta por cento) do valor total pago, a título de multa compensatória por custos administrativos e reserva de vaga. O saldo restante é devolvido em até 15 (quinze) dias úteis.</p>
+    <h3 class="av-prose__h">Depois do início das aulas</h3>
+    <p>O contratante quita integralmente a mensalidade do mês em que o pedido foi formalizado, acrescida de multa rescisória de 30% (trinta por cento), calculada exclusivamente sobre as parcelas vincendas (meses restantes até o término do contrato).</p>
+    <h3 class="av-prose__h">Acesso depois do cancelamento</h3>
+    <p>O acesso à plataforma, aos materiais didáticos e aos grupos de interação é bloqueado imediatamente após a formalização do pedido no formulário oficial, independentemente do pagamento prévio da multa rescisória. A multa segue os trâmites normais de cobrança.</p>
+    <p><em>Esta página resume a cláusula de rescisão do contrato. Em caso de diferença, vale o contrato assinado.</em></p>
+  </div>
+</div></section>
+
+<section class="av-section"><div class="av-wrap">
+  <h2 class="av-h2 av-reveal">Perguntas frequentes</h2>
+  <div class="av-faq av-reveal">{faq_html(C_FAQ)}</div>
+  <p class="av-updated">Página atualizada em {UPD_TXT}</p>
+</div></section>
+</main>
+{FOOTER}
+{ld({"@context": "https://schema.org", "@graph": [
+  {"@type": "WebPage", "name": "Política de cancelamento e reembolso", "url": CANC_URL, "dateModified": UPD_ISO, "inLanguage": "pt-BR", "isPartOf": {"@type": "WebSite", "name": "Aldeia Literária", "url": SITE + "/"}},
+  faq_ld(C_FAQ)]})}'''
 
 # ---------------------------------------------------------------- IMPRENSA
 # Planilha "Clipping" enviada pela Camila: só linhas com a Aldeia Literária no endereço e sem o livro "Diário de Amélia".
@@ -144,11 +196,11 @@ def imprensa():
 
 css_base = open(os.path.join(ROOT, "wordpress/aldeia-vendas.css"), encoding="utf-8").read()
 js = open(os.path.join(ROOT, "wordpress/aldeia-vendas.js"), encoding="utf-8").read()
-PAGES = [("Como escolher um curso de escrita criativa", guia(), "guia", "guia"), ("Aldeia Literária na imprensa", imprensa(), "imprensa", "imprensa")]
+PAGES = [("Como escolher um curso de escrita criativa", guia(), "guia", "guia"), ("Aldeia Literária na imprensa", imprensa(), "imprensa", "imprensa"), ("Política de cancelamento e reembolso", cancelamento(), "cancelamento", "cancelamento")]
 for title, body, name, slug in PAGES:
-    loc = body.replace(GUIA_URL, "guia.html").replace(IMP_URL, "imprensa.html").replace(SITE + "/novo-sobre/", "sobre.html").replace(f'href="{SITE}/"', 'href="vendas.html"')
+    loc = body.replace(CANC_URL, "cancelamento.html").replace(GUIA_URL, "guia.html").replace(IMP_URL, "imprensa.html").replace(SITE + "/novo-sobre/", "sobre.html").replace(f'href="{SITE}/"', 'href="vendas.html"')
     for s, p in PROF_URLS.items(): loc = loc.replace(p, f"professor-{s}.html")
-    open(os.path.join(ROOT, "preview", name + ".html"), "w", encoding="utf-8").write(f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} · Aldeia Literária</title><link rel="stylesheet" href="assets/fonts.css"><style>body{{margin:0}}{css_base}:root{{--av-medal:url("assets/logo-medalhao.png")}}</style></head><body class="av-page" id="top">{loc}<script>{js}</script></body></html>''')
+    open(os.path.join(ROOT, "preview", name + ".html"), "w", encoding="utf-8").write(f'''<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} · Aldeia Literária</title><link rel="stylesheet" href="assets/fonts.css"><style>body{{margin:0}}{css_base}:root{{--av-medal:url("assets/logo-medalhao.png")}}.pv-slot{{border:2px dashed #CC351C;border-radius:16px;color:#A82B16;background:rgba(204,53,28,.05);font:600 13px/1.5 Montserrat,sans-serif}}</style></head><body class="av-page" id="top">{loc}<script>{js}</script></body></html>''')
 print("prévias:", len(PAGES))
 if WP:
     out = os.path.join(ROOT, "wordpress/entrega/paginas"); os.makedirs(out, exist_ok=True)

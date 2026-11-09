@@ -12,6 +12,7 @@ O WordPress não tem esses campos sozinho. Instale um plugin gratuito e preencha
 | Lucas (`/professores-lucas-oliveira/`) | Lucas Oliveira — doutor em Literatura Portuguesa (UFRJ) | Lucas Oliveira é Doutor em Letras pela UFRJ, na área de Literatura Portuguesa, com pesquisa sobre Jorge de Sena. Professor na Aldeia Literária. |
 | Lavínia (`/professora-lavinia/`) | Lavínia Neres — mestra em Comunicação (UFSM) | Lavínia Neres é mestra em Comunicação pela UFSM, com pesquisa sobre leitura de livros digitais. Professora na Aldeia Literária. |
 | Guia | Como escolher um curso de escrita criativa — Aldeia Literária | Guia para escolher um curso de escrita criativa: feedback, professores, formato, certificado, preço. Quando vale a pena e para quem é a Aldeia Literária. |
+| Cancelamento (`/politica-de-cancelamento-e-reembolso/`) | Política de cancelamento e reembolso — Aldeia Literária | Regras de cancelamento e reembolso do curso: arrependimento em 7 dias, antes e depois do início das aulas. |
 | Imprensa | Aldeia Literária na imprensa | Matérias sobre a Aldeia Literária, curso de escrita criativa para iniciantes: PublishNews e outros veículos, com data e link. |
 
 Troque o título "novo sobre" da página Sobre por o da tabela.
