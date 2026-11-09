@@ -2,8 +2,8 @@
 """Gera a versão "HTML único" da página de vendas (não depende das classes dos containers do Elementor).
 
 Saídas:
-  wordpress/entrega/home-v22-colar-no-widget-html.html (colar num widget HTML)
-  wordpress/entrega/home-v22.json                      (modelo pronto: 1 container + 1 widget HTML)
+  wordpress/entrega/home-v23-colar-no-widget-html.html (colar num widget HTML)
+  wordpress/entrega/home-v23.json                      (modelo pronto: 1 container + 1 widget HTML)
   preview/vendas.html                                 (prévia aprovada, abre direto no navegador)
 Fonte do conteúdo: tools/src/body.html
 """
@@ -31,12 +31,36 @@ hub_sentence = f' <a href="{HUB_URL}">Conheça todos os professores.</a>' if HUB
 def resolve_urls(h):
     h = h.replace("{{HUB_SENTENCE}}", hub_sentence)
     return re.sub(r"\{\{URL:([a-z-]+)\}\}", lambda m: PROF_URLS[m.group(1)], h)
+
+import html as _html
+def make_ld(h):
+    """JSON-LD da Home, gerado do próprio HTML (FAQPage = FAQ visível)."""
+    SITE = "https://aaldeialiteraria.com.br"
+    faq = []
+    for q, a in re.findall(r'<details[^>]*><summary>(.*?)</summary><div class="av-ans"><p>(.*?)</p></div></details>', h, flags=re.S):
+        strip = lambda x: _html.unescape(re.sub(r"<[^>]+>", "", x)).strip()
+        faq.append({"@type": "Question", "name": strip(q), "acceptedAnswer": {"@type": "Answer", "text": strip(a)}})
+    ld = {"@context": "https://schema.org", "@graph": [
+      {"@type": "EducationalOrganization", "@id": SITE + "/#aldeia", "name": "Aldeia Literária", "url": SITE + "/",
+       "legalName": "CAMILA VELOSO. CO LTDA", "taxID": "47.277.682/0001-48",
+       "description": "Curso on-line de escrita criativa para escritores iniciantes, criado em 2023 e oferecido como extensão universitária em parceria com a Anhanguera.",
+       "foundingDate": "2023", "founder": {"@type": "Person", "name": "Camila Veloso", "url": PROF_URLS["camila-veloso"]}},
+      {"@type": "Course", "name": "Escrita Criativa: Desenvolvimento e Prática",
+       "description": "Curso on-line de escrita criativa para escritores iniciantes, com aula ao vivo toda quarta-feira às 19h30, atividades com feedback individual e comunidade para networking. Duração de 1 ano e meio, em módulos de 12 aulas. Extensão universitária, com certificado emitido pela Anhanguera.",
+       "provider": {"@id": SITE + "/#aldeia"}, "inLanguage": "pt-BR", "educationalLevel": "Iniciante", "timeRequired": "P1Y6M",
+       "offers": {"@type": "Offer", "priceCurrency": "BRL", "price": "199",
+                  "description": "11 parcelas mensais de R$ 199, pagas no Pix, mais taxa de matrícula de R$ 105 (com 40% de desconto para os primeiros inscritos)."},
+       "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "maximumAttendeeCapacity": 35}},
+      {"@type": "FAQPage", "mainEntity": faq}]}
+    return '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False, separators=(",", ":")) + "</script>"
 # na prévia, os botões "Saiba mais" abrem os arquivos locais
 body_prev = resolve_urls(body_prev)
+body_prev = body_prev + "\n" + make_ld(body_prev)
 for slug, u in PROF_URLS.items(): body_prev = body_prev.replace(u, f"professor-{slug}.html")
 body_prev = body_prev.replace("https://aaldeialiteraria.com.br/novo-sobre/", "sobre.html")
 if body is not None:
     body = resolve_urls(body)   # endereços reais dos professores no arquivo do WordPress
+    body = body + "\n" + make_ld(body)
 
 # 1) prévia (caminhos locais)
 css_base = open(os.path.join(ROOT, "wordpress/aldeia-vendas.css"), encoding="utf-8").read()
@@ -62,18 +86,18 @@ inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/
 assert "../" not in inline_css.replace("url(\"../", "") or True
 inline_js = js
 assert "</script" not in inline_js
-fragment = ('<!-- aldeia-home-v22 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
+fragment = ('<!-- aldeia-home-v23 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
             + '<style>' + inline_css + '</style>\n'
             + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n'
             + '<script>' + inline_js + '</script>\n')
 os.makedirs(os.path.join(ROOT, "wordpress/entrega"), exist_ok=True)
-open(os.path.join(ROOT, "wordpress/entrega/home-v22-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
+open(os.path.join(ROOT, "wordpress/entrega/home-v23-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
 
 # 3) modelo pronto do Elementor: 1 container (largura total, sem padding) + 1 widget HTML
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
 tpl = {
     "version": "0.4",
-    "title": "ALDEIA Home v22 — Página de vendas",
+    "title": "ALDEIA Home v23 — Página de vendas",
     "type": "page",
     "content": [{
         "id": "a1b2c3d", "elType": "container", "isInner": False,
@@ -82,5 +106,5 @@ tpl = {
     }],
     "page_settings": {"hide_title": "yes"},
 }
-json.dump(tpl, open(os.path.join(ROOT, "wordpress/entrega/home-v22.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(tpl, open(os.path.join(ROOT, "wordpress/entrega/home-v23.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("ok: prévia, plano B (html) e modelo JSON único gerados;", len(fragment) // 1024, "KB de HTML")

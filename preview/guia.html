@@ -1,32 +1,4 @@
-<!-- aldeia-sobre-v8 · Aldeia Literária — página SOBRE em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->
-<style>/* Aldeia Literária — Página de vendas (plugin) — gerado por tools/build_plugin.py */
-/* ===== Fontes locais ===== */
-@font-face{font-family:'Libre Caslon Text';font-style:normal;font-weight:700;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/LibreCaslonText-700-normal.woff2") format('woff2')}
-@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/EBGaramond-400-italic.woff2") format('woff2')}
-@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/EBGaramond-400-normal.woff2") format('woff2')}
-@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/EBGaramond-500-normal.woff2") format('woff2')}
-@font-face{font-family:'EB Garamond';font-style:normal;font-weight:600;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/EBGaramond-600-normal.woff2") format('woff2')}
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/Montserrat-500-normal.woff2") format('woff2')}
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/Montserrat-600-normal.woff2") format('woff2')}
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/Montserrat-700-normal.woff2") format('woff2')}
-/* ==========================================================================
-   Camada Elementor — PARTE 1 (vem ANTES do CSS base)
-   Neutraliza os espaçamentos padrão dos containers e os estilos do tema (Hello Elementor)
-   sem aumentar a especificidade, para o CSS base poder sobrescrever.
-   ========================================================================== */
-.av-page.e-con,.av-page .e-con{
-  --display:block;
-  --padding-top:0px;--padding-right:0px;--padding-bottom:0px;--padding-left:0px;
-  --gap:0px;--row-gap:0px;--column-gap:0px;
-  --margin-top:0px;--margin-bottom:0px}
-:where(.av-page) .elementor-heading-title{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;margin:0;padding:0}
-:where(.av-page) .elementor-heading-title a,:where(.av-page) .elementor-widget-text-editor a{color:inherit}
-:where(.av-page) .elementor-widget-text-editor p{margin:0 0 1em}
-:where(.av-page) .elementor-widget-text-editor p:last-child{margin-bottom:0}
-:where(.av-page) .elementor-widget-text-editor ul,:where(.av-page) .elementor-widget-text-editor ol{margin:0;padding:0}
-:where(.av-page) .elementor-widget-image img{display:block}
-
-/* ==========================================================================
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Como escolher um curso de escrita criativa · Aldeia Literária</title><link rel="stylesheet" href="assets/fonts.css"><style>body{margin:0}/* ==========================================================================
    ALDEIA LITERÁRIA — Página de vendas (Blueprint v1, turma jan/2027)
    Identidade da logo: azul-marinho + vermelho + branco, meandro grego e medalhão do ômega
    Fontes: Libre Caslon Text (títulos) + EB Garamond + Montserrat
@@ -50,9 +22,9 @@
   --av-ui:"Montserrat",system-ui,sans-serif;
   --av-wrap:1160px;
   --av-r:24px;
-  --av-hero-img:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/hero.jpg");
+  --av-hero-img:url("https://aaldeialiteraria.com.br/wp-content/uploads/2026/09/Encerramento-scaled.png");
   --av-hero-img-m:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/hero-mobile.jpg");
-  --av-medal:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/logo-medalhao.png");
+  --av-medal:url("https://aaldeialiteraria.com.br/wp-content/uploads/2026/07/LOGO_DUO-1-300x300.png");
   /* meandro: azul sobre claro, branco sobre azul */
   --av-meander:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%230D3756' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
   --av-meander-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23FFFFFF' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
@@ -925,220 +897,75 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 
 .av-ans a{color:var(--av-navy);font-weight:600}
 
-/* ==========================================================================
-   Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
-   Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).
-   Seletores com ".av-page" para vencer o CSS dos widgets, que pode carregar depois deste arquivo.
-   ========================================================================== */
-
-.av-page .elementor-heading-title{line-height:inherit}
-
-/* O Elementor zera a margem inferior dos widgets dentro de containers (.e-con .elementor-widget.elementor-widget);
-   aqui devolvemos os espaçamentos de cada componente. */
-.av-page .e-con .elementor-widget.av-label{margin-block-end:18px}
-.av-page .e-con .elementor-widget.av-badge{margin-block-end:26px}
-.av-page .e-con .elementor-widget.av-h1,.av-page .e-con .elementor-widget.av-h2{margin-block-end:22px}
-.av-page .e-con .av-hero .elementor-widget.av-h1{margin-block-end:24px}
-.av-page .e-con .elementor-widget.av-lead{margin-block-end:28px}
-.av-page .e-con .elementor-widget.av-waitnote{margin-block-end:26px}
-.av-page .e-con .av-hero .elementor-widget.av-sub{margin-block-end:6px}
-.av-page .e-con .elementor-widget.av-check{margin-block-end:30px}
-.av-page .e-con .av-offer .elementor-widget.av-class{margin-block-end:14px}
-.av-page .e-con .av-offer .elementor-widget.av-price{margin-block-end:6px}
-.av-page .e-con .av-team__item .elementor-widget.av-ava{margin-block-end:14px}
-
-/* Cabeçalho, avisos e textos curtos */
-.av-page .av-nav p{display:flex;gap:6px;margin:0;max-width:none}
-.av-page .av-notice p,.av-page .av-footer p{margin:0 0 .5em;max-width:none}
-.av-page .av-notice p{margin:0}
-.av-page .av-footer p:last-child{margin:0}
-.av-page .av-hero .av-sub p,.av-page .av-hero .av-hero__pay p{margin:0;max-width:none}
-.av-page .av-hero .av-sub p{max-width:34em}
-.av-page .av-final .av-label{justify-content:center}
-.av-page .av-center .elementor-widget-text-editor p,.av-page .av-center .elementor-widget-heading{margin-inline:auto}
-.av-page .av-btn-row{margin-top:28px}
-.av-page .av-btn-row--center{display:flex;justify-content:center;margin-top:36px}
-.av-page .av-final .av-btn-row--center{margin:32px 0 18px}
-.av-page .av-meander-w{position:static}
-
-/* Contadores nativos */
-.av-page .av-stat .elementor-counter{flex-direction:column;align-items:stretch}
-.av-page .av-stat .elementor-counter-number-wrapper{order:1;justify-content:center;font:700 clamp(1.9rem,3.2vw,2.5rem)/1 var(--av-display);color:var(--av-navy);margin-bottom:12px}
-.av-page .av-stat .elementor-counter-title{order:2;display:block;font:600 12px/1.9 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--av-graphite);text-align:center}
-.av-page .av-stat-box{text-align:center}
-
-/* Imagens como cartões/capas/fotos */
-.av-page .av-book,.av-page .av-photo,.av-page .av-certcard .elementor-widget-image{text-align:left}
-.av-page .av-book{flex:none;width:170px}
-.av-page .av-book img{width:100%;height:100%}
-.av-page .av-photo img{width:100%;height:100%}
-.av-page .av-portrait .elementor-widget-image img{width:100%;height:auto}
-.av-page .av-certcard .elementor-widget-image{flex:none;width:132px}
-.av-page .av-certcard .elementor-widget-image img{width:132px;height:176px}
-.av-page .av-certcard__txt{flex:1}
-.av-page .av-certcard .elementor-widget-text-editor p{margin:0}
-.av-page .e-con.av-marquee__track{max-width:none;width:max-content;flex-wrap:nowrap}
-
-/* Listas dentro do Editor de Texto */
-.av-page .av-check ul{list-style:none;margin:0;padding:0}
-.av-page .av-fit__card ul{list-style:none;margin:0;padding:0}
-.av-page .av-fit__card .elementor-widget-heading{margin-bottom:0}
-
-/* Carrossel dos problemas */
-.av-page .av-problem .elementor-widget-text-editor p{font:500 clamp(1.2rem,2vw,1.55rem)/1.3 var(--av-body);margin:0;max-width:none}
-
-/* Equipe, depoimentos, oferta */
-.av-page .av-team__item .elementor-widget-text-editor p{font-size:.85em;margin:0}
-.av-page .av-quote>.elementor-widget-text-editor p{font-size:1.05em;font-style:italic;margin:0}
-.av-page .av-quote__by .elementor-widget-text-editor p{margin:0;font:inherit}
-.av-page .av-face{width:52px;height:52px}
-.av-page .av-offer .elementor-widget-text-editor p{margin:0 auto 14px}
-.av-page .av-offer .av-small p{margin:0 auto 12px}
-.av-page .av-box .elementor-widget-text-editor p{margin:0}
-.av-page .av-waitnote p{margin:0;max-width:none}
-
-/* Tabela de preços (widget HTML): neutraliza o estilo de tabela do tema */
-.av-page .av-table{margin:0;width:100%;border-collapse:separate}
-.av-page .av-table th,.av-page .av-table td{border:0;border-bottom:1px solid var(--av-line);background:transparent}
-.av-page .av-table thead th{border-bottom:2px solid var(--av-navy)}
-.av-page .av-table .av-hl{background:rgba(204,53,28,.05)}
-.av-page .av-table tr:last-child th,.av-page .av-table tr:last-child td{border-bottom:0}
-
-/* Abas nativas: lista à esquerda, painel à direita; vira acordeão no celular (comportamento do Elementor) */
-.av-page .elementor-widget.av-tabs{display:block;grid-template-columns:none;margin-top:0}
-.av-page .av-tabs .elementor-tabs{display:grid!important;grid-template-columns:minmax(260px,1fr) 2fr;column-gap:40px;align-items:start;margin-top:40px;counter-reset:avtab avtab2}
-.av-page .av-tabs .elementor-tabs-wrapper{width:auto!important;overflow:visible;display:flex!important;flex-direction:column;gap:10px}
-.av-page .av-tabs .elementor-tabs-content-wrapper{border:0!important;flex-grow:0}
-.av-page .av-tabs .elementor-tab-desktop-title::before,.av-page .av-tabs .elementor-tab-desktop-title::after{display:none!important}
-.av-page .av-tabs .elementor-tab-desktop-title{counter-increment:avtab;display:block!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:18px;padding:0!important;line-height:1.35;background:transparent;color:var(--av-parch);position:static;transition:background .15s}
-.av-page .av-tabs .elementor-tab-desktop-title a{display:flex;align-items:center;gap:16px;min-height:56px;padding:16px 20px;font:600 13px/1.35 var(--av-ui);letter-spacing:.08em;text-transform:uppercase;color:inherit;text-decoration:none}
-.av-page .av-tabs .elementor-tab-desktop-title a::before{content:counter(avtab,upper-roman);font:700 22px var(--av-display);color:#FF9C88;min-width:2.2ch;letter-spacing:.02em}
-.av-page .av-tabs .elementor-tab-desktop-title:hover{background:rgba(255,255,255,.07)}
-.av-page .av-tabs .elementor-tab-desktop-title.elementor-active{background:#fff;color:var(--av-navy);border-color:#fff!important}
-.av-page .av-tabs .elementor-tab-desktop-title.elementor-active a::before{color:var(--av-terra-dark)}
-.av-page .av-tabs .elementor-tab-mobile-title{counter-increment:avtab2;display:none;align-items:center;gap:16px;min-height:56px;margin-bottom:10px;padding:16px 20px;border:1px solid rgba(255,255,255,.22)!important;border-radius:18px;font:600 13px/1.35 var(--av-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--av-parch)}
-.av-page .av-tabs .elementor-tab-mobile-title::before{content:counter(avtab2,upper-roman);font:700 22px var(--av-display);color:#FF9C88;min-width:2.2ch}
-.av-page .av-tabs .elementor-tab-mobile-title.elementor-active{background:#fff;color:var(--av-navy)}
-.av-page .av-tabs .elementor-tab-content{padding:40px!important;color:var(--av-parch);background:rgba(255,255,255,.07);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22)!important;border-radius:var(--av-r)}
-.av-page .av-tabs .elementor-tab-content h3{font:700 clamp(1.15rem,1.8vw,1.5rem)/1.2 var(--av-display);color:var(--av-parch);margin:0 0 16px}
-.av-page .av-tabs .elementor-tab-content p{margin:0 0 4px;max-width:none}
-.av-page .av-tabs .elementor-tab-content h4{font:600 12px/1.4 var(--av-ui);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin:22px 0 6px;color:inherit}
-.av-page .av-tabs .elementor-tab-content h5{font:600 12px/1.4 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;margin:26px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);color:inherit}
-@media (max-width:767px){
-  .av-page .av-tabs .elementor-tabs-wrapper{display:none!important}
-  .av-page .av-tabs .elementor-tab-mobile-title{display:flex}
-  .av-page .av-tabs .elementor-tabs{display:block!important}
-  .av-page .av-tabs .elementor-tab-content{padding:26px 22px!important;margin:-4px 0 14px}
-}
-
-/* Acordeão nativo (FAQ) */
-.av-page .av-faq .elementor-accordion .elementor-accordion-item{background:#fff;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;margin-bottom:10px;transition:box-shadow .2s}
-.av-page .av-faq .elementor-accordion .elementor-accordion-item+.elementor-accordion-item{border-block-start:1px solid var(--av-line)}
-.av-page .av-faq .elementor-accordion .elementor-accordion-item:has(.elementor-active){box-shadow:0 14px 34px rgba(18,28,45,.1)}
-.av-page .av-faq .elementor-accordion .elementor-tab-title{display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;min-height:56px;font:700 1.05rem/1.3 var(--av-display);color:var(--av-navy);background:#fff;text-align:left}
-.av-page .av-faq .elementor-accordion .elementor-tab-title.elementor-active{background:var(--av-parch-dark)}
-.av-page .av-faq .elementor-accordion .elementor-tab-title a{color:inherit}
-.av-page .av-faq .elementor-accordion .elementor-accordion-icon{float:none;width:auto;flex:none}
-.av-page .av-faq .elementor-accordion .elementor-accordion-icon svg{width:1em;height:1em;fill:var(--av-terra)}
-.av-page .av-faq .elementor-accordion .elementor-tab-content{padding:18px 24px 22px;border-block-start:1px solid var(--av-line);background:#fff;color:var(--av-graphite);font:inherit}
-.av-page .av-faq .elementor-accordion .elementor-tab-content p{margin:0;max-width:none}
-</style>
-<style>.e-con:has(>.elementor-widget-html .av-page){--padding-top:0px;--padding-right:0px;--padding-bottom:0px;--padding-left:0px;--gap:0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:0px}.elementor-widget-html:has(>.av-page),.elementor-widget-html:has(.av-page){margin:0}</style>
-<div class="av-page">
-<header class="av-header"><div class="av-wrap">
-  <a class="av-logo" href="https://aaldeialiteraria.com.br/"><span>Aldeia Literária</span></a>
-  <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="https://aaldeialiteraria.com.br/">Início</a><a href="#historia">Nossa história</a><a href="#professores">Quem somos</a><a href="#comunidade">Comunidade</a></nav>
+.av-table .av-table__pay td{font:700 1rem var(--av-body)}
+.av-table .av-table__pay td small{font:600 10.5px/1.35 var(--av-ui);letter-spacing:.03em;opacity:.8}
+.av-table .av-table__price small.av-table__sub{text-transform:none;letter-spacing:.02em;font:500 11px/1.3 var(--av-ui);margin-top:5px;opacity:.8}
+:root{--av-medal:url("assets/logo-medalhao.png")}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
+  <a class="av-logo" href="vendas.html"><span>Aldeia Literária</span></a>
+  <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="vendas.html">Início</a><a href="sobre.html">Sobre</a><a href="guia.html">Guia</a><a href="imprensa.html">Imprensa</a></nav>
   <a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a>
 </div></header>
-
 <main id="topo">
-<!-- 1. ABERTURA: foto do banner atual da página -->
-<section class="av-hero av-hero--sobre"><div class="av-wrap av-hero__grid">
-  <div class="av-reveal av-hero__txt">
-    <p class="av-badge">Sobre a Aldeia Literária</p>
-    <h1 class="av-h1"><span>Onde o sonho de escrever</span><span>e publicar livros se realiza</span></h1>
-    <p class="av-sub">Desde 2023, ajudamos escritores iniciantes a transformar a ideia em livro, com professores mestres e doutores e uma comunidade ao seu lado.</p>
-  </div>
-</div></section>
+<section class="av-hero av-hero--prof"><div class="av-wrap av-hero__grid" style="grid-template-columns:1fr">
+  <div class="av-reveal"><h1 class="av-h1">Como escolher um curso de escrita criativa</h1><p class="av-prof__summary">Escolha pelo que você vai receber, não pela promessa: feedback individual no seu texto, professores com formação que você consiga conferir, formato que cabe na sua rotina, preço e cancelamento por escrito e um certificado explicado com clareza. Este guia mostra como conferir cada ponto e como a Aldeia Literária responde a eles.</p></div></div></section>
 
-<!-- 3. NOSSA HISTÓRIA, EM CAPÍTULOS -->
-<section class="av-section av-section--soft" id="historia"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Nascemos para unir e fortalecer escritores</h2>
-  <p class="av-lead av-reveal">A nossa história, em quatro capítulos.</p>
-  <div class="av-chapters">
-    <article class="av-reveal av-chapter" data-n="I"><span class="av-chapter__tag">Capítulo I · 11/2023</span><h3>O início</h3><p>A Produtora Editorial Camila Veloso fundou a Aldeia Literária como desafio de 30 dias. Mais de 150 escritores participaram da primeira versão do curso. Ao final, os escritores perguntaram se poderiam ficar na comunidade por mais tempo.</p></article>
-    <article class="av-reveal av-chapter" data-n="II"><span class="av-chapter__tag">Capítulo II · 01/2024</span><h3>Curso livre</h3><p>Camila iniciou as atividades da Aldeia Literária como curso livre de seis meses. Novamente, 150 escritores participaram. No final do semestre, o curso foi aprovado na avaliação de critérios do MEC e passou a ser extensão universitária.</p></article>
-    <article class="av-reveal av-chapter" data-n="III"><span class="av-chapter__tag">Capítulo III · 08/2024</span><h3>Avaliação do MEC</h3><p>Reestruturamos o currículo de acordo com as diretrizes do MEC e nos tornamos parceiros da Anhanguera. Desde 2024, os escritores que finalizaram o curso da Aldeia Literária receberam um certificado de extensão universitária, emitido pela Anhanguera.</p></article>
-    <article class="av-reveal av-chapter" data-n="IV"><span class="av-chapter__tag">Capítulo IV · 2025</span><h3>Professores com mestrado e doutorado</h3><p>Mestres e doutores passaram a compor o nosso corpo docente, trazendo mais expertise para nossas aulas. Desde então, a Aldeia Literária cresce em estrutura interna, fortalecendo escritores.</p></article>
-  </div>
-</div></section>
-
-<section class="av-section" id="palestrantes"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Recebemos editores, revisores, agentes literários e grandes escritores</h2>
-  <p class="av-lead av-reveal">Como palestrantes, eles explicam os segredos do mercado editorial.</p>
-</div>
-<div class="av-marquee av-marquee--guests" aria-label="Palestrantes que já passaram pela Aldeia Literária"><div class="av-marquee__track">
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-1.jpg" alt="Palestra com Renata, da Editora Maquinaria" loading="lazy" width="760" height="428"><figcaption><strong>Renata</strong><span>Editora Maquinaria</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-2.jpg" alt="Palestra com Mari Dal Chico" loading="lazy" width="760" height="428"><figcaption><strong>Mari Dal Chico</strong><span>Increasy Consultoria Literária</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-3.jpg" alt="Palestra com Karine Leôncio, da KabookTV" loading="lazy" width="760" height="428"><figcaption><strong>Karine Leôncio</strong><span>KabookTV</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-4.jpg" alt="Palestra com Bianca Jung" loading="lazy" width="760" height="428"><figcaption><strong>Bianca Jung</strong><span>Palestrante</span></figcaption></figure>
-  <figure class="av-gcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/palestrante-5.jpg" alt="Palestra com Bettina" loading="lazy" width="760" height="428"><figcaption><strong>Bettina</strong><span>Palestrante</span></figcaption></figure>
-</div></div></section>
-
-
-<!-- 6. MISSÃO + PALESTRANTES -->
-<section class="av-section av-section--navy av-maze-bg av-mark"><div class="av-wrap av-mission">
-  <h2 class="av-h2 av-reveal">O mercado editorial é um labirinto. Mas você não está sozinho.</h2>
-  <p class="av-lead av-reveal">Nossa missão é te dar informações, ferramentas e te apresentar a pessoas que vão mudar suas possibilidades como escritor.</p>
-</div></section>
-
-<!-- 4. COMO ACOMPANHAMOS A JORNADA (método) -->
 <section class="av-section"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Como acompanhamos a sua jornada</h2>
-  <div class="av-pillars">
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">01</span><h3>Feedback individual</h3><p>O professor que passou a atividade corrige o seu texto e te ajuda a melhorar.</p></div>
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">02</span><h3>Aulas ao vivo</h3><p>Uma aula por semana, toda quarta-feira, às 19h30, com espaço para tirar dúvidas. As gravações ficam disponíveis enquanto você estiver matriculado.</p></div>
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">03</span><h3>Comunidade para networking</h3><p>WhatsApp e comunidade oficial, com sprints de escrita e atividades extras.</p></div>
-    <div class="av-reveal av-pillar"><span class="av-pillar__n">04</span><h3>Mercado editorial por dentro</h3><p>Palestras com editores, revisores, agentes literários, escritores e profissionais do mercado.</p></div>
+  <h2 class="av-h2 av-reveal">Como escolher um curso de escrita criativa</h2>
+  <div class="av-prose av-reveal">
+    <p><strong>Resposta direta:</strong> compare cursos por sete critérios. O que mais muda o seu texto é o retorno individual de alguém que leu o que você escreveu.</p>
+    <ol>
+      <li><strong>Feedback individual.</strong> Pergunte quem corrige as suas atividades e com que frequência. Comentário geral para a turma não é o mesmo que retorno sobre o seu texto.</li>
+      <li><strong>Professores.</strong> Procure formação e trajetória que você consiga conferir (por exemplo, no currículo Lattes ou em publicações).</li>
+      <li><strong>Formato e horário.</strong> Aula ao vivo permite tirar dúvidas na hora; aula gravada dá flexibilidade. Veja qual cabe na sua rotina.</li>
+      <li><strong>Prática.</strong> Escrever com regularidade, com prazos e atividades, é o que faz um livro andar.</li>
+      <li><strong>Certificado.</strong> Entenda o que ele é. Curso de extensão universitária não é diploma de graduação nem de pós-graduação.</li>
+      <li><strong>Preço e cancelamento.</strong> O valor total, o número de parcelas e as regras de cancelamento devem estar claros antes de você pagar.</li>
+      <li><strong>Comunidade.</strong> Escrever em companhia ajuda a continuar.</li>
+    </ol>
+    <p><strong>Na Aldeia Literária:</strong> cada atividade é corrigida pelo professor que a passou; os professores são <a href="professor-camila-veloso.html">Camila Veloso</a> · <a href="professor-laura-marques.html">Laura Marques</a> · <a href="professor-lucas-oliveira.html">Lucas Oliveira</a> · <a href="professor-lavinia-neres.html">Lavínia Neres</a>, cada um com página própria e link para o currículo Lattes; a aula ao vivo é toda quarta-feira, às 19h30; há sprints de escrita e uma comunidade para networking; o certificado é de extensão universitária, emitido pela Anhanguera; e o preço é de 11 parcelas de R$ 199 no Pix, mais a matrícula de R$ 105.</p>
   </div>
 </div></section>
 
-<!-- 5. QUEM ESTÁ POR TRÁS -->
-<section class="av-section av-section--soft" id="professores"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Quem está por trás da Aldeia</h2>
-  <div class="av-tgrid av-tgrid--5">
-    <article class="av-reveal av-tcard av-tcard--founder"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-camila.jpg" alt="Foto de Camila Veloso" loading="lazy" width="560" height="700"><div class="av-tcard__txt"><h3>Camila Veloso</h3><p>Fundadora e mediadora das aulas. Produtora Editorial (UFSM)</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-laura.jpg" alt="Foto de Laura Marques" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Laura Marques</h3><p>Produtora Editorial, mestranda em comunicação (UFSM) &amp; Leitora Crítica</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lucas Oliveira</h3><p>Mestre e Doutor em Literatura Portuguesa (UFRJ)</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Lavínia Neres</h3><p>Produtora Editorial, Bacharel em Letras e Mestra em Comunicação (UFSM)</p></div></article>
-    <article class="av-reveal av-tcard"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" loading="lazy" width="520" height="650"><div class="av-tcard__txt"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens pelo CEFET-MG</p></div></article>
+<section class="av-section av-section--soft"><div class="av-wrap">
+  <h2 class="av-h2 av-reveal">Curso de escrita criativa vale a pena?</h2>
+  <div class="av-prose av-reveal">
+    <p><strong>Resposta direta:</strong> vale a pena quando você quer técnica, constância e retorno sobre o seu texto, e está disposta a escrever toda semana. Não vale a pena se a expectativa é garantia de publicação ou um diploma.</p>
+    <ul>
+      <li><strong>Vale a pena se</strong> você tem uma ideia e não sabe como estruturá-la, trava no meio do livro ou quer aprender a escrever descrições, diálogos e personagens com orientação.</li>
+      <li><strong>Pode não valer se</strong> você busca apenas conteúdo gravado para ver sem compromisso, quer um diploma ou espera que o curso publique o seu livro por você.</li>
+    </ul>
+    <p>Na Aldeia Literária, os módulos são de 12 aulas e passam por estrutura de narrativa, técnicas de escrita, processos criativos, gramática aplicada à produção literária e publicação independente.</p>
   </div>
 </div></section>
 
-<!-- 7. COMUNIDADE (fotos que não aparecem na página inicial) -->
-<section class="av-section av-section--soft" id="comunidade"><div class="av-meander av-meander--top"></div><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Faça parte deste movimento literário.</h2>
-  <p class="av-lead av-reveal">Comunidade on-line, conexões reais.</p>
-</div>
-<div class="av-marquee av-marquee--photos" aria-label="Fotos da comunidade da Aldeia Literária em eventos"><div class="av-marquee__track">
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-01.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-02.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-03.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-04.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-05.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-06.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-07.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-08.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-09.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-    <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/sobre-foto-10.jpg" alt="Momento da comunidade da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
-</div></div></section>
+<section class="av-section"><div class="av-wrap">
+  <h2 class="av-h2 av-reveal">Para quem é e para quem não é a Aldeia Literária</h2>
+  <div class="av-prose av-reveal">
+    <p><strong>Resposta direta:</strong> a Aldeia Literária é para escritores iniciantes que querem escrever e terminar o próprio livro de ficção, com aula ao vivo e retorno individual. Não é para quem procura diploma, só aulas gravadas ou promessa de publicação.</p>
+    <h3 class="av-prose__h">É para você se…</h3>
+    <ul>
+      <li>está começando e quer transformar a ideia em livro;</li>
+      <li>prefere aula ao vivo, com espaço para dúvidas, às quartas-feiras, às 19h30;</li>
+      <li>quer corrigir o seu texto com um professor e escrever em comunidade.</li>
+    </ul>
+    <h3 class="av-prose__h">Não é para você se…</h3>
+    <ul>
+      <li>procura um diploma de graduação ou de pós-graduação (o certificado é de extensão universitária);</li>
+      <li>quer apenas aulas gravadas, sem horário fixo (as gravações existem, mas o curso é ao vivo);</li>
+      <li>espera que o curso garanta a publicação do livro.</li>
+    </ul>
+  </div>
+</div></section>
 
+<section class="av-section av-section--soft"><div class="av-wrap">
+  <h2 class="av-h2 av-reveal">Perguntas frequentes</h2>
+  <div class="av-faq av-reveal"><details open><summary>Qual é um bom curso de escrita criativa para iniciantes?</summary><div class="av-ans"><p>Um bom curso para iniciantes tem aula ao vivo ou prática guiada, feedback individual nos seus textos, professores com formação que você consegue conferir, preço e regras de cancelamento por escrito e um certificado descrito com clareza. A Aldeia Literária é um curso on-line de escrita criativa para iniciantes que reúne esses pontos.</p></div></details><details open><summary>Preciso ter escrito algo antes de fazer um curso de escrita criativa?</summary><div class="av-ans"><p>Não. Na Aldeia Literária você não precisa ter nada pronto, só vontade de escrever ficção.</p></div></details><details open><summary>O certificado do curso vale como diploma?</summary><div class="av-ans"><p>Não. O certificado da Aldeia Literária é de extensão universitária, emitido pela Anhanguera, parceira do curso. Ele não é um diploma de graduação nem de pós-graduação.</p></div></details><details open><summary>Quanto custa o curso de escrita criativa da Aldeia Literária?</summary><div class="av-ans"><p>Em 2027, são 11 parcelas de R$ 199 no Pix, mais a taxa de matrícula de R$ 105 (com 40% de desconto para os primeiros inscritos). O plano tem uma aula ao vivo por semana e dura 1 ano e meio.</p></div></details><details open><summary>Quando as aulas acontecem?</summary><div class="av-ans"><p>Toda quarta-feira, às 19h30, com 1h30 de duração. As matrículas abrem em janeiro de 2027 e, por enquanto, há lista de espera.</p></div></details><details open><summary>Quem são os professores?</summary><div class="av-ans"><p>O corpo docente reúne mestres, doutores e mestrandos, além de produtoras editoriais: <a href="professor-camila-veloso.html">Camila Veloso</a> · <a href="professor-laura-marques.html">Laura Marques</a> · <a href="professor-lucas-oliveira.html">Lucas Oliveira</a> · <a href="professor-lavinia-neres.html">Lavínia Neres</a>.</p></div></details></div>
+  <p class="av-updated">Página atualizada em novembro de 2026</p>
+  <p style="margin-top:24px"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></p>
+</div></section>
 </main>
-
-<footer class="av-footer"><a href="https://aaldeialiteraria.com.br/">Início</a> · <a href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados</footer>
-
-</div>
-<script>/* Aldeia Literária — Página de vendas: comportamentos leves (sem dependências).
+<footer class="av-footer"><a href="vendas.html">Início</a> · <a href="sobre.html">Sobre</a> · <a href="guia.html">Guia</a> · <a href="imprensa.html">Imprensa</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados<br>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Como escolher um curso de escrita criativa","url":"guia.html","datePublished":"2026-11-09","dateModified":"2026-11-09","inLanguage":"pt-BR","author":{"@type":"Organization","@id":"https://aaldeialiteraria.com.br/#aldeia","name":"Aldeia Literária"},"publisher":{"@id":"https://aaldeialiteraria.com.br/#aldeia"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qual é um bom curso de escrita criativa para iniciantes?","acceptedAnswer":{"@type":"Answer","text":"Um bom curso para iniciantes tem aula ao vivo ou prática guiada, feedback individual nos seus textos, professores com formação que você consegue conferir, preço e regras de cancelamento por escrito e um certificado descrito com clareza. A Aldeia Literária é um curso on-line de escrita criativa para iniciantes que reúne esses pontos."}},{"@type":"Question","name":"Preciso ter escrito algo antes de fazer um curso de escrita criativa?","acceptedAnswer":{"@type":"Answer","text":"Não. Na Aldeia Literária você não precisa ter nada pronto, só vontade de escrever ficção."}},{"@type":"Question","name":"O certificado do curso vale como diploma?","acceptedAnswer":{"@type":"Answer","text":"Não. O certificado da Aldeia Literária é de extensão universitária, emitido pela Anhanguera, parceira do curso. Ele não é um diploma de graduação nem de pós-graduação."}},{"@type":"Question","name":"Quanto custa o curso de escrita criativa da Aldeia Literária?","acceptedAnswer":{"@type":"Answer","text":"Em 2027, são 11 parcelas de R$ 199 no Pix, mais a taxa de matrícula de R$ 105 (com 40% de desconto para os primeiros inscritos). O plano tem uma aula ao vivo por semana e dura 1 ano e meio."}},{"@type":"Question","name":"Quando as aulas acontecem?","acceptedAnswer":{"@type":"Answer","text":"Toda quarta-feira, às 19h30, com 1h30 de duração. As matrículas abrem em janeiro de 2027 e, por enquanto, há lista de espera."}},{"@type":"Question","name":"Quem são os professores?","acceptedAnswer":{"@type":"Answer","text":"O corpo docente reúne mestres, doutores e mestrandos, além de produtoras editoriais: Camila Veloso · Laura Marques · Lucas Oliveira · Lavínia Neres."}}]}]}</script><script>/* Aldeia Literária — Página de vendas: comportamentos leves (sem dependências).
    - Revelação ao rolar (classe av-reveal)
    - Carrossel dos problemas (.av-problems > .av-problems__stage > .av-problem)
    - Faixa de capas em loop (.av-marquee__track)
@@ -1246,4 +1073,4 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     onScroll();window.addEventListener('scroll',onScroll,{passive:true});
   }
 })();
-</script>
+</script></body></html>

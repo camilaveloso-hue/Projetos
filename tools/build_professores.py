@@ -37,7 +37,7 @@ PROFS = [
       funcao="Fundadora e mediadora das aulas", formacao="Graduada em Comunicação Social – Produção Editorial (UFSM, 2020)",
       bio=["Camila Veloso foi bolsista de iniciação científica da FAPERGS em 2019, no grupo de estudos Consumo e Culturas Digitais. Fez mobilidade acadêmica na Universidad Autónoma de Tlaxcala, no México, onde estudou criatividade e tutoria educativa, matérias que a ajudaram a fundar a Aldeia Literária mais tarde. Também cursou disciplinas na pós-graduação da USP (2021 e 2026) e da UFSCar (2023), sobre séries televisivas, microeconomia e estudos de recepção.",
            "Antes da Aldeia, atuou como analista de conteúdo e de marketing (2021–2023), e o conhecimento adquirido no mundo corporativo foi essencial para a carreira no empreendedorismo.",
-           "Em 2023, fundou a Aldeia Literária, baseada no Cohort Learning Method. Aqui, os alunos avançam juntos, em comunidade, e são guiados por mestres e doutores em literatura e produção editorial."],
+           "Em 2023, fundou a Aldeia Literária, baseada no Cohort Learning Method. Aqui, os alunos avançam juntos, em comunidade, e são guiados por professores mestres, doutores e mestrandos em literatura e produção editorial."],
       ensina=["Escrita criativa", "Produção editorial", "Criação de conteúdo e mídias digitais", "Narrativas audiovisuais"],
       destaques=["Prêmio Camaleão Dourado, da Coordenação do Curso de Produção Editorial da UFSM (2018)",
                  "Prêmio de melhor produção audiovisual para mídias digitais, no Intercom Sul (2020)"],
@@ -121,7 +121,7 @@ def header(active):
   <a class="av-btn" href="{FORM}">Entrar na lista de espera</a>
 </div></header>'''
 
-FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a>{HUB_FOOT}<br>© {ORG} · Curso de escrita para iniciantes · Todos os direitos reservados</footer>'''
+FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a>{HUB_FOOT}<br>© {ORG} · Curso de escrita para iniciantes · Todos os direitos reservados<br>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</footer>'''
 
 def person_ld(p, with_url=True):
     d = {"@type": "Person", "@id": url(p) + "#pessoa", "name": p["nome"], "jobTitle": p["job"],
@@ -150,11 +150,11 @@ def page_prof(p):
        f"A {ORG} é um curso on-line de escrita criativa feito para escritores iniciantes. {atua}. Lá, o professor que passa a atividade corrige o texto do aluno e ajuda a melhorá-lo."),
       (f"Qual é a formação de {n}?", f"{ff}."),
       ("Existe curso de escrita criativa para iniciantes com professores mestres e doutores?",
-       f"Sim. O corpo docente da {ORG} inclui mestres e doutores, além de produtoras editoriais. Entre os integrantes está {n}: {ff[0].lower() + ff[1:]}."),
+       f"Sim. O corpo docente da {ORG} inclui mestres, doutores e mestrandos, além de produtoras editoriais. Entre os integrantes está {n}: {ff[0].lower() + ff[1:]}."),
       (f"Em quais temas {n} é especialista?", f"Áreas de atuação de {n}: " + "; ".join(p["ensina"]) + "." ) if p["ensina"] else None,
       (f"Como funciona o curso {CURSO}?",
        f"São aulas ao vivo on-line, uma por semana, toda quarta-feira às 19h30, com espaço para tirar dúvidas. Cada atividade é corrigida pelo professor que a passou. Há comunidade para networking no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. As gravações ficam disponíveis enquanto o aluno estiver matriculado."),
-      ("O curso dá certificado?", "Sim. Ao concluir o curso, o aluno recebe um certificado emitido pela Anhanguera. A Aldeia Literária é parceira da instituição, e essa parceria dá ao curso o selo MEC de extensão universitária."),
+      ("O curso dá certificado?", "Sim. Ao concluir o curso, o aluno recebe um certificado emitido pela Anhanguera. A Aldeia Literária é um curso de extensão universitária, em parceria com a Anhanguera. O certificado não é um diploma de graduação ou de pós-graduação."),
       ("Quando abre a próxima turma?",
        "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão."),
     ]
@@ -214,7 +214,7 @@ def page_prof(p):
 def page_hub():
     hf = [
       (f"Quem são os professores da {ORG}?", "O corpo docente reúne " + ", ".join(f"{q['nome']} ({q['cred']})" for q in PROFS) + "."),
-      ("Existe curso de escrita criativa para iniciantes com professores mestres e doutores?", f"Sim. A {ORG} é um curso on-line de escrita criativa para escritores iniciantes, com professores mestres e doutores, aulas ao vivo e feedback individual nas atividades."),
+      ("Existe curso de escrita criativa para iniciantes com professores mestres e doutores?", f"Sim. A {ORG} é um curso on-line de escrita criativa para escritores iniciantes, com professores mestres, doutores e mestrandos, aulas ao vivo e feedback individual nas atividades."),
       ("Quando abre a próxima turma?", "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera."),
     ]
     hubfaq = "".join(f'<details open><summary>{E(q)}</summary><div class="av-ans"><p>{E(r)}</p></div></details>' for q, r in hf)
@@ -229,7 +229,7 @@ def page_hub():
   <div class="av-reveal">
     <p class="av-breadcrumb"><a href="{SITE}/">Início</a> · Professores</p>
     <h1 class="av-h1">Professores da {ORG}</h1>
-    <p class="av-prof__summary">A {ORG} é um curso on-line de escrita criativa para escritores iniciantes, criado em 2023 por Camila Veloso. O corpo docente reúne mestres, doutores e produtoras editoriais que corrigem os seus textos e te ajudam a transformar a ideia em livro.</p>
+    <p class="av-prof__summary">A {ORG} é um curso on-line de escrita criativa para escritores iniciantes, criado em 2023 por Camila Veloso. O corpo docente reúne mestres, doutores, mestrandos e produtoras editoriais que corrigem os seus textos e te ajudam a transformar a ideia em livro.</p>
     <div class="av-cta-row"><a class="av-btn" href="{FORM}">Entrar na lista de espera</a></div>
   </div>
 </div></section>
@@ -285,9 +285,9 @@ if WP:
         slug = p["slug"] if p else "lista-professores"
         frag_body = b.replace('src="assets/img/', 'src="' + PLUGIN_BASE + 'img/')
         assert 'src="assets/' not in frag_body and "pv-slot" not in frag_body
-        frag = (f'<!-- aldeia-professor-{slug}-v3 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
+        frag = (f'<!-- aldeia-professor-{slug}-v4 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
         open(os.path.join(out, f"{slug}-colar-no-widget-html.html"), "w", encoding="utf-8").write(frag)
-        tpl = {"version": "0.4", "title": f"ALDEIA Professor v3 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
+        tpl = {"version": "0.4", "title": f"ALDEIA Professor v4 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
                "content": [{"id": "b1c2d3e", "elType": "container", "isInner": False,
                             "settings": {"content_width": "full", "flex_direction": "column", "padding": zero, "margin": zero},
                             "elements": [{"id": "f4a5b6c", "elType": "widget", "widgetType": "html", "settings": {"html": frag}, "elements": []}]}],
