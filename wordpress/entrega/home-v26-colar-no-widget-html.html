@@ -1,4 +1,4 @@
-<!-- aldeia-home-v25 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->
+<!-- aldeia-home-v26 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->
 <style>/* Aldeia Literária — Página de vendas (plugin) — gerado por tools/build_plugin.py */
 /* ===== Fontes locais ===== */
 @font-face{font-family:'Libre Caslon Text';font-style:normal;font-weight:700;font-display:swap;src:url("https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/fonts/LibreCaslonText-700-normal.woff2") format('woff2')}
@@ -945,6 +945,23 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero--guia .av-hero__txt{margin-inline:auto}
 }
 
+/* v24 — Home: depoimentos em texto */
+.av-quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+.av-quote{margin:0;background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);padding:30px 30px 26px;box-shadow:0 14px 34px rgba(13,55,86,.08);display:flex;flex-direction:column;justify-content:space-between;gap:18px;position:relative}
+.av-quote::before{content:"“";position:absolute;top:6px;left:22px;font:700 4.2rem/1 var(--av-display);color:rgba(204,53,28,.22)}
+.av-quote blockquote{margin:0;padding-top:22px}
+.av-quote blockquote p{margin:0;font-size:1.02em;line-height:1.6;color:var(--av-graphite);max-width:none}
+.av-quote figcaption{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--av-line);padding-top:12px}
+.av-quote figcaption strong{font:700 .98rem var(--av-display);color:var(--av-navy)}
+.av-quote figcaption span{font:600 11px var(--av-ui);letter-spacing:.06em;color:var(--av-graphite)}
+.av-quote figcaption a{color:var(--av-terra-dark)}
+.av-quote--lead{grid-column:1/-1;background:var(--av-navy);border-color:transparent;color:var(--av-parch);padding:38px 44px 30px}
+.av-quote--lead blockquote p{color:rgba(255,255,255,.96);font-size:1.15em}
+.av-quote--lead figcaption{border-color:rgba(255,255,255,.25)}
+.av-quote--lead figcaption strong{color:#fff}
+.av-quote--lead::before{color:rgba(255,255,255,.25)}
+@media (max-width:767px){.av-quotes{grid-template-columns:1fr;gap:14px;margin-top:28px}.av-quote{padding:26px 22px 22px}.av-quote--lead{padding:30px 24px 24px}}
+
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
    Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).
@@ -1231,6 +1248,18 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
     <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-22.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
     <figure class="av-cphoto"><img src="https://aaldeialiteraria.com.br/wp-content/plugins/aldeia-vendas/assets/img/comunidade-23.jpg" alt="Alunos da Aldeia Literária em evento do mercado editorial" loading="lazy" width="420" height="560"></figure>
 </div></div></section>
+
+<!-- VI-B · DEPOIMENTOS (texto dos prints enviados; autorizados pela Camila) -->
+<section class="av-section" id="depoimentos"><div class="av-wrap">
+  <div class="av-center av-reveal"><h2 class="av-h2">O que dizem as pessoas da Aldeia</h2></div>
+  <div class="av-quotes">
+    <figure class="av-reveal av-quote av-quote--lead"><blockquote><p>Camila, queria agradecer por essas aulas. Minha mente evoluiu muito com essas descobertas, mas o mais importante é que eu consegui me encontrar na escrita, ter paciência comigo mesmo e me cobrar menos. Obrigado por ser tão lendária, a escrita tem um lugar no meu coração e agora irá desbravar o mundo comigo!</p></blockquote><figcaption><strong>Jader Emmanuel</strong></figcaption></figure>
+    <figure class="av-reveal av-quote"><blockquote><p>uma das coisas mais daora da aldeia (pra mim) é vc perceber q vc n ta sozinha e tem MT gnt kakak como vc</p></blockquote><figcaption><strong>Carlos Thomaz Evangelista</strong></figcaption></figure>
+    <figure class="av-reveal av-quote"><blockquote><p>A Cami é a melhor prof que a gente poderia ter no mundo todo, perfeita</p></blockquote><figcaption><strong>Taty Fe Rocha</strong></figcaption></figure>
+    <figure class="av-reveal av-quote"><blockquote><p>Falou tudo Taty, Camila tem um lugarzinho especial no coração de todos nós</p></blockquote><figcaption><strong>Martina Vian</strong><span>autora de <a href="https://www.amazon.com.br/dp/B0FLW6J7D1" target="_blank" rel="noopener noreferrer">Desejei às Estrelas</a></span></figcaption></figure>
+    <figure class="av-reveal av-quote"><blockquote><p>A Cami é um anjo! O propósito dela é lindo e isso faz dela incrível!</p></blockquote><figcaption><strong>Ingrid Maitê</strong></figcaption></figure>
+  </div>
+</div></section>
 
 <!-- VII · INVESTIMENTO -->
 <section class="av-section av-section--soft" id="investimento"><div class="av-meander av-meander--top"></div><div class="av-wrap av-center">
