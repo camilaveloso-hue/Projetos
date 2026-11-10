@@ -2,8 +2,8 @@
 """Gera a versão "HTML único" da página de vendas (não depende das classes dos containers do Elementor).
 
 Saídas:
-  wordpress/entrega/home-v27-colar-no-widget-html.html (colar num widget HTML)
-  wordpress/entrega/home-v27.json                      (modelo pronto: 1 container + 1 widget HTML)
+  wordpress/entrega/home-v28-colar-no-widget-html.html (colar num widget HTML)
+  wordpress/entrega/home-v28.json                      (modelo pronto: 1 container + 1 widget HTML)
   preview/vendas.html                                 (prévia aprovada, abre direto no navegador)
 Fonte do conteúdo: tools/src/body.html
 """
@@ -87,12 +87,12 @@ inline_css = build_plugin.build_css().replace("../fonts/", PLUGIN_BASE + "fonts/
 assert "../" not in inline_css.replace("url(\"../", "") or True
 inline_js = js
 assert "</script" not in inline_js
-fragment = ('<!-- aldeia-home-v27 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
+fragment = ('<!-- aldeia-home-v28 · Aldeia Literária — página de vendas em um único widget HTML (CSS e JS embutidos). Fontes e imagens vêm do plugin "Aldeia Literária — Página de vendas". -->\n'
             + '<style>' + inline_css + '</style>\n'
             + fix + '<div class="av-page">\n' + frag_body + '\n</div>\n'
             + '<script>' + inline_js + '</script>\n')
 os.makedirs(os.path.join(ROOT, "wordpress/entrega"), exist_ok=True)
-open(os.path.join(ROOT, "wordpress/entrega/home-v27-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
+open(os.path.join(ROOT, "wordpress/entrega/home-v28-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
 
 # 3) modelo pronto do Elementor: 1 container (largura total, sem padding) + 1 widget HTML
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
@@ -107,5 +107,5 @@ tpl = {
     }],
     "page_settings": {"hide_title": "yes"},
 }
-json.dump(tpl, open(os.path.join(ROOT, "wordpress/entrega/home-v27.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(tpl, open(os.path.join(ROOT, "wordpress/entrega/home-v28.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("ok: prévia, plano B (html) e modelo JSON único gerados;", len(fragment) // 1024, "KB de HTML")
