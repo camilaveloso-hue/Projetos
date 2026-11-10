@@ -7,12 +7,12 @@ Tudo o que você precisa subir está nesta pasta (`wordpress/entrega/`). Faça a
 | Arquivo | Para que serve |
 |---|---|
 | `aldeia-vendas.zip` | **Plugin** (versão 1.2.2). Guarda as fontes (agora a Libre Caslon), as imagens e o estilo. Reinstale por cima do atual. |
-| `home-v24.json` | Modelo do Elementor da **Home** (página de vendas), com plano único de 1 aula por semana e botões "Saiba mais". |
+| `home-v25.json` | Modelo do Elementor da **Home** (página de vendas), com plano único de 1 aula por semana e botões "Saiba mais". |
 | `sobre-v10.json` | Modelo do Elementor da página **Sobre**, com a nova fonte. |
 | `professores/camila-veloso.json`, `laura-marques.json`, `lucas-oliveira.json`, `lavinia-neres.json` | Modelos (v5) das **páginas individuais** dos professores, já com os endereços reais. |
 | arquivos `…-colar-no-widget-html.html` | O mesmo conteúdo para **colar** num widget HTML. É o **Plano B** se a importação do modelo falhar. |
 
-**Ana Ribeiro:** a página dela ainda não existe (falta o Lattes e o texto de "Função no curso"). Por isso a Home v24 está **sem** o botão "Saiba mais" dela.
+**Ana Ribeiro:** a página dela ainda não existe (falta o Lattes e o texto de "Função no curso"). Por isso a Home v25 está **sem** o botão "Saiba mais" dela.
 
 ---
 
@@ -37,7 +37,7 @@ Faça um backup do site (plugin de backup ou o da hospedagem). Nada abaixo apaga
 1. Abra `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_library&tabs_group=library` (ou **Elementor → Modelos → Modelos salvos**).
 2. Clique em **Importar modelos** e envie os arquivos `.json` (pode ser um de cada vez).
 3. Devem aparecer:
-   - **ALDEIA Home v24 — Página de vendas**
+   - **ALDEIA Home v25 — Página de vendas**
    - **ALDEIA Sobre v10 — Página Sobre**
    - **ALDEIA Professor v5 — Camila Veloso**, **Laura Marques**, **Lucas Oliveira**, **Lavínia Neres**
 4. **Apague os modelos antigos** (Home v16, Sobre v6 e anteriores). Assim não dá para inserir o errado.
@@ -66,14 +66,14 @@ Não coloque essas páginas em **Aparência → Menus** e deixe a visibilidade *
 
 **Página-lista dos professores:** ainda não existe, e por isso nenhuma página aponta para ela. Quando quiser criá-la, me diga o endereço e eu gero o modelo e atualizo os links.
 
-**Ana Ribeiro:** a página dela ainda não existe. A Home v24 está **sem** o botão dela; quando a página estiver pronta, eu gero a versão com o botão.
+**Ana Ribeiro:** a página dela ainda não existe. A Home v25 está **sem** o botão dela; quando a página estiver pronta, eu gero a versão com o botão.
 
 ## Etapa 6 — Atualizar a Home e a Sobre
-### 6.1 Home (v24)
+### 6.1 Home (v25)
 1. Abra a página da Home nova (a que usa o modelo v16, "Escrita Criativa — Turma 2027") no **Elementor**. Se ainda não existe, crie **Páginas → Adicionar nova** com esse título.
 2. Abra o **Histórico** (ícone de relógio) e confirme que há uma versão guardada, para poder voltar atrás.
 3. No **Navegador** (camadas), apague todo o conteúdo: botão direito em cada bloco → **Excluir**. O modelo é **adicionado**, não substitui.
-4. **Pasta preta → Meus modelos → Inserir** **ALDEIA Home v24**.
+4. **Pasta preta → Meus modelos → Inserir** **ALDEIA Home v25**.
 5. **Engrenagem → Layout da página → Elementor Canvas**.
 6. Clique em **Atualizar** (numa página já publicada só esse botão muda o que está no ar).
 
@@ -143,7 +143,7 @@ Cada página é **um único bloco HTML**: o texto não se edita clicando nele. N
 | Quero desfazer | Mande a página para a lixeira (ou volte pelo Histórico) e reinstale o plugin antigo, se for o caso |
 
 ## Se você já tinha publicado a versão anterior
-Importe os modelos novos (Home v24, Sobre v10 e Professor v5), apague os antigos e, em **cada página já publicada**, repita o procedimento da Etapa 6.1: apague o conteúdo, insira o modelo novo, Elementor Canvas e **Atualizar**. Vale para a Home, a Sobre e as 4 páginas dos professores (o texto sobre o curso mudou em todas).
+Importe os modelos novos (Home v25, Sobre v10 e Professor v5), apague os antigos e, em **cada página já publicada**, repita o procedimento da Etapa 6.1: apague o conteúdo, insira o modelo novo, Elementor Canvas e **Atualizar**. Vale para a Home, a Sobre e as 4 páginas dos professores (o texto sobre o curso mudou em todas).
 
 ## Antes de divulgar, decida
 - [ ] **Foto da seção "Certificado emitido pela Anhanguera":** a foto atual mostra um certificado "do Módulo I". Troque por uma foto do certificado final, se tiver.
