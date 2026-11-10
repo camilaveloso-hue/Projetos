@@ -26,7 +26,7 @@ As IAs recomendam o que várias fontes independentes confirmam. Tudo abaixo usa 
 ## 4. Release para imprensa (modelo)
 **Título:** Aldeia Literária abre matrículas em janeiro de 2027 para turma de escrita criativa com aula ao vivo semanal.
 **Lide:** A Aldeia Literária, curso on-line de escrita criativa para escritores iniciantes, abre matrículas em janeiro de 2027. A turma tem aula ao vivo toda quarta-feira, às 19h30, e atividades com feedback individual.
-**Corpo:** descrição longa acima; plano de 11 parcelas de R$ 199 no Pix mais matrícula de R$ 105; curso de 1 ano e meio; certificado de extensão universitária emitido pela Anhanguera; citação da fundadora **[PREENCHER: frase da Camila]**; link da lista de espera.
+**Corpo:** descrição longa acima; plano de 18 parcelas de R$ 199 no Pix mais matrícula de R$ 105; curso de 18 meses; certificado de extensão universitária emitido pela Anhanguera; citação da fundadora **[PREENCHER: frase da Camila]**; link da lista de espera.
 **Contato de imprensa:** [PREENCHER nome, e-mail e telefone]. **Links:** site, página da fundadora, página Imprensa.
 
 ## 5. Media kit (PDF de 1 a 2 páginas)

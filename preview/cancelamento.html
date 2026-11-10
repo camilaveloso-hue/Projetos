@@ -916,6 +916,23 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
   .av-hero--guia>.av-wrap{margin-top:-26px}
   .av-hero--guia .av-hero__txt{margin-inline:auto}
 }
+
+/* v24 — Home: depoimentos em texto */
+.av-quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+.av-quote{margin:0;background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);padding:30px 30px 26px;box-shadow:0 14px 34px rgba(13,55,86,.08);display:flex;flex-direction:column;justify-content:space-between;gap:18px;position:relative}
+.av-quote::before{content:"“";position:absolute;top:6px;left:22px;font:700 4.2rem/1 var(--av-display);color:rgba(204,53,28,.22)}
+.av-quote blockquote{margin:0;padding-top:22px}
+.av-quote blockquote p{margin:0;font-size:1.02em;line-height:1.6;color:var(--av-graphite);max-width:none}
+.av-quote figcaption{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--av-line);padding-top:12px}
+.av-quote figcaption strong{font:700 .98rem var(--av-display);color:var(--av-navy)}
+.av-quote figcaption span{font:600 11px var(--av-ui);letter-spacing:.06em;color:var(--av-graphite)}
+.av-quote figcaption a{color:var(--av-terra-dark)}
+.av-quote--lead{grid-column:1/-1;background:var(--av-navy);border-color:transparent;color:var(--av-parch);padding:38px 44px 30px}
+.av-quote--lead blockquote p{color:rgba(255,255,255,.96);font-size:1.15em}
+.av-quote--lead figcaption{border-color:rgba(255,255,255,.25)}
+.av-quote--lead figcaption strong{color:#fff}
+.av-quote--lead::before{color:rgba(255,255,255,.25)}
+@media (max-width:767px){.av-quotes{grid-template-columns:1fr;gap:14px;margin-top:28px}.av-quote{padding:26px 22px 22px}.av-quote--lead{padding:30px 24px 24px}}
 :root{--av-medal:url("assets/logo-medalhao.png");--av-guia-banner:url("assets/img/guia-banner.webp")}.pv-slot{border:2px dashed #CC351C;border-radius:16px;color:#A82B16;background:rgba(204,53,28,.05);font:600 13px/1.5 Montserrat,sans-serif}</style></head><body class="av-page" id="top"><header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="vendas.html"><span>Aldeia Literária</span></a>
   <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="vendas.html">Início</a><a href="sobre.html">Sobre</a><a href="guia.html">Guia</a><a href="imprensa.html">Imprensa</a></nav>

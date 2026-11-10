@@ -5,7 +5,7 @@ O WordPress não tem esses campos sozinho. Instale um plugin gratuito e preencha
 
 | Página | Título SEO | Meta descrição |
 |---|---|---|
-| Home | Curso de escrita criativa para iniciantes — Aldeia Literária | Curso on-line de escrita criativa para iniciantes: aula ao vivo toda quarta, feedback individual, 11x de R$ 199 no Pix. Extensão universitária, certificado Anhanguera. |
+| Home | Curso de escrita criativa para iniciantes — Aldeia Literária | Curso on-line de escrita criativa para iniciantes: aula ao vivo toda quarta, feedback individual, 18x de R$ 199 no Pix. Extensão universitária, certificado Anhanguera. |
 | Sobre (`/novo-sobre/`) | Sobre a Aldeia Literária — história e equipe | Conheça a história da Aldeia Literária, fundada em 2023 por Camila Veloso, e a equipe que ajuda escritores iniciantes a transformar a ideia em livro. |
 | Camila (`/sobre-a-fundadora/`) | Camila Veloso — fundadora da Aldeia Literária | Camila Veloso é Produtora Editorial formada pela UFSM e fundadora da Aldeia Literária, curso de escrita criativa para escritores iniciantes. |
 | Laura (`/professores-laura-marques/`) | Laura Marques — professora de escrita criativa | Laura Marques é graduada em Produção Editorial pela UFSM, leitora crítica e professora de escrita criativa na Aldeia Literária. |
@@ -59,7 +59,7 @@ Sitemap: https://aaldeialiteraria.com.br/wp-sitemap.xml
 
 ## 4. Dados estruturados (já estão nos arquivos)
 Tudo é gerado a partir do texto visível da página:
-- **Home:** `EducationalOrganization` (com razão social e CNPJ), `Course` + `CourseInstance` (online, 35 vagas) + `Offer` (11 parcelas de R$ 199 no Pix, mais matrícula de R$ 105) e `FAQPage` (as 15 perguntas visíveis).
+- **Home:** `EducationalOrganization` (com razão social e CNPJ), `Course` + `CourseInstance` (online, 35 vagas) + `Offer` (18 parcelas de R$ 199 no Pix, mais matrícula de R$ 105) e `FAQPage` (as 15 perguntas visíveis).
 - **Páginas dos professores:** `ProfilePage` + `Person` (formação, Lattes/ORCID).
 - **Guia:** `Article` + `FAQPage`. **Imprensa:** `CollectionPage` + `ItemList`.
 Valide cada endereço em `validator.schema.org` e em `search.google.com/test/rich-results`. Se o plugin de SEO também gerar schema, desligue o dele nessas páginas para não duplicar.

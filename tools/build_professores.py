@@ -153,7 +153,7 @@ def page_prof(p):
        f"Sim. O corpo docente da {ORG} conta com mestrandos, mestres e doutores, como Lucas Oliveira (Mestre e Doutor em Literatura Portuguesa, UFRJ), Lavínia Neres (mestra em Comunicação, UFSM), Ana Ribeiro (mestra em Estudos de Linguagens, CEFET-MG) e Laura Marques (mestranda em Produção Editorial, UFSM). Além disso, conta com a presença da Produtora Editorial e fundadora da Aldeia Literária, Camila Veloso, como mediadora das aulas."),
       (f"Em quais temas {n} é especialista?", f"Áreas de atuação de {n}: " + "; ".join(p["ensina"]) + "." ) if p["ensina"] else None,
       (f"Como funciona o curso {CURSO}?",
-       f"São aulas ao vivo on-line, uma por semana, toda quarta-feira às 19h30, com espaço para tirar dúvidas. Cada atividade é corrigida pelo professor que a passou. Há comunidade para networking no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. As gravações ficam disponíveis enquanto o aluno estiver matriculado."),
+       f"São aulas ao vivo on-line, uma por semana, toda quarta-feira às 19h30, com espaço para tirar dúvidas. Cada atividade é corrigida pelo professor que a passou. Há comunidade para networking no WhatsApp, sprints de escrita e palestras com editores, revisores, agentes literários e escritores. Cada módulo é um conjunto de 12 aulas e o curso dura 18 meses. As gravações ficam disponíveis enquanto o aluno estiver matriculado."),
       ("O curso dá certificado?", "Sim. Ao concluir o curso, você recebe um certificado emitido pela Anhanguera. A Aldeia Literária é um curso de extensão universitária com carga horária de 120h. Não é um curso de graduação ou de pós-graduação, é uma extensão universitária reconhecida pelo MEC."),
       ("Quando abre a próxima turma?",
        "As matrículas abrem em janeiro de 2027. Até lá, é possível entrar na lista de espera para ser avisado em primeira mão."),
@@ -241,7 +241,7 @@ def page_hub():
 
 <section class="av-section av-section--soft"><div class="av-wrap">
   <h2 class="av-h2 av-reveal">Como é estudar na {ORG}</h2>
-  <div class="av-prose av-reveal"><p>O curso <strong>{CURSO}</strong> tem aula ao vivo toda quarta-feira às 19h30, feedback individual do professor que passou a atividade, comunidade para networking e palestras com profissionais do mercado editorial. Cada módulo é um conjunto de 12 aulas e o curso dura 1 ano e meio. O certificado é emitido pela Anhanguera, parceira da Aldeia Literária.</p>
+  <div class="av-prose av-reveal"><p>O curso <strong>{CURSO}</strong> tem aula ao vivo toda quarta-feira às 19h30, feedback individual do professor que passou a atividade, comunidade para networking e palestras com profissionais do mercado editorial. Cada módulo é um conjunto de 12 aulas e o curso dura 18 meses. O certificado é emitido pela Anhanguera, parceira da Aldeia Literária.</p>
   <p>As matrículas abrem em janeiro de 2027. <a href="{SITE}/novo-sobre/">Conheça a história da escola</a> ou <a href="{FORM}">entre na lista de espera</a>.</p></div>
   <p class="av-updated">Página atualizada em {UPDATED_TXT}</p>
 </div></section>
@@ -285,9 +285,9 @@ if WP:
         slug = p["slug"] if p else "lista-professores"
         frag_body = b.replace('src="assets/img/', 'src="' + PLUGIN_BASE + 'img/')
         assert 'src="assets/' not in frag_body and "pv-slot" not in frag_body
-        frag = (f'<!-- aldeia-professor-{slug}-v5 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
+        frag = (f'<!-- aldeia-professor-{slug}-v6 -->\n<style>{inline_css}</style>\n{fix}<div class="av-page">\n{frag_body}\n</div>\n<script>{js}</script>\n')
         open(os.path.join(out, f"{slug}-colar-no-widget-html.html"), "w", encoding="utf-8").write(frag)
-        tpl = {"version": "0.4", "title": f"ALDEIA Professor v5 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
+        tpl = {"version": "0.4", "title": f"ALDEIA Professor v6 — {p['nome'] if p else 'Lista de professores'}", "type": "page",
                "content": [{"id": "b1c2d3e", "elType": "container", "isInner": False,
                             "settings": {"content_width": "full", "flex_direction": "column", "padding": zero, "margin": zero},
                             "elements": [{"id": "f4a5b6c", "elType": "widget", "widgetType": "html", "settings": {"html": frag}, "elements": []}]}],
