@@ -46,6 +46,61 @@ add_action( 'pre_get_posts', function ( $q ) {
 	}
 } );
 
+/**
+ * Nome do autor. Se a conta do WordPress ainda mostra só o nome de usuário (sem espaço, como "aaldeial"),
+ * usa o nome da fundadora. Para outro autor com nome completo, mostra o nome dele.
+ */
+function aldeia_blog_autor() {
+	$n = trim( (string) get_the_author() );
+	if ( '' === $n || false === strpos( $n, ' ' ) ) {
+		$n = 'Camila Veloso';
+	}
+	return apply_filters( 'aldeia_blog_autor', $n );
+}
+
+function aldeia_blog_autor_bio() {
+	$bio = trim( (string) get_the_author_meta( 'description' ) );
+	if ( '' === $bio && 'Camila Veloso' === aldeia_blog_autor() ) {
+		$bio = 'Fundadora da Aldeia Literária. Produtora Editorial formada pela UFSM.';
+	}
+	return $bio;
+}
+
+/* Comentários: usa o modelo do plugin, só nos artigos do blog. */
+add_filter( 'comments_template', function ( $file ) {
+	if ( 'single' === aldeia_blog_contexto() ) {
+		$mine = dirname( __DIR__ ) . '/templates/blog-comentarios.php';
+		if ( file_exists( $mine ) ) {
+			return $mine;
+		}
+	}
+	return $file;
+} );
+
+/* Um comentário na lista (usado por wp_list_comments). O WordPress fecha o <li> sozinho. */
+function aldeia_blog_comentario( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
+	?>
+<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'av-comment' ); ?>>
+  <article class="av-comment__body">
+    <header class="av-comment__head"><strong class="av-comment__author"><?php comment_author(); ?></strong> <time datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( 'j \d\e F \d\e Y' ) ); ?></time></header>
+	<?php if ( '0' === (string) $comment->comment_approved ) : ?>
+    <p class="av-comment__wait">Seu comentário está aguardando aprovação.</p>
+	<?php endif; ?>
+    <div class="av-comment__text"><?php comment_text(); ?></div>
+	<?php
+	comment_reply_link( array_merge( $args, array(
+		'depth'      => $depth,
+		'max_depth'  => $args['max_depth'],
+		'before'     => '<div class="av-comment__reply">',
+		'after'      => '</div>',
+		'reply_text' => 'Responder',
+	) ) );
+	?>
+  </article>
+	<?php
+}
+
 function aldeia_blog_url( $path ) {
 	return home_url( $path );
 }
@@ -113,7 +168,7 @@ function aldeia_blog_cartao() {
 /* Chamada final para a lista de espera. */
 function aldeia_blog_chamada() {
 	?>
-<section class="av-final av-mark av-mark--left"><div class="av-meander av-meander--top"></div><div class="av-wrap">
+<section class="av-final av-final--blog av-mark av-mark--left"><div class="av-meander av-meander--top"></div><div class="av-wrap">
   <h2 class="av-h2">Quer escrever o seu livro?</h2>
   <p>A Aldeia Literária é um curso on-line de escrita criativa para iniciantes. As matrículas abrem em janeiro de 2027. Por enquanto, temos apenas a lista de espera.</p>
   <p style="margin:32px auto 18px"><a class="av-btn" href="https://tally.so/r/0QNWPy">Entrar na lista de espera</a></p>

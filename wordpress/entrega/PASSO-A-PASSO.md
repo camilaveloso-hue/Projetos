@@ -6,7 +6,7 @@ Tudo o que você precisa subir está nesta pasta (`wordpress/entrega/`). Faça a
 
 | Arquivo | Para que serve |
 |---|---|
-| `aldeia-vendas.zip` | **Plugin** (versão 1.3.0). Guarda as fontes (agora a Libre Caslon), as imagens e o estilo. Reinstale por cima do atual. |
+| `aldeia-vendas.zip` | **Plugin** (versão 1.3.1). Guarda as fontes (agora a Libre Caslon), as imagens e o estilo. Reinstale por cima do atual. |
 | `home-v29.json` | Modelo do Elementor da **Home** (página de vendas), com plano único de 1 aula por semana e botões "Saiba mais". |
 | `sobre-v10.json` | Modelo do Elementor da página **Sobre**, com a nova fonte. |
 | `professores/camila-veloso.json`, `laura-marques.json`, `lucas-oliveira.json`, `lavinia-neres.json` | Modelos (v6) das **páginas individuais** dos professores, já com os endereços reais. |
@@ -31,7 +31,7 @@ Faça um backup do site (plugin de backup ou o da hospedagem). Nada abaixo apaga
 1. Painel do WordPress → **Plugins → Adicionar plugin → Enviar plugin**.
 2. Escolha `aldeia-vendas.zip` → **Instalar agora**.
 3. Quando aparecer "o plugin já existe", clique em **Substituir o atual pelo enviado**.
-4. Confirme que o plugin está **Ativo** e que a versão é **1.3.0**.
+4. Confirme que o plugin está **Ativo** e que a versão é **1.3.1**.
 
 ## Etapa 3 — Importar os modelos
 1. Abra `https://aaldeialiteraria.com.br/wp-admin/edit.php?post_type=elementor_library&tabs_group=library` (ou **Elementor → Modelos → Modelos salvos**).
@@ -134,7 +134,7 @@ Cada página é **um único bloco HTML**: o texto não se edita clicando nele. N
 
 | Problema | O que fazer |
 |---|---|
-| Página sem cores, botões verdes ou títulos em fonte comum | O plugin não está ativo ou há cache. Confirme em **Plugins** (versão 1.3.0), limpe o cache e teste em janela anônima |
+| Página sem cores, botões verdes ou títulos em fonte comum | O plugin não está ativo ou há cache. Confirme em **Plugins** (versão 1.3.1), limpe o cache e teste em janela anônima |
 | O botão "Saiba mais" leva a uma página "não encontrada" | O slug ou a página-mãe está diferente da tabela da Etapa 5. Confira o endereço e os **Links permanentes** (Etapa 4) |
 | Menu duplicado no topo | Falta o layout **Elementor Canvas** na página |
 | Imagens não aparecem | O plugin precisa estar ativo e a pasta se chama exatamente `aldeia-vendas` |

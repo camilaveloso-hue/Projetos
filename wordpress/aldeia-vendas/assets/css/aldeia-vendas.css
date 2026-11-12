@@ -1037,6 +1037,38 @@ body.av-page{margin:0}
 .av-author{display:block}
 .av-author strong,.av-author p{display:block}
 
+/* v27 — blog: chamada final em uma linha e comentários */
+.av-final--blog .av-h2{max-width:none;white-space:nowrap;font-size:clamp(1.3rem,5.2vw,2.3rem)}
+.av-final--blog .av-wrap{max-width:900px;margin-inline:auto;text-align:center}
+.av-final--blog p{margin-inline:auto}
+.av-comments{max-width:760px;margin-inline:auto}
+.av-comment-list,.av-comment-list .children{list-style:none;margin:0;padding:0}
+.av-comment-list .children{margin-left:28px;padding-left:18px;border-left:2px solid var(--av-line)}
+.av-comment{margin:0 0 16px}
+.av-comment__body{background:#fff;border:1px solid var(--av-line);border-radius:18px;padding:18px 22px;box-shadow:0 10px 26px rgba(13,55,86,.06)}
+.av-comment__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:8px}
+.av-comment__author{font:700 1rem var(--av-display);color:var(--av-navy)}
+.av-comment__head time{font:600 11px var(--av-ui);letter-spacing:.06em;color:var(--av-graphite);opacity:.7}
+.av-comment__wait{font:600 12px var(--av-ui);color:var(--av-terra-dark);margin:0 0 8px}
+.av-comment__text p{margin:0 0 .8em;max-width:none;font-size:1em;line-height:1.6}
+.av-comment__reply a{font:700 11px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--av-terra-dark);text-decoration:none;border:1.5px solid var(--av-terra);border-radius:99px;padding:6px 14px;display:inline-block}
+.av-comment__reply a:hover{background:var(--av-terra);color:#fff}
+.comment-respond{margin-top:36px;background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);padding:28px 30px;box-shadow:0 14px 34px rgba(13,55,86,.08)}
+.comment-reply-title{font:700 1.3rem var(--av-display);color:var(--av-navy);margin:0 0 14px}
+.comment-reply-title small a{font:600 11px var(--av-ui);margin-left:10px;color:var(--av-terra-dark)}
+.comment-form p{margin:0 0 16px;max-width:none}
+.comment-form label{display:block;font:600 12px var(--av-ui);letter-spacing:.04em;color:var(--av-graphite);margin-bottom:6px}
+.comment-form input[type=text],.comment-form input[type=email],.comment-form input[type=url],.comment-form textarea{width:100%;box-sizing:border-box;border:1.5px solid var(--av-line);border-radius:14px;padding:13px 16px;font:500 16px/1.5 var(--av-body);color:var(--av-graphite);background:#fff}
+.comment-form input:focus,.comment-form textarea:focus{outline:3px solid rgba(204,53,28,.25);border-color:var(--av-terra)}
+.comment-form .comment-notes{font:500 13px/1.5 var(--av-ui);opacity:.8}
+.comment-form-cookies-consent{display:flex;gap:10px;align-items:flex-start}
+.comment-form-cookies-consent input{margin-top:5px;flex:none}
+.comment-form-cookies-consent label{margin:0;font-weight:500}
+.av-page button.av-btn,.av-page input.av-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:16px 34px;background:var(--av-terra);color:#fff;border:0;border-radius:999px;font:600 14px/1.2 var(--av-ui);letter-spacing:.09em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 26px rgba(204,53,28,.34);transition:transform .15s,background .15s}
+.av-page button.av-btn:hover{background:var(--av-terra-dark);transform:translateY(-2px)}
+.av-pagination.comments-pagination,.comments-pagination{display:flex;gap:8px;justify-content:center;margin:20px 0}
+@media (max-width:767px){.comment-respond{padding:22px 18px}.av-comment-list .children{margin-left:12px;padding-left:12px}}
+
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
    Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).

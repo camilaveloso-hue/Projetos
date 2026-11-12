@@ -7,7 +7,7 @@ the_post();
 $cats  = get_the_category();
 $cat   = $cats ? $cats[0] : null;
 $blog  = get_option( 'page_for_posts' ) ? get_permalink( (int) get_option( 'page_for_posts' ) ) : home_url( '/blog/' );
-$bio   = get_the_author_meta( 'description' );
+$bio   = aldeia_blog_autor_bio();
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -24,7 +24,7 @@ $bio   = get_the_author_meta( 'description' );
   <div class="av-reveal">
     <p class="av-breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a> · <a href="<?php echo esc_url( $blog ); ?>">Blog</a><?php if ( $cat ) : ?> · <a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>"><?php echo esc_html( $cat->name ); ?></a><?php endif; ?></p>
     <h1 class="av-h1"><?php the_title(); ?></h1>
-    <p class="av-post__meta">Por <?php echo esc_html( get_the_author() ); ?> · <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'j \d\e F \d\e Y' ) ); ?></time> · <?php echo (int) aldeia_blog_tempo_leitura(); ?> min de leitura</p>
+    <p class="av-post__meta">Por <?php echo esc_html( aldeia_blog_autor() ); ?> · <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'j \d\e F \d\e Y' ) ); ?></time> · <?php echo (int) aldeia_blog_tempo_leitura(); ?> min de leitura</p>
   </div>
 </div></section>
 
@@ -35,12 +35,14 @@ $bio   = get_the_author_meta( 'description' );
   <div class="av-prose av-post__content"><?php the_content(); ?></div>
   <p class="av-updated">Atualizado em <?php echo esc_html( get_the_modified_date( 'j \d\e F \d\e Y' ) ); ?></p>
   <aside class="av-author">
-    <strong><?php echo esc_html( get_the_author() ); ?></strong>
+    <strong><?php echo esc_html( aldeia_blog_autor() ); ?></strong>
 	<?php if ( $bio ) : ?>
     <p><?php echo esc_html( $bio ); ?></p>
 	<?php endif; ?>
   </aside>
 </div></section>
+
+	<?php if ( comments_open() || get_comments_number() ) { comments_template(); } ?>
 
 	<?php
 	$rel = new WP_Query( array(
