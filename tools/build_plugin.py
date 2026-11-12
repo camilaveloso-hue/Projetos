@@ -45,6 +45,8 @@ if __name__ == "__main__":
     shutil.copy(os.path.join(A, "hero.jpg"), os.path.join(OUT, "assets/img/hero.jpg"))
     shutil.copy(os.path.join(A, "logo-medalhao.png"), os.path.join(OUT, "assets/img/logo-medalhao.png"))
     shutil.copy(os.path.join(ROOT, "tools/aldeia-vendas.php"), os.path.join(OUT, "aldeia-vendas.php"))
+    shutil.copytree(os.path.join(ROOT, "tools/blog/includes"), os.path.join(OUT, "includes"))
+    shutil.copytree(os.path.join(ROOT, "tools/blog/templates"), os.path.join(OUT, "templates"))
     with zipfile.ZipFile(ZIP, "w", zipfile.ZIP_DEFLATED) as z:
         for base, _, files in os.walk(OUT):
             for f in files:

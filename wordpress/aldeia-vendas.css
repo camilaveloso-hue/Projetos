@@ -943,3 +943,69 @@ a.av-book:focus-visible{outline:3px solid var(--av-terra);outline-offset:4px}
 .av-page .av-footer a.av-footer__mediabtn{display:inline-block;font:700 11px var(--av-ui);letter-spacing:.12em;text-transform:uppercase;color:#fff;border:1.5px solid rgba(244,235,221,.45);border-radius:99px;padding:10px 20px;transition:background .2s,border-color .2s}
 .av-page .av-footer a.av-footer__mediabtn:hover{background:var(--av-terra);border-color:var(--av-terra)}
 .av-page .av-footer p.av-footer__media{max-width:none;text-align:center;margin:0 0 18px}
+
+/* ==========================================================================
+   v26 — BLOG: lista de artigos, categoria e artigo individual
+   ========================================================================== */
+.av-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.av-post-card{background:#fff;border:1px solid var(--av-line);border-radius:var(--av-r);overflow:hidden;box-shadow:0 14px 34px rgba(13,55,86,.08);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.av-post-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(13,55,86,.16)}
+.av-post-card__img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--av-navy)}
+.av-post-card__img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.av-post-card:hover .av-post-card__img img{transform:scale(1.04)}
+.av-post-card__ph{display:block;width:100%;height:100%;background:var(--av-medal) center/42% no-repeat,radial-gradient(500px 260px at 80% 20%,rgba(204,53,28,.28),transparent 60%),linear-gradient(135deg,#051A2D,#0D3756)}
+.av-post-card__body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.av-tag{align-self:flex-start;font:700 10.5px var(--av-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--av-terra-dark);text-decoration:none;border:1.5px solid rgba(204,53,28,.45);border-radius:99px;padding:5px 12px}
+.av-tag:hover{background:var(--av-terra);color:#fff;border-color:var(--av-terra)}
+.av-post-card__title{font:700 1.2rem/1.3 var(--av-display);margin:0}
+.av-post-card__title a{color:var(--av-navy);text-decoration:none}
+.av-post-card__title a:hover{color:var(--av-terra-dark)}
+.av-post-card__meta{font:600 11px var(--av-ui);letter-spacing:.06em;color:var(--av-graphite);opacity:.75;margin:0;max-width:none}
+.av-post-card__excerpt{font-size:.97em;line-height:1.55;margin:0;max-width:none}
+.av-post-card .av-tmore{margin-top:auto;align-self:flex-start}
+.av-pagination{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:48px}
+.av-pagination a,.av-pagination span{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 12px;box-sizing:border-box;border:1.5px solid var(--av-line);border-radius:99px;font:700 13px var(--av-ui);color:var(--av-navy);text-decoration:none;background:#fff}
+.av-pagination a:hover{background:var(--av-terra);color:#fff;border-color:var(--av-terra)}
+.av-pagination .current{background:var(--av-navy);color:#fff;border-color:var(--av-navy)}
+.av-pagination .dots{border-color:transparent;background:transparent}
+
+/* artigo */
+.av-post__meta{font:600 12px/1.5 var(--av-ui);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin:6px 0 0;max-width:none}
+.av-post .av-hero--prof .av-h1{max-width:20em}
+.av-post__cover{margin:0 auto 44px;max-width:980px}
+.av-post__cover img{display:block;width:100%;height:auto;border-radius:28px;box-shadow:0 26px 60px rgba(13,55,86,.25)}
+.av-post__content{max-width:760px;margin-inline:auto;font-size:1.12em;line-height:1.75}
+.av-post__content>*{max-width:100%}
+.av-post__content h2{font:700 clamp(1.4rem,2.6vw,1.9rem)/1.25 var(--av-display);color:var(--av-navy);margin:2.2em 0 .6em}
+.av-post__content h3{font:700 1.25rem/1.3 var(--av-display);color:var(--av-navy);margin:1.8em 0 .5em}
+.av-post__content p{margin:0 0 1.2em;max-width:none}
+.av-post__content ul,.av-post__content ol{margin:0 0 1.4em;padding-left:1.4em}
+.av-post__content li{margin-bottom:.5em}
+.av-post__content a{color:var(--av-terra-dark);text-decoration:underline;text-underline-offset:3px}
+.av-post__content blockquote,.av-post__content .wp-block-quote{margin:1.8em 0;padding:6px 0 6px 24px;border-left:4px solid var(--av-terra);font-size:1.08em;color:var(--av-navy)}
+.av-post__content blockquote p{margin:0 0 .6em}
+.av-post__content figure,.av-post__content .wp-block-image{margin:2em 0}
+.av-post__content img{display:block;max-width:100%;height:auto;border-radius:18px}
+.av-post__content figcaption{font:500 12px/1.5 var(--av-ui);color:var(--av-graphite);opacity:.75;margin-top:8px;text-align:center}
+.av-post__content hr{border:0;height:14px;margin:2.4em 0;background:var(--av-meander) repeat-x center/auto 14px;opacity:.6}
+.av-post__content table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:.95em}
+.av-post__content th,.av-post__content td{border:1px solid var(--av-line);padding:10px 12px;text-align:left}
+.av-post__content th{background:rgba(13,55,86,.06);font:700 12px var(--av-ui);letter-spacing:.06em;text-transform:uppercase}
+.av-post__content .wp-block-button__link{display:inline-block;background:var(--av-terra);color:#fff;border-radius:99px;padding:14px 30px;font:700 13px var(--av-ui);letter-spacing:.07em;text-transform:uppercase;text-decoration:none}
+.av-author{max-width:760px;margin:44px auto 0;padding:22px 26px;background:#fff;border:1px solid var(--av-line);border-left:4px solid var(--av-terra);border-radius:18px}
+.av-author strong{font:700 1.05rem var(--av-display);color:var(--av-navy)}
+.av-author p{margin:6px 0 0;font-size:.95em;line-height:1.55}
+.av-post .av-updated{max-width:760px;margin:28px auto 0}
+
+@media (max-width:1024px){.av-posts{grid-template-columns:1fr 1fr}}
+@media (max-width:767px){
+  .av-posts{grid-template-columns:1fr;gap:18px}
+  .av-post-card__body{padding:18px 20px 22px}
+  .av-post__cover{margin-bottom:30px}
+  .av-post__cover img{border-radius:20px}
+  .av-post__content{font-size:1.05em}
+}
+body.av-page{margin:0}
+.av-post__cover img{aspect-ratio:16/9;object-fit:cover}
+.av-author{display:block}
+.av-author strong,.av-author p{display:block}
