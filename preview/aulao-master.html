@@ -23,6 +23,7 @@
   --ink:#111111; --slate:#3a5568; --paper:#fff8f2; --sky:#b9d4e8;
   --f-title:"Outfit","Helvetica Neue",Arial,sans-serif;
   --f-body:"Figtree","Helvetica Neue",Arial,sans-serif;
+  --meander:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23083656' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");--meander-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23FFFFFF' stroke-width='1.6' stroke-linecap='square'%3E%3Cpath d='M0 13H28M3 13V2H20V9H11V5.5H15'/%3E%3C/svg%3E");
   --r:18px; --r-sm:12px; --gut:max(20px,env(safe-area-inset-left,0px));
 }
 html{scroll-behavior:smooth;color-scheme:light}
@@ -64,20 +65,26 @@ p{margin:0}
 .am-is-closed .am-closed{display:block}
 .am-is-closed .am-open{display:none!important}
 
-/* topo */
-.am-top{background:var(--navy)}
-.am-top .am-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
-.am-logo img{height:44px;width:auto}
+/* topo (cabeçalho no padrão do site da Aldeia) */
+.am-top{background:#fff;border-bottom:1px solid var(--line)}
+.am-top .am-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.am-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);font-family:var(--f-title);font-weight:600;font-size:1.3rem;letter-spacing:-.01em;white-space:nowrap}
+.am-brand img{width:46px;height:46px}
+.am-nav{display:flex;gap:30px;margin-inline:auto}
+.am-nav a{font-family:var(--f-body);font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);text-decoration:none;padding:8px 2px;border-bottom:2px solid transparent}
+.am-nav a:hover{border-bottom-color:var(--red)}
 .am-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:var(--paper);font-family:var(--f-title);font-weight:700;font-size:1.05rem;text-decoration:none;padding:15px 26px;border-radius:14px;border:0;cursor:pointer;line-height:1.2;text-align:center;transition:background .2s,transform .2s}
 .am-btn:hover{background:var(--red-dark);transform:translateY(-1px)}
-.am-btn:focus-visible,.am-faq summary:focus-visible,a:focus-visible{outline:3px solid var(--paper);outline-offset:3px;box-shadow:0 0 0 6px var(--navy-2)}
+a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--navy-2);outline-offset:3px}
+.am-hero a:focus-visible,.am-band--navy a:focus-visible,.am-band--red a:focus-visible,.am-footer a:focus-visible,.am-alert a:focus-visible{outline-color:var(--paper)}
 .am-btn--sm{padding:11px 18px;font-size:.95rem}
 .am-btn--xl{font-size:1.2rem;padding:18px 32px;width:100%}
 .am-btn--light{background:var(--paper);color:var(--red)}
 .am-btn--light:hover{background:#fff}
+.am-btn--navy{background:var(--navy)}.am-btn--navy:hover{background:var(--navy-2)}
 
 /* hero */
-.am-hero{background:var(--navy);padding-block:clamp(32px,5vw,64px) clamp(56px,7vw,96px);overflow:hidden}
+.am-hero{background:var(--navy);padding-block:clamp(32px,5vw,64px) clamp(96px,10vw,140px);overflow:hidden}
 .am-hero__grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,5vw,72px);align-items:center}
 .am-hero h1{color:var(--paper)}
 .am-h1__big{display:block;font-size:clamp(2.7rem,7.2vw,5.4rem);font-weight:800;letter-spacing:-.03em;line-height:.98}
@@ -98,12 +105,15 @@ p{margin:0}
 .am-tag{position:absolute;z-index:2;left:-14px;bottom:28px;background:var(--paper);color:var(--navy);font-family:var(--f-title);font-weight:700;font-size:.95rem;padding:10px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);line-height:1.2}
 .am-tag small{display:block;font-family:var(--f-body);font-weight:500;color:var(--slate);font-size:.8rem}
 
-/* faixa de fatos */
-.am-facts{background:var(--paper);border-bottom:1px solid var(--line)}
-.am-facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.am-facts li{padding:22px 18px;border-left:1px solid var(--line);font-size:.95rem;line-height:1.35}
-.am-facts li:first-child{border-left:0;padding-left:0}
-.am-facts b{display:block;font-family:var(--f-title);color:var(--navy);font-size:1.05rem;margin-bottom:2px}
+/* números da Aldeia (card sobre o fim do topo, como na Home) */
+.am-stats{position:relative;z-index:2;margin-top:-64px;padding-bottom:clamp(8px,2vw,24px)}
+.am-stats__card{position:relative;background:#fff;border-radius:22px;box-shadow:0 24px 60px rgba(8,54,86,.16);padding:34px 8px 22px}
+.am-stats__card::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--meander) repeat-x center/28px 14px;opacity:.9;border-radius:22px 22px 0 0}
+.am-stats ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.am-stats li{text-align:center;padding:6px 18px;border-left:1px solid var(--line);display:grid;gap:4px;align-content:start}
+.am-stats li:first-child{border-left:0}
+.am-stats b{font-family:var(--f-title);font-weight:800;font-size:clamp(2rem,3.6vw,2.8rem);color:var(--navy);line-height:1.05;letter-spacing:-.02em}
+.am-stats span{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);line-height:1.4}
 
 /* resposta direta */
 .am-answer{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
@@ -224,14 +234,44 @@ p{margin:0}
 .am-structure article:nth-child(1){background:#0f2b5c}.am-structure article:nth-child(2){background:#11406f}.am-structure article:nth-child(3){background:#125982}.am-structure article:nth-child(4){background:var(--teal)}
 .am-profs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
 .am-prof{background:var(--navy-2);border-radius:16px;padding:20px 14px;text-align:center;display:grid;gap:8px;justify-items:center;align-content:start}
-.am-prof i{font-style:normal;width:68px;height:68px;border-radius:50%;background:var(--paper);color:var(--navy);display:grid;place-items:center;font-family:var(--f-title);font-weight:800;font-size:1.4rem}
-.am-prof:first-child i{background:var(--red);color:var(--paper)}
+.am-prof{padding:10px 10px 18px}
+.am-prof img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:12px;margin-bottom:6px;background:var(--navy)}
 .am-prof h3{font-size:1.05rem;color:var(--paper)}
 .am-prof p{font-size:.84rem;line-height:1.35;color:var(--sky)}
 .am-modules{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line)}
 .am-modules li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:8px 32px;padding:14px 0;border-bottom:1px solid var(--line)}
 .am-modules b{font-family:var(--f-title);color:var(--navy);font-size:1.1rem}
 .am-modules small{display:block;font-family:var(--f-body);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-size:.7rem;margin-bottom:2px}
+
+/* livros dos alunos */
+.am-books{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px}
+.am-books img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:8px;box-shadow:0 10px 24px rgba(8,54,86,.22);background:var(--sand)}
+.am-books li:nth-child(even){transform:translateY(10px)}
+
+/* depoimentos */
+.am-quotes{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-top:36px}
+.am-quote{margin:0;background:var(--navy-2);border-radius:20px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.am-quote blockquote{margin:0}
+.am-quote p{color:var(--paper);font-size:1.02rem;line-height:1.55}
+.am-quote--lead{grid-row:1/3;background:var(--red)}
+.am-quote--lead p{font-family:var(--f-title);font-weight:500;font-size:1.2rem;line-height:1.5}
+.am-quote figcaption{display:grid;gap:2px;font-size:.88rem;color:var(--sky)}
+.am-quote--lead figcaption{color:var(--paper)}
+.am-quote figcaption strong{font-family:var(--f-title);color:var(--paper);font-size:1rem}
+
+/* galeria da comunidade */
+.am-gallery{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.am-gallery img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:14px;background:var(--sand)}
+
+/* certificado */
+.am-cert{display:grid;grid-template-columns:190px 1fr;gap:clamp(20px,4vw,44px);align-items:center;background:var(--paper);border-radius:22px;padding:clamp(20px,3vw,32px);margin-top:44px;border:1px solid var(--line)}
+.am-cert img{width:100%;height:auto;border-radius:10px;box-shadow:0 12px 28px rgba(8,54,86,.2)}
+.am-cert h3{font-size:1.5rem;color:var(--navy);margin-bottom:10px}
+
+/* na mídia */
+.am-band--paper{background:var(--paper)}
+.am-press{list-style:none;margin:28px auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:880px}
+.am-press li{font-family:var(--f-title);font-weight:600;color:var(--navy);background:var(--cream);border:1px solid var(--line);border-radius:99px;padding:10px 20px;font-size:1rem}
 
 /* faq */
 .am-faq{display:grid;gap:10px;max-width:860px;margin:36px auto 0}
@@ -250,13 +290,23 @@ p{margin:0}
 .am-final .am-count{margin-top:22px}
 .am-final .am-btn{margin-top:22px;max-width:460px}
 .am-band--red .am-photo::before{background:var(--navy)}
+.am-mark{position:relative;overflow:hidden}
+.am-mark::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--meander-light) repeat-x center/28px 14px;opacity:.6}
+.am-mark::after{content:"";position:absolute;left:-190px;top:50%;width:560px;height:560px;transform:translateY(-50%);background:url(aulao/img/medalhao.png) center/contain no-repeat;opacity:.1;pointer-events:none}
+.am-mark .am-wrap{position:relative;z-index:1}
 .am-final .am-photo img{object-position:50% 28%}
 
-/* rodapé */
-.am-footer{background:var(--navy-deep);color:var(--sky);padding-block:36px 96px;font-size:.88rem;line-height:1.6}
-.am-footer .am-wrap{display:grid;gap:14px}
-.am-footer img{height:38px;width:auto}
-.am-footer a{color:var(--paper)}
+/* rodapé (padrão do site da Aldeia) */
+.am-footer{background:var(--navy-deep);color:rgba(246,241,236,.78);padding-block:40px 104px;font-size:.88rem;line-height:1.7;text-align:center}
+.am-footer .am-wrap{display:grid;gap:12px;justify-items:center}
+.am-footer p{margin:0}
+.am-footer a{color:inherit;text-decoration:none}
+.am-footer p a:hover{text-decoration:underline}
+.am-footer__social{display:flex;gap:14px;justify-content:center}
+.am-footer a.am-footer__ico{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(246,241,236,.45);color:#fff;transition:background .2s,border-color .2s}
+.am-footer a.am-footer__ico:hover{background:var(--red);border-color:var(--red)}
+.am-footer a.am-footer__media{display:inline-block;font-family:var(--f-body);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;border:1.5px solid rgba(246,241,236,.45);border-radius:99px;padding:10px 20px}
+.am-footer a.am-footer__media:hover{background:var(--red);border-color:var(--red);text-decoration:none}
 
 /* barra de compra fixa no celular */
 .am-sticky{position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--navy-deep);border-top:1px solid rgba(255,248,242,.18);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .3s}
@@ -269,13 +319,21 @@ p{margin:0}
 @keyframes amUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
 @media (max-width:960px){
+  .am-nav{display:none}
+  .am-top .am-wrap{justify-content:space-between}
+  .am-books{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:6px 4px 22px;margin-inline:calc(-1 * var(--gut))}
+  .am-books li{flex:0 0 38%;max-width:170px;scroll-snap-align:center}
+  .am-books li:nth-child(even){transform:none}
+  .am-quotes{grid-template-columns:1fr 1fr}
+  .am-quote--lead{grid-row:auto;grid-column:1/-1}
+  .am-stats ul{grid-template-columns:1fr 1fr;row-gap:22px}
+  .am-stats li:nth-child(3){border-left:0}
+  .am-cert{grid-template-columns:140px 1fr}
   .am-hero__grid,.am-answer,.am-about,.am-offer,.am-final{grid-template-columns:1fr}
   .am-hero__photo{max-width:420px;margin-inline:auto;width:calc(100% - 20px)}
   .am-final .am-photo{max-width:420px;margin-inline:auto;width:calc(100% - 20px);order:-1}
   .am-about .am-photo{max-width:420px;margin-inline:auto;width:calc(100% - 20px)}
   .am-block{grid-template-columns:1fr}
-  .am-facts ul{grid-template-columns:1fr 1fr}
-  .am-facts li:nth-child(odd){border-left:0;padding-left:0}
   .am-structure{grid-template-columns:1fr 1fr}
   .am-profs{grid-template-columns:repeat(3,minmax(0,1fr))}
   .am-sticky{display:flex}
@@ -295,7 +353,11 @@ p{margin:0}
   .am-ladder div{font-size:.66rem;padding:8px 4px}
   .am-ladder small{display:none}
   .am-tag{left:-6px}
-  .am-top .am-btn{display:none}
+  .am-brand{font-size:1.1rem}.am-brand img{width:38px;height:38px}
+  .am-quotes{grid-template-columns:1fr}
+  .am-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .am-cert{grid-template-columns:1fr}.am-cert img{max-width:170px}
+  .am-stats li{padding-inline:8px}
   .am-alert__txt{font-size:.88rem}
   .am-count span{padding:2px 7px;font-size:.95rem}
 }
@@ -308,7 +370,8 @@ p{margin:0}
 </div></div>
 
 <header class="am-top"><div class="am-wrap">
-  <a class="am-logo" href="https://aaldeialiteraria.com.br/" aria-label="Camila Veloso"><img src="aulao/img/logo-camila-veloso-branco.png" alt="Camila Veloso" width="132" height="44"></a>
+  <a class="am-brand" href="https://aaldeialiteraria.com.br/" aria-label="Aldeia Literária, página inicial"><img src="aulao/img/medalhao.png" alt="" width="46" height="46"><span>Aldeia Literária</span></a>
+  <nav class="am-nav" aria-label="Principal"><a href="https://aaldeialiteraria.com.br/">Início</a><a href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a><a href="https://aaldeialiteraria.com.br/como-escolher-curso-de-escrita-criativa/">Guia</a><a href="https://aaldeialiteraria.com.br/imprensa/">Imprensa</a></nav>
   <a class="am-btn am-btn--sm am-open" href="#oferta">Quero o aulão</a>
 </div></header>
 
@@ -334,12 +397,12 @@ p{margin:0}
   </div>
 </div></section>
 
-<section class="am-facts" aria-label="Resumo do aulão"><div class="am-wrap"><ul>
-  <li><b>Aula gravada</b>Assista no seu ritmo, depois da confirmação do pagamento.</li>
-  <li><b>6 blocos</b>Do esqueleto da história até os próximos passos.</li>
-  <li><b>Para iniciantes</b>Você não precisa ter nada escrito para começar.</li>
-  <li><b>Sai do ar em 30/11</b>Venda só até 23h59 (horário de Brasília).</li>
-</ul></div></section>
+<section class="am-stats" aria-label="A Aldeia Literária em números"><div class="am-wrap"><div class="am-stats__card"><ul>
+  <li><b>+400</b><span>escritores estudaram aqui</span></li>
+  <li><b>2023</b><span>ano de fundação da Aldeia Literária</span></li>
+  <li><b>120h</b><span>de extensão universitária, com certificado Anhanguera</span></li>
+  <li><b>6h</b><span>de aula ao vivo por mês + atividades práticas semanais</span></li>
+</ul></div></div></section>
 
 <section class="am-band" id="o-que-e" aria-labelledby="t-oque"><div class="am-wrap am-answer">
   <div>
@@ -398,16 +461,7 @@ p{margin:0}
   <div class="am-ladder"><div class="l0">O básico<small>você está aqui</small></div><div class="l1">Módulo I<small>Fundamentos da narrativa</small></div><div class="l2">Módulo II<small>Técnicas avançadas</small></div><div class="l3">Módulo III<small>Processos criativos</small></div><div class="l4">Módulo IV<small>Gramática e produção literária</small></div><div class="l5">Módulo V<small>Publicação independente</small></div></div></article></div>
 </div></section>
 
-<section class="am-band am-band--navy" id="depoimentos" aria-labelledby="t-dep"><div class="am-wrap">
-  <div class="am-center"><p class="am-eyebrow">Quem já escreve com a Aldeia</p><h2 class="am-h2" id="t-dep">O que dizem os escritores</h2></div>
-  <div class="am-proof">
-    <div class="am-slot"><div><b>Depoimento em vídeo 1</b>Espaço reservado. Envie o vídeo ou o print.</div></div>
-    <div class="am-slot"><div><b>Depoimento em vídeo 2</b>Espaço reservado. Envie o vídeo ou o print.</div></div>
-    <div class="am-slot"><div><b>Depoimento em vídeo 3</b>Espaço reservado. Envie o vídeo ou o print.</div></div>
-  </div>
-</div></section>
-
-<section class="am-band am-band--navy" style="padding-top:0" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap am-about">
+<section class="am-band am-band--navy" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap am-about">
   <div class="am-photo"><img src="aulao/img/camila-oculos-livros.jpg" alt="Camila Veloso de óculos laranja segurando uma pilha de livros" width="898" height="1600" loading="lazy"></div>
   <div>
     <p class="am-eyebrow">Quem sou eu</p>
@@ -419,6 +473,24 @@ p{margin:0}
       <li>Ajudo escritores iniciantes a desenvolver e publicar seus livros</li>
       <li><a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a></li>
     </ul>
+  </div>
+</div></section>
+
+
+<section class="am-band" id="livros" aria-labelledby="t-livros"><div class="am-wrap">
+  <div class="am-center"><p class="am-eyebrow">Comunidade de autores</p><h2 class="am-h2" id="t-livros">Livros escritos aqui</h2>
+  <p class="am-lede" style="margin-top:14px">Alguns dos livros de escritores que passaram pela Aldeia Literária.</p></div>
+  <ul class="am-books"><li><img src="aulao/img/livro-querida-tia-liz.jpg" alt="Capa do livro Querida Tia Liz, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-dois-lados-da-coroa.jpg" alt="Capa do livro Os Dois Lados da Coroa, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-violeta.jpg" alt="Capa do livro Violeta, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-dinamene-e-gavita.jpg" alt="Capa do livro Dinamene &amp; Gavita, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-ultimo-natal-com-ela.jpg" alt="Capa do livro O Último Natal com Ela, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-melhores-anos.jpg" alt="Capa do livro Os Melhores Anos de Nossas Vidas, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-resgate-de-muriel.jpg" alt="Capa do livro O Resgate de Muriel, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-inconfidencia-da-magia.jpg" alt="Capa do livro A Inconfidência da Magia, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-sombras-que-me-vestem.jpg" alt="Capa do livro As Sombras que me Vestem, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-formula-encontro-perfeito.jpg" alt="Capa do livro A Fórmula do Encontro Perfeito, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-perdida-em-teu-olhar.jpg" alt="Capa do livro Perdida em teu olhar, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-desejei-as-estrelas.jpg" alt="Capa do livro Desejei às Estrelas, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-estrelas-do-cosme-velho.jpg" alt="Capa do livro Estrelas do Cosme Velho, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li><li><img src="aulao/img/livro-quando-as-sombras-falam.jpg" alt="Capa do livro Quando as Sombras Falam, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li></ul>
+</div></section>
+
+<section class="am-band am-band--navy" id="depoimentos" aria-labelledby="t-dep"><div class="am-wrap">
+  <div class="am-center"><p class="am-eyebrow">Quem já escreve com a Aldeia</p><h2 class="am-h2" id="t-dep">O que dizem as pessoas da Aldeia</h2></div>
+  <div class="am-quotes">
+    <figure class="am-quote am-quote--lead"><blockquote><p>Camila, queria agradecer por essas aulas. Minha mente evoluiu muito com essas descobertas, mas o mais importante é que eu consegui me encontrar na escrita, ter paciência comigo mesmo e me cobrar menos. Obrigado por ser tão lendária, a escrita tem um lugar no meu coração e agora irá desbravar o mundo comigo!</p></blockquote><figcaption><strong>Jader Emmanuel</strong></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>uma das coisas mais daora da aldeia (pra mim) é vc perceber q vc n ta sozinha e tem MT gnt kakak como vc</p></blockquote><figcaption><strong>Carlos Thomaz Evangelista</strong></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>A Cami é a melhor prof que a gente poderia ter no mundo todo, perfeita</p></blockquote><figcaption><strong>Taty Fe Rocha</strong></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>Falou tudo Taty, Camila tem um lugarzinho especial no coração de todos nós</p></blockquote><figcaption><strong>Martina Vian</strong><span>autora de Desejei às Estrelas</span></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>A Cami é um anjo! O propósito dela é lindo e isso faz dela incrível!</p></blockquote><figcaption><strong>Ingrid Maitê</strong></figcaption></figure>
   </div>
 </div></section>
 
@@ -454,6 +526,7 @@ p{margin:0}
 <section class="am-band am-band--sand" id="aldeia" aria-labelledby="t-aldeia"><div class="am-wrap">
   <div class="am-center"><p class="am-eyebrow">Onde a escalada continua</p><h2 class="am-h2" id="t-aldeia">Aldeia Literária: do zero à publicação, em comunidade</h2>
   <p class="am-lede" style="margin-top:14px">Curso online de escrita criativa para escritores iniciantes, com extensão universitária de 120 horas e certificado emitido pela Anhanguera. Aulas ao vivo e gravadas, atividades e feedback individual.</p></div>
+  <ul class="am-gallery" aria-label="A comunidade da Aldeia em encontros presenciais"><li><img src="aulao/img/comunidade-01.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li><li><img src="aulao/img/comunidade-02.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li><li><img src="aulao/img/comunidade-04.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li><li><img src="aulao/img/comunidade-05.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li><li><img src="aulao/img/comunidade-07.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li><li><img src="aulao/img/comunidade-10.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li><li><img src="aulao/img/comunidade-12.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li><li><img src="aulao/img/comunidade-18.jpg" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li></ul>
   <div class="am-structure">
     <article><h3>Aulas ao vivo</h3><p>Quartas-feiras, às 19h30. 12 aulas por módulo, todas gravadas.</p></article>
     <article><h3>Feedback</h3><p>4 atividades por mês, com retorno individual sobre o seu texto.</p></article>
@@ -468,14 +541,15 @@ p{margin:0}
     <li><div><small>Módulo V</small><b>Publicação independente</b></div><span>Oportunidades, fornecedores e estratégias de autopublicação e mercado editorial.</span></li>
   </ol>
   <div class="am-center" style="margin-top:44px"><p class="am-eyebrow">Quem caminha com você</p><h3 class="am-h2" style="font-size:clamp(1.6rem,3vw,2.2rem)">Professores da Aldeia</h3></div>
-  <div class="am-profs">
-    <div class="am-prof"><i>CV</i><h3>Camila Veloso</h3><p>Fundadora e mediadora das aulas. Produtora editorial (UFSM).</p></div>
-    <div class="am-prof"><i>LM</i><h3>Laura Marques</h3><p>Produtora editorial e leitora crítica (UFSM).</p></div>
-    <div class="am-prof"><i>LO</i><h3>Lucas Oliveira</h3><p>Mestre e doutor em Literatura Portuguesa (UFRJ).</p></div>
-    <div class="am-prof"><i>LN</i><h3>Lavínia Neres</h3><p>Produtora editorial, bacharel em Letras e mestra em Comunicação (UFSM).</p></div>
-    <div class="am-prof"><i>AR</i><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens (CEFET-MG).</p></div>
-  </div>
+  <div class="am-profs"><div class="am-prof"><img src="aulao/img/prof-camila.jpg" alt="Foto de Camila Veloso" width="300" height="375" loading="lazy"><h3>Camila Veloso</h3><p>Fundadora e mediadora das aulas. Produtora editorial (UFSM).</p></div><div class="am-prof"><img src="aulao/img/prof-laura.jpg" alt="Foto de Laura Marques" width="300" height="375" loading="lazy"><h3>Laura Marques</h3><p>Produtora editorial e leitora crítica (UFSM).</p></div><div class="am-prof"><img src="aulao/img/prof-lucas.jpg" alt="Foto de Lucas Oliveira" width="300" height="375" loading="lazy"><h3>Lucas Oliveira</h3><p>Mestre e doutor em Literatura Portuguesa (UFRJ).</p></div><div class="am-prof"><img src="aulao/img/prof-lavinia.jpg" alt="Foto de Lavínia Neres" width="300" height="375" loading="lazy"><h3>Lavínia Neres</h3><p>Produtora editorial, bacharel em Letras e mestra em Comunicação (UFSM).</p></div><div class="am-prof"><img src="aulao/img/prof-ana.jpg" alt="Foto de Ana Ribeiro" width="300" height="375" loading="lazy"><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens (CEFET-MG).</p></div></div>
+  <div class="am-cert"><img src="aulao/img/certificados.jpg" alt="Certificado de extensão universitária da Aldeia Literária" width="190" height="285" loading="lazy"><div><h3>Certificado emitido pela Anhanguera</h3><p>A Aldeia Literária é um curso de extensão universitária com carga horária de 120h, reconhecida pelo MEC, em parceria com a Anhanguera. Ao concluir o curso, você recebe o seu certificado, emitido pela Anhanguera. Não é um curso de graduação ou de pós-graduação.</p></div></div>
   <p class="am-center" style="margin-top:28px;font-family:var(--f-title);font-weight:700;color:var(--navy);font-size:1.15rem">Matrículas abrem em janeiro de 2027. Vagas limitadas.</p>
+</div></section>
+
+<section class="am-band am-band--paper" id="midia" aria-labelledby="t-midia"><div class="am-wrap am-center">
+  <p class="am-eyebrow">Imprensa</p><h2 class="am-h2" id="t-midia">Aldeia Literária na mídia</h2>
+  <ul class="am-press"><li>PublishNews</li><li>Digestivo Cultural</li><li>Leia Já</li><li>Hoje PR</li><li>Reino Literário</li><li>O Candeeiro</li><li>Jornal Folk</li><li>Gazeta da Semana</li></ul>
+  <p style="margin-top:26px"><a class="am-btn am-btn--navy am-btn--sm" href="https://aaldeialiteraria.com.br/imprensa/">Ver todas as matérias</a></p>
 </div></section>
 
 <section class="am-band" id="duvidas" aria-labelledby="t-faq"><div class="am-wrap">
@@ -483,7 +557,7 @@ p{margin:0}
   <div class="am-faq"><details open><summary>O que é o AULÃO MASTER?</summary><div class="am-ans"><p>O AULÃO MASTER é uma aula gravada de Camila Veloso, fundadora da Aldeia Literária, que reúne o básico da narrativa para quem quer escrever um livro: os três atos e o arco do personagem, o checklist de 9 passos até o final, a função de uma história, as formas de história (linear, sinuosa e explosiva) e como escrever a premissa.</p></div></details><details open><summary>Para quem é o AULÃO MASTER?</summary><div class="am-ans"><p>Para quem está começando e quer escrever o primeiro livro, mas não sabe por onde começar. Você não precisa ter nada pronto, só vontade de contar uma história. Quem já domina estrutura narrativa vai rever a base, e a Aldeia Literária oferece módulos mais avançados.</p></div></details><details open><summary>Quanto custa e até quando posso comprar?</summary><div class="am-ans"><p>O AULÃO MASTER custa R$ 97 na Black Friday. A venda vai de 23/11 até 30/11, às 23h59 (horário de Brasília). Depois disso, a aula sai do ar e não será vendida novamente.</p></div></details><details open><summary>Como eu assisto à aula?</summary><div class="am-ans"><p>A aula é gravada. Depois da confirmação do pagamento, você recebe o acesso e assiste no seu ritmo, quantas vezes quiser dentro do período de acesso informado na compra.</p></div></details><details open><summary>Qual é o bônus de quem compra no primeiro dia?</summary><div class="am-ans"><p>Quem comprar na segunda-feira, 23/11, ganha 50% de desconto na matrícula da Aldeia Literária 2027. As matrículas abrem em janeiro de 2027, com vagas limitadas. A partir de 24/11 o bônus deixa de valer.</p></div></details><details open><summary>Posso pedir reembolso?</summary><div class="am-ans"><p>Sim. Você tem 7 dias corridos após a compra para desistir e pedir o reembolso do valor pago. As regras completas estão na <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">política de cancelamento e reembolso</a>.</p></div></details><details open><summary>Qual é a diferença entre o AULÃO MASTER e a Aldeia Literária?</summary><div class="am-ans"><p>O AULÃO MASTER é uma aula única, gravada, sobre o básico da narrativa. A Aldeia Literária é a escola e comunidade de escrita criativa: cinco módulos de 12 aulas, aulas ao vivo às quartas-feiras, às 19h30, todas gravadas, com atividades e feedback individual.</p></div></details><details open><summary>Quem dá a aula?</summary><div class="am-ans"><p>Camila Veloso, fundadora e diretora da Aldeia Literária. Ela é formada em Comunicação Social, Produção Editorial (UFSM), tem mais de seis anos de experiência em marketing e conteúdo e ajuda escritores iniciantes a desenvolver e publicar seus livros.</p></div></details></div>
 </div></section>
 
-<section class="am-band am-band--red" id="comprar" aria-labelledby="t-final"><div class="am-wrap am-final">
+<section class="am-band am-band--red am-mark" id="comprar" aria-labelledby="t-final"><div class="am-wrap am-final">
   <div>
     <p class="am-eyebrow">Última chamada</p>
     <h2 id="t-final">Escreva o seu livro. O primeiro passo custa R$ 97.</h2>
@@ -496,9 +570,13 @@ p{margin:0}
 </main>
 
 <footer class="am-footer"><div class="am-wrap">
-  <img src="aulao/img/logo-camila-veloso-branco.png" alt="Camila Veloso" width="115" height="38" loading="lazy">
-  <p>© Aldeia Literária · Curso de escrita criativa para iniciantes · Todos os direitos reservados</p>
-  <p><a href="https://aaldeialiteraria.com.br/">Aldeia Literária</a> · <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Cancelamento e reembolso</a> · <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a></p>
+  <div class="am-footer__social" aria-label="Redes sociais da Aldeia Literária">
+    <a class="am-footer__ico" href="https://www.instagram.com/aldeialiteraria.oficial/" target="_blank" rel="noopener noreferrer me" aria-label="Instagram da Aldeia Literária"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a class="am-footer__ico" href="https://www.tiktok.com/@aldeialiteraria" target="_blank" rel="noopener noreferrer me" aria-label="TikTok da Aldeia Literária"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+  </div>
+  <p><a class="am-footer__media" href="https://aaldeialiteraria.com.br/imprensa/">Aldeia Literária na mídia</a></p>
+  <p><a href="https://aaldeialiteraria.com.br/">Início</a> · <a href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a> · <a href="https://aaldeialiteraria.com.br/como-escolher-curso-de-escrita-criativa/">Guia</a> · <a href="https://aaldeialiteraria.com.br/imprensa/">Imprensa</a> · <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Cancelamento e reembolso</a></p>
+  <p>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados</p>
   <p>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</p>
 </div></footer>
 

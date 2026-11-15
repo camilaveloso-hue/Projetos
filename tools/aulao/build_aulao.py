@@ -19,6 +19,11 @@ CHECKOUT = "#oferta"           # TROCAR pelo link do checkout quando a plataform
 CANC = SITE + "/politica-de-cancelamento-e-reembolso/"
 WAIT = "https://tally.so/r/0QNWPy"
 INSTA = "https://www.instagram.com/acamiveloso/"
+INSTA_ALDEIA = "https://www.instagram.com/aldeialiteraria.oficial/"
+TIKTOK = "https://www.tiktok.com/@aldeialiteraria"
+GUIA = SITE + "/como-escolher-curso-de-escrita-criativa/"
+IMP = SITE + "/imprensa/"
+SOBRE = SITE + "/novo-sobre/"
 TITLE = "AULÃO MASTER: tudo o que você precisa saber para conseguir escrever um livro"
 DESC = ("Aulão gravado de Camila Veloso, fundadora da Aldeia Literária: os três atos, o checklist de 9 passos, "
         "as formas de história e como escrever a premissa. R$ 97 na Black Friday, até 30/11.")
@@ -160,6 +165,26 @@ def page():
         "Escolher a forma da sua história: linear, sinuosa ou explosiva.",
         "Resumir o livro em uma premissa de uma frase e desenhar o arco do personagem.",
     ]
+
+    books = [("querida-tia-liz", "Querida Tia Liz"), ("dois-lados-da-coroa", "Os Dois Lados da Coroa"), ("violeta", "Violeta"),
+             ("dinamene-e-gavita", "Dinamene & Gavita"), ("ultimo-natal-com-ela", "O Último Natal com Ela"),
+             ("melhores-anos", "Os Melhores Anos de Nossas Vidas"), ("resgate-de-muriel", "O Resgate de Muriel"),
+             ("inconfidencia-da-magia", "A Inconfidência da Magia"), ("sombras-que-me-vestem", "As Sombras que me Vestem"),
+             ("formula-encontro-perfeito", "A Fórmula do Encontro Perfeito"), ("perdida-em-teu-olhar", "Perdida em teu olhar"),
+             ("desejei-as-estrelas", "Desejei às Estrelas"), ("estrelas-do-cosme-velho", "Estrelas do Cosme Velho"),
+             ("quando-as-sombras-falam", "Quando as Sombras Falam")]
+    books_html = "".join(f'<li><img src="{{IMG:livro-{f}.jpg}}" alt="Capa do livro {E(t)}, escrito por aluno da Aldeia" width="200" height="300" loading="lazy"></li>' for f, t in books)
+    gallery_html = "".join(f'<li><img src="{{IMG:comunidade-{n:02d}.jpg}}" alt="Escritores da comunidade da Aldeia Literária em encontro presencial" width="300" height="400" loading="lazy"></li>' for n in (1, 2, 4, 5, 7, 10, 12, 18))
+    profs = [("camila", "Camila Veloso", "Fundadora e mediadora das aulas. Produtora editorial (UFSM)."),
+             ("laura", "Laura Marques", "Produtora editorial e leitora crítica (UFSM)."),
+             ("lucas", "Lucas Oliveira", "Mestre e doutor em Literatura Portuguesa (UFRJ)."),
+             ("lavinia", "Lavínia Neres", "Produtora editorial, bacharel em Letras e mestra em Comunicação (UFSM)."),
+             ("ana", "Ana Ribeiro", "Produtora editorial e mestra em Estudos de Linguagens (CEFET-MG).")]
+    profs_html = "".join(f'<div class="am-prof"><img src="{{IMG:prof-{k}.jpg}}" alt="Foto de {n}" width="300" height="375" loading="lazy"><h3>{n}</h3><p>{d}</p></div>' for k, n, d in profs)
+    press = ["PublishNews", "Digestivo Cultural", "Leia Já", "Hoje PR", "Reino Literário", "O Candeeiro", "Jornal Folk", "Gazeta da Semana"]
+    press_html = "".join(f"<li>{E(x)}</li>" for x in press)
+    ig = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>'
+    tt = '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>'
     return f'''
 <div class="am-alert" role="status"><div class="am-wrap">
   <span class="am-alert__txt am-open"><strong>Black Friday:</strong> o AULÃO MASTER sai do ar em</span>
@@ -168,7 +193,8 @@ def page():
 </div></div>
 
 <header class="am-top"><div class="am-wrap">
-  <a class="am-logo" href="{SITE}/" aria-label="Camila Veloso"><img src="{{IMG:logo}}" alt="Camila Veloso" width="132" height="44"></a>
+  <a class="am-brand" href="{SITE}/" aria-label="Aldeia Literária, página inicial"><img src="{{IMG:medalhao.png}}" alt="" width="46" height="46"><span>Aldeia Literária</span></a>
+  <nav class="am-nav" aria-label="Principal"><a href="{SITE}/">Início</a><a href="{SOBRE}">Sobre</a><a href="{GUIA}">Guia</a><a href="{IMP}">Imprensa</a></nav>
   {cta_top}
 </div></header>
 
@@ -194,12 +220,12 @@ def page():
   </div>
 </div></section>
 
-<section class="am-facts" aria-label="Resumo do aulão"><div class="am-wrap"><ul>
-  <li><b>Aula gravada</b>Assista no seu ritmo, depois da confirmação do pagamento.</li>
-  <li><b>6 blocos</b>Do esqueleto da história até os próximos passos.</li>
-  <li><b>Para iniciantes</b>Você não precisa ter nada escrito para começar.</li>
-  <li><b>Sai do ar em 30/11</b>Venda só até 23h59 (horário de Brasília).</li>
-</ul></div></section>
+<section class="am-stats" aria-label="A Aldeia Literária em números"><div class="am-wrap"><div class="am-stats__card"><ul>
+  <li><b>+400</b><span>escritores estudaram aqui</span></li>
+  <li><b>2023</b><span>ano de fundação da Aldeia Literária</span></li>
+  <li><b>120h</b><span>de extensão universitária, com certificado Anhanguera</span></li>
+  <li><b>6h</b><span>de aula ao vivo por mês + atividades práticas semanais</span></li>
+</ul></div></div></section>
 
 <section class="am-band" id="o-que-e" aria-labelledby="t-oque"><div class="am-wrap am-answer">
   <div>
@@ -220,16 +246,7 @@ def page():
   <div class="am-blocks">{blocks()}</div>
 </div></section>
 
-<section class="am-band am-band--navy" id="depoimentos" aria-labelledby="t-dep"><div class="am-wrap">
-  <div class="am-center"><p class="am-eyebrow">Quem já escreve com a Aldeia</p><h2 class="am-h2" id="t-dep">O que dizem os escritores</h2></div>
-  <div class="am-proof">
-    <div class="am-slot"><div><b>Depoimento em vídeo 1</b>Espaço reservado. Envie o vídeo ou o print.</div></div>
-    <div class="am-slot"><div><b>Depoimento em vídeo 2</b>Espaço reservado. Envie o vídeo ou o print.</div></div>
-    <div class="am-slot"><div><b>Depoimento em vídeo 3</b>Espaço reservado. Envie o vídeo ou o print.</div></div>
-  </div>
-</div></section>
-
-<section class="am-band am-band--navy" style="padding-top:0" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap am-about">
+<section class="am-band am-band--navy" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap am-about">
   <div class="am-photo"><img src="{{IMG:about}}" alt="Camila Veloso de óculos laranja segurando uma pilha de livros" width="898" height="1600" loading="lazy"></div>
   <div>
     <p class="am-eyebrow">Quem sou eu</p>
@@ -241,6 +258,24 @@ def page():
       <li>Ajudo escritores iniciantes a desenvolver e publicar seus livros</li>
       <li><a href="{INSTA}" rel="noopener">@acamiveloso</a></li>
     </ul>
+  </div>
+</div></section>
+
+
+<section class="am-band" id="livros" aria-labelledby="t-livros"><div class="am-wrap">
+  <div class="am-center"><p class="am-eyebrow">Comunidade de autores</p><h2 class="am-h2" id="t-livros">Livros escritos aqui</h2>
+  <p class="am-lede" style="margin-top:14px">Alguns dos livros de escritores que passaram pela Aldeia Literária.</p></div>
+  <ul class="am-books">{books_html}</ul>
+</div></section>
+
+<section class="am-band am-band--navy" id="depoimentos" aria-labelledby="t-dep"><div class="am-wrap">
+  <div class="am-center"><p class="am-eyebrow">Quem já escreve com a Aldeia</p><h2 class="am-h2" id="t-dep">O que dizem as pessoas da Aldeia</h2></div>
+  <div class="am-quotes">
+    <figure class="am-quote am-quote--lead"><blockquote><p>Camila, queria agradecer por essas aulas. Minha mente evoluiu muito com essas descobertas, mas o mais importante é que eu consegui me encontrar na escrita, ter paciência comigo mesmo e me cobrar menos. Obrigado por ser tão lendária, a escrita tem um lugar no meu coração e agora irá desbravar o mundo comigo!</p></blockquote><figcaption><strong>Jader Emmanuel</strong></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>uma das coisas mais daora da aldeia (pra mim) é vc perceber q vc n ta sozinha e tem MT gnt kakak como vc</p></blockquote><figcaption><strong>Carlos Thomaz Evangelista</strong></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>A Cami é a melhor prof que a gente poderia ter no mundo todo, perfeita</p></blockquote><figcaption><strong>Taty Fe Rocha</strong></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>Falou tudo Taty, Camila tem um lugarzinho especial no coração de todos nós</p></blockquote><figcaption><strong>Martina Vian</strong><span>autora de Desejei às Estrelas</span></figcaption></figure>
+    <figure class="am-quote"><blockquote><p>A Cami é um anjo! O propósito dela é lindo e isso faz dela incrível!</p></blockquote><figcaption><strong>Ingrid Maitê</strong></figcaption></figure>
   </div>
 </div></section>
 
@@ -276,6 +311,7 @@ def page():
 <section class="am-band am-band--sand" id="aldeia" aria-labelledby="t-aldeia"><div class="am-wrap">
   <div class="am-center"><p class="am-eyebrow">Onde a escalada continua</p><h2 class="am-h2" id="t-aldeia">Aldeia Literária: do zero à publicação, em comunidade</h2>
   <p class="am-lede" style="margin-top:14px">Curso online de escrita criativa para escritores iniciantes, com extensão universitária de 120 horas e certificado emitido pela Anhanguera. Aulas ao vivo e gravadas, atividades e feedback individual.</p></div>
+  <ul class="am-gallery" aria-label="A comunidade da Aldeia em encontros presenciais">{gallery_html}</ul>
   <div class="am-structure">
     <article><h3>Aulas ao vivo</h3><p>Quartas-feiras, às 19h30. 12 aulas por módulo, todas gravadas.</p></article>
     <article><h3>Feedback</h3><p>4 atividades por mês, com retorno individual sobre o seu texto.</p></article>
@@ -290,14 +326,15 @@ def page():
     <li><div><small>Módulo V</small><b>Publicação independente</b></div><span>Oportunidades, fornecedores e estratégias de autopublicação e mercado editorial.</span></li>
   </ol>
   <div class="am-center" style="margin-top:44px"><p class="am-eyebrow">Quem caminha com você</p><h3 class="am-h2" style="font-size:clamp(1.6rem,3vw,2.2rem)">Professores da Aldeia</h3></div>
-  <div class="am-profs">
-    <div class="am-prof"><i>CV</i><h3>Camila Veloso</h3><p>Fundadora e mediadora das aulas. Produtora editorial (UFSM).</p></div>
-    <div class="am-prof"><i>LM</i><h3>Laura Marques</h3><p>Produtora editorial e leitora crítica (UFSM).</p></div>
-    <div class="am-prof"><i>LO</i><h3>Lucas Oliveira</h3><p>Mestre e doutor em Literatura Portuguesa (UFRJ).</p></div>
-    <div class="am-prof"><i>LN</i><h3>Lavínia Neres</h3><p>Produtora editorial, bacharel em Letras e mestra em Comunicação (UFSM).</p></div>
-    <div class="am-prof"><i>AR</i><h3>Ana Ribeiro</h3><p>Produtora editorial e mestra em Estudos de Linguagens (CEFET-MG).</p></div>
-  </div>
+  <div class="am-profs">{profs_html}</div>
+  <div class="am-cert"><img src="{{IMG:certificados.jpg}}" alt="Certificado de extensão universitária da Aldeia Literária" width="190" height="285" loading="lazy"><div><h3>Certificado emitido pela Anhanguera</h3><p>A Aldeia Literária é um curso de extensão universitária com carga horária de 120h, reconhecida pelo MEC, em parceria com a Anhanguera. Ao concluir o curso, você recebe o seu certificado, emitido pela Anhanguera. Não é um curso de graduação ou de pós-graduação.</p></div></div>
   <p class="am-center" style="margin-top:28px;font-family:var(--f-title);font-weight:700;color:var(--navy);font-size:1.15rem">Matrículas abrem em janeiro de 2027. Vagas limitadas.</p>
+</div></section>
+
+<section class="am-band am-band--paper" id="midia" aria-labelledby="t-midia"><div class="am-wrap am-center">
+  <p class="am-eyebrow">Imprensa</p><h2 class="am-h2" id="t-midia">Aldeia Literária na mídia</h2>
+  <ul class="am-press">{press_html}</ul>
+  <p style="margin-top:26px"><a class="am-btn am-btn--navy am-btn--sm" href="{IMP}">Ver todas as matérias</a></p>
 </div></section>
 
 <section class="am-band" id="duvidas" aria-labelledby="t-faq"><div class="am-wrap">
@@ -305,7 +342,7 @@ def page():
   <div class="am-faq">{faq_html()}</div>
 </div></section>
 
-<section class="am-band am-band--red" id="comprar" aria-labelledby="t-final"><div class="am-wrap am-final">
+<section class="am-band am-band--red am-mark" id="comprar" aria-labelledby="t-final"><div class="am-wrap am-final">
   <div>
     <p class="am-eyebrow">Última chamada</p>
     <h2 id="t-final">Escreva o seu livro. O primeiro passo custa R$ 97.</h2>
@@ -318,9 +355,13 @@ def page():
 </main>
 
 <footer class="am-footer"><div class="am-wrap">
-  <img src="{{IMG:logo}}" alt="Camila Veloso" width="115" height="38" loading="lazy">
-  <p>© Aldeia Literária · Curso de escrita criativa para iniciantes · Todos os direitos reservados</p>
-  <p><a href="{SITE}/">Aldeia Literária</a> · <a href="{CANC}">Cancelamento e reembolso</a> · <a href="{INSTA}" rel="noopener">@acamiveloso</a></p>
+  <div class="am-footer__social" aria-label="Redes sociais da Aldeia Literária">
+    <a class="am-footer__ico" href="{INSTA_ALDEIA}" target="_blank" rel="noopener noreferrer me" aria-label="Instagram da Aldeia Literária">{ig}</a>
+    <a class="am-footer__ico" href="{TIKTOK}" target="_blank" rel="noopener noreferrer me" aria-label="TikTok da Aldeia Literária">{tt}</a>
+  </div>
+  <p><a class="am-footer__media" href="{IMP}">Aldeia Literária na mídia</a></p>
+  <p><a href="{SITE}/">Início</a> · <a href="{SOBRE}">Sobre</a> · <a href="{GUIA}">Guia</a> · <a href="{IMP}">Imprensa</a> · <a href="{CANC}">Cancelamento e reembolso</a></p>
+  <p>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados</p>
   <p>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</p>
 </div></footer>
 
@@ -348,10 +389,14 @@ def font_css(inline):
 
 def assemble(inline):
     body = page()
-    for k, f in IMGS.items():
+    def img(m):
+        k = m.group(1)
+        f = IMGS.get(k, k)
         mime = "image/png" if f.endswith(".png") else "image/jpeg"
-        body = body.replace("{IMG:%s}" % k, b64(os.path.join(ASSETS, "img", f), mime) if inline else f"aulao/img/{f}")
+        return b64(os.path.join(ASSETS, "img", f), mime) if inline else f"aulao/img/{f}"
+    body = re.sub(r"\{IMG:([^}]+)\}", img, body)
     css = open(os.path.join(HERE, "aulao.css"), encoding="utf-8").read()
+    css = re.sub(r"\{IMGURL:([^}]+)\}", lambda m: b64(os.path.join(ASSETS, "img", m.group(1)), "image/png") if inline else f"aulao/img/{m.group(1)}", css)
     js = open(os.path.join(HERE, "aulao.js"), encoding="utf-8").read()
     return f"<style>\n{font_css(inline)}{css}</style>\n{body}\n<script>\n{js}</script>\n"
 
