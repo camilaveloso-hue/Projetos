@@ -22,7 +22,7 @@ DESC = ("Aula gravada de Camila Veloso, fundadora da Aldeia Literária, para que
         "Disponível por 1 ano. R$ 67 na Black Friday, até 30/11.")
 
 CHECK = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-STAR = '<svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#ffd60a"/><path d="M13 22.8l6 6L31 16" stroke="#09090a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+STAR = '<svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 ARROW = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h15m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 
 FAQ = [
@@ -64,17 +64,22 @@ def jsonld():
 def page():
     benefits = [
         ("", "Aula gravada", "Liberada assim que o pagamento for confirmado"),
-        ("", "Com metodologia única", "Para quem quer começar a escrever, mas não sabe como"),
+        ("is-hot", "Com metodologia única", "Para quem quer começar a escrever, mas não sabe como"),
         ("is-hot", "Fundadora da Aldeia Literária", "Camila Veloso, Produtora Editorial (UFSM)"),
         ("", "Disponível por um ano", "Assista quando quiser e quantas vezes precisar"),
-        ("", "Para quem está começando", "Escritores iniciantes que desejam começar a escrever"),
+        ("is-hot", "Para quem está começando", "Escritores iniciantes que desejam começar a escrever"),
     ]
     ben_html = "".join(f'<li class="{c}">{STAR}<b>{E(t)}</b><span>{E(d)}</span></li>' for c, t, d in benefits)
     # último cartão muda sozinho depois de 30/11 (a promoção acaba, a aula continua à venda)
     ben_html += (f'<li class="is-hot">{STAR}<b><span class="am-promo">Promoção</span><span class="am-regular">Valor</span></b>'
                  f'<span><span class="am-promo">R$ {PRICE} só até 30/11.</span><span class="am-regular">R$ {PRICE_FULL}.</span></span></li>')
-    parts = ["Os três atos e o arco", "O checklist de 9 passos", "Por que você lê livros", "As formas de história", "Premissa, princípio e arco", "Próximos passos"]
-    parts_html = "".join(f"<li><span>{E(p)}</span></li>" for p in parts)
+    parts = [("Os três atos e o arco", "Entenda como uma história se sustenta e como fazer o seu personagem mudar do começo ao fim."),
+             ("O checklist de 9 passos", "Um passo a passo para saber onde você está na história e o que escrever em seguida."),
+             ("Por que você lê livros", "Antes de escrever para o leitor, entenda por que as histórias funcionam para ele."),
+             ("As formas de história", "Descubra qual forma combina com a sua ideia, com exemplos que você conhece."),
+             ("Premissa, princípio e arco", "Transforme uma ideia solta em uma frase clara que guia o livro inteiro."),
+             ("Próximos passos", "Termine a aula sabendo por onde seguir para escrever e publicar o seu livro.")]
+    parts_html = "".join(f"<li><span>{E(t)}<small>{E(d)}</small></span></li>" for t, d in parts)
     ids = [1, 2, 3, 5, 6, 8, 10, 12, 14, 18, 21, 22]
     slides = "".join(f'<li class="am-slide"><img src="{{IMG:comunidade-{n:02d}.jpg}}" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li>' for n in ids)
     return f'''
@@ -94,7 +99,7 @@ def page():
   <div class="am-hero__cta"><a id="am-hero-cta" class="am-btn am-btn--ghost" href="#leva">Ver o que você leva {ARROW}</a></div>
 </div></section>
 
-<section class="am-sec am-what" id="leva" aria-labelledby="t-oque"><div class="am-wrap">
+<section class="am-sec am-what" id="leva" aria-labelledby="t-oque"><div class="am-wrap am-center">
   <h2 class="am-h2" id="t-oque">O que é o AULÃO MASTER?</h2>
   <p class="am-lead"><strong>Aula gravada com metodologia única para iniciantes, explicando tudo o que você precisa saber para conseguir escrever um livro.</strong></p>
   <ul class="am-benefits" aria-label="O que você leva">{ben_html}</ul>
@@ -114,7 +119,14 @@ def page():
       <strong><span class="am-promo">R$ {PRICE}</span><span class="am-regular">R$ {PRICE_FULL}</span></strong>
       <span class="am-promo">só até 30/11, às 23h59</span>
     </div>
-    <ul class="am-list"><li>{CHECK}<span>Aula gravada</span></li><li>{CHECK}<span>Checklist com 9 passos</span></li><li>{CHECK}<span>Acesso imediato por 1 ano</span></li></ul>
+    <ul class="am-list">
+      <li>{CHECK}<span>Aula gravada, liberada assim que o pagamento for confirmado</span></li>
+      <li>{CHECK}<span>Metodologia única para quem está começando</span></li>
+      <li>{CHECK}<span>Aula com a fundadora da Aldeia Literária</span></li>
+      <li>{CHECK}<span>Checklist de 9 passos + material de apoio e atividade</span></li>
+      <li>{CHECK}<span>Disponível por 1 ano, para assistir quantas vezes quiser</span></li>
+      <li>{CHECK}<span>Acesso pelo celular ou computador, no seu ritmo</span></li>
+    </ul>
     <a class="am-btn" href="{CHECKOUT}">Quero o AULÃO MASTER {ARROW}</a>
     <div class="am-bonus am-promo" data-bonus><b>Bônus do 1º dia:</b> comprando até 23/11, você ganha 50% de desconto na matrícula da Aldeia Literária 2027.
       <span class="am-count" data-count="bonus" aria-hidden="true"></span></div>

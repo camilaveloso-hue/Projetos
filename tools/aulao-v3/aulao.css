@@ -4,7 +4,7 @@
    Layout: uma coluna de ~640px; cartões de benefícios em 1 coluna no celular e 2 no computador. */
 :root{
   --cream:#fdfaec; --ink:#09090a; --yellow:#ffd60a; --yellow-soft:#fff3b0;
-  --lilac:#e8dcfb; --violet:#7c3aed; --muted:#5d5b53; --line:#ece5c8; --card:#ffffff; --green:#16a34a;
+  --lilac:#e8dcfb; --violet:#7c3aed; --violet2:#6d28d9; --muted:#5d5b53; --line:#ece5c8; --card:#ffffff; --green:#16a34a;
   --f-head:"Playfair Display",Georgia,"Times New Roman",serif;
   --f-body:"DM Sans","Helvetica Neue",Arial,sans-serif;
   --col:640px;
@@ -72,17 +72,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 .am-what h2{margin-top:0}
 .am-what .am-lead{margin-top:16px}
 .am-benefits{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
-.am-benefits li{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 16px 14px;box-shadow:0 2px 0 var(--line)}
+.am-benefits li{--ic-bg:var(--violet2);--ic-fg:#fff;display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start;text-align:left;background:var(--card);border:1px solid #ddd0f7;border-radius:18px;padding:16px 16px 16px 14px;box-shadow:0 2px 0 #ddd0f7}
 .am-benefits svg{grid-row:1/3;width:44px;height:44px}
 .am-benefits b{font-weight:700;font-size:1.04rem;line-height:1.25;align-self:end}
 .am-benefits li>span{font-size:.93rem;color:var(--muted);line-height:1.45}
-.am-benefits li.is-hot{background:var(--yellow-soft);border-color:#e7cb4a;box-shadow:0 2px 0 #e7cb4a}
+.am-benefits li.is-hot{--ic-bg:var(--yellow);--ic-fg:var(--violet2);background:var(--violet2);border-color:#5b21b6;box-shadow:0 2px 0 #4c1d95}
+.am-benefits li.is-hot b{color:var(--yellow)}
+.am-benefits li.is-hot>span{color:#efe7ff}
 
 /* partes da aula (só títulos) */
 .am-parts{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid #2c2c2e;counter-reset:p}
-.am-parts li{display:grid;grid-template-columns:48px 1fr;align-items:center;gap:6px;padding:15px 0;border-bottom:1px solid #2c2c2e;font-family:var(--f-head);font-weight:700;font-size:1.2rem;color:#fff;line-height:1.25}
+.am-parts li{display:grid;grid-template-columns:48px 1fr;align-items:start;gap:6px;padding:15px 0;border-bottom:1px solid #2c2c2e;font-family:var(--f-head);font-weight:700;font-size:1.2rem;color:#fff;line-height:1.25}
 .am-parts li::before{counter-increment:p;content:"0" counter(p);font-family:var(--f-head);font-weight:900;font-size:1.5rem;color:var(--yellow)}
-.am-parts small{display:block;font-family:var(--f-body);font-weight:400;font-size:.84rem;color:#a8a69b;margin-top:1px}
+.am-parts small{display:block;font-family:var(--f-body);font-weight:400;font-size:.9rem;line-height:1.45;color:#b4b2a6;margin-top:4px}
 
 /* oferta */
 .am-offer{background:var(--card);border:2px solid var(--ink);border-radius:26px;padding:clamp(22px,6vw,34px);margin-top:26px;text-align:center;display:grid;gap:18px;box-shadow:0 10px 0 var(--ink)}
@@ -92,8 +94,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 .am-price strong{font-family:var(--f-head);font-weight:900;font-size:clamp(3.8rem,19vw,5.4rem);line-height:1;letter-spacing:-.04em}
 .am-price>span{font-size:.9rem;color:var(--muted)}
 .am-price strong span{font-size:inherit;color:inherit}
-.am-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;text-align:left;justify-self:center}
-.am-list li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:center;font-weight:700}
+.am-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;text-align:left}
+.am-list li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-weight:700;line-height:1.35}
+.am-list li svg{margin-top:1px;color:var(--violet2)}
 .am-list svg{width:24px;height:24px}
 .am-bonus{background:var(--yellow-soft);border:1px dashed #b89a00;border-radius:14px;padding:12px 14px;font-size:.92rem;line-height:1.45;text-align:left}
 .am-bonus b{font-weight:700}

@@ -18,7 +18,7 @@
    Layout: uma coluna de ~640px; cartões de benefícios em 1 coluna no celular e 2 no computador. */
 :root{
   --cream:#fdfaec; --ink:#09090a; --yellow:#ffd60a; --yellow-soft:#fff3b0;
-  --lilac:#e8dcfb; --violet:#7c3aed; --muted:#5d5b53; --line:#ece5c8; --card:#ffffff; --green:#16a34a;
+  --lilac:#e8dcfb; --violet:#7c3aed; --violet2:#6d28d9; --muted:#5d5b53; --line:#ece5c8; --card:#ffffff; --green:#16a34a;
   --f-head:"Playfair Display",Georgia,"Times New Roman",serif;
   --f-body:"DM Sans","Helvetica Neue",Arial,sans-serif;
   --col:640px;
@@ -86,17 +86,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 .am-what h2{margin-top:0}
 .am-what .am-lead{margin-top:16px}
 .am-benefits{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
-.am-benefits li{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 16px 14px;box-shadow:0 2px 0 var(--line)}
+.am-benefits li{--ic-bg:var(--violet2);--ic-fg:#fff;display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start;text-align:left;background:var(--card);border:1px solid #ddd0f7;border-radius:18px;padding:16px 16px 16px 14px;box-shadow:0 2px 0 #ddd0f7}
 .am-benefits svg{grid-row:1/3;width:44px;height:44px}
 .am-benefits b{font-weight:700;font-size:1.04rem;line-height:1.25;align-self:end}
 .am-benefits li>span{font-size:.93rem;color:var(--muted);line-height:1.45}
-.am-benefits li.is-hot{background:var(--yellow-soft);border-color:#e7cb4a;box-shadow:0 2px 0 #e7cb4a}
+.am-benefits li.is-hot{--ic-bg:var(--yellow);--ic-fg:var(--violet2);background:var(--violet2);border-color:#5b21b6;box-shadow:0 2px 0 #4c1d95}
+.am-benefits li.is-hot b{color:var(--yellow)}
+.am-benefits li.is-hot>span{color:#efe7ff}
 
 /* partes da aula (só títulos) */
 .am-parts{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid #2c2c2e;counter-reset:p}
-.am-parts li{display:grid;grid-template-columns:48px 1fr;align-items:center;gap:6px;padding:15px 0;border-bottom:1px solid #2c2c2e;font-family:var(--f-head);font-weight:700;font-size:1.2rem;color:#fff;line-height:1.25}
+.am-parts li{display:grid;grid-template-columns:48px 1fr;align-items:start;gap:6px;padding:15px 0;border-bottom:1px solid #2c2c2e;font-family:var(--f-head);font-weight:700;font-size:1.2rem;color:#fff;line-height:1.25}
 .am-parts li::before{counter-increment:p;content:"0" counter(p);font-family:var(--f-head);font-weight:900;font-size:1.5rem;color:var(--yellow)}
-.am-parts small{display:block;font-family:var(--f-body);font-weight:400;font-size:.84rem;color:#a8a69b;margin-top:1px}
+.am-parts small{display:block;font-family:var(--f-body);font-weight:400;font-size:.9rem;line-height:1.45;color:#b4b2a6;margin-top:4px}
 
 /* oferta */
 .am-offer{background:var(--card);border:2px solid var(--ink);border-radius:26px;padding:clamp(22px,6vw,34px);margin-top:26px;text-align:center;display:grid;gap:18px;box-shadow:0 10px 0 var(--ink)}
@@ -106,8 +108,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 .am-price strong{font-family:var(--f-head);font-weight:900;font-size:clamp(3.8rem,19vw,5.4rem);line-height:1;letter-spacing:-.04em}
 .am-price>span{font-size:.9rem;color:var(--muted)}
 .am-price strong span{font-size:inherit;color:inherit}
-.am-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;text-align:left;justify-self:center}
-.am-list li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:center;font-weight:700}
+.am-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;text-align:left}
+.am-list li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-weight:700;line-height:1.35}
+.am-list li svg{margin-top:1px;color:var(--violet2)}
 .am-list svg{width:24px;height:24px}
 .am-bonus{background:var(--yellow-soft);border:1px dashed #b89a00;border-radius:14px;padding:12px 14px;font-size:.92rem;line-height:1.45;text-align:left}
 .am-bonus b{font-weight:700}
@@ -195,15 +198,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
   <div class="am-hero__cta"><a id="am-hero-cta" class="am-btn am-btn--ghost" href="#leva">Ver o que você leva <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h15m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 </div></section>
 
-<section class="am-sec am-what" id="leva" aria-labelledby="t-oque"><div class="am-wrap">
+<section class="am-sec am-what" id="leva" aria-labelledby="t-oque"><div class="am-wrap am-center">
   <h2 class="am-h2" id="t-oque">O que é o AULÃO MASTER?</h2>
   <p class="am-lead"><strong>Aula gravada com metodologia única para iniciantes, explicando tudo o que você precisa saber para conseguir escrever um livro.</strong></p>
-  <ul class="am-benefits" aria-label="O que você leva"><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#ffd60a"/><path d="M13 22.8l6 6L31 16" stroke="#09090a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Aula gravada</b><span>Liberada assim que o pagamento for confirmado</span></li><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#ffd60a"/><path d="M13 22.8l6 6L31 16" stroke="#09090a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Com metodologia única</b><span>Para quem quer começar a escrever, mas não sabe como</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#ffd60a"/><path d="M13 22.8l6 6L31 16" stroke="#09090a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Fundadora da Aldeia Literária</b><span>Camila Veloso, Produtora Editorial (UFSM)</span></li><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#ffd60a"/><path d="M13 22.8l6 6L31 16" stroke="#09090a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Disponível por um ano</b><span>Assista quando quiser e quantas vezes precisar</span></li><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#ffd60a"/><path d="M13 22.8l6 6L31 16" stroke="#09090a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Para quem está começando</b><span>Escritores iniciantes que desejam começar a escrever</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#ffd60a"/><path d="M13 22.8l6 6L31 16" stroke="#09090a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-promo">Promoção</span><span class="am-regular">Valor</span></b><span><span class="am-promo">R$ 67 só até 30/11.</span><span class="am-regular">R$ 100.</span></span></li></ul>
+  <ul class="am-benefits" aria-label="O que você leva"><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Aula gravada</b><span>Liberada assim que o pagamento for confirmado</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Com metodologia única</b><span>Para quem quer começar a escrever, mas não sabe como</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Fundadora da Aldeia Literária</b><span>Camila Veloso, Produtora Editorial (UFSM)</span></li><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Disponível por um ano</b><span>Assista quando quiser e quantas vezes precisar</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Para quem está começando</b><span>Escritores iniciantes que desejam começar a escrever</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-promo">Promoção</span><span class="am-regular">Valor</span></b><span><span class="am-promo">R$ 67 só até 30/11.</span><span class="am-regular">R$ 100.</span></span></li></ul>
 </div></section>
 
 <section class="am-sec am-dark" id="conteudo" aria-labelledby="t-partes"><div class="am-wrap">
   <h2 class="am-h2" id="t-partes">Na aula, <span style="color:var(--yellow)">6 partes.</span></h2>
-  <ol class="am-parts"><li><span>Os três atos e o arco</span></li><li><span>O checklist de 9 passos</span></li><li><span>Por que você lê livros</span></li><li><span>As formas de história</span></li><li><span>Premissa, princípio e arco</span></li><li><span>Próximos passos</span></li></ol>
+  <ol class="am-parts"><li><span>Os três atos e o arco<small>Entenda como uma história se sustenta e como fazer o seu personagem mudar do começo ao fim.</small></span></li><li><span>O checklist de 9 passos<small>Um passo a passo para saber onde você está na história e o que escrever em seguida.</small></span></li><li><span>Por que você lê livros<small>Antes de escrever para o leitor, entenda por que as histórias funcionam para ele.</small></span></li><li><span>As formas de história<small>Descubra qual forma combina com a sua ideia, com exemplos que você conhece.</small></span></li><li><span>Premissa, princípio e arco<small>Transforme uma ideia solta em uma frase clara que guia o livro inteiro.</small></span></li><li><span>Próximos passos<small>Termine a aula sabendo por onde seguir para escrever e publicar o seu livro.</small></span></li></ol>
 </div></section>
 
 <section class="am-sec" id="oferta" aria-labelledby="t-oferta"><div class="am-wrap am-center">
@@ -215,7 +218,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
       <strong><span class="am-promo">R$ 67</span><span class="am-regular">R$ 100</span></strong>
       <span class="am-promo">só até 30/11, às 23h59</span>
     </div>
-    <ul class="am-list"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Aula gravada</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Checklist com 9 passos</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Acesso imediato por 1 ano</span></li></ul>
+    <ul class="am-list">
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Aula gravada, liberada assim que o pagamento for confirmado</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Metodologia única para quem está começando</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Aula com a fundadora da Aldeia Literária</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Checklist de 9 passos + material de apoio e atividade</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Disponível por 1 ano, para assistir quantas vezes quiser</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Acesso pelo celular ou computador, no seu ritmo</span></li>
+    </ul>
     <a class="am-btn" href="#oferta">Quero o AULÃO MASTER <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h15m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <div class="am-bonus am-promo" data-bonus><b>Bônus do 1º dia:</b> comprando até 23/11, você ganha 50% de desconto na matrícula da Aldeia Literária 2027.
       <span class="am-count" data-count="bonus" aria-hidden="true"></span></div>
