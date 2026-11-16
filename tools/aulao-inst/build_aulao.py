@@ -148,10 +148,9 @@ def page():
   <div class="am-offer">
     <div class="am-offer__body">
       <ul class="am-list">
-        <li>{CHECK}<span>A aula gravada AULÃO MASTER, em seis blocos</span></li>
-        <li>{CHECK}<span>Os três atos, o checklist de 9 passos, as formas de história e a premissa</span></li>
-        <li>{CHECK}<span>Acesso liberado depois da confirmação do pagamento</span></li>
-        <li>{CHECK}<span>7 dias para desistir e receber o reembolso</span></li>
+        <li>{CHECK}<span>Aula gravada</span></li>
+        <li>{CHECK}<span>Checklist com 9 passos</span></li>
+        <li>{CHECK}<span>Acesso imediato</span></li>
       </ul>
       <div class="am-offer__price"><strong>R$ 97</strong><span>preço da Black Friday, só até 30/11, às 23h59</span></div>
       <div class="am-open"><a class="am-btn am-btn--xl" href="{CHECKOUT}">Quero o AULÃO MASTER {ARROW_BTN}</a></div>
