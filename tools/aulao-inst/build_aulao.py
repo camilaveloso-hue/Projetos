@@ -137,6 +137,7 @@ def page():
   <p class="am-kicker" style="margin-top:56px">Ao final da aula</p>
   <h3 class="am-h2" style="font-size:clamp(1.8rem,4.2vw,2.5rem)">Você vai saber como escrever o seu livro, <span class="am-serif">do começo ao fim.</span></h3>
   <p class="am-lead" style="margin-top:16px">A ideia que hoje está solta na sua cabeça passa a ter caminho.</p>
+  <div class="am-open" style="margin-top:28px"><a class="am-btn" style="width:100%;max-width:420px" href="{CHECKOUT}">Quero o AULÃO MASTER {ARROW_BTN}</a></div>
 </div></section>
 
 <section class="am-sec am-sec--warm" id="conteudo" aria-labelledby="t-conteudo"><div class="am-wrap">
