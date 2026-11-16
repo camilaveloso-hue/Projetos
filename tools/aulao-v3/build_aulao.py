@@ -89,7 +89,7 @@ def page():
     <span class="am-count am-promo" data-count="sale" aria-hidden="true"><span>7<small>d</small></span><span>00<small>h</small></span><span>00<small>min</small></span><span>00<small>s</small></span></span>
     <span class="am-alert__txt am-regular">A promoção terminou. Valor atual: <b>R$ {PRICE_FULL}</b></span>
   </div>
-  <a class="am-btn am-btn--yellow am-btn--bar" href="{CHECKOUT}">Quero o aulão</a>
+  <a class="am-btn am-btn--yellow am-btn--bar" href="{CHECKOUT}">QUERO O AULÃO</a>
 </div></div>
 
 <main id="topo">
@@ -116,12 +116,6 @@ def page():
 <section class="am-sec" id="oferta" aria-labelledby="t-oferta"><div class="am-wrap am-center">
   <h2 class="am-h2" id="t-oferta">Garanta o seu AULÃO MASTER</h2>
   <div class="am-offer">
-    <span class="am-pill am-promo">Preço de Black Friday</span>
-    <div class="am-price">
-      <s class="am-promo">de R$ {PRICE_FULL}</s>
-      <strong><span class="am-promo">R$ {PRICE}</span><span class="am-regular">R$ {PRICE_FULL}</span></strong>
-      <span class="am-promo">só até 30/11, às 23h59</span>
-    </div>
     <ul class="am-list">
       <li>{CHECK}<span>Aula gravada, liberada assim que o pagamento for confirmado</span></li>
       <li>{CHECK}<span>Metodologia única para quem está começando</span></li>
@@ -130,10 +124,21 @@ def page():
       <li>{CHECK}<span>Disponível por 1 ano, para assistir quantas vezes quiser</span></li>
       <li>{CHECK}<span>Acesso pelo celular ou computador, no seu ritmo</span></li>
     </ul>
-    <a class="am-btn" href="{CHECKOUT}">Quero o AULÃO MASTER {ARROW}</a>
-    <div class="am-bonus am-promo" data-bonus><b>Bônus do 1º dia:</b> comprando até 23/11, você ganha 50% de desconto na matrícula da Aldeia Literária 2027.
-      <span class="am-count" data-count="bonus" aria-hidden="true"></span></div>
-    <p class="am-note">7 dias para desistir e pedir o reembolso. <a href="{CANC}">Ver política</a>.</p>
+    <details class="am-reveal">
+      <summary class="am-btn am-btn--ghost am-btn--sm">Ver o preço <span aria-hidden="true">↓</span></summary>
+      <div class="am-reveal__body">
+        <span class="am-pill am-promo">Preço de Black Friday</span>
+        <div class="am-price">
+          <s class="am-promo">de R$ {PRICE_FULL}</s>
+          <strong><span class="am-promo">R$ {PRICE}</span><span class="am-regular">R$ {PRICE_FULL}</span></strong>
+          <span class="am-promo">só até 30/11, às 23h59</span>
+        </div>
+        <a class="am-btn" href="{CHECKOUT}">Quero o AULÃO MASTER {ARROW}</a>
+        <div class="am-bonus am-promo" data-bonus><b>Bônus do 1º dia:</b> comprando até 23/11, você ganha 50% de desconto na matrícula da Aldeia Literária 2027.
+          <span class="am-count" data-count="bonus" aria-hidden="true"></span></div>
+        <p class="am-note">7 dias para desistir e pedir o reembolso. <a href="{CANC}">Ver política</a>.</p>
+      </div>
+    </details>
   </div>
 </div></section>
 
