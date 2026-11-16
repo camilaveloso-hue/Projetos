@@ -109,10 +109,6 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 }
 
 /* resposta direta */
-.am-outcomes{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:10px}
-.am-outcomes li{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:14px;color:var(--ink);font-weight:700;line-height:1.45;font-size:1rem}
-.am-outcomes svg{width:24px;height:24px;margin-top:1px;color:var(--green)}
-
 /* tópicos da aula (só títulos e promessa, sem entregar o conteúdo) */
 .am-topics{list-style:none;margin:40px 0 0;padding:0;border-top:2px solid var(--ink)}
 .am-topics li{display:grid;grid-template-columns:auto 1fr;gap:6px 24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
