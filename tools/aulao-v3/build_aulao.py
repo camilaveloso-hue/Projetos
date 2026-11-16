@@ -65,7 +65,7 @@ def page():
     benefits = [
         ("is-hot", "Aula com a fundadora da Aldeia", "Camila Veloso ensina o passo a passo, direto ao ponto."),
         ("", "Disponível por 1 ano", "Assista quando quiser e quantas vezes precisar."),
-        ("", "Checklist de 9 passos", "Material de apoio + atividade."),
+        ("", "Material de apoio", "Checklist de 9 passos + atividade."),
         ("", "Para quem está começando", "Você não precisa ter nada pronto, só a vontade de escrever."),
         ("", "Acesso imediato, no celular", "Liberado assim que o pagamento for confirmado."),
         ("is-hot", "Preço promocional", "R$ 67 só até 30/11. Depois, R$ 100."),
