@@ -75,7 +75,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 .am-benefits li{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 16px 14px;box-shadow:0 2px 0 var(--line)}
 .am-benefits svg{grid-row:1/3;width:44px;height:44px}
 .am-benefits b{font-weight:700;font-size:1.04rem;line-height:1.25;align-self:end}
-.am-benefits span{font-size:.93rem;color:var(--muted);line-height:1.45}
+.am-benefits li>span{font-size:.93rem;color:var(--muted);line-height:1.45}
 .am-benefits li.is-hot{background:var(--yellow-soft);border-color:#e7cb4a;box-shadow:0 2px 0 #e7cb4a}
 
 /* partes da aula (só títulos) */

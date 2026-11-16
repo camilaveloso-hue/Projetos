@@ -63,14 +63,16 @@ def jsonld():
 
 def page():
     benefits = [
-        ("is-hot", "Aula com a fundadora da Aldeia", "Camila Veloso ensina o passo a passo, direto ao ponto."),
-        ("", "Disponível por 1 ano", "Assista quando quiser e quantas vezes precisar."),
-        ("", "Material de apoio", "Checklist de 9 passos + atividade."),
-        ("", "Para quem está começando", "Você não precisa ter nada pronto, só a vontade de escrever."),
-        ("", "Acesso imediato, no celular", "Liberado assim que o pagamento for confirmado."),
-        ("is-hot", "Preço promocional", "R$ 67 só até 30/11. Depois, R$ 100."),
+        ("", "Aula gravada", "Liberada assim que o pagamento for confirmado"),
+        ("", "Com metodologia única", "Para quem quer começar a escrever, mas não sabe como"),
+        ("is-hot", "Fundadora da Aldeia Literária", "Camila Veloso, Produtora Editorial (UFSM)"),
+        ("", "Disponível por um ano", "Assista quando quiser e quantas vezes precisar"),
+        ("", "Para quem está começando", "Escritores iniciantes que desejam começar a escrever"),
     ]
     ben_html = "".join(f'<li class="{c}">{STAR}<b>{E(t)}</b><span>{E(d)}</span></li>' for c, t, d in benefits)
+    # último cartão muda sozinho depois de 30/11 (a promoção acaba, a aula continua à venda)
+    ben_html += (f'<li class="is-hot">{STAR}<b><span class="am-promo">Promoção</span><span class="am-regular">Valor</span></b>'
+                 f'<span><span class="am-promo">R$ {PRICE} só até 30/11.</span><span class="am-regular">R$ {PRICE_FULL}.</span></span></li>')
     parts = ["Os três atos e o arco", "O checklist de 9 passos", "Por que você lê livros", "As formas de história", "Premissa, princípio e arco", "Próximos passos"]
     parts_html = "".join(f"<li><span>{E(p)}</span></li>" for p in parts)
     ids = [1, 2, 3, 5, 6, 8, 10, 12, 14, 18, 21, 22]
