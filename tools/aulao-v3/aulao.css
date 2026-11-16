@@ -76,9 +76,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 .am-benefits svg{grid-row:1/3;width:44px;height:44px}
 .am-benefits b{font-weight:700;font-size:1.04rem;line-height:1.25;align-self:end}
 .am-benefits li>span{font-size:.93rem;color:var(--muted);line-height:1.45}
-.am-benefits li.is-hot{--ic-bg:var(--yellow);--ic-fg:var(--violet2);background:var(--violet2);border-color:#5b21b6;box-shadow:0 2px 0 #4c1d95}
-.am-benefits li.is-hot b{color:var(--yellow)}
-.am-benefits li.is-hot>span{color:#efe7ff}
+.am-benefits li.is-hot{--ic-bg:var(--yellow);--ic-fg:var(--violet2);background:var(--lilac);border-color:#d4bff6;box-shadow:0 2px 0 #d4bff6}
+.am-benefits li.is-hot .am-m{background:linear-gradient(transparent 52%,var(--yellow) 52%,var(--yellow) 94%,transparent 94%);padding-inline:.15em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.am-benefits li.is-hot>span{color:#3b2a63}
 
 /* partes da aula (só títulos) */
 .am-parts{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid #2c2c2e;counter-reset:p}

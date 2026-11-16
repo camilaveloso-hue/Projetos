@@ -69,9 +69,9 @@ def page():
         ("", "Disponível por um ano", "Assista quando quiser e quantas vezes precisar"),
         ("is-hot", "Para quem está começando", "Escritores iniciantes que desejam começar a escrever"),
     ]
-    ben_html = "".join(f'<li class="{c}">{STAR}<b>{E(t)}</b><span>{E(d)}</span></li>' for c, t, d in benefits)
+    ben_html = "".join(f'<li class="{c}">{STAR}<b><span class="am-m">{E(t)}</span></b><span>{E(d)}</span></li>' for c, t, d in benefits)
     # último cartão muda sozinho depois de 30/11 (a promoção acaba, a aula continua à venda)
-    ben_html += (f'<li class="is-hot">{STAR}<b><span class="am-promo">Promoção</span><span class="am-regular">Valor</span></b>'
+    ben_html += (f'<li class="is-hot">{STAR}<b><span class="am-m am-promo">Promoção</span><span class="am-m am-regular">Valor</span></b>'
                  f'<span><span class="am-promo">R$ {PRICE} só até 30/11.</span><span class="am-regular">R$ {PRICE_FULL}.</span></span></li>')
     parts = [("Os três atos e o arco", "Entenda como uma história se sustenta e como fazer o seu personagem mudar do começo ao fim."),
              ("O checklist de 9 passos", "Um passo a passo para saber onde você está na história e o que escrever em seguida."),
@@ -91,7 +91,7 @@ def page():
 
 <main id="topo">
 <section class="am-hero" aria-labelledby="h1"><div class="am-wrap">
-  <span class="am-pill">Aula gravada<span class="am-promo">· Black Friday</span></span>
+  <span class="am-pill"><span>Aula gravada<span class="am-promo"> · Black Friday</span></span></span>
   <h1 id="h1">AULÃO MASTER<span class="am-sr">: tudo o que você precisa saber para conseguir escrever um livro</span></h1>
   <p class="am-tag"><span class="am-hl">escrever um livro pode ser fácil.</span></p>
   <p class="am-lead">Tudo o que você precisa saber para conseguir escrever um livro, em uma aula com a fundadora da Aldeia Literária.</p>
