@@ -175,7 +175,7 @@ def page():
 <section class="am-sec" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap">
   <p class="am-kicker">Quem dá a aula</p>
   <h2 class="am-h2" id="t-eu">Deixa eu me apresentar. <span class="am-serif">Sou a Camila.</span></h2>
-  <figure class="am-figure" style="margin-top:30px"><img src="{{IMG:camila-professora.jpg}}" alt="Camila Veloso, professora do AULÃO MASTER, diante de uma estante de livros" width="898" height="1600" loading="lazy" style="object-position:50% 30%"></figure>
+  <figure class="am-figure" style="margin-top:30px"><img src="{{IMG:camila-livros-cabeca.jpg}}" alt="Camila Veloso, de óculos, equilibrando uma pilha de livros na cabeça diante de uma estante" width="898" height="1600" loading="lazy" style="aspect-ratio:4/3;object-position:50% 14%"></figure>
   <div class="am-bio"><div class="am-prose">
     <p>Sou <strong>produtora editorial</strong>, formada em Comunicação Social, Produção Editorial pela UFSM. Tenho mais de seis anos de experiência em marketing e conteúdo, em B2B e B2C, e ajudo escritores iniciantes a desenvolver e publicar seus livros.</p>
     <p>O AULÃO MASTER é o que eu mostraria a qualquer pessoa que me dissesse "quero escrever um livro, mas não sei por onde começar".</p></div>
