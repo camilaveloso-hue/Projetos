@@ -115,18 +115,9 @@ def page():
   <span class="am-pill">Página oficial · Aula gravada · Black Friday 2026</span>
   <h1 id="h1">AULÃO MASTER<span class="am-sr">: </span><span class="am-serif">tudo o que você precisa saber para conseguir escrever um livro.</span></h1>
   <p class="am-lead">Uma aula gravada em seis blocos que mostra a estrutura por trás de toda boa história e <span class="am-mark">leva você da ideia solta ao final do livro</span>. Para quem quer escrever e não sabe por onde começar.</p>
-  <div class="am-author"><img src="{{IMG:camila-sorrindo.jpg}}" alt="Camila Veloso" width="100" height="100">
+  <div class="am-author" id="am-hero-cta"><img src="{{IMG:camila-sorriso.jpg}}" alt="Camila Veloso" width="100" height="100">
     <div><strong>Camila Veloso</strong><span>Professora do AULÃO MASTER · Produtora editorial (UFSM) · <a href="{INSTA}" rel="noopener">@acamiveloso</a></span></div></div>
 
-  <div class="am-buy" id="comprar">
-    <div class="am-open" style="display:grid;gap:18px">
-      <div class="am-buy__price"><small>Preço da Black Friday</small><strong>R$ 97</strong><span>até 30/11, às 23h59 · depois disso a aula sai do ar</span></div>
-      <div class="am-buy__bonus" data-bonus><b>Bônus do 1º dia:</b> quem comprar na segunda, 23/11, ganha 50% de desconto na matrícula da Aldeia Literária 2027.</div>
-      <a id="am-hero-cta" class="am-btn am-btn--xl" href="{CHECKOUT}">Quero o AULÃO MASTER {ARROW_BTN}</a>
-      <p class="am-buy__micro">Acesso depois da confirmação do pagamento. 7 dias para desistir e receber o reembolso. <a href="{CANC}">Ver política</a>.</p>
-    </div>
-    <div class="am-closed"><p class="am-lead" style="font-size:1.1rem">As vendas do AULÃO MASTER foram encerradas. A aula saiu do ar.</p></div>
-  </div>
 </div></section>
 
 <section class="am-sec am-sec--tight" id="o-que-e" aria-labelledby="t-oque"><div class="am-wrap">
@@ -136,7 +127,17 @@ def page():
     <p class="am-lead"><strong>O AULÃO MASTER é uma aula gravada sobre o básico da narrativa, para quem quer escrever um livro.</strong> Em seis partes, ela reúne o que você precisa saber para sair da ideia solta e chegar ao final da sua história.</p>
     <p>A aula é dada por Camila Veloso, produtora editorial (UFSM) que ajuda escritores iniciantes a desenvolver e publicar seus livros.</p>
   </div>
-  <figure class="am-figure" style="margin-top:34px"><img src="{{IMG:camila-livros-sorriso.jpg}}" alt="Camila Veloso de óculos laranja sorrindo com livros nas mãos" width="898" height="1600" loading="lazy"><figcaption>Camila Veloso, professora do AULÃO MASTER.</figcaption></figure>
+  <div class="am-tablewrap"><table class="am-table">
+    <caption>O AULÃO MASTER em resumo</caption>
+    <tbody>
+      <tr><th scope="row">O que é</th><td>Uma aula gravada sobre o básico da narrativa, para quem quer escrever um livro.</td></tr>
+      <tr><th scope="row">Para quem é</th><td>Quem está começando e não sabe por onde começar. Você não precisa ter nada pronto.</td></tr>
+      <tr><th scope="row">Quem dá a aula</th><td>Camila Veloso, produtora editorial (UFSM).</td></tr>
+      <tr><th scope="row">Como funciona</th><td>Aula gravada, em seis partes. O acesso é liberado depois da confirmação do pagamento.</td></tr>
+      <tr><th scope="row">O que você leva</th><td>Estrutura da história, checklist de 9 passos, formas de história e premissa do seu livro.</td></tr>
+      <tr><th scope="row">Quando comprar</th><td>De 23/11 a 30/11, às 23h59. Depois disso, a aula sai do ar.</td></tr>
+      <tr><th scope="row">Segurança</th><td>7 dias para desistir e pedir o reembolso do valor pago.</td></tr>
+    </tbody></table></div>
   <p class="am-kicker" style="margin-top:44px">Ao final da aula, você sabe</p>
   <ul class="am-outcomes" style="margin-top:0">{"".join(f"<li>{CHECK}<span>{o}</span></li>" for o in outcomes)}</ul>
 </div></section>
@@ -146,32 +147,6 @@ def page():
   <p class="am-lead" style="margin-top:18px">Uma aula só, do começo ao fim, na ordem em que você vai precisar de cada coisa.</p>
   <ol class="am-topics">{topics()}</ol>
 </div></section>
-
-<section class="am-sec" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap">
-  <p class="am-kicker">Quem dá a aula</p>
-  <h2 class="am-h2" id="t-eu">Deixa eu me apresentar. <span class="am-serif">Sou a Camila.</span></h2>
-  <figure class="am-figure" style="margin-top:30px"><img src="{{IMG:camila-oculos-livros.jpg}}" alt="Camila Veloso de óculos laranja segurando uma pilha de livros" width="898" height="1600" loading="lazy" style="object-position:50% 38%"></figure>
-  <div class="am-bio"><div class="am-prose">
-    <p>Sou <strong>produtora editorial</strong>, formada em Comunicação Social, Produção Editorial pela UFSM. Tenho mais de seis anos de experiência em marketing e conteúdo, em B2B e B2C, e ajudo escritores iniciantes a desenvolver e publicar seus livros.</p>
-    <p>O AULÃO MASTER é o que eu mostraria a qualquer pessoa que me dissesse "quero escrever um livro, mas não sei por onde começar".</p></div>
-    <ul class="am-bio__facts">
-      <li>{CHECK}<span>Comunicação Social, Produção Editorial (UFSM)</span></li>
-      <li>{CHECK}<span>Mais de seis anos em marketing e conteúdo, em B2B e B2C</span></li>
-      <li>{CHECK}<span>Ajudo escritores iniciantes a desenvolver e publicar seus livros</span></li>
-    </ul>
-    <p class="am-bio__sign">Camila Veloso</p><p class="am-bio__role">Professora do AULÃO MASTER · <a href="{INSTA}" rel="noopener">@acamiveloso</a></p>
-  </div>
-</div></section>
-
-<section class="am-sec am-sec--warm" id="seguranca" aria-labelledby="t-seg"><div class="am-wrap am-wrap--wide"><div class="am-verify">
-  <h2 id="t-seg">Compre com segurança. <span class="am-serif">Dá para conferir cada informação.</span></h2>
-  <div class="am-verify__grid">
-    <div><b>7 dias</b><strong>Reembolso do valor pago</strong><p>Você tem 7 dias corridos depois da compra para desistir. O retorno vem em até 5 dias úteis. <a href="{CANC}">Ler a política completa</a>.</p></div>
-    <div><b>CNPJ</b><strong>Empresa registrada</strong><p>CAMILA VELOSO. CO LTDA, CNPJ 47.277.682/0001-48. Você pode consultar na Receita Federal.</p></div>
-    <div><b>Oficial</b><strong>Canais oficiais</strong><p>Site <a href="{SITE}/">aaldeialiteraria.com.br</a> e Instagram da professora, <a href="{INSTA}" rel="noopener">@acamiveloso</a>.</p></div>
-  </div>
-  <p class="am-verify__close">Quem confere antes de comprar decide melhor.</p>
-</div></div></section>
 
 <section class="am-sec" id="oferta" aria-labelledby="t-oferta"><div class="am-wrap">
   <p class="am-kicker">Black Friday</p>
@@ -199,6 +174,32 @@ def page():
     </div>
   </div>
 </div></section>
+
+<section class="am-sec" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap">
+  <p class="am-kicker">Quem dá a aula</p>
+  <h2 class="am-h2" id="t-eu">Deixa eu me apresentar. <span class="am-serif">Sou a Camila.</span></h2>
+  <figure class="am-figure" style="margin-top:30px"><img src="{{IMG:camila-professora.jpg}}" alt="Camila Veloso, professora do AULÃO MASTER, diante de uma estante de livros" width="898" height="1600" loading="lazy" style="object-position:50% 30%"></figure>
+  <div class="am-bio"><div class="am-prose">
+    <p>Sou <strong>produtora editorial</strong>, formada em Comunicação Social, Produção Editorial pela UFSM. Tenho mais de seis anos de experiência em marketing e conteúdo, em B2B e B2C, e ajudo escritores iniciantes a desenvolver e publicar seus livros.</p>
+    <p>O AULÃO MASTER é o que eu mostraria a qualquer pessoa que me dissesse "quero escrever um livro, mas não sei por onde começar".</p></div>
+    <ul class="am-bio__facts">
+      <li>{CHECK}<span>Comunicação Social, Produção Editorial (UFSM)</span></li>
+      <li>{CHECK}<span>Mais de seis anos em marketing e conteúdo, em B2B e B2C</span></li>
+      <li>{CHECK}<span>Ajudo escritores iniciantes a desenvolver e publicar seus livros</span></li>
+    </ul>
+    <p class="am-bio__sign">Camila Veloso</p><p class="am-bio__role">Professora do AULÃO MASTER · <a href="{INSTA}" rel="noopener">@acamiveloso</a></p>
+  </div>
+</div></section>
+
+<section class="am-sec am-sec--warm" id="seguranca" aria-labelledby="t-seg"><div class="am-wrap am-wrap--wide"><div class="am-verify">
+  <h2 id="t-seg">Compre com segurança. <span class="am-serif">Dá para conferir cada informação.</span></h2>
+  <div class="am-verify__grid">
+    <div><b>7 dias</b><strong>Reembolso do valor pago</strong><p>Você tem 7 dias corridos depois da compra para desistir. O retorno vem em até 5 dias úteis. <a href="{CANC}">Ler a política completa</a>.</p></div>
+    <div><b>CNPJ</b><strong>Empresa registrada</strong><p>CAMILA VELOSO. CO LTDA, CNPJ 47.277.682/0001-48. Você pode consultar na Receita Federal.</p></div>
+    <div><b>Oficial</b><strong>Canais oficiais</strong><p>Site <a href="{SITE}/">aaldeialiteraria.com.br</a> e Instagram da professora, <a href="{INSTA}" rel="noopener">@acamiveloso</a>.</p></div>
+  </div>
+  <p class="am-verify__close">Quem confere antes de comprar decide melhor.</p>
+</div></div></section>
 
 <section class="am-sec am-sec--warm" id="duvidas" aria-labelledby="t-faq"><div class="am-wrap">
   <p class="am-kicker">Perguntas frequentes</p>

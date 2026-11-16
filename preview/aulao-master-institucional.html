@@ -94,28 +94,35 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 .am-sec--ink a:focus-visible,.am-footer a:focus-visible{outline-color:#fff}
 
 /* hero */
-.am-hero{padding-block:clamp(40px,6vw,76px) clamp(36px,5vw,56px)}
+.am-hero{padding-block:clamp(40px,6vw,76px) clamp(28px,4vw,44px)}
 .am-hero h1{margin-top:26px;font-size:clamp(2.7rem,8.6vw,5rem);font-weight:800;letter-spacing:-.055em;line-height:.94}
 .am-hero h1 .am-serif{display:block;font-size:.8em;line-height:1.02;margin-top:.16em;letter-spacing:-.02em}
 .am-hero .am-lead{margin-top:28px;max-width:34em}
 .am-author{display:flex;gap:14px;align-items:center;border-block:1px solid var(--line);padding-block:18px;margin-top:34px}
-.am-author img{width:50px;height:50px;border-radius:50%;object-fit:cover;object-position:50% 25%;flex:none;background:var(--line)}
+.am-author img{width:50px;height:50px;border-radius:50%;object-fit:cover;object-position:42% 26%;flex:none;background:var(--line)}
 .am-author strong{display:block;font-size:.95rem;color:var(--ink);line-height:1.3}
 .am-author span{display:block;font-size:.8rem;color:var(--muted);line-height:1.4}
 .am-figure{margin:0}
 .am-figure img{width:100%;height:auto;aspect-ratio:16/11;object-fit:cover;object-position:50% 30%;border-radius:20px;background:var(--line)}
 .am-figure figcaption{font-size:.82rem;color:var(--muted);margin-top:10px}
 
-/* card de compra */
-.am-buy{margin-top:38px;border:2px solid var(--ink);border-radius:22px;background:var(--yellow);padding:clamp(22px,4vw,34px);display:grid;gap:18px;text-align:center}
-.am-buy__price{display:grid;gap:2px;justify-items:center}
-.am-buy__price small{font-weight:800;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.am-buy__price strong{font-family:var(--f-head);font-weight:800;font-size:clamp(3.4rem,10vw,4.8rem);letter-spacing:-.06em;line-height:1;color:var(--ink)}
-.am-buy__price span{font-size:.92rem;color:var(--muted)}
-.am-buy__bonus{background:#fff;border:1px solid var(--ink);border-radius:14px;padding:12px 16px;font-size:.92rem;line-height:1.5;text-align:left}
-.am-buy__bonus b{font-family:var(--f-head);color:var(--red)}
-.am-buy__micro{font-size:.84rem;color:var(--muted);line-height:1.5}
-.am-buy__micro a{font-weight:700;color:var(--ink)}
+/* tabela-resumo */
+.am-tablewrap{margin-top:34px;border:2px solid var(--ink);border-radius:20px;overflow:hidden;background:#fff}
+.am-table{width:100%;border-collapse:collapse;font-size:1rem;line-height:1.55}
+.am-table caption{caption-side:top;text-align:left;background:var(--ink);color:#fff;font-family:var(--f-head);font-weight:800;font-size:1.25rem;letter-spacing:-.03em;padding:16px 22px}
+.am-table th,.am-table td{padding:16px 22px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+.am-table tr:first-child th,.am-table tr:first-child td{border-top:0}
+.am-table th{width:30%;background:var(--yellow);color:var(--ink);font-family:var(--f-head);font-weight:800;letter-spacing:-.02em;font-size:1.02rem;border-right:1px solid rgba(10,10,10,.14)}
+.am-table tr:nth-child(even) td{background:var(--warm)}
+.am-table td{color:var(--text)}
+@media (max-width:640px){
+  .am-table,.am-table tbody,.am-table tr,.am-table th,.am-table td{display:block;width:100%}
+  .am-table tr{border-top:1px solid var(--line)}
+  .am-table tr:first-child{border-top:0}
+  .am-table th,.am-table td{border:0;padding:10px 18px}
+  .am-table th{padding-bottom:6px;border-right:0}
+  .am-table td{padding-top:12px;padding-bottom:16px}
+}
 
 /* resposta direta */
 .am-outcomes{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:10px}
@@ -237,18 +244,9 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
   <span class="am-pill">Página oficial · Aula gravada · Black Friday 2026</span>
   <h1 id="h1">AULÃO MASTER<span class="am-sr">: </span><span class="am-serif">tudo o que você precisa saber para conseguir escrever um livro.</span></h1>
   <p class="am-lead">Uma aula gravada em seis blocos que mostra a estrutura por trás de toda boa história e <span class="am-mark">leva você da ideia solta ao final do livro</span>. Para quem quer escrever e não sabe por onde começar.</p>
-  <div class="am-author"><img src="aulao/img/camila-sorrindo.jpg" alt="Camila Veloso" width="100" height="100">
+  <div class="am-author" id="am-hero-cta"><img src="aulao/img/camila-sorriso.jpg" alt="Camila Veloso" width="100" height="100">
     <div><strong>Camila Veloso</strong><span>Professora do AULÃO MASTER · Produtora editorial (UFSM) · <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a></span></div></div>
 
-  <div class="am-buy" id="comprar">
-    <div class="am-open" style="display:grid;gap:18px">
-      <div class="am-buy__price"><small>Preço da Black Friday</small><strong>R$ 97</strong><span>até 30/11, às 23h59 · depois disso a aula sai do ar</span></div>
-      <div class="am-buy__bonus" data-bonus><b>Bônus do 1º dia:</b> quem comprar na segunda, 23/11, ganha 50% de desconto na matrícula da Aldeia Literária 2027.</div>
-      <a id="am-hero-cta" class="am-btn am-btn--xl" href="#oferta">Quero o AULÃO MASTER <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h15m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <p class="am-buy__micro">Acesso depois da confirmação do pagamento. 7 dias para desistir e receber o reembolso. <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Ver política</a>.</p>
-    </div>
-    <div class="am-closed"><p class="am-lead" style="font-size:1.1rem">As vendas do AULÃO MASTER foram encerradas. A aula saiu do ar.</p></div>
-  </div>
 </div></section>
 
 <section class="am-sec am-sec--tight" id="o-que-e" aria-labelledby="t-oque"><div class="am-wrap">
@@ -258,7 +256,17 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
     <p class="am-lead"><strong>O AULÃO MASTER é uma aula gravada sobre o básico da narrativa, para quem quer escrever um livro.</strong> Em seis partes, ela reúne o que você precisa saber para sair da ideia solta e chegar ao final da sua história.</p>
     <p>A aula é dada por Camila Veloso, produtora editorial (UFSM) que ajuda escritores iniciantes a desenvolver e publicar seus livros.</p>
   </div>
-  <figure class="am-figure" style="margin-top:34px"><img src="aulao/img/camila-livros-sorriso.jpg" alt="Camila Veloso de óculos laranja sorrindo com livros nas mãos" width="898" height="1600" loading="lazy"><figcaption>Camila Veloso, professora do AULÃO MASTER.</figcaption></figure>
+  <div class="am-tablewrap"><table class="am-table">
+    <caption>O AULÃO MASTER em resumo</caption>
+    <tbody>
+      <tr><th scope="row">O que é</th><td>Uma aula gravada sobre o básico da narrativa, para quem quer escrever um livro.</td></tr>
+      <tr><th scope="row">Para quem é</th><td>Quem está começando e não sabe por onde começar. Você não precisa ter nada pronto.</td></tr>
+      <tr><th scope="row">Quem dá a aula</th><td>Camila Veloso, produtora editorial (UFSM).</td></tr>
+      <tr><th scope="row">Como funciona</th><td>Aula gravada, em seis partes. O acesso é liberado depois da confirmação do pagamento.</td></tr>
+      <tr><th scope="row">O que você leva</th><td>Estrutura da história, checklist de 9 passos, formas de história e premissa do seu livro.</td></tr>
+      <tr><th scope="row">Quando comprar</th><td>De 23/11 a 30/11, às 23h59. Depois disso, a aula sai do ar.</td></tr>
+      <tr><th scope="row">Segurança</th><td>7 dias para desistir e pedir o reembolso do valor pago.</td></tr>
+    </tbody></table></div>
   <p class="am-kicker" style="margin-top:44px">Ao final da aula, você sabe</p>
   <ul class="am-outcomes" style="margin-top:0"><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dividir sua história nos três atos e saber o que cada um precisa responder.</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Usar o checklist de 9 passos para chegar ao final sem travar no meio.</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Escolher a forma da sua história: linear, sinuosa ou explosiva.</span></li><li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Resumir o livro em uma premissa de uma frase e desenhar o arco do personagem.</span></li></ul>
 </div></section>
@@ -268,32 +276,6 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
   <p class="am-lead" style="margin-top:18px">Uma aula só, do começo ao fim, na ordem em que você vai precisar de cada coisa.</p>
   <ol class="am-topics"><li><span class="am-topics__n" aria-hidden="true">1</span><small>O esqueleto e a mudança do personagem</small><h3>Os três atos e o arco</h3><p>Entenda como uma história se sustenta de pé e como fazer o seu personagem mudar de verdade do começo ao fim.</p></li><li><span class="am-topics__n" aria-hidden="true">2</span><small>9 passos até o final</small><h3>O checklist da história</h3><p>Um passo a passo para você saber em que ponto da história está e o que escrever em seguida, sem travar no meio.</p></li><li><span class="am-topics__n" aria-hidden="true">3</span><small>A função de uma história</small><h3>Por que você lê livros</h3><p>Antes de escrever para o leitor, entenda por que as histórias funcionam para ele.</p></li><li><span class="am-topics__n" aria-hidden="true">4</span><small>Linear, sinuosa e explosiva</small><h3>As formas de história</h3><p>Descubra qual forma combina com a sua ideia, com exemplos de livros e filmes que você conhece.</p></li><li><span class="am-topics__n" aria-hidden="true">5</span><small>Da ideia à página</small><h3>Premissa, princípio e arco</h3><p>Transforme uma ideia solta em uma frase clara que guia o livro inteiro.</p></li><li><span class="am-topics__n" aria-hidden="true">6</span><small>O que vem depois do básico</small><h3>Próximos passos</h3><p>Termine a aula sabendo por onde seguir para escrever e publicar o seu livro.</p></li></ol>
 </div></section>
-
-<section class="am-sec" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap">
-  <p class="am-kicker">Quem dá a aula</p>
-  <h2 class="am-h2" id="t-eu">Deixa eu me apresentar. <span class="am-serif">Sou a Camila.</span></h2>
-  <figure class="am-figure" style="margin-top:30px"><img src="aulao/img/camila-oculos-livros.jpg" alt="Camila Veloso de óculos laranja segurando uma pilha de livros" width="898" height="1600" loading="lazy" style="object-position:50% 38%"></figure>
-  <div class="am-bio"><div class="am-prose">
-    <p>Sou <strong>produtora editorial</strong>, formada em Comunicação Social, Produção Editorial pela UFSM. Tenho mais de seis anos de experiência em marketing e conteúdo, em B2B e B2C, e ajudo escritores iniciantes a desenvolver e publicar seus livros.</p>
-    <p>O AULÃO MASTER é o que eu mostraria a qualquer pessoa que me dissesse "quero escrever um livro, mas não sei por onde começar".</p></div>
-    <ul class="am-bio__facts">
-      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Comunicação Social, Produção Editorial (UFSM)</span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mais de seis anos em marketing e conteúdo, em B2B e B2C</span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ajudo escritores iniciantes a desenvolver e publicar seus livros</span></li>
-    </ul>
-    <p class="am-bio__sign">Camila Veloso</p><p class="am-bio__role">Professora do AULÃO MASTER · <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a></p>
-  </div>
-</div></section>
-
-<section class="am-sec am-sec--warm" id="seguranca" aria-labelledby="t-seg"><div class="am-wrap am-wrap--wide"><div class="am-verify">
-  <h2 id="t-seg">Compre com segurança. <span class="am-serif">Dá para conferir cada informação.</span></h2>
-  <div class="am-verify__grid">
-    <div><b>7 dias</b><strong>Reembolso do valor pago</strong><p>Você tem 7 dias corridos depois da compra para desistir. O retorno vem em até 5 dias úteis. <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Ler a política completa</a>.</p></div>
-    <div><b>CNPJ</b><strong>Empresa registrada</strong><p>CAMILA VELOSO. CO LTDA, CNPJ 47.277.682/0001-48. Você pode consultar na Receita Federal.</p></div>
-    <div><b>Oficial</b><strong>Canais oficiais</strong><p>Site <a href="https://aaldeialiteraria.com.br/">aaldeialiteraria.com.br</a> e Instagram da professora, <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a>.</p></div>
-  </div>
-  <p class="am-verify__close">Quem confere antes de comprar decide melhor.</p>
-</div></div></section>
 
 <section class="am-sec" id="oferta" aria-labelledby="t-oferta"><div class="am-wrap">
   <p class="am-kicker">Black Friday</p>
@@ -321,6 +303,32 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
     </div>
   </div>
 </div></section>
+
+<section class="am-sec" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap">
+  <p class="am-kicker">Quem dá a aula</p>
+  <h2 class="am-h2" id="t-eu">Deixa eu me apresentar. <span class="am-serif">Sou a Camila.</span></h2>
+  <figure class="am-figure" style="margin-top:30px"><img src="aulao/img/camila-professora.jpg" alt="Camila Veloso, professora do AULÃO MASTER, diante de uma estante de livros" width="898" height="1600" loading="lazy" style="object-position:50% 30%"></figure>
+  <div class="am-bio"><div class="am-prose">
+    <p>Sou <strong>produtora editorial</strong>, formada em Comunicação Social, Produção Editorial pela UFSM. Tenho mais de seis anos de experiência em marketing e conteúdo, em B2B e B2C, e ajudo escritores iniciantes a desenvolver e publicar seus livros.</p>
+    <p>O AULÃO MASTER é o que eu mostraria a qualquer pessoa que me dissesse "quero escrever um livro, mas não sei por onde começar".</p></div>
+    <ul class="am-bio__facts">
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Comunicação Social, Produção Editorial (UFSM)</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Mais de seis anos em marketing e conteúdo, em B2B e B2C</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ajudo escritores iniciantes a desenvolver e publicar seus livros</span></li>
+    </ul>
+    <p class="am-bio__sign">Camila Veloso</p><p class="am-bio__role">Professora do AULÃO MASTER · <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a></p>
+  </div>
+</div></section>
+
+<section class="am-sec am-sec--warm" id="seguranca" aria-labelledby="t-seg"><div class="am-wrap am-wrap--wide"><div class="am-verify">
+  <h2 id="t-seg">Compre com segurança. <span class="am-serif">Dá para conferir cada informação.</span></h2>
+  <div class="am-verify__grid">
+    <div><b>7 dias</b><strong>Reembolso do valor pago</strong><p>Você tem 7 dias corridos depois da compra para desistir. O retorno vem em até 5 dias úteis. <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Ler a política completa</a>.</p></div>
+    <div><b>CNPJ</b><strong>Empresa registrada</strong><p>CAMILA VELOSO. CO LTDA, CNPJ 47.277.682/0001-48. Você pode consultar na Receita Federal.</p></div>
+    <div><b>Oficial</b><strong>Canais oficiais</strong><p>Site <a href="https://aaldeialiteraria.com.br/">aaldeialiteraria.com.br</a> e Instagram da professora, <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a>.</p></div>
+  </div>
+  <p class="am-verify__close">Quem confere antes de comprar decide melhor.</p>
+</div></div></section>
 
 <section class="am-sec am-sec--warm" id="duvidas" aria-labelledby="t-faq"><div class="am-wrap">
   <p class="am-kicker">Perguntas frequentes</p>
