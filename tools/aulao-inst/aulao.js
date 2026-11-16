@@ -34,4 +34,23 @@
       bar.classList.toggle("is-on", !e[0].isIntersecting && e[0].boundingClientRect.top < 0);
     }).observe(anchor);
   }
+
+  // Carrossel de fotos: setas, arraste no celular e rolagem automática lenta (pausa ao tocar e com movimento reduzido).
+  var car = document.querySelector("[data-carousel]");
+  if (car) {
+    var track = car.querySelector(".am-track"), btns = car.querySelectorAll(".am-arrow");
+    var step = function () { var s = track.querySelector(".am-slide"); return s ? s.getBoundingClientRect().width + 14 : 280; };
+    var go = function (d) {
+      var max = track.scrollWidth - track.clientWidth;
+      if (d > 0 && track.scrollLeft >= max - 4) { track.scrollTo({ left: 0 }); return; }
+      if (d < 0 && track.scrollLeft <= 4) { track.scrollTo({ left: max }); return; }
+      track.scrollBy({ left: d * step() });
+    };
+    for (var b = 0; b < btns.length; b++) {
+      btns[b].addEventListener("click", function () { paused = true; go(parseInt(this.getAttribute("data-dir"), 10)); });
+    }
+    var paused = false, reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    ["mouseenter", "touchstart", "focusin"].forEach(function (e) { car.addEventListener(e, function () { paused = true; }, { passive: true }); });
+    if (!reduce) { setInterval(function () { if (!paused && !document.hidden) { go(1); } }, 3500); }
+  }
 })();

@@ -93,6 +93,8 @@ def topics():
 
 
 def page():
+    ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23]
+    slides = "".join(f'<li class="am-slide"><img src="{{IMG:comunidade-{n:02d}.jpg}}" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li>' for n in ids)
     return f'''
 <div class="am-alert" role="status"><div class="am-wrap">
   <span class="am-alert__txt am-open"><strong>Black Friday:</strong> o AULÃO MASTER sai do ar em</span>
@@ -216,6 +218,15 @@ def page():
     </div>
     <div class="am-closed"><h3>As vendas foram encerradas</h3><p class="am-note" style="margin-top:8px">O AULÃO MASTER saiu do ar.</p></div>
   </div>
+</div></section>
+<section class="am-sec am-sec--warm am-proof" id="pessoas" aria-labelledby="t-pessoas"><div class="am-wrap">
+  <p class="am-kicker">Gente de verdade</p>
+  <h2 class="am-h2" id="t-pessoas">Já ensinei muita gente a escrever. <span class="am-serif">Eu sou real, e eles também.</span></h2>
+  <p class="am-lead" style="margin-top:16px">Fotos minhas com alunos da Aldeia Literária e leitores, em encontros presenciais.</p>
+</div>
+<div class="am-carousel" data-carousel>
+  <ul class="am-track" aria-label="Fotos de Camila Veloso com alunos da Aldeia Literária" tabindex="0">{slides}</ul>
+  <div class="am-carousel__nav"><button type="button" class="am-arrow" data-dir="-1" aria-label="Foto anterior">&#8592;</button><button type="button" class="am-arrow" data-dir="1" aria-label="Próxima foto">&#8594;</button></div>
 </div></section>
 </main>
 

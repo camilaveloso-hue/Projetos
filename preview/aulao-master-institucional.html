@@ -182,6 +182,19 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 .am-faq .am-ans{padding:0 0 22px;font-size:1rem;color:var(--text);max-width:40em}
 .am-faq .am-ans a{color:var(--ink);font-weight:700}
 
+/* carrossel de fotos */
+.am-proof{padding-bottom:clamp(48px,6vw,80px)}
+.am-carousel{margin-top:36px}
+.am-track{list-style:none;margin:0;padding:6px max(20px,env(safe-area-inset-left,0px)) 18px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.am-track::-webkit-scrollbar{display:none}
+.am-track:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+.am-slide{flex:0 0 clamp(190px,24vw,270px);scroll-snap-align:center}
+.am-slide img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px;background:var(--line);border:1px solid var(--line)}
+.am-carousel__nav{display:flex;gap:10px;justify-content:center;margin-top:8px}
+.am-arrow{width:48px;height:48px;border-radius:50%;border:2px solid var(--ink);background:#fff;color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer;font-family:var(--f-body);font-weight:700;transition:background .2s,color .2s}
+.am-arrow:hover{background:var(--ink);color:#fff}
+.am-arrow:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
 /* carta final */
 .am-letter{border-left:4px solid var(--ink);background:var(--warm);padding:clamp(22px,4vw,34px);border-radius:0 14px 14px 0}
 .am-letter>*+*{margin-top:1em}
@@ -219,7 +232,7 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
   .am-alert__txt{font-size:.84rem}
   .am-count span{padding:2px 7px;font-size:.92rem}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.am-btn,.am-sticky{transition:none}}
+@media (prefers-reduced-motion:reduce){.am-track{scroll-behavior:auto}html{scroll-behavior:auto}.am-btn,.am-sticky{transition:none}}
 </style>
 
 <div class="am-alert" role="status"><div class="am-wrap">
@@ -345,6 +358,15 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
     <div class="am-closed"><h3>As vendas foram encerradas</h3><p class="am-note" style="margin-top:8px">O AULÃO MASTER saiu do ar.</p></div>
   </div>
 </div></section>
+<section class="am-sec am-sec--warm am-proof" id="pessoas" aria-labelledby="t-pessoas"><div class="am-wrap">
+  <p class="am-kicker">Gente de verdade</p>
+  <h2 class="am-h2" id="t-pessoas">Já ensinei muita gente a escrever. <span class="am-serif">Eu sou real, e eles também.</span></h2>
+  <p class="am-lead" style="margin-top:16px">Fotos minhas com alunos da Aldeia Literária e leitores, em encontros presenciais.</p>
+</div>
+<div class="am-carousel" data-carousel>
+  <ul class="am-track" aria-label="Fotos de Camila Veloso com alunos da Aldeia Literária" tabindex="0"><li class="am-slide"><img src="aulao/img/comunidade-01.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-02.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-03.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-04.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-05.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-06.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-07.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-08.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-09.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-10.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-11.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-12.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-13.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-14.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-16.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-17.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-18.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-19.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-20.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-21.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-22.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-23.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li></ul>
+  <div class="am-carousel__nav"><button type="button" class="am-arrow" data-dir="-1" aria-label="Foto anterior">&#8592;</button><button type="button" class="am-arrow" data-dir="1" aria-label="Próxima foto">&#8594;</button></div>
+</div></section>
 </main>
 
 <footer class="am-footer"><div class="am-wrap">
@@ -395,6 +417,25 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
     new IntersectionObserver(function (e) {
       bar.classList.toggle("is-on", !e[0].isIntersecting && e[0].boundingClientRect.top < 0);
     }).observe(anchor);
+  }
+
+  // Carrossel de fotos: setas, arraste no celular e rolagem automática lenta (pausa ao tocar e com movimento reduzido).
+  var car = document.querySelector("[data-carousel]");
+  if (car) {
+    var track = car.querySelector(".am-track"), btns = car.querySelectorAll(".am-arrow");
+    var step = function () { var s = track.querySelector(".am-slide"); return s ? s.getBoundingClientRect().width + 14 : 280; };
+    var go = function (d) {
+      var max = track.scrollWidth - track.clientWidth;
+      if (d > 0 && track.scrollLeft >= max - 4) { track.scrollTo({ left: 0 }); return; }
+      if (d < 0 && track.scrollLeft <= 4) { track.scrollTo({ left: max }); return; }
+      track.scrollBy({ left: d * step() });
+    };
+    for (var b = 0; b < btns.length; b++) {
+      btns[b].addEventListener("click", function () { paused = true; go(parseInt(this.getAttribute("data-dir"), 10)); });
+    }
+    var paused = false, reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    ["mouseenter", "touchstart", "focusin"].forEach(function (e) { car.addEventListener(e, function () { paused = true; }, { passive: true }); });
+    if (!reduce) { setInterval(function () { if (!paused && !document.hidden) { go(1); } }, 3500); }
   }
 })();
 </script>
