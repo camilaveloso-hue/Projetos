@@ -75,14 +75,9 @@ h1,h2,h3,h4{font-family:var(--f-head);color:var(--ink);margin:0;font-weight:700;
 .am-is-closed .am-closed{display:block}
 .am-is-closed .am-open{display:none!important}
 
-/* cabeçalho */
-.am-top{background:#fff;border-bottom:1px solid var(--line)}
-.am-top .am-wrap{max-width:calc(var(--wide) + 2 * max(20px,env(safe-area-inset-left,0px)));display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:16px}
+/* marca (usada no rodapé) */
 .am-brand{font-family:var(--f-head);font-weight:800;font-size:1.3rem;letter-spacing:-.04em;color:var(--ink);text-decoration:none;white-space:nowrap}
 .am-brand i{font-style:normal;color:var(--bar)}
-.am-nav{display:flex;gap:26px;margin-left:auto}
-.am-nav a{font-weight:700;font-size:.86rem;color:var(--muted);text-decoration:none}
-.am-nav a:hover{color:var(--ink)}
 
 /* botões */
 .am-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:#fff;font-family:var(--f-head);font-weight:800;font-size:1.12rem;letter-spacing:-.01em;text-decoration:none;padding:17px 30px;border-radius:12px;border:0;cursor:pointer;line-height:1.2;text-align:center;box-shadow:0 10px 24px rgba(22,163,74,.28);transition:background .2s,transform .2s}
@@ -104,6 +99,11 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 .am-author span{display:block;font-size:.8rem;color:var(--muted);line-height:1.4}
 .am-figure{margin:0}
 .am-figure img{width:100%;height:auto;aspect-ratio:16/11;object-fit:cover;object-position:50% 30%;border-radius:20px;background:var(--line)}
+.am-biogrid{margin-top:30px;display:grid;gap:24px}
+.am-biogrid .am-bio{margin-top:0}
+.am-figure--portrait{margin:0}
+@media (min-width:861px){.am-biogrid{grid-template-columns:300px 1fr;align-items:start}.am-biogrid .am-bio{padding:26px 28px}}
+.am-figure--portrait img{width:100%;max-width:340px;aspect-ratio:auto;object-fit:contain;border-radius:18px}
 .am-figure figcaption{font-size:.82rem;color:var(--muted);margin-top:10px}
 
 /* tabela-resumo */
@@ -209,8 +209,7 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 .am-sticky small{display:block;color:var(--muted);font-size:.74rem}
 
 @media (max-width:860px){
-  .am-nav{display:none}
-  .am-sticky{display:flex}
+    .am-sticky{display:flex}
   .am-footer__grid{grid-template-columns:1fr 1fr}
   .am-footer__grid>div:first-child{grid-column:1/-1}
   .am-verify__grid{grid-template-columns:1fr}
@@ -228,13 +227,6 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
   <span class="am-count am-open" data-count="sale" aria-hidden="true"><span>7<small>d</small></span><span>00<small>h</small></span><span>00<small>min</small></span><span>00<small>s</small></span></span>
   <span class="am-alert__txt am-closed">Vendas encerradas. O AULÃO MASTER saiu do ar.</span>
 </div></div>
-
-<header class="am-top"><div class="am-wrap">
-  <a class="am-brand" href="https://aaldeialiteraria.com.br/" aria-label="Aldeia Literária, página inicial">Aldeia Literária<i>.</i></a>
-  <nav class="am-nav" aria-label="Principal"><a href="https://aaldeialiteraria.com.br/">Início</a><a href="https://aaldeialiteraria.com.br/novo-sobre/">Sobre</a><a href="https://aaldeialiteraria.com.br/como-escolher-curso-de-escrita-criativa/">Guia</a><a href="https://aaldeialiteraria.com.br/imprensa/">Imprensa</a></nav>
-  <a class="am-btn am-btn--sm am-open" href="#oferta">Quero o aulão</a>
-</div></header>
-
 <main id="topo">
 <section class="am-hero" aria-labelledby="h1"><div class="am-wrap">
   <span class="am-pill">Página oficial · Aula gravada · Black Friday 2026</span>
@@ -304,7 +296,8 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 <section class="am-sec" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap">
   <p class="am-kicker">Quem dá a aula</p>
   <h2 class="am-h2" id="t-eu">Deixa eu me apresentar. <span class="am-serif">Sou a Camila.</span></h2>
-  <figure class="am-figure" style="margin-top:30px"><img src="aulao/img/camila-livros-cabeca.jpg" alt="Camila Veloso, de óculos, equilibrando uma pilha de livros na cabeça diante de uma estante" width="898" height="1600" loading="lazy" style="aspect-ratio:4/3;object-position:50% 14%"></figure>
+  <div class="am-biogrid">
+  <figure class="am-figure am-figure--portrait"><img src="aulao/img/camila-livros-cabeca.jpg" alt="Camila Veloso, de óculos, equilibrando uma pilha de livros na cabeça diante de uma estante" width="898" height="1600" loading="lazy"></figure>
   <div class="am-bio"><div class="am-prose">
     <p>Sou <strong>produtora editorial</strong>, formada em Comunicação Social, Produção Editorial pela UFSM. Tenho mais de seis anos de experiência em marketing e conteúdo, em B2B e B2C, e ajudo escritores iniciantes a desenvolver e publicar seus livros.</p>
     <p>O AULÃO MASTER é o que eu mostraria a qualquer pessoa que me dissesse "quero escrever um livro, mas não sei por onde começar".</p></div>
@@ -314,6 +307,7 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
       <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ajudo escritores iniciantes a desenvolver e publicar seus livros</span></li>
     </ul>
     <p class="am-bio__sign">Camila Veloso</p><p class="am-bio__role">Professora do AULÃO MASTER · <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a></p>
+  </div>
   </div>
 </div></section>
 

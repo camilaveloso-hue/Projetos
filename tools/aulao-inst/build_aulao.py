@@ -99,13 +99,6 @@ def page():
   <span class="am-count am-open" data-count="sale" aria-hidden="true"><span>7<small>d</small></span><span>00<small>h</small></span><span>00<small>min</small></span><span>00<small>s</small></span></span>
   <span class="am-alert__txt am-closed">Vendas encerradas. O AULÃO MASTER saiu do ar.</span>
 </div></div>
-
-<header class="am-top"><div class="am-wrap">
-  <a class="am-brand" href="{SITE}/" aria-label="Aldeia Literária, página inicial">Aldeia Literária<i>.</i></a>
-  <nav class="am-nav" aria-label="Principal"><a href="{SITE}/">Início</a><a href="{SOBRE}">Sobre</a><a href="{GUIA}">Guia</a><a href="{IMP}">Imprensa</a></nav>
-  <a class="am-btn am-btn--sm am-open" href="{CHECKOUT}">Quero o aulão</a>
-</div></header>
-
 <main id="topo">
 <section class="am-hero" aria-labelledby="h1"><div class="am-wrap">
   <span class="am-pill">Página oficial · Aula gravada · Black Friday 2026</span>
@@ -175,7 +168,8 @@ def page():
 <section class="am-sec" id="quem-sou-eu" aria-labelledby="t-eu"><div class="am-wrap">
   <p class="am-kicker">Quem dá a aula</p>
   <h2 class="am-h2" id="t-eu">Deixa eu me apresentar. <span class="am-serif">Sou a Camila.</span></h2>
-  <figure class="am-figure" style="margin-top:30px"><img src="{{IMG:camila-livros-cabeca.jpg}}" alt="Camila Veloso, de óculos, equilibrando uma pilha de livros na cabeça diante de uma estante" width="898" height="1600" loading="lazy" style="aspect-ratio:4/3;object-position:50% 14%"></figure>
+  <div class="am-biogrid">
+  <figure class="am-figure am-figure--portrait"><img src="{{IMG:camila-livros-cabeca.jpg}}" alt="Camila Veloso, de óculos, equilibrando uma pilha de livros na cabeça diante de uma estante" width="898" height="1600" loading="lazy"></figure>
   <div class="am-bio"><div class="am-prose">
     <p>Sou <strong>produtora editorial</strong>, formada em Comunicação Social, Produção Editorial pela UFSM. Tenho mais de seis anos de experiência em marketing e conteúdo, em B2B e B2C, e ajudo escritores iniciantes a desenvolver e publicar seus livros.</p>
     <p>O AULÃO MASTER é o que eu mostraria a qualquer pessoa que me dissesse "quero escrever um livro, mas não sei por onde começar".</p></div>
@@ -185,6 +179,7 @@ def page():
       <li>{CHECK}<span>Ajudo escritores iniciantes a desenvolver e publicar seus livros</span></li>
     </ul>
     <p class="am-bio__sign">Camila Veloso</p><p class="am-bio__role">Professora do AULÃO MASTER · <a href="{INSTA}" rel="noopener">@acamiveloso</a></p>
+  </div>
   </div>
 </div></section>
 

@@ -59,14 +59,9 @@ h1,h2,h3,h4{font-family:var(--f-head);color:var(--ink);margin:0;font-weight:700;
 .am-is-closed .am-closed{display:block}
 .am-is-closed .am-open{display:none!important}
 
-/* cabeçalho */
-.am-top{background:#fff;border-bottom:1px solid var(--line)}
-.am-top .am-wrap{max-width:calc(var(--wide) + 2 * max(20px,env(safe-area-inset-left,0px)));display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:16px}
+/* marca (usada no rodapé) */
 .am-brand{font-family:var(--f-head);font-weight:800;font-size:1.3rem;letter-spacing:-.04em;color:var(--ink);text-decoration:none;white-space:nowrap}
 .am-brand i{font-style:normal;color:var(--bar)}
-.am-nav{display:flex;gap:26px;margin-left:auto}
-.am-nav a{font-weight:700;font-size:.86rem;color:var(--muted);text-decoration:none}
-.am-nav a:hover{color:var(--ink)}
 
 /* botões */
 .am-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:#fff;font-family:var(--f-head);font-weight:800;font-size:1.12rem;letter-spacing:-.01em;text-decoration:none;padding:17px 30px;border-radius:12px;border:0;cursor:pointer;line-height:1.2;text-align:center;box-shadow:0 10px 24px rgba(22,163,74,.28);transition:background .2s,transform .2s}
@@ -88,6 +83,11 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 .am-author span{display:block;font-size:.8rem;color:var(--muted);line-height:1.4}
 .am-figure{margin:0}
 .am-figure img{width:100%;height:auto;aspect-ratio:16/11;object-fit:cover;object-position:50% 30%;border-radius:20px;background:var(--line)}
+.am-biogrid{margin-top:30px;display:grid;gap:24px}
+.am-biogrid .am-bio{margin-top:0}
+.am-figure--portrait{margin:0}
+@media (min-width:861px){.am-biogrid{grid-template-columns:300px 1fr;align-items:start}.am-biogrid .am-bio{padding:26px 28px}}
+.am-figure--portrait img{width:100%;max-width:340px;aspect-ratio:auto;object-fit:contain;border-radius:18px}
 .am-figure figcaption{font-size:.82rem;color:var(--muted);margin-top:10px}
 
 /* tabela-resumo */
@@ -193,8 +193,7 @@ a:focus-visible,.am-faq summary:focus-visible{outline:3px solid var(--ink);outli
 .am-sticky small{display:block;color:var(--muted);font-size:.74rem}
 
 @media (max-width:860px){
-  .am-nav{display:none}
-  .am-sticky{display:flex}
+    .am-sticky{display:flex}
   .am-footer__grid{grid-template-columns:1fr 1fr}
   .am-footer__grid>div:first-child{grid-column:1/-1}
   .am-verify__grid{grid-template-columns:1fr}
