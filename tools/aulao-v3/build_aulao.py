@@ -94,7 +94,7 @@ def page():
 
 <section class="am-sec am-what" id="leva" aria-labelledby="t-oque"><div class="am-wrap">
   <h2 class="am-h2" id="t-oque">O que é o AULÃO MASTER?</h2>
-  <p class="am-lead"><strong>É uma aula gravada de Camila Veloso, fundadora da Aldeia Literária, que ensina o básico da narrativa para você conseguir escrever um livro.</strong></p>
+  <p class="am-lead"><strong>É uma aula gravada em que Camila Veloso, fundadora da Aldeia Literária, ensina, com metodologia única para iniciantes, tudo o que você precisa saber para conseguir escrever um livro.</strong></p>
   <ul class="am-benefits" aria-label="O que você leva">{ben_html}</ul>
 </div></section>
 
