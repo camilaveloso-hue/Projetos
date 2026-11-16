@@ -84,9 +84,12 @@ def page():
     slides = "".join(f'<li class="am-slide"><img src="{{IMG:comunidade-{n:02d}.jpg}}" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li>' for n in ids)
     return f'''
 <div class="am-alert" role="status"><div class="am-wrap">
-  <span class="am-alert__txt am-promo">A promoção acaba em:</span>
-  <span class="am-count am-promo" data-count="sale" aria-hidden="true"><span>7<small>d</small></span><span>00<small>h</small></span><span>00<small>min</small></span><span>00<small>s</small></span></span>
-  <span class="am-alert__txt am-regular">A promoção de Black Friday terminou. Valor atual: <b>R$ {PRICE_FULL}</b></span>
+  <div class="am-alert__info">
+    <span class="am-alert__txt am-promo">A promoção acaba em:</span>
+    <span class="am-count am-promo" data-count="sale" aria-hidden="true"><span>7<small>d</small></span><span>00<small>h</small></span><span>00<small>min</small></span><span>00<small>s</small></span></span>
+    <span class="am-alert__txt am-regular">A promoção terminou. Valor atual: <b>R$ {PRICE_FULL}</b></span>
+  </div>
+  <a class="am-btn am-btn--yellow am-btn--bar" href="{CHECKOUT}">Quero o aulão</a>
 </div></div>
 
 <main id="topo">
@@ -96,7 +99,7 @@ def page():
   <p class="am-tag"><span class="am-hl">escrever um livro pode ser fácil.</span></p>
   <p class="am-lead">Tudo o que você precisa saber para conseguir escrever um livro, em uma aula com a fundadora da Aldeia Literária.</p>
   <div class="am-author"><img src="{{IMG:camila-sorriso.jpg}}" alt="Camila Veloso" width="92" height="92"><div><strong>Camila Veloso</strong><span>Fundadora da Aldeia Literária</span></div></div>
-  <div class="am-hero__cta"><a id="am-hero-cta" class="am-btn am-btn--ghost" href="#leva">Ver o que você leva {ARROW}</a></div>
+  <div class="am-hero__cta"><a id="am-hero-cta" class="am-btn" href="{CHECKOUT}">Quero o AULÃO MASTER {ARROW}</a></div>
 </div></section>
 
 <section class="am-sec am-what" id="leva" aria-labelledby="t-oque"><div class="am-wrap am-center">
@@ -172,7 +175,6 @@ def page():
   <p>© 2026 Aldeia Literária. Todos os direitos reservados.</p>
 </div></footer>
 
-<div class="am-sticky" id="am-sticky"><div><b><s class="am-promo">R$ {PRICE_FULL}</s><span class="am-promo">R$ {PRICE}</span><span class="am-regular">R$ {PRICE_FULL}</span></b><small class="am-promo">promoção até 30/11</small></div><a class="am-btn am-btn--sm" href="{CHECKOUT}">Quero o aulão</a></div>
 {jsonld()}
 '''
 
