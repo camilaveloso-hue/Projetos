@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""AULÃO UNIVERSAL — versão curta para celular (Black Friday 2026), na identidade visual dos slides do Aulão Universal.
+"""AULÃO UNIVERSAL — versão curta para celular (Black Friday 2026).
 Uso: python3 tools/aulao-universal/build_aulao.py   (SCRATCH=<pasta> também gera a prévia autocontida para o Artifact)
-Saída: preview/aulao-universal.html (fotos em preview/aulao/img, fontes em preview/aulao/fonts)
+Saída: preview/aulao-universal.html (fotos em preview/aulao/img, fontes em preview/aulao-v3/fonts)
 Regras de negócio: R$ 67 até 30/11 às 23h59 (horário de Brasília); depois, R$ 100. A aula é produto perpétuo: não sai do ar."""
 import base64, html, json, os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, "..", ".."))
 IMGDIR = os.path.join(ROOT, "preview", "aulao", "img")
-FONTDIR = os.path.join(ROOT, "preview", "aulao", "fonts")
+FONTDIR = os.path.join(ROOT, "preview", "aulao-v3", "fonts")
 E = html.escape
 
 SITE = "https://aaldeialiteraria.com.br"
@@ -93,8 +93,7 @@ def page():
 </div></div>
 
 <main id="topo">
-<section class="am-hero" aria-labelledby="h1"><div class="am-wrap">
-  <img class="am-logo" src="{{IMG:logo-camila-veloso.png}}" alt="Camila Veloso" width="150" height="50">
+<section class="am-hero am-mtn am-mtn--light" aria-labelledby="h1"><div class="am-wrap">
   <span class="am-pill"><span>Aula gravada<span class="am-promo"> · Black Friday</span></span></span>
   <h1 id="h1">AULÃO UNIVERSAL<span class="am-sr">: tudo o que você precisa saber para conseguir escrever um livro</span></h1>
   <p class="am-tag"><span class="am-hl">escrever um livro pode ser fácil.</span></p>
@@ -109,8 +108,8 @@ def page():
   <ul class="am-benefits" aria-label="O que você leva">{ben_html}</ul>
 </div></section>
 
-<section class="am-sec am-dark" id="conteudo" aria-labelledby="t-partes"><div class="am-wrap">
-  <h2 class="am-h2" id="t-partes">Na aula, <span style="color:var(--lilac)">6 partes.</span></h2>
+<section class="am-sec am-dark am-mtn am-mtn--dark" id="conteudo" aria-labelledby="t-partes"><div class="am-wrap">
+  <h2 class="am-h2" id="t-partes">Na aula, <span style="color:var(--yellow)">6 partes.</span></h2>
   <ol class="am-parts">{parts_html}</ol>
 </div></section>
 
@@ -152,8 +151,8 @@ def page():
   </div>
 </div></section>
 
-<section class="am-sec am-dark am-center" id="pessoas" aria-labelledby="t-pessoas" style="padding-bottom:clamp(36px,7vw,60px)"><div class="am-wrap">
-  <h2 class="am-h2" id="t-pessoas">Eu sou real. <span style="color:var(--lilac)">E eles também.</span></h2>
+<section class="am-sec am-dark am-center am-mtn am-mtn--dark" id="pessoas" aria-labelledby="t-pessoas" style="padding-bottom:clamp(36px,7vw,60px)"><div class="am-wrap">
+  <h2 class="am-h2" id="t-pessoas">Eu sou real. <span style="color:var(--yellow)">E eles também.</span></h2>
 </div>
 <div class="am-carousel" data-carousel>
   <ul class="am-track" aria-label="Fotos de Camila Veloso com alunos da Aldeia Literária" tabindex="0">{slides}</ul>
@@ -165,8 +164,8 @@ def page():
   <div class="am-faq">{faq_html()}</div>
 </div></section>
 
-<section class="am-sec am-dark am-final" id="comprar" aria-labelledby="t-final"><div class="am-wrap">
-  <h2 id="t-final">Escrever um livro <span style="color:var(--lilac)">pode ser fácil.</span></h2>
+<section class="am-sec am-dark am-final am-mtn am-mtn--dark" id="comprar" aria-labelledby="t-final"><div class="am-wrap">
+  <h2 id="t-final">Escrever um livro <span style="color:var(--yellow)">pode ser fácil.</span></h2>
   <p class="am-lead am-promo">A promoção acaba em:</p>
   <span class="am-count am-count--big am-promo" data-count="sale" aria-hidden="true"></span>
   <p class="am-price-line"><span class="am-promo"><s>R$ {PRICE_FULL}</s> R$ {PRICE}</span><span class="am-regular">R$ {PRICE_FULL}</span></p>
@@ -175,7 +174,7 @@ def page():
 </main>
 
 <footer class="am-footer"><div class="am-wrap">
-  <img src="{{IMG:logo-camila-veloso-branco.png}}" alt="Camila Veloso" width="102" height="34" loading="lazy">
+  <b>Aldeia Literária</b>
   <p>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</p>
   <p><a href="{CANC}">Cancelamento e reembolso</a> · <a href="{INSTA}" rel="noopener">@acamiveloso</a></p>
   <p>© 2026 Aldeia Literária. Todos os direitos reservados.</p>
@@ -185,8 +184,42 @@ def page():
 '''
 
 
-FONTS = [("Outfit", "outfit", 600, "normal"), ("Outfit", "outfit", 700, "normal"), ("Outfit", "outfit", 800, "normal"),
-         ("Figtree", "figtree", 400, "normal"), ("Figtree", "figtree", 500, "normal"), ("Figtree", "figtree", 700, "normal")]
+FONTS = [("Playfair Display", "playfair-display", 700, "normal"), ("Playfair Display", "playfair-display", 900, "normal"), ("Playfair Display", "playfair-display", 900, "italic"),
+         ("DM Sans", "dm-sans", 400, "normal"), ("DM Sans", "dm-sans", 500, "normal"), ("DM Sans", "dm-sans", 700, "normal")]
+
+
+# ---------------------------------------------------------------- relevo de montanhas (SVG em linha, usado como fundo)
+def _ridge(seed, base, amp, step):
+    """Silhueta de cordilheira: poucos picos largos, encostas retas, vales marcados e um ombro em cada encosta."""
+    import random
+    r = random.Random(seed)
+    pts, x = [(-20, base)], -20 + step * 0.3
+    while x < 1240:
+        h = amp * (0.45 + 0.55 * r.random())
+        pts.append((x, base - h))                                   # pico
+        pts.append((x + step * 0.28, base - h * (0.5 + 0.1 * r.random())))   # ombro
+        x += step * 0.55
+        pts.append((x, base - amp * 0.12 * r.random()))             # vale
+        x += step * 0.45
+    d = f"M{pts[0][0]:.0f} {pts[0][1]:.0f}" + "".join(f" L{px:.0f} {py:.0f}" for px, py in pts[1:])
+    return d, pts
+
+
+def mountains(fills, stroke, sw=1.4):
+    """Três camadas de montanhas; as de trás são mais altas e mais claras."""
+    out = ""
+    for k, (seed, base, amp, step) in enumerate([(11, 190, 120, 330), (29, 214, 92, 260), (53, 240, 66, 210)]):
+        d, _ = _ridge(seed, base, amp, step)
+        out += f'<path d="{d} L1240 260 L-20 260 Z" fill="{fills[k]}"/>'
+        out += f'<path d="{d}" fill="none" stroke="{stroke}" stroke-width="{sw}" stroke-linejoin="round" stroke-linecap="round" opacity="{0.9 - k*0.2:.1f}"/>'
+    svg = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" preserveAspectRatio="none">{out}</svg>'
+    import urllib.parse
+    return 'url("data:image/svg+xml,' + urllib.parse.quote(svg, safe="/:=,'()") + '")'
+
+
+MTN_LIGHT = mountains(["#efe6fc", "#e5d8fa", "#dccbf6"], "#9b7be0")
+MTN_DARK = mountains(["rgba(255,255,255,.04)", "rgba(255,255,255,.06)", "rgba(255,255,255,.09)"], "#c9b2f2")
+
 
 
 def b64(path, mime):
@@ -197,7 +230,7 @@ def font_css(inline):
     out = ""
     for fam, slug, w, st in FONTS:
         f = f"{slug}-latin-{w}-{st}.woff2"
-        src = b64(os.path.join(FONTDIR, f), "font/woff2") if inline else f"aulao/fonts/{f}"
+        src = b64(os.path.join(FONTDIR, f), "font/woff2") if inline else f"aulao-v3/fonts/{f}"
         out += f'@font-face{{font-family:"{fam}";font-weight:{w};font-style:{st};font-display:swap;src:url({src}) format("woff2")}}\n'
     return out
 
@@ -207,7 +240,7 @@ def assemble(inline):
         f = m.group(1)
         return b64(os.path.join(IMGDIR, f), "image/png" if f.endswith(".png") else "image/jpeg") if inline else f"aulao/img/{f}"
     body = re.sub(r"\{IMG:([^}]+)\}", img, page())
-    css = open(os.path.join(HERE, "aulao.css"), encoding="utf-8").read()
+    css = open(os.path.join(HERE, "aulao.css"), encoding="utf-8").read().replace("{MTN_LIGHT}", MTN_LIGHT).replace("{MTN_DARK}", MTN_DARK)
     js = open(os.path.join(HERE, "aulao.js"), encoding="utf-8").read()
     return f"<style>\n{font_css(inline)}{css}</style>\n{body}\n<script>\n{js}</script>\n"
 

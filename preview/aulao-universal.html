@@ -6,59 +6,58 @@
 <meta property="og:type" content="website"><meta property="og:title" content="AULÃO UNIVERSAL: tudo o que você precisa saber para conseguir escrever um livro"><meta property="og:description" content="Aula gravada de Camila Veloso, fundadora da Aldeia Literária, para quem quer escrever um livro. Disponível por 1 ano. R$ 67 na Black Friday, até 30/11."><meta property="og:url" content="https://aaldeialiteraria.com.br/aulao-universal/"><meta property="og:locale" content="pt_BR">
 </head><body>
 <style>
-@font-face{font-family:"Outfit";font-weight:600;font-style:normal;font-display:swap;src:url(aulao/fonts/outfit-latin-600-normal.woff2) format("woff2")}
-@font-face{font-family:"Outfit";font-weight:700;font-style:normal;font-display:swap;src:url(aulao/fonts/outfit-latin-700-normal.woff2) format("woff2")}
-@font-face{font-family:"Outfit";font-weight:800;font-style:normal;font-display:swap;src:url(aulao/fonts/outfit-latin-800-normal.woff2) format("woff2")}
-@font-face{font-family:"Figtree";font-weight:400;font-style:normal;font-display:swap;src:url(aulao/fonts/figtree-latin-400-normal.woff2) format("woff2")}
-@font-face{font-family:"Figtree";font-weight:500;font-style:normal;font-display:swap;src:url(aulao/fonts/figtree-latin-500-normal.woff2) format("woff2")}
-@font-face{font-family:"Figtree";font-weight:700;font-style:normal;font-display:swap;src:url(aulao/fonts/figtree-latin-700-normal.woff2) format("woff2")}
-/* AULÃO UNIVERSAL — página curta para celular (Black Friday 2026)
-   Identidade dos slides: branco e creme, azul-marinho e preto, lilás com roxo de acento, títulos em Outfit.
-   Frase-chave grifada em lilás. Botão principal roxo, seções escuras em azul-marinho. Coluna estreita de ~640px.
-   Layout: uma coluna centralizada; cartões de benefícios em 1 coluna no celular e 2 no computador. */
+@font-face{font-family:"Playfair Display";font-weight:700;font-style:normal;font-display:swap;src:url(aulao-v3/fonts/playfair-display-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-weight:900;font-style:normal;font-display:swap;src:url(aulao-v3/fonts/playfair-display-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-weight:900;font-style:italic;font-display:swap;src:url(aulao-v3/fonts/playfair-display-latin-900-italic.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;font-style:normal;font-display:swap;src:url(aulao-v3/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:500;font-style:normal;font-display:swap;src:url(aulao-v3/fonts/dm-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:700;font-style:normal;font-display:swap;src:url(aulao-v3/fonts/dm-sans-latin-700-normal.woff2) format("woff2")}
+/* AULÃO MASTER — versão curta, feita para celular (Black Friday 2026)
+   Identidade: fundo creme, títulos em Playfair Display 900, texto em DM Sans, amarelo como destaque,
+   marca-texto lilás, botões pretos com texto amarelo, seções pretas. Coluna estreita e centralizada.
+   Layout: uma coluna de ~640px; cartões de benefícios em 1 coluna no celular e 2 no computador. */
 :root{
-  --cream:#f6f1ec; --paper:#ffffff; --ink:#111111; --navy:#083656; --navy-deep:#062a44;
-  --lilac:#e8dcfb; --lilac-soft:#f3edfd; --lilac-line:#d4bff6; --violet:#6d28d9; --violet-dark:#5b21b6; --violet-light:#c9b2f2;
-  --sand:#e9e1d7; --muted:#3a5568; --line:#ddd5ca; --card:#ffffff;
-  --f-head:"Outfit","Helvetica Neue",Arial,sans-serif;
-  --f-body:"Figtree","Helvetica Neue",Arial,sans-serif;
+  --cream:#fdfaec; --ink:#09090a; --yellow:#ffd60a; --yellow-soft:#fff3b0;
+  --lilac:#e8dcfb; --violet:#7c3aed; --violet2:#6d28d9; --muted:#5d5b53; --line:#ece5c8; --card:#ffffff; --green:#16a34a;
+  --f-head:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-body:"DM Sans","Helvetica Neue",Arial,sans-serif;
   --col:640px;
 }
 html{scroll-behavior:smooth;color-scheme:light}
 html,body{margin:0}
 body{background:var(--cream);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy-deep);z-index:60}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ink);z-index:60}
 *,*::before,*::after{box-sizing:border-box}
 img{max-width:100%;display:block}
 a{color:inherit}
 p{margin:0}
-h1,h2,h3{font-family:var(--f-head);font-weight:800;margin:0;line-height:1.05;letter-spacing:-.03em;text-wrap:balance;color:var(--ink)}
+h1,h2,h3{font-family:var(--f-head);font-weight:900;margin:0;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;color:var(--ink)}
 .am-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .am-wrap{width:100%;max-width:calc(var(--col) + 2 * max(20px,env(safe-area-inset-left,0px)));margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 .am-sec{padding-block:clamp(44px,9vw,76px)}
 .am-center{text-align:center}
-.am-hl{background:linear-gradient(transparent 50%,var(--lilac) 50%,var(--lilac) 94%,transparent 94%);padding-inline:.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.am-hl{background:linear-gradient(transparent 52%,var(--lilac) 52%,var(--lilac) 92%,transparent 92%);padding-inline:.12em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .am-h2{font-size:clamp(1.9rem,7vw,2.7rem)}
 .am-lead{font-size:1.12rem;line-height:1.6;color:var(--muted)}
 .am-lead strong{color:var(--ink)}
-.am-pill{display:inline-flex;align-items:center;gap:9px;background:var(--navy);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border-radius:99px;line-height:1.2}
-.am-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--violet-light);flex:none}
-.am-dark{background:var(--navy);color:#c9d8e4}
+.am-pill{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border-radius:99px;line-height:1.2}
+.am-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);flex:none}
+.am-dark{background:var(--ink);color:#d9d7cc}
 .am-dark h2,.am-dark h3{color:#fff}
 
 /* promoção: faixa preta com contagem regressiva */
-.am-alert{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy-deep);color:#fff;border-bottom:1px solid #0d3a5b}
+.am-alert{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ink);color:#fff;border-bottom:1px solid #2a2a2c}
 .am-alert .am-wrap{max-width:var(--col);display:flex;gap:10px 12px;align-items:center;justify-content:space-between;padding-block:9px}
 .am-alert__info{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0;flex:1 1 auto}
 .am-alert .am-count{gap:4px}
 .am-alert .am-count span{font-size:.88rem;padding:2px 6px}
 .am-alert__txt{font-weight:700;font-size:.8rem;line-height:1.2}
-.am-alert__txt b{color:var(--lilac)}
+.am-alert__txt b{color:var(--yellow)}
 .am-count{display:inline-flex;gap:6px;font-variant-numeric:tabular-nums}
-.am-count span{display:inline-flex;align-items:baseline;gap:3px;background:rgba(255,255,255,.12);color:var(--lilac);border-radius:8px;padding:2px 8px;font-weight:700;font-size:.95rem;line-height:1.25}
+.am-count span{display:inline-flex;align-items:baseline;gap:3px;background:rgba(255,255,255,.12);color:var(--yellow);border-radius:8px;padding:2px 8px;font-weight:700;font-size:.95rem;line-height:1.25}
 .am-count small{font-size:.66rem;font-weight:700;color:#fff;opacity:.8}
 .am-count--big{gap:8px}
-.am-count--big span{background:rgba(255,255,255,.12);color:var(--lilac);font-size:clamp(1.5rem,6vw,2rem);padding:8px 13px;border-radius:12px}
+.am-count--big span{background:rgba(255,255,255,.12);color:var(--yellow);font-size:clamp(1.5rem,6vw,2rem);padding:8px 13px;border-radius:12px}
 .am-count--big small{font-size:.76rem}
 /* depois de 30/11 a página continua no ar, com o preço cheio */
 .am-regular{display:none}
@@ -66,23 +65,29 @@ h1,h2,h3{font-family:var(--f-head);font-weight:800;margin:0;line-height:1.05;let
 .am-is-closed .am-promo{display:none!important}
 
 /* botões */
-.am-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--violet);color:#fff;font-family:var(--f-head);font-weight:700;font-size:1.1rem;text-decoration:none;padding:17px 26px;border-radius:14px;border:0;cursor:pointer;line-height:1.2;text-align:center;box-shadow:0 8px 0 rgba(91,33,182,.28);transition:transform .15s,box-shadow .15s;width:100%}
-.am-btn:hover{transform:translateY(2px);box-shadow:0 5px 0 rgba(91,33,182,.28);background:var(--violet-dark)}
-.am-btn--yellow{background:var(--lilac);color:var(--navy);box-shadow:0 8px 0 rgba(232,220,251,.22)}
-.am-btn--yellow:hover{background:#fff}
-.am-btn--ghost{background:transparent;color:var(--navy);box-shadow:none;border:2px solid var(--navy)}
-.am-btn--ghost:hover{background:var(--navy);color:#fff;transform:none}
+.am-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:var(--yellow);font-family:var(--f-body);font-weight:700;font-size:1.1rem;text-decoration:none;padding:17px 26px;border-radius:14px;border:0;cursor:pointer;line-height:1.2;text-align:center;box-shadow:0 8px 0 rgba(9,9,10,.14);transition:transform .15s,box-shadow .15s;width:100%}
+.am-btn:hover{transform:translateY(2px);box-shadow:0 5px 0 rgba(9,9,10,.14)}
+.am-btn--yellow{background:var(--yellow);color:var(--ink);box-shadow:0 8px 0 rgba(255,214,10,.25)}
+.am-btn--ghost{background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--ink)}
+.am-btn--ghost:hover{background:var(--ink);color:var(--yellow);transform:none}
 .am-btn--bar{width:auto;flex:none;padding:10px 13px;font-size:.8rem;letter-spacing:.02em;box-shadow:none;white-space:nowrap;border-radius:12px}
-.am-btn--bar:hover{box-shadow:none;transform:none;background:#fff;color:var(--navy)}
+.am-btn--bar:hover{box-shadow:none;transform:none;background:#fff}
 .am-btn--sm{width:auto;padding:11px 18px;font-size:.95rem;box-shadow:none}
 a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
-.am-dark a:focus-visible{outline-color:var(--lilac)}
+.am-dark a:focus-visible{outline-color:var(--yellow)}
+
+/* relevo de montanhas no fundo de algumas seções (o desenho vem do build_aulao.py) */
+.am-mtn{position:relative;overflow:hidden;isolation:isolate}
+.am-mtn::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,30vw,230px);background-repeat:no-repeat;background-position:bottom center;background-size:100% 100%;z-index:-1;pointer-events:none}
+.am-mtn--light::after{background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%201200%20260%22%20preserveAspectRatio=%22none%22%3E%3Cpath%20d=%22M-20%20190%20L79%20106%20L171%20143%20L260%20177%20L409%20105%20L501%20143%20L590%20182%20L739%20124%20L831%20154%20L920%20181%20L1069%2084%20L1161%20136%20L1250%20186%20L1240%20260%20L-20%20260%20Z%22%20fill=%22%23efe6fc%22/%3E%3Cpath%20d=%22M-20%20190%20L79%20106%20L171%20143%20L260%20177%20L409%20105%20L501%20143%20L590%20182%20L739%20124%20L831%20154%20L920%20181%20L1069%2084%20L1161%20136%20L1250%20186%22%20fill=%22none%22%20stroke=%22%239b7be0%22%20stroke-width=%221.4%22%20stroke-linejoin=%22round%22%20stroke-linecap=%22round%22%20opacity=%220.9%22/%3E%3Cpath%20d=%22M-20%20214%20L58%20145%20L131%20177%20L201%20205%20L318%20158%20L391%20183%20L461%20210%20L578%20152%20L651%20177%20L721%20213%20L838%20150%20L911%20181%20L981%20210%20L1098%20122%20L1171%20165%20L1241%20207%20L1240%20260%20L-20%20260%20Z%22%20fill=%22%23e5d8fa%22/%3E%3Cpath%20d=%22M-20%20214%20L58%20145%20L131%20177%20L201%20205%20L318%20158%20L391%20183%20L461%20210%20L578%20152%20L651%20177%20L721%20213%20L838%20150%20L911%20181%20L981%20210%20L1098%20122%20L1171%20165%20L1241%20207%22%20fill=%22none%22%20stroke=%22%239b7be0%22%20stroke-width=%221.4%22%20stroke-linejoin=%22round%22%20stroke-linecap=%22round%22%20opacity=%220.7%22/%3E%3Cpath%20d=%22M-20%20240%20L43%20188%20L102%20209%20L158%20236%20L253%20184%20L312%20207%20L368%20236%20L463%20184%20L522%20208%20L578%20233%20L673%20209%20L732%20224%20L788%20232%20L883%20183%20L942%20210%20L998%20234%20L1093%20204%20L1152%20221%20L1208%20237%20L1240%20260%20L-20%20260%20Z%22%20fill=%22%23dccbf6%22/%3E%3Cpath%20d=%22M-20%20240%20L43%20188%20L102%20209%20L158%20236%20L253%20184%20L312%20207%20L368%20236%20L463%20184%20L522%20208%20L578%20233%20L673%20209%20L732%20224%20L788%20232%20L883%20183%20L942%20210%20L998%20234%20L1093%20204%20L1152%20221%20L1208%20237%22%20fill=%22none%22%20stroke=%22%239b7be0%22%20stroke-width=%221.4%22%20stroke-linejoin=%22round%22%20stroke-linecap=%22round%22%20opacity=%220.5%22/%3E%3C/svg%3E")}
+.am-mtn--dark::after{background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%201200%20260%22%20preserveAspectRatio=%22none%22%3E%3Cpath%20d=%22M-20%20190%20L79%20106%20L171%20143%20L260%20177%20L409%20105%20L501%20143%20L590%20182%20L739%20124%20L831%20154%20L920%20181%20L1069%2084%20L1161%20136%20L1250%20186%20L1240%20260%20L-20%20260%20Z%22%20fill=%22rgba(255,255,255,.04)%22/%3E%3Cpath%20d=%22M-20%20190%20L79%20106%20L171%20143%20L260%20177%20L409%20105%20L501%20143%20L590%20182%20L739%20124%20L831%20154%20L920%20181%20L1069%2084%20L1161%20136%20L1250%20186%22%20fill=%22none%22%20stroke=%22%23c9b2f2%22%20stroke-width=%221.4%22%20stroke-linejoin=%22round%22%20stroke-linecap=%22round%22%20opacity=%220.9%22/%3E%3Cpath%20d=%22M-20%20214%20L58%20145%20L131%20177%20L201%20205%20L318%20158%20L391%20183%20L461%20210%20L578%20152%20L651%20177%20L721%20213%20L838%20150%20L911%20181%20L981%20210%20L1098%20122%20L1171%20165%20L1241%20207%20L1240%20260%20L-20%20260%20Z%22%20fill=%22rgba(255,255,255,.06)%22/%3E%3Cpath%20d=%22M-20%20214%20L58%20145%20L131%20177%20L201%20205%20L318%20158%20L391%20183%20L461%20210%20L578%20152%20L651%20177%20L721%20213%20L838%20150%20L911%20181%20L981%20210%20L1098%20122%20L1171%20165%20L1241%20207%22%20fill=%22none%22%20stroke=%22%23c9b2f2%22%20stroke-width=%221.4%22%20stroke-linejoin=%22round%22%20stroke-linecap=%22round%22%20opacity=%220.7%22/%3E%3Cpath%20d=%22M-20%20240%20L43%20188%20L102%20209%20L158%20236%20L253%20184%20L312%20207%20L368%20236%20L463%20184%20L522%20208%20L578%20233%20L673%20209%20L732%20224%20L788%20232%20L883%20183%20L942%20210%20L998%20234%20L1093%20204%20L1152%20221%20L1208%20237%20L1240%20260%20L-20%20260%20Z%22%20fill=%22rgba(255,255,255,.09)%22/%3E%3Cpath%20d=%22M-20%20240%20L43%20188%20L102%20209%20L158%20236%20L253%20184%20L312%20207%20L368%20236%20L463%20184%20L522%20208%20L578%20233%20L673%20209%20L732%20224%20L788%20232%20L883%20183%20L942%20210%20L998%20234%20L1093%20204%20L1152%20221%20L1208%20237%22%20fill=%22none%22%20stroke=%22%23c9b2f2%22%20stroke-width=%221.4%22%20stroke-linejoin=%22round%22%20stroke-linecap=%22round%22%20opacity=%220.5%22/%3E%3C/svg%3E")}
+.am-mtn--dark{padding-bottom:clamp(120px,30vw,230px)}
+.am-hero.am-mtn{padding-bottom:clamp(120px,28vw,210px)}
 
 /* hero */
-.am-hero{padding-block:clamp(34px,8vw,64px) clamp(40px,8vw,64px);text-align:center;background:radial-gradient(120% 70% at 50% 0%,var(--lilac-soft) 0%,rgba(246,241,236,0) 65%)}
-.am-hero h1{margin-top:20px;font-size:clamp(2.7rem,13.4vw,5.2rem);font-weight:800;line-height:.98;letter-spacing:-.04em}
-.am-logo{display:block;margin:0 auto 22px;width:150px;height:auto}
-.am-tag{margin-top:16px;font-family:var(--f-head);font-weight:600;font-size:clamp(1.4rem,6vw,2.1rem);line-height:1.25;letter-spacing:-.015em}
+.am-hero{padding-block:clamp(34px,8vw,64px) clamp(40px,8vw,64px);text-align:center;background:radial-gradient(120% 70% at 50% 0%,#f6edff 0%,rgba(253,250,236,0) 65%)}
+.am-hero h1{margin-top:22px;font-size:clamp(3rem,15vw,5.6rem);font-weight:900;line-height:.95;letter-spacing:-.035em}
+.am-tag{margin-top:14px;font-family:var(--f-head);font-style:italic;font-weight:900;font-size:clamp(1.55rem,6.4vw,2.3rem);line-height:1.15;letter-spacing:-.01em}
 .am-hero .am-lead{margin:20px auto 0;max-width:30em}
 .am-author{display:inline-flex;gap:12px;align-items:center;margin-top:24px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 20px 8px 8px}
 .am-author img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:42% 26%;flex:none}
@@ -94,35 +99,35 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 .am-what h2{margin-top:0}
 .am-what .am-lead{margin-top:16px}
 .am-benefits{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
-.am-benefits li{--ic-bg:var(--violet);--ic-fg:#fff;display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start;text-align:left;background:var(--card);border:1px solid var(--lilac-line);border-radius:18px;padding:16px 16px 16px 14px;box-shadow:0 2px 0 var(--lilac-line)}
+.am-benefits li{--ic-bg:var(--violet2);--ic-fg:#fff;display:grid;grid-template-columns:44px 1fr;gap:4px 14px;align-items:start;text-align:left;background:var(--card);border:1px solid #ddd0f7;border-radius:18px;padding:16px 16px 16px 14px;box-shadow:0 2px 0 #ddd0f7}
 .am-benefits svg{grid-row:1/3;width:44px;height:44px}
-.am-benefits b{font-family:var(--f-head);font-weight:700;font-size:1.04rem;line-height:1.25;align-self:end}
+.am-benefits b{font-weight:700;font-size:1.04rem;line-height:1.25;align-self:end}
 .am-benefits li>span{font-size:.93rem;color:var(--muted);line-height:1.45}
-.am-benefits li.is-hot{background:var(--lilac);border-color:var(--lilac-line);box-shadow:0 2px 0 var(--lilac-line)}
-.am-benefits li.is-hot>span{color:#34305a}
+.am-benefits li.is-hot{background:var(--lilac);border-color:#d4bff6;box-shadow:0 2px 0 #d4bff6}
+.am-benefits li.is-hot>span{color:#3b2a63}
 
 /* partes da aula (só títulos) */
-.am-parts{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.18);counter-reset:p}
-.am-parts li{display:grid;grid-template-columns:48px 1fr;align-items:start;gap:6px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.18);font-family:var(--f-head);font-weight:600;font-size:1.2rem;color:#fff;line-height:1.25}
-.am-parts li::before{counter-increment:p;content:"0" counter(p);font-family:var(--f-head);font-weight:800;font-size:1.5rem;color:var(--violet-light)}
-.am-parts small{display:block;font-family:var(--f-body);font-weight:400;font-size:.9rem;line-height:1.45;color:#b6c8d6;margin-top:4px}
+.am-parts{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid #2c2c2e;counter-reset:p}
+.am-parts li{display:grid;grid-template-columns:48px 1fr;align-items:start;gap:6px;padding:15px 0;border-bottom:1px solid #2c2c2e;font-family:var(--f-head);font-weight:700;font-size:1.2rem;color:#fff;line-height:1.25}
+.am-parts li::before{counter-increment:p;content:"0" counter(p);font-family:var(--f-head);font-weight:900;font-size:1.5rem;color:var(--yellow)}
+.am-parts small{display:block;font-family:var(--f-body);font-weight:400;font-size:.9rem;line-height:1.45;color:#b4b2a6;margin-top:4px}
 
 /* oferta */
-.am-offer{background:var(--card);border:2px solid var(--navy);border-radius:26px;padding:clamp(22px,6vw,34px);margin-top:26px;text-align:center;display:grid;gap:18px;box-shadow:0 10px 0 var(--navy)}
+.am-offer{background:var(--card);border:2px solid var(--ink);border-radius:26px;padding:clamp(22px,6vw,34px);margin-top:26px;text-align:center;display:grid;gap:18px;box-shadow:0 10px 0 var(--ink)}
 .am-offer .am-pill{justify-self:center}
 .am-price{display:grid;justify-items:center;gap:2px}
 .am-price s{font-size:1.05rem;color:var(--muted)}
-.am-price strong{font-family:var(--f-head);font-weight:800;font-size:clamp(3.8rem,19vw,5.4rem);line-height:1;letter-spacing:-.04em}
+.am-price strong{font-family:var(--f-head);font-weight:900;font-size:clamp(3.8rem,19vw,5.4rem);line-height:1;letter-spacing:-.04em}
 .am-price>span{font-size:.9rem;color:var(--muted)}
 .am-price strong span{font-size:inherit;color:inherit}
 .am-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;text-align:left}
 .am-list li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-weight:700;line-height:1.35}
-.am-list li svg{margin-top:1px;color:var(--violet)}
+.am-list li svg{margin-top:1px;color:var(--violet2)}
 .am-list svg{width:24px;height:24px}
-.am-bonus{background:var(--lilac-soft);border:1px dashed var(--violet-light);border-radius:14px;padding:12px 14px;font-size:.92rem;line-height:1.45;text-align:left}
+.am-bonus{background:var(--yellow-soft);border:1px dashed #b89a00;border-radius:14px;padding:12px 14px;font-size:.92rem;line-height:1.45;text-align:left}
 .am-bonus b{font-weight:700}
 .am-bonus .am-count{margin-top:8px}
-.am-bonus .am-count span{background:var(--navy);color:var(--lilac);font-size:.95rem}
+.am-bonus .am-count span{background:var(--ink);color:var(--yellow);font-size:.95rem}
 .am-reveal{display:grid;justify-items:center}
 .am-reveal>summary{list-style:none;cursor:pointer;width:auto;padding:10px 20px;font-size:.95rem}
 .am-reveal>summary::-webkit-details-marker{display:none}
@@ -136,26 +141,26 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 /* quem sou eu */
 .am-bio{display:grid;gap:22px;justify-items:center;text-align:center}
 .am-bio__photo{width:min(230px,62%);position:relative}
-.am-bio__photo img{width:100%;height:auto;border-radius:22px;border:3px solid var(--navy);box-shadow:8px 8px 0 var(--lilac);background:var(--line)}
+.am-bio__photo img{width:100%;height:auto;border-radius:22px;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--yellow);background:var(--line)}
 .am-bio h2{font-size:clamp(1.8rem,6.4vw,2.4rem)}
 .am-bio .am-lead{margin-top:10px}
 .am-chips{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.am-chips li{background:var(--lilac);color:var(--violet-dark);font-weight:700;font-size:.78rem;padding:7px 13px;border-radius:99px;line-height:1.2}
+.am-chips li{background:var(--lilac);color:#4c1d95;font-weight:700;font-size:.78rem;padding:7px 13px;border-radius:99px;line-height:1.2}
 
 /* carrossel */
 .am-carousel{margin-top:26px}
 .am-track{list-style:none;margin:0;padding:6px max(20px,env(safe-area-inset-left,0px)) 16px;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .am-track::-webkit-scrollbar{display:none}
 .am-slide{flex:0 0 clamp(170px,46vw,240px);scroll-snap-align:center}
-.am-slide img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px;background:var(--line);border:2px solid var(--navy)}
+.am-slide img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px;background:var(--line);border:2px solid var(--ink)}
 .am-carousel__nav{display:flex;gap:10px;justify-content:center;margin-top:6px}
-.am-arrow{width:46px;height:46px;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);font-size:1.25rem;line-height:1;cursor:pointer;font-weight:700;font-family:var(--f-body)}
-.am-arrow:hover{background:var(--navy);color:#fff}
+.am-arrow{width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);background:#fff;color:var(--ink);font-size:1.25rem;line-height:1;cursor:pointer;font-weight:700;font-family:var(--f-body)}
+.am-arrow:hover{background:var(--ink);color:var(--yellow)}
 
 /* faq */
 .am-faq{margin-top:24px;display:grid;gap:10px}
 .am-faq details{background:var(--card);border:1px solid var(--line);border-radius:16px}
-.am-faq summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font-family:var(--f-head);font-weight:600;font-size:1.05rem;position:relative;line-height:1.3}
+.am-faq summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font-weight:700;font-size:1.02rem;position:relative;line-height:1.3}
 .am-faq summary::-webkit-details-marker{display:none}
 .am-faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:1.5rem;font-weight:500;line-height:1}
 .am-faq details[open] summary::after{content:"–"}
@@ -165,17 +170,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 /* chamada final */
 .am-final{text-align:center}
 .am-final h2{font-size:clamp(2.1rem,9vw,3.2rem)}
-.am-final .am-lead{color:#c9d8e4;margin-top:14px}
+.am-final .am-lead{color:#c9c7bb;margin-top:14px}
 .am-final .am-count{margin-top:22px;justify-content:center}
 .am-final .am-btn{margin-top:22px;max-width:420px}
 .am-final .am-price-line{margin-top:18px;color:#fff;font-weight:700}
-.am-final .am-price-line s{color:#9fb6c8;font-weight:400}
+.am-final .am-price-line s{color:#a8a69b;font-weight:400}
 
 /* rodapé */
-.am-footer{background:var(--navy-deep);color:#9fb6c8;padding-block:30px;font-size:.82rem;line-height:1.7;text-align:center;border-top:1px solid #0d3a5b}
+.am-footer{background:var(--ink);color:#8f8d82;padding-block:30px;font-size:.82rem;line-height:1.7;text-align:center;border-top:1px solid #2a2a2c}
 .am-footer .am-wrap{display:grid;gap:6px}
-.am-footer a{color:#dbe7f1}
-.am-footer img{height:34px;width:auto;margin:0 auto 4px}
+.am-footer a{color:#d9d7cc}
+.am-footer b{color:var(--yellow);font-family:var(--f-head);font-size:1.05rem}
 
 @media (min-width:700px){
   .am-alert__info{flex-direction:row;align-items:center;gap:12px}
@@ -198,8 +203,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 </div></div>
 
 <main id="topo">
-<section class="am-hero" aria-labelledby="h1"><div class="am-wrap">
-  <img class="am-logo" src="aulao/img/logo-camila-veloso.png" alt="Camila Veloso" width="150" height="50">
+<section class="am-hero am-mtn am-mtn--light" aria-labelledby="h1"><div class="am-wrap">
   <span class="am-pill"><span>Aula gravada<span class="am-promo"> · Black Friday</span></span></span>
   <h1 id="h1">AULÃO UNIVERSAL<span class="am-sr">: tudo o que você precisa saber para conseguir escrever um livro</span></h1>
   <p class="am-tag"><span class="am-hl">escrever um livro pode ser fácil.</span></p>
@@ -214,8 +218,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
   <ul class="am-benefits" aria-label="O que você leva"><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-m">Aula gravada</span></b><span>Liberada assim que o pagamento for confirmado</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-m">Com metodologia única</span></b><span>Para quem quer começar a escrever, mas não sabe como</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-m">Fundadora da Aldeia Literária</span></b><span>Camila Veloso, Produtora Editorial (UFSM)</span></li><li class=""><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-m">Disponível por um ano</span></b><span>Assista quando quiser e quantas vezes precisar</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-m">Para quem está começando</span></b><span>Escritores iniciantes que desejam começar a escrever</span></li><li class="is-hot"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span class="am-m am-promo">Promoção</span><span class="am-m am-regular">Valor</span></b><span><span class="am-promo">R$ 67 só até 30/11.</span><span class="am-regular">R$ 100.</span></span></li></ul>
 </div></section>
 
-<section class="am-sec am-dark" id="conteudo" aria-labelledby="t-partes"><div class="am-wrap">
-  <h2 class="am-h2" id="t-partes">Na aula, <span style="color:var(--lilac)">6 partes.</span></h2>
+<section class="am-sec am-dark am-mtn am-mtn--dark" id="conteudo" aria-labelledby="t-partes"><div class="am-wrap">
+  <h2 class="am-h2" id="t-partes">Na aula, <span style="color:var(--yellow)">6 partes.</span></h2>
   <ol class="am-parts"><li><span>Os três atos e o arco<small>Entenda como uma história se sustenta e como fazer o seu personagem mudar do começo ao fim.</small></span></li><li><span>O checklist de 9 passos<small>Um passo a passo para saber onde você está na história e o que escrever em seguida.</small></span></li><li><span>Por que você lê livros<small>Antes de escrever para o leitor, entenda por que as histórias funcionam para ele.</small></span></li><li><span>As formas de história<small>Descubra qual forma combina com a sua ideia, com exemplos que você conhece.</small></span></li><li><span>Premissa, princípio e arco<small>Transforme uma ideia solta em uma frase clara que guia o livro inteiro.</small></span></li><li><span>Próximos passos<small>Termine a aula sabendo por onde seguir para escrever e publicar o seu livro.</small></span></li></ol>
 </div></section>
 
@@ -257,8 +261,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
   </div>
 </div></section>
 
-<section class="am-sec am-dark am-center" id="pessoas" aria-labelledby="t-pessoas" style="padding-bottom:clamp(36px,7vw,60px)"><div class="am-wrap">
-  <h2 class="am-h2" id="t-pessoas">Eu sou real. <span style="color:var(--lilac)">E eles também.</span></h2>
+<section class="am-sec am-dark am-center am-mtn am-mtn--dark" id="pessoas" aria-labelledby="t-pessoas" style="padding-bottom:clamp(36px,7vw,60px)"><div class="am-wrap">
+  <h2 class="am-h2" id="t-pessoas">Eu sou real. <span style="color:var(--yellow)">E eles também.</span></h2>
 </div>
 <div class="am-carousel" data-carousel>
   <ul class="am-track" aria-label="Fotos de Camila Veloso com alunos da Aldeia Literária" tabindex="0"><li class="am-slide"><img src="aulao/img/comunidade-01.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-02.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-03.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-05.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-06.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-08.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-10.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-12.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-14.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-18.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-21.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li><li class="am-slide"><img src="aulao/img/comunidade-22.jpg" alt="Camila Veloso com alunos e leitores em encontro presencial" width="420" height="560" loading="lazy"></li></ul>
@@ -270,8 +274,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
   <div class="am-faq"><details><summary>Para quem é o AULÃO UNIVERSAL?</summary><div class="am-ans"><p>Para quem está começando e quer escrever o primeiro livro, mas não sabe por onde começar. Você não precisa ter nada pronto.</p></div></details><details><summary>Por quanto tempo posso assistir?</summary><div class="am-ans"><p>O acesso dura 1 ano a partir da compra. Você assiste quando quiser e quantas vezes precisar, inclusive pelo celular.</p></div></details><details><summary>Até quando vale o preço de R$ 67?</summary><div class="am-ans"><p>O preço promocional de Black Friday vale até 30/11, às 23h59 (horário de Brasília). Depois disso, o AULÃO UNIVERSAL continua disponível, por R$ 100.</p></div></details><details><summary>Posso pedir reembolso?</summary><div class="am-ans"><p>Sim. Você tem 7 dias corridos depois da compra para desistir e pedir o reembolso. Veja a <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">política de cancelamento e reembolso</a>.</p></div></details><details><summary>Quem dá a aula? A compra é segura?</summary><div class="am-ans"><p>Camila Veloso, fundadora da Aldeia Literária e produtora editorial (UFSM). A venda é feita por CAMILA VELOSO. CO LTDA, CNPJ 47.277.682/0001-48, que você pode consultar na Receita Federal.</p></div></details></div>
 </div></section>
 
-<section class="am-sec am-dark am-final" id="comprar" aria-labelledby="t-final"><div class="am-wrap">
-  <h2 id="t-final">Escrever um livro <span style="color:var(--lilac)">pode ser fácil.</span></h2>
+<section class="am-sec am-dark am-final am-mtn am-mtn--dark" id="comprar" aria-labelledby="t-final"><div class="am-wrap">
+  <h2 id="t-final">Escrever um livro <span style="color:var(--yellow)">pode ser fácil.</span></h2>
   <p class="am-lead am-promo">A promoção acaba em:</p>
   <span class="am-count am-count--big am-promo" data-count="sale" aria-hidden="true"></span>
   <p class="am-price-line"><span class="am-promo"><s>R$ 100</s> R$ 67</span><span class="am-regular">R$ 100</span></p>
@@ -280,7 +284,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 </main>
 
 <footer class="am-footer"><div class="am-wrap">
-  <img src="aulao/img/logo-camila-veloso-branco.png" alt="Camila Veloso" width="102" height="34" loading="lazy">
+  <b>Aldeia Literária</b>
   <p>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</p>
   <p><a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Cancelamento e reembolso</a> · <a href="https://www.instagram.com/acamiveloso/" rel="noopener">@acamiveloso</a></p>
   <p>© 2026 Aldeia Literária. Todos os direitos reservados.</p>
