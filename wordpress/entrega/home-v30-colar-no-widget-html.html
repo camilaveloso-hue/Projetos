@@ -1080,6 +1080,23 @@ body.av-page{margin:0}
   .av-hero .av-hero__pts h3{font-size:1rem}
 }
 
+/* v29 — banner (desktop): selo acima do título, tipografia maior e conteúdo mais alto (sem vazio em cima) */
+@media (min-width:768px){
+  .av-hero{padding:130px 0 200px;min-height:max(0px,calc(88vh - 406px))}
+  .av-hero .av-badge{margin:0 0 30px}
+  .av-hero .av-h1{font-size:clamp(2rem,2.8vw,3rem);line-height:1.1;margin-bottom:34px}
+  .av-hero .av-hero__pts{gap:18px 38px;margin:0 0 38px}
+  .av-hero .av-hero__pts h3{font-size:1.2rem}
+  .av-hero .av-hero__pts li{padding-left:26px}
+  .av-hero .av-hero__pay{margin-top:20px}
+}
+@media (min-width:768px) and (max-width:1100px){
+  .av-hero .av-hero__pts{grid-template-columns:1fr;gap:12px}
+}
+@media (max-width:767px){
+  .av-hero .av-h1{margin-bottom:20px}
+}
+
 /* ==========================================================================
    Camada Elementor — PARTE 2 (vem DEPOIS do CSS base)
    Adapta cada componente ao HTML dos widgets nativos (Contador, Abas, Acordeão, Imagem...).
@@ -1210,8 +1227,8 @@ body.av-page{margin:0}
 <!-- HERO -->
 <section class="av-hero"><div class="av-wrap av-hero__grid">
   <div class="av-reveal">
-    <h1 class="av-h1"><span>Aldeia Literária:</span> <span>Curso de escrita criativa</span> <span>para iniciantes</span></h1>
     <p class="av-badge">Extensão universitária • Certificado Anhanguera</p>
+    <h1 class="av-h1"><span>Aldeia Literária:</span> <span>Curso de escrita criativa</span> <span>para iniciantes</span></h1>
     <ul class="av-hero__pts">
       <li><h3>Feedback individual</h3></li>
       <li><h3>Sprints de escrita</h3></li>
