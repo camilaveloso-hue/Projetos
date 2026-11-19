@@ -13,7 +13,7 @@ E = html.escape
 
 SITE = "https://aaldeialiteraria.com.br"
 URL = SITE + "/aulao-universal/"
-CHECKOUT = "#oferta"            # TROCAR pelo link do checkout quando a plataforma estiver definida
+CHECKOUT = "https://pay.kiwify.com.br/TyiiZBm"      # link de compra (Kiwify)
 CANC = SITE + "/politica-de-cancelamento-e-reembolso/"
 INSTA = "https://www.instagram.com/acamiveloso/"
 PRICE, PRICE_FULL = "70", "100"

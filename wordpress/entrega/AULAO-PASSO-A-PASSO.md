@@ -38,10 +38,8 @@ Faça um backup do site (plugin de backup ou o da hospedagem).
 
 A página fica pública para quem tiver o link (use o link nas redes sociais), mas ninguém chega a ela navegando pelo site.
 
-## Etapa 5: Trocar o link do botão de compra
-Hoje os botões "Quero o AULÃO UNIVERSAL" e "QUERO O AULÃO" apontam para a própria página (`#oferta`).
-- **Jeito mais simples:** me mande o link do checkout e eu gero os arquivos de novo já com ele.
-- **Jeito manual:** no Elementor, clique na página (seleciona o bloco), abra o campo **Código HTML**, use **Ctrl+F** e troque todos os `href="#oferta"` pelo link do checkout. Há **4 botões**: um na faixa do topo, um no começo da página, um dentro do cartão de oferta e um na chamada final.
+## Etapa 5: Link de compra (já está no modelo)
+Os 4 botões de compra ("QUERO O AULÃO" na faixa do topo e "Quero o AULÃO UNIVERSAL" no começo, no cartão de oferta e na chamada final) já apontam para `https://pay.kiwify.com.br/TyiiZBm`. **Não precisa trocar nada.** Para mudar o link no futuro, use **Ctrl+F** no campo **Código HTML** do Elementor e troque todos os `https://pay.kiwify.com.br/TyiiZBm` pelo novo endereço.
 
 ## Etapa 6: Título e descrição para o Google e as IAs (Yoast)
 Na página, role até a caixa do **Yoast SEO** e preencha:
@@ -57,7 +55,7 @@ A página já traz, no código, os dados estruturados (Curso, Oferta e Perguntas
 - [ ] Abre no celular, sem menu do tema por cima, com o fundo creme.
 - [ ] A faixa preta no topo mostra "A promoção acaba em:" com o cronômetro andando e o botão **QUERO O AULÃO**.
 - [ ] O botão **Ver o preço** abre o preço de **R$ 70** (riscado R$ 100), o botão de compra e o bônus.
-- [ ] Os botões de compra levam ao checkout.
+- [ ] Os 4 botões de compra abrem a página de compra da Kiwify, com o produto e o preço certos.
 - [ ] As fotos do carrossel e as capas aparecem; as setas funcionam.
 - [ ] A página **não** aparece no menu nem na Home.
 - [ ] Se o cronômetro ficar parado em "7d 00h 00min 00s": em **WP Rocket → Otimização de arquivos**, desative o **Atraso de JavaScript** para esta página (ou exclua `data-count`), e limpe o cache.
@@ -69,7 +67,7 @@ A página já traz, no código, os dados estruturados (Curso, Oferta e Perguntas
 - **Depois de 30/11:** a página **continua no ar** e passa a mostrar **R$ 100**, sem cronômetro e sem a palavra "promoção". A troca acontece no navegador de quem abre a página, então não precisa republicar nem limpar cache.
 
 ## Antes de divulgar, confirme
-- [ ] **Link do checkout** (Etapa 5) e as **formas de pagamento** aceitas.
+- [ ] **Formas de pagamento** aceitas na Kiwify e o **preço cadastrado lá (R$ 70)**. Depois de 30/11 a página mostra R$ 100, então o valor no checkout precisa mudar também.
 - [ ] **Prazo de 1 ano** de acesso e **reembolso de 7 dias** valem para o aulão.
 - [ ] **"+400 escritores"** é o número correto (seus arquivos antigos falavam em +500).
 - [ ] Todos os alunos das fotos do carrossel **autorizaram** o uso na página.
