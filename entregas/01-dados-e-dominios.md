@@ -72,25 +72,9 @@ Leitura:
 2. `aldeialiteraria.com.br` não está registrado/apontado. Se alguém registrar, pode se passar pela marca.
 3. `aldeialiteraria.com` aponta para um site Wix que mostra erro. Se for seu, quem digitar esse endereço vê um 404.
 
-### Regras 301 propostas (NÃO aplicadas)
+### Regras 301 (NÃO aplicadas)
 
-Servidor: LiteSpeed (aceita `.htaccess`). Colar **acima** de `# BEGIN WordPress` e do bloco do WP Rocket, depois de fazer cópia do arquivo:
-
-```apache
-# BEGIN Aldeia - versão única do domínio (https + sem www)
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} ^www\.aaldeialiteraria\.com\.br$ [NC]
-RewriteRule ^(.*)$ https://aaldeialiteraria.com.br/$1 [R=301,L]
-</IfModule>
-# END Aldeia - versão única do domínio
-```
-
-- Efeito: qualquer http ou www vai em **um** salto para `https://aaldeialiteraria.com.br/…` mantendo o caminho.
-- Testar depois: `curl -sI http://aaldeialiteraria.com.br/como-escolher-curso-de-escrita-criativa/` deve dar `301` com `location: https://aaldeialiteraria.com.br/como-escolher-curso-de-escrita-criativa/`; o mesmo para `http://www…/blog/` e `https://www…/`.
-- Desfazer: apagar o bloco ou restaurar a cópia do `.htaccess`; limpar o cache do WP Rocket.
-- Alternativa sem editar arquivo: no WP Rocket (aba Avançado) ou no host, ligar "forçar HTTPS"; ou o plugin Redirection. A regra acima é a mais enxuta.
+Servidor LiteSpeed (aceita `.htaccess`). A regra única, que cobre http, www e os outros dois domínios, está no fim da seção, em "Regra 301 final". Testes depois de aplicar: `curl -sI http://aaldeialiteraria.com.br/como-escolher-curso-de-escrita-criativa/` deve dar `301` com `location: https://aaldeialiteraria.com.br/como-escolher-curso-de-escrita-criativa/`; o mesmo para `http://www.aaldeialiteraria.com.br/blog/` e `https://www.aaldeialiteraria.com.br/`.
 
 ### Os outros dois domínios (você confirmou que são seus)
 
