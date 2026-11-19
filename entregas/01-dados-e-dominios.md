@@ -33,13 +33,13 @@ Causa: "R$ 3.582 no total" é só a soma das parcelas (18 × 199). A matrícula 
 
 - Matrícula sem desconto: **R$ 105**. O "40% para os primeiros inscritos" **sai do site**.
 - Desconto de **R$ 70 na matrícula para quem comprar o Aulão Universal** (matrícula de R$ 35 para esse grupo). Você vai atualizar a página do Aulão, que ainda diz "50% de desconto na matrícula se comprar até 23/11".
-- **O desconto do Aulão não entra no site do curso por enquanto**: o site não tem página nem descrição do Aulão, e você não definiu prazo. Quando a página do Aulão estiver no ar, incluo uma frase com link.
+- O desconto do Aulão entra só na linha da taxa de matrícula (tabela e FAQ da home), por pedido seu. O guia segue sem citar o desconto. Falta definir prazo e linkar a página do Aulão quando ela estiver no ar.
 
 ### Texto aplicado nos modelos novos (home v30 e guia)
 
-- Tabela da home: `Mensalidade 18x de R$ 199` / `R$ 3.582 em 18 parcelas` · `Taxa de matrícula R$ 105` · nova linha **`Total do curso R$ 3.687`** / `18 × R$ 199 + R$ 105 de matrícula`.
+- Tabela da home: `Mensalidade 18x de R$ 199` / `R$ 3.582 em 18 parcelas` · `Taxa de matrícula R$ 105` / `com R$ 70 de desconto (cerca de 67%) para alunos do Aulão Universal` (70 ÷ 105 = 66,67%). Sem linha de "Total do curso" (retirada a seu pedido).
 - FAQ da home e do guia (mesma frase): "Em 2027, o curso terá uma taxa de matrícula de R$ 105 e 18 parcelas de R$ 199. A conta é: 18 × R$ 199 = R$ 3.582, mais R$ 105 de matrícula, o que dá R$ 3.687 no total. …"
-- FAQ "O que é a taxa de matrícula?": "A taxa é de R$ 105. Ela cobre a formulação do seu contrato e a sua entrada na comunidade da Aldeia Literária."
+- FAQ "O que é a taxa de matrícula?": "A taxa é de R$ 105, com R$ 70 de desconto (cerca de 67%) para alunos do Aulão Universal. Ela cobre a formulação do seu contrato e a sua entrada na comunidade da Aldeia Literária."
 - JSON-LD: o FAQPage é gerado do texto visível (atualiza junto) e a descrição do `Offer` perdeu o trecho dos 40%. Preço nos dois lugares: R$ 3.687.
 
 Arquivos: `wordpress/entrega/home-v30.json` (+ `home-v30-colar-no-widget-html.html`) e `wordpress/entrega/paginas/guia.json` (+ `guia-colar-no-widget-html.html`). Tocados no repositório: `tools/src/body.html`, `tools/build_planb.py`, `tools/build_paginas.py`.
