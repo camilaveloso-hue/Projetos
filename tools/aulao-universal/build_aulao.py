@@ -2,7 +2,7 @@
 """AULÃO UNIVERSAL — versão curta para celular (Black Friday 2026).
 Uso: python3 tools/aulao-universal/build_aulao.py   (SCRATCH=<pasta> também gera a prévia autocontida para o Artifact)
 Saída: preview/aulao-universal.html (fotos em preview/aulao/img, fontes em preview/aulao-v3/fonts)
-Regras de negócio: R$ 67 até 30/11 às 23h59 (horário de Brasília); depois, R$ 100. A aula é produto perpétuo: não sai do ar."""
+Regras de negócio: R$ 70 até 30/11 às 23h59 (horário de Brasília); depois, R$ 100. A aula é produto perpétuo: não sai do ar."""
 import base64, html, json, os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -16,10 +16,10 @@ URL = SITE + "/aulao-universal/"
 CHECKOUT = "#oferta"            # TROCAR pelo link do checkout quando a plataforma estiver definida
 CANC = SITE + "/politica-de-cancelamento-e-reembolso/"
 INSTA = "https://www.instagram.com/acamiveloso/"
-PRICE, PRICE_FULL = "67", "100"
+PRICE, PRICE_FULL = "70", "100"
 TITLE = "AULÃO UNIVERSAL: tudo o que você precisa saber para conseguir escrever um livro"
 DESC = ("Aula gravada de Camila Veloso, fundadora da Aldeia Literária, para quem quer escrever um livro. "
-        "Disponível por 1 ano. R$ 67 na Black Friday, até 30/11.")
+        "Disponível por 1 ano. R$ 70 na Black Friday, até 30/11.")
 
 CHECK = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 STAR = '<svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="22" style="fill:var(--ic-bg)"/><path d="M13 22.8l6 6L31 16" style="stroke:var(--ic-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -30,7 +30,7 @@ FAQ = [
   "Para quem está começando e quer escrever o primeiro livro, mas não sabe por onde começar. Você não precisa ter nada pronto."),
  ("Por quanto tempo posso assistir?",
   "O acesso dura 1 ano a partir da compra. Você assiste quando quiser e quantas vezes precisar, inclusive pelo celular."),
- ("Até quando vale o preço de R$ 67?",
+ ("Até quando vale o preço de R$ 70?",
   "O preço promocional de Black Friday vale até 30/11, às 23h59 (horário de Brasília). Depois disso, o AULÃO UNIVERSAL continua disponível, por R$ 100."),
  ("Posso pedir reembolso?",
   "Sim. Você tem 7 dias corridos depois da compra para desistir e pedir o reembolso. Veja a <a href=\"" + CANC + "\">política de cancelamento e reembolso</a>."),

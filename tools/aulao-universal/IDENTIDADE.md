@@ -20,7 +20,7 @@ Três cordilheiras sobrepostas, desenhadas em SVG pela função `mountains()` em
 Faixa fixa do topo com cronômetro e botão, hero, cartões de benefícios, lista das 6 partes, cartão de oferta com "Ver o preço" (`<details>`), bio, carrossel, FAQ, chamada final e rodapé.
 
 ## Regras
-- R$ 67 até 30/11 às 23h59 (Brasília); depois R$ 100, troca automática (`aulao.js`). Bônus do 1º dia some às 23h59 de 23/11.
+- R$ 70 até 30/11 às 23h59 (Brasília); depois R$ 100, troca automática (`aulao.js`). Bônus do 1º dia some às 23h59 de 23/11.
 - Coluna de 640px, sem rolagem lateral, respeita "reduzir movimento".
 
 ## Pendências
