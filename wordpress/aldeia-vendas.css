@@ -1057,7 +1057,7 @@ body.av-page{margin:0}
   .av-hero{padding:96px 0 234px;min-height:max(0px,calc(88vh - 406px))}
   .av-hero .av-badge{margin:0 0 30px}
   .av-hero .av-h1{font-size:clamp(2rem,2.8vw,3rem);line-height:1.1;margin-bottom:26px}
-  .av-hero .av-hero__pts{gap:18px 38px;margin:0 0 38px}
+  .av-hero .av-hero__pts{grid-template-columns:1fr;gap:15px;margin:6px 0 38px}
   .av-hero .av-hero__pts h3{font-size:1.2rem}
   .av-hero .av-hero__pts li{padding-left:26px}
   .av-hero .av-hero__pay{margin-top:20px}
