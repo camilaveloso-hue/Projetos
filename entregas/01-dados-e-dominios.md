@@ -37,9 +37,9 @@ Causa: "R$ 3.582 no total" é só a soma das parcelas (18 × 199). A matrícula 
 
 ### Texto aplicado nos modelos novos (home v30 e guia)
 
-- Tabela da home: `Mensalidade 18x de R$ 199` / `R$ 3.582 em 18 parcelas` · `Taxa de matrícula R$ 105` / `com R$ 70 de desconto (cerca de 67%) para alunos do Aulão Universal` (70 ÷ 105 = 66,67%). Sem linha de "Total do curso" (retirada a seu pedido).
+- Tabela da home: `Mensalidade 18x de R$ 199` / `R$ 3.582 em 18 parcelas` · `Taxa de matrícula R$ 105` / `com 65% de desconto para alunos do Aulão Universal` (pedido seu; atenção: 65% de R$ 105 = R$ 68,25, enquanto R$ 70 = 66,67%). Sem linha de "Total do curso" (retirada a seu pedido).
 - FAQ da home e do guia (mesma frase): "Em 2027, o curso terá uma taxa de matrícula de R$ 105 e 18 parcelas de R$ 199. A conta é: 18 × R$ 199 = R$ 3.582, mais R$ 105 de matrícula, o que dá R$ 3.687 no total. …"
-- FAQ "O que é a taxa de matrícula?": "A taxa é de R$ 105, com R$ 70 de desconto (cerca de 67%) para alunos do Aulão Universal. Ela cobre a formulação do seu contrato e a sua entrada na comunidade da Aldeia Literária."
+- FAQ "O que é a taxa de matrícula?": "A taxa é de R$ 105, com 65% de desconto para alunos do Aulão Universal. Ela cobre a formulação do seu contrato e a sua entrada na comunidade da Aldeia Literária."
 - JSON-LD: o FAQPage é gerado do texto visível (atualiza junto) e a descrição do `Offer` perdeu o trecho dos 40%. Preço nos dois lugares: R$ 3.687.
 
 Arquivos: `wordpress/entrega/home-v30.json` (+ `home-v30-colar-no-widget-html.html`) e `wordpress/entrega/paginas/guia.json` (+ `guia-colar-no-widget-html.html`). Tocados no repositório: `tools/src/body.html`, `tools/build_planb.py`, `tools/build_paginas.py`.
