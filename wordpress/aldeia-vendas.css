@@ -1041,3 +1041,13 @@ body.av-page{margin:0}
 .av-page button.av-btn:hover{background:var(--av-terra-dark);transform:translateY(-2px)}
 .av-pagination.comments-pagination,.comments-pagination{display:flex;gap:8px;justify-content:center;margin:20px 0}
 @media (max-width:767px){.comment-respond{padding:22px 18px}.av-comment-list .children{margin-left:12px;padding-left:12px}}
+
+/* v28 — banner da home: H1 + 4 diferenciais em H3 */
+.av-hero .av-hero__pts{list-style:none;margin:2px 0 22px;padding:0;display:grid;grid-template-columns:auto auto;justify-content:start;gap:12px 28px;max-width:34em}
+.av-hero .av-hero__pts li{margin:0;padding:0 0 0 22px;position:relative}
+.av-hero .av-hero__pts li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%;background:var(--av-terra);box-shadow:0 0 0 3px rgba(204,53,28,.28)}
+.av-hero .av-hero__pts h3{margin:0;font:600 1.08rem/1.35 var(--av-body);color:#fff;letter-spacing:.005em}
+@media (max-width:767px){
+  .av-hero .av-hero__pts{grid-template-columns:1fr;gap:8px;max-width:20em;margin:4px auto 18px;text-align:left}
+  .av-hero .av-hero__pts h3{font-size:1rem}
+}
