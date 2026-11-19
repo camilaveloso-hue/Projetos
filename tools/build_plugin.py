@@ -44,6 +44,9 @@ if __name__ == "__main__":
         shutil.copy(os.path.join(A, "img", f), os.path.join(OUT, "assets/img", f))
     shutil.copy(os.path.join(A, "hero.jpg"), os.path.join(OUT, "assets/img/hero.jpg"))
     shutil.copy(os.path.join(A, "logo-medalhao.png"), os.path.join(OUT, "assets/img/logo-medalhao.png"))
+    aulao = os.path.join(ROOT, "wordpress", "aulao-assets")      # fotos e fontes da página do Aulão (gerado por tools/aulao-universal/build_wp.py)
+    if os.path.isdir(aulao):
+        shutil.copytree(aulao, os.path.join(OUT, "assets", "aulao"))
     shutil.copy(os.path.join(ROOT, "tools/aldeia-vendas.php"), os.path.join(OUT, "aldeia-vendas.php"))
     shutil.copytree(os.path.join(ROOT, "tools/blog/includes"), os.path.join(OUT, "includes"))
     shutil.copytree(os.path.join(ROOT, "tools/blog/templates"), os.path.join(OUT, "templates"))
