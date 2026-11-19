@@ -29,20 +29,24 @@ Mudou algo desde o seu texto de 19/11? Não. Confirmei no ar: 35 vagas por módu
 
 Causa: "R$ 3.582 no total" é só a soma das parcelas (18 × 199). A matrícula (R$ 105) vem depois. Quem lê só a tabela entende que o curso custa R$ 3.582.
 
-### Situação (atualizada com a sua resposta)
+### Decisão (confirmada por você em 19/11)
 
-Você cancelou o "40% de desconto para os primeiros inscritos". A regra nova é: **R$ 70 de desconto na matrícula para quem comprar o "aulão universal"**. Ainda faltam dois dados, então **não escrevi nenhum preço novo no site**:
+- Matrícula sem desconto: **R$ 105**. O "40% para os primeiros inscritos" **sai do site**.
+- Desconto de **R$ 70 na matrícula para quem comprar o Aulão Universal** (matrícula de R$ 35 para esse grupo). Você vai atualizar a página do Aulão, que ainda diz "50% de desconto na matrícula se comprar até 23/11".
+- **O desconto do Aulão não entra no site do curso por enquanto**: o site não tem página nem descrição do Aulão, e você não definiu prazo. Quando a página do Aulão estiver no ar, incluo uma frase com link.
 
-1. **Valor da matrícula sem desconto**: R$ 105, R$ 107 ou R$ 175? (Você citou "107"; o site diz 105; 105 + 70 = 175, que é o preço cheio antes dos 40%.)
-2. **Descrição do aulão universal** (o que é, data, como compra, se o desconto vale para quem compra antes ou depois da matrícula). O site não menciona o aulão em nenhum lugar.
+### Texto aplicado nos modelos novos (home v30 e guia)
 
-Estrutura do texto que vou usar assim que você confirmar (só a conta; os valores ficam em branco até lá):
+- Tabela da home: `Mensalidade 18x de R$ 199` / `R$ 3.582 em 18 parcelas` · `Taxa de matrícula R$ 105` · nova linha **`Total do curso R$ 3.687`** / `18 × R$ 199 + R$ 105 de matrícula`.
+- FAQ da home e do guia (mesma frase): "Em 2027, o curso terá uma taxa de matrícula de R$ 105 e 18 parcelas de R$ 199. A conta é: 18 × R$ 199 = R$ 3.582, mais R$ 105 de matrícula, o que dá R$ 3.687 no total. …"
+- FAQ "O que é a taxa de matrícula?": "A taxa é de R$ 105. Ela cobre a formulação do seu contrato e a sua entrada na comunidade da Aldeia Literária."
+- JSON-LD: o FAQPage é gerado do texto visível (atualiza junto) e a descrição do `Offer` perdeu o trecho dos 40%. Preço nos dois lugares: R$ 3.687.
 
-- Tabela da home: linha "Mensalidade" → `18x de R$ 199` + `18 × R$ 199 = R$ 3.582 em parcelas` (some "no total"); linha "Taxa de matrícula" → `R$ [MATRÍCULA]`; nova linha "Total do curso" → `R$ [TOTAL]` + `18 × R$ 199 + R$ [MATRÍCULA]`.
-- FAQ (home e guia, a mesma frase): "…taxa de matrícula de R$ [MATRÍCULA] e 18 parcelas de R$ 199. A conta é: 18 × R$ 199 = R$ 3.582, mais R$ [MATRÍCULA], total de R$ [TOTAL]."
-- O desconto do aulão entra como frase separada, só quando houver a descrição.
+Arquivos: `wordpress/entrega/home-v30.json` (+ `home-v30-colar-no-widget-html.html`) e `wordpress/entrega/paginas/guia.json` (+ `guia-colar-no-widget-html.html`). Tocados no repositório: `tools/src/body.html`, `tools/build_planb.py`, `tools/build_paginas.py`.
 
-Onde a frase "40% de desconto para os primeiros inscritos" precisa sair: home (tabela, 2 FAQs, JSON-LD) e guia (2 lugares), e o texto de abertura do Tally se citar. Como desfazer: `wordpress/entrega/home-v29.json` está no git e o Elementor guarda revisões (Histórico → Revisões).
+Como testar depois de colar: abrir a home e o guia e procurar "3.582" e "3.687" (a primeira só aparece como "R$ 3.582 em 18 parcelas" e dentro da conta; nenhuma frase pode dizer "no total" ao lado de R$ 3.582) e "40%" (não pode aparecer). Como desfazer: Elementor → Histórico → Revisões, ou colar o modelo anterior (`home-v29.json` está no git).
+
+Fora do site, procure e troque "40%" / "primeiros inscritos" em: bio do Instagram/TikTok, posts fixados, mensagens salvas do WhatsApp, a página do Aulão e o texto do Tally.
 
 ## 2. Formulários e páginas antigas (contrato anual / escolha de módulos)
 
@@ -113,5 +117,5 @@ RewriteRule ^(.*)$ https://aaldeialiteraria.com.br/$1 [R=301,L]
 
 ## 4. Pronto quando
 
-- [ ] Preço igual em todo o site: **bloqueado** até você mandar (a) matrícula sem desconto e (b) a descrição do aulão universal. Depois eu gero `home-v30.json` e o guia para você colar.
+- [ ] Preço igual em todo o site: modelos prontos (home v30 e guia); falta você colar e testar (seção 1).
 - [ ] Toda variante termina em um canonical: hoje só falta o http em subpáginas e a decisão sobre os dois outros domínios.
