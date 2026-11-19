@@ -29,19 +29,20 @@ Mudou algo desde o seu texto de 19/11? Não. Confirmei no ar: 35 vagas por módu
 
 Causa: "R$ 3.582 no total" é só a soma das parcelas (18 × 199). A matrícula (R$ 105) vem depois. Quem lê só a tabela entende que o curso custa R$ 3.582.
 
-### Texto proposto — tabela da home
+### Situação (atualizada com a sua resposta)
 
-- Linha **Mensalidade**: `18x de R$ 199` / subtexto **`18 × R$ 199 = R$ 3.582 em parcelas`** (some "no total").
-- Linha **Taxa de matrícula**: `R$ 105` / subtexto `com 40% de desconto para os primeiros inscritos` **[CONFIRMAR: o R$ 105 já é o valor com desconto?]**
-- **Nova linha "Total do curso"**: **`R$ 3.687`** / subtexto `18 × R$ 199 + R$ 105 de matrícula`.
+Você cancelou o "40% de desconto para os primeiros inscritos". A regra nova é: **R$ 70 de desconto na matrícula para quem comprar o "aulão universal"**. Ainda faltam dois dados, então **não escrevi nenhum preço novo no site**:
 
-### Texto proposto — FAQ da home e do guia (mesma frase nos dois)
+1. **Valor da matrícula sem desconto**: R$ 105, R$ 107 ou R$ 175? (Você citou "107"; o site diz 105; 105 + 70 = 175, que é o preço cheio antes dos 40%.)
+2. **Descrição do aulão universal** (o que é, data, como compra, se o desconto vale para quem compra antes ou depois da matrícula). O site não menciona o aulão em nenhum lugar.
 
-> Em 2027, o curso terá uma taxa de matrícula de R$ 105 e 18 parcelas de R$ 199. A conta é: 18 × R$ 199 = R$ 3.582, mais R$ 105 de matrícula, o que dá **R$ 3.687 no total**. A matrícula tem 40% de desconto para os primeiros inscritos. As parcelas são pagas no Pix, sem usar o limite do cartão, com recorrência mensal.
+Estrutura do texto que vou usar assim que você confirmar (só a conta; os valores ficam em branco até lá):
 
-O JSON-LD (FAQPage) da home é gerado a partir da FAQ visível, então se atualiza junto. A descrição do `Offer` já diz "Total: R$ 3.687" e fica como está.
+- Tabela da home: linha "Mensalidade" → `18x de R$ 199` + `18 × R$ 199 = R$ 3.582 em parcelas` (some "no total"); linha "Taxa de matrícula" → `R$ [MATRÍCULA]`; nova linha "Total do curso" → `R$ [TOTAL]` + `18 × R$ 199 + R$ [MATRÍCULA]`.
+- FAQ (home e guia, a mesma frase): "…taxa de matrícula de R$ [MATRÍCULA] e 18 parcelas de R$ 199. A conta é: 18 × R$ 199 = R$ 3.582, mais R$ [MATRÍCULA], total de R$ [TOTAL]."
+- O desconto do aulão entra como frase separada, só quando houver a descrição.
 
-Como desfazer: os modelos anteriores estão no git (`wordpress/entrega/home-v29.json`) e o Elementor guarda revisões (Histórico → Revisões).
+Onde a frase "40% de desconto para os primeiros inscritos" precisa sair: home (tabela, 2 FAQs, JSON-LD) e guia (2 lugares), e o texto de abertura do Tally se citar. Como desfazer: `wordpress/entrega/home-v29.json` está no git e o Elementor guarda revisões (Histórico → Revisões).
 
 ## 2. Formulários e páginas antigas (contrato anual / escolha de módulos)
 
@@ -91,11 +92,42 @@ RewriteRule ^(.*)$ https://aaldeialiteraria.com.br/$1 [R=301,L]
 - Desfazer: apagar o bloco ou restaurar a cópia do `.htaccess`; limpar o cache do WP Rocket.
 - Alternativa sem editar arquivo: no WP Rocket (aba Avançado) ou no host, ligar "forçar HTTPS"; ou o plugin Redirection. A regra acima é a mais enxuta.
 
-Para os outros domínios (depende de você, ver perguntas):
-- `aldeialiteraria.com.br`: se for seu, registrar em registro.br e apontar para o mesmo servidor com 301 para o domínio oficial; se não for, nada a fazer.
-- `aldeialiteraria.com`: se for seu, no registrador/Wix apontar o DNS para o servidor do site e incluir a regra `RewriteCond %{HTTP_HOST} ^(www\.)?aldeialiteraria\.com$ [NC]` → `https://aaldeialiteraria.com.br/`; se não for seu, ignorar.
+### Os outros dois domínios (você confirmou que são seus)
+
+O que o DNS público mostra de `aldeialiteraria.com`:
+
+- Nameservers: **Wix** (`ns10/ns11.wixdns.net`). O DNS é editado no painel do Wix.
+- **E-mail: Google Workspace** (registros MX `aspmx.l.google.com` e SPF `include:_spf.google.com`). Estes registros **não podem ser apagados nem alterados**, senão o e-mail para de funcionar.
+- Site: registros `A` na raiz e `CNAME` do `www` apontando para o Wix. Só estes dois são o problema (a página de erro do Wix).
+
+Plano que **não derruba o e-mail** (você não precisa tirar o domínio do Wix): mexer apenas em dois registros no DNS avançado do Wix.
+
+1. Na hospedagem do site (a mesma de `aaldeialiteraria.com.br`), adicionar `aldeialiteraria.com` e `www.aldeialiteraria.com` como **domínio alias/estacionado** (sem criar site novo) e ligar o SSL automático para eles. Pergunte ao suporte, se não achar.
+2. No Wix: Domínios → aldeialiteraria.com → **Gerenciar registros DNS**. Alterar **só**: o registro `A` da raiz (@) para o IP do servidor do site (hoje `177.73.233.37` no DNS público; confirme no painel da hospedagem) e o `CNAME` do `www` para `aaldeialiteraria.com.br`. **Não tocar** em MX, TXT/SPF, DKIM nem em outros registros.
+3. Colar a regra do bloco abaixo no `.htaccess` (versão com os 3 domínios).
+4. Esperar propagação (de minutos a algumas horas) e testar: `curl -sI https://aldeialiteraria.com/` deve dar `301` para `https://aaldeialiteraria.com.br/`, e mandar um e-mail de teste para `@aldeialiteraria.com` para confirmar que o e-mail segue funcionando.
+- Desfazer: no Wix, restaurar o registro `A`/`CNAME` anteriores (anote os valores atuais **antes** de editar: `A` 185.230.63.171, 185.230.63.186 e 185.230.63.107; `CNAME www` = `cdn3.wixdns.net`; confirme no painel).
+
+`aldeialiteraria.com.br` (sem o "a" duplo) hoje **não responde no DNS (NXDOMAIN)**: o domínio existe no registro.br mas não tem DNS configurado. No registro.br → Editar DNS: usar o DNS do próprio registro.br e criar `A` (raiz) e `CNAME` (www) iguais ao item 2. Sem e-mail ali, não há risco. Depois, as mesmas etapas 1, 3 e 4.
+
+### Regra 301 final (todos os domínios, um salto, mantém o caminho)
+
+```apache
+# BEGIN Aldeia - versão única do domínio (https + sem www + domínio oficial)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^aaldeialiteraria\.com\.br$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://aaldeialiteraria.com.br/$1 [R=301,L]
+</IfModule>
+# END Aldeia - versão única do domínio
+```
+
+- Faça a **cópia do `.htaccess`** antes (Gerenciador de arquivos da hospedagem → baixar). Cole o bloco **acima** de `# BEGIN WordPress` e do bloco do WP Rocket.
+- Cuidado com o `wp-admin`/`wp-login` se o seu servidor ficar atrás de proxy/CDN que termina o HTTPS: se o site entrar em loop de redirecionamento, remova a linha `RewriteCond %{HTTPS} !=on` (a regra de host continua valendo) e me avise.
+- Depois de aplicar: limpar o cache do WP Rocket e rodar os testes da tabela da seção 3 (esperado: tudo `301` em um salto, ou `200` só em `https://aaldeialiteraria.com.br/`).
 
 ## 4. Pronto quando
 
-- [ ] Preço igual em todo o site: precisa do seu OK no texto + resposta sobre o R$ 105. Depois eu gero o novo `home-v30.json` e o guia, para você colar.
+- [ ] Preço igual em todo o site: **bloqueado** até você mandar (a) matrícula sem desconto e (b) a descrição do aulão universal. Depois eu gero `home-v30.json` e o guia para você colar.
 - [ ] Toda variante termina em um canonical: hoje só falta o http em subpáginas e a decisão sobre os dois outros domínios.
