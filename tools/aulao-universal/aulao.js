@@ -1,10 +1,9 @@
-/* AULÃO MASTER — contagem regressiva, encerramento da venda, bônus do 1º dia e barra de compra no celular. */
+/* AULÃO UNIVERSAL — contagem regressiva até o fim da promoção (30/11, 23h59) e carrossel de fotos. */
 (function () {
   "use strict";
   var root = document.documentElement;
   root.classList.add("am-js");
   var END = new Date("2026-11-30T23:59:59-03:00").getTime();     // fim da venda
-  var BONUS = new Date("2026-11-23T23:59:59-03:00").getTime();   // fim do bônus do 1º dia
   var els = document.querySelectorAll("[data-count]");
 
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
@@ -16,13 +15,9 @@
   function tick() {
     var now = Date.now(), i;
     for (i = 0; i < els.length; i++) {
-      paint(els[i], (els[i].getAttribute("data-count") === "bonus" ? BONUS : END) - now);
+      paint(els[i], END - now);
     }
     if (now >= END) { root.classList.add("am-is-closed"); }
-    if (now >= BONUS) {
-      var b = document.querySelectorAll("[data-bonus]");
-      for (i = 0; i < b.length; i++) { b[i].hidden = true; }
-    }
   }
   tick();
   setInterval(tick, 1000);

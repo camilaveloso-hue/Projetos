@@ -134,8 +134,7 @@ def page():
           <span class="am-promo">só até 30/11, às 23h59</span>
         </div>
         <a class="am-btn" href="{CHECKOUT}">Quero o AULÃO UNIVERSAL {ARROW}</a>
-        <div class="am-bonus am-promo" data-bonus><b>Bônus do 1º dia:</b> comprando até 23/11, você ganha 50% de desconto na matrícula da Aldeia Literária 2027.
-          <span class="am-count" data-count="bonus" aria-hidden="true"></span></div>
+        <div class="am-bonus am-promo"><b>Bônus:</b> quem comprar até 30/11, às 23h59, ganha <b>R$ 70 de desconto na matrícula da Aldeia Literária</b>.</div>
         <p class="am-note">7 dias para desistir e pedir o reembolso. <a href="{CANC}">Ver política</a>.</p>
       </div>
     </details>

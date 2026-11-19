@@ -244,8 +244,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
           <span class="am-promo">só até 30/11, às 23h59</span>
         </div>
         <a class="am-btn" href="https://pay.kiwify.com.br/TyiiZBm">Quero o AULÃO UNIVERSAL <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h15m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="am-bonus am-promo" data-bonus><b>Bônus do 1º dia:</b> comprando até 23/11, você ganha 50% de desconto na matrícula da Aldeia Literária 2027.
-          <span class="am-count" data-count="bonus" aria-hidden="true"></span></div>
+        <div class="am-bonus am-promo"><b>Bônus:</b> quem comprar até 30/11, às 23h59, ganha <b>R$ 70 de desconto na matrícula da Aldeia Literária</b>.</div>
         <p class="am-note">7 dias para desistir e pedir o reembolso. <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Ver política</a>.</p>
       </div>
     </details>
@@ -293,13 +292,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","@id":"https://aaldeialiteraria.com.br/aulao-universal/#aula","name":"AULÃO UNIVERSAL: tudo o que você precisa saber para conseguir escrever um livro","url":"https://aaldeialiteraria.com.br/aulao-universal/","inLanguage":"pt-BR","description":"Aula gravada de Camila Veloso, fundadora da Aldeia Literária, para quem quer escrever um livro. Disponível por 1 ano. R$ 70 na Black Friday, até 30/11.","about":["Escrita criativa","Estrutura narrativa","Como escrever um livro"],"teaches":"Estrutura de três atos, checklist de 9 passos, formas de história e premissa.","educationalLevel":"Iniciante","isAccessibleForFree":false,"provider":{"@type":"EducationalOrganization","name":"Aldeia Literária","url":"https://aaldeialiteraria.com.br/","legalName":"CAMILA VELOSO. CO LTDA","taxID":"47.277.682/0001-48"},"instructor":{"@type":"Person","name":"Camila Veloso","jobTitle":"Fundadora da Aldeia Literária","sameAs":["https://www.instagram.com/acamiveloso/"]},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online"},"offers":{"@type":"Offer","price":"70.00","priceCurrency":"BRL","availability":"https://schema.org/InStock","url":"https://aaldeialiteraria.com.br/aulao-universal/","priceValidUntil":"2026-11-30"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Para quem é o AULÃO UNIVERSAL?","acceptedAnswer":{"@type":"Answer","text":"Para quem está começando e quer escrever o primeiro livro, mas não sabe por onde começar. Você não precisa ter nada pronto."}},{"@type":"Question","name":"Por quanto tempo posso assistir?","acceptedAnswer":{"@type":"Answer","text":"O acesso dura 1 ano a partir da compra. Você assiste quando quiser e quantas vezes precisar, inclusive pelo celular."}},{"@type":"Question","name":"Até quando vale o preço de R$ 70?","acceptedAnswer":{"@type":"Answer","text":"O preço promocional de Black Friday vale até 30/11, às 23h59 (horário de Brasília). Depois disso, o AULÃO UNIVERSAL continua disponível, por R$ 100."}},{"@type":"Question","name":"Posso pedir reembolso?","acceptedAnswer":{"@type":"Answer","text":"Sim. Você tem 7 dias corridos depois da compra para desistir e pedir o reembolso. Veja a política de cancelamento e reembolso."}},{"@type":"Question","name":"Quem dá a aula? A compra é segura?","acceptedAnswer":{"@type":"Answer","text":"Camila Veloso, fundadora da Aldeia Literária e produtora editorial (UFSM). A venda é feita por CAMILA VELOSO. CO LTDA, CNPJ 47.277.682/0001-48, que você pode consultar na Receita Federal."}}]}]}</script>
 
 <script>
-/* AULÃO MASTER — contagem regressiva, encerramento da venda, bônus do 1º dia e barra de compra no celular. */
+/* AULÃO UNIVERSAL — contagem regressiva até o fim da promoção (30/11, 23h59) e carrossel de fotos. */
 (function () {
   "use strict";
   var root = document.documentElement;
   root.classList.add("am-js");
   var END = new Date("2026-11-30T23:59:59-03:00").getTime();     // fim da venda
-  var BONUS = new Date("2026-11-23T23:59:59-03:00").getTime();   // fim do bônus do 1º dia
   var els = document.querySelectorAll("[data-count]");
 
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
@@ -311,13 +309,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
   function tick() {
     var now = Date.now(), i;
     for (i = 0; i < els.length; i++) {
-      paint(els[i], (els[i].getAttribute("data-count") === "bonus" ? BONUS : END) - now);
+      paint(els[i], END - now);
     }
     if (now >= END) { root.classList.add("am-is-closed"); }
-    if (now >= BONUS) {
-      var b = document.querySelectorAll("[data-bonus]");
-      for (i = 0; i < b.length; i++) { b[i].hidden = true; }
-    }
   }
   tick();
   setInterval(tick, 1000);

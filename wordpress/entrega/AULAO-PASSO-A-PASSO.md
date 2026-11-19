@@ -54,7 +54,7 @@ A página já traz, no código, os dados estruturados (Curso, Oferta e Perguntas
 ## Etapa 7: Conferir (janela anônima e celular)
 - [ ] Abre no celular, sem menu do tema por cima, com o fundo creme.
 - [ ] A faixa preta no topo mostra "A promoção acaba em:" com o cronômetro andando e o botão **QUERO O AULÃO**.
-- [ ] O botão **Ver o preço** abre o preço de **R$ 70** (riscado R$ 100), o botão de compra e o bônus.
+- [ ] O botão **Ver o preço** abre o preço de **R$ 70** (riscado R$ 100), o botão de compra e o bônus de R$ 70 na matrícula.
 - [ ] Os 4 botões de compra abrem a página de compra da Kiwify, com o produto e o preço certos.
 - [ ] As fotos do carrossel e as capas aparecem; as setas funcionam.
 - [ ] A página **não** aparece no menu nem na Home.
@@ -62,9 +62,8 @@ A página já traz, no código, os dados estruturados (Curso, Oferta e Perguntas
 - [ ] Se as fotos ou as fontes não aparecerem: confirme que o plugin está na versão **1.4.0** e limpe o cache.
 
 ## O que muda sozinho (sem você mexer)
-- **Até 23/11, 23h59:** aparece o bônus do 1º dia (50% de desconto na matrícula da Aldeia Literária 2027). Depois some.
-- **Até 30/11, 23h59 (horário de Brasília):** preço de **R$ 70**, riscado R$ 100, com cronômetro.
-- **Depois de 30/11:** a página **continua no ar** e passa a mostrar **R$ 100**, sem cronômetro e sem a palavra "promoção". A troca acontece no navegador de quem abre a página, então não precisa republicar nem limpar cache.
+- **Até 30/11, 23h59 (horário de Brasília):** preço de **R$ 70**, riscado R$ 100, com cronômetro, e o bônus de **R$ 70 de desconto na matrícula da Aldeia Literária** para todos que comprarem.
+- **Depois de 30/11:** a página **continua no ar** e passa a mostrar **R$ 100**, sem cronômetro, sem o bônus e sem a palavra "promoção". A troca acontece no navegador de quem abre a página, então não precisa republicar nem limpar cache.
 
 ## Antes de divulgar, confirme
 - [ ] **Formas de pagamento** aceitas na Kiwify e o **preço cadastrado lá (R$ 70)**. Depois de 30/11 a página mostra R$ 100, então o valor no checkout precisa mudar também.

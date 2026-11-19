@@ -240,8 +240,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
           <span class="am-promo">só até 30/11, às 23h59</span>
         </div>
         <a class="am-btn" href="https://pay.kiwify.com.br/TyiiZBm">Quero o AULÃO UNIVERSAL <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h15m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="am-bonus am-promo" data-bonus><b>Bônus do 1º dia:</b> comprando até 23/11, você ganha 50% de desconto na matrícula da Aldeia Literária 2027.
-          <span class="am-count" data-count="bonus" aria-hidden="true"></span></div>
+        <div class="am-bonus am-promo"><b>Bônus:</b> quem comprar até 30/11, às 23h59, ganha <b>R$ 70 de desconto na matrícula da Aldeia Literária</b>.</div>
         <p class="am-note">7 dias para desistir e pedir o reembolso. <a href="https://aaldeialiteraria.com.br/politica-de-cancelamento-e-reembolso/">Ver política</a>.</p>
       </div>
     </details>
@@ -290,13 +289,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
 
 </div>
 <script>
-/* AULÃO MASTER — contagem regressiva, encerramento da venda, bônus do 1º dia e barra de compra no celular. */
+/* AULÃO UNIVERSAL — contagem regressiva até o fim da promoção (30/11, 23h59) e carrossel de fotos. */
 (function () {
   "use strict";
   var root = document.documentElement;
   root.classList.add("am-js");
   var END = new Date("2026-11-30T23:59:59-03:00").getTime();     // fim da venda
-  var BONUS = new Date("2026-11-23T23:59:59-03:00").getTime();   // fim do bônus do 1º dia
   var els = document.querySelectorAll("[data-count]");
 
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
@@ -308,13 +306,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.am-track:focus-visib
   function tick() {
     var now = Date.now(), i;
     for (i = 0; i < els.length; i++) {
-      paint(els[i], (els[i].getAttribute("data-count") === "bonus" ? BONUS : END) - now);
+      paint(els[i], END - now);
     }
     if (now >= END) { root.classList.add("am-is-closed"); }
-    if (now >= BONUS) {
-      var b = document.querySelectorAll("[data-bonus]");
-      for (i = 0; i < b.length; i++) { b[i].hidden = true; }
-    }
   }
   tick();
   setInterval(tick, 1000);
