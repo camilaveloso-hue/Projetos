@@ -13,7 +13,7 @@ Esta versão **substitui** a anterior. Faça as etapas **na ordem**.
 ## O que mudou na página
 1. **Sem contradição de preço.** O HTML da Black Friday só tem **R$ 70** e "A promoção acaba em: 30/11". O R$ 100 e o texto "promoção terminou" não existem mais nele. Quem lê o código (inclusive IAs) vê uma oferta só.
 2. **Definição citável** logo abaixo do título: "O AULÃO UNIVERSAL é uma aula gravada de escrita criativa para iniciantes…", com duração (cerca de 1 hora), formato, acesso de 1 ano e o que vem junto.
-3. **Títulos descritivos** (H2): "O que é o AULÃO UNIVERSAL?", "O que você aprende nas 6 partes da aula", "Para quem é…", "Para quem não é", "O que está incluído e quanto custa", "Quem é a professora: Camila Veloso", "Perguntas frequentes". As chamadas de venda ficam nos botões.
+3. **Títulos descritivos** (H2): "O que é o AULÃO UNIVERSAL?", "O que você aprende nas 6 partes da aula", "Para quem é…", "Para quem não é", "O que você leva agora", "Quem é a professora: Camila Veloso", "Perguntas frequentes". As chamadas de venda ficam nos botões.
 4. **As 6 partes em H3**, cada uma com 2 a 3 linhas (com "três atos", "arco", "premissa" explicados em palavras simples).
 5. **10 perguntas frequentes** (eram 5), com respostas curtas. Os dados estruturados espelham exatamente o que está na tela.
 6. **Para quem é / Para quem não é**, com o caminho para o curso completo da Aldeia.
