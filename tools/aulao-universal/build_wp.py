@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gera o modelo do Elementor da página do AULÃO UNIVERSAL e atualiza o plugin.
 
-Uso:  python3 tools/aulao-universal/build_wp.py [--checkout https://link-do-checkout]
+Uso:  python3 tools/aulao-universal/build_wp.py [--checkout https://link] [--pos-promocao]
 Saídas:
   wordpress/entrega/aulao-universal-v1.json                       modelo para importar no Elementor
   wordpress/entrega/aulao-universal-v1-colar-no-widget-html.html  plano B: colar num widget HTML
@@ -14,7 +14,10 @@ ROOT = os.path.normpath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE)
 import build_aulao as B
 
-VERSION = "v1"
+VERSION = "v2"
+POS = "--pos-promocao" in sys.argv     # versão para depois de 30/11: R$ 100, sem promoção, bônus nem contagem
+B.POS = POS
+SUF = "-pos-promocao" if POS else ""
 PLUGIN_BASE = B.SITE + "/wp-content/plugins/aldeia-vendas/assets/aulao/"
 
 if "--checkout" in sys.argv:
@@ -46,14 +49,14 @@ fragment = (f'<!-- aulao-universal-{VERSION} · AULÃO UNIVERSAL em um único wi
 # 3) arquivos de saída
 ent = os.path.join(ROOT, "wordpress", "entrega")
 os.makedirs(ent, exist_ok=True)
-open(os.path.join(ent, f"aulao-universal-{VERSION}-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
+open(os.path.join(ent, f"aulao-universal-{VERSION}{SUF}-colar-no-widget-html.html"), "w", encoding="utf-8").write(fragment)
 zero = {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}
-tpl = {"version": "0.4", "title": f"ALDEIA Aulão Universal {VERSION}", "type": "page",
+tpl = {"version": "0.4", "title": f"ALDEIA Aulão Universal {VERSION}{' (pós-promoção, R$ 100)' if POS else ' (Black Friday)'}", "type": "page",
        "content": [{"id": "a1b2c3d", "elType": "container", "isInner": False,
                     "settings": {"content_width": "full", "flex_direction": "column", "padding": zero, "margin": zero},
                     "elements": [{"id": "e4f5a6b", "elType": "widget", "widgetType": "html", "settings": {"html": fragment}, "elements": []}]}],
        "page_settings": {"hide_title": "yes"}}
-json.dump(tpl, open(os.path.join(ent, f"aulao-universal-{VERSION}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump(tpl, open(os.path.join(ent, f"aulao-universal-{VERSION}{SUF}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 # 4) fotos e fontes no plugin
 assets = os.path.join(ROOT, "wordpress", "aulao-assets")
@@ -64,4 +67,4 @@ for f in imgs:
 for f in used_fonts:
     shutil.copy(os.path.join(B.FONTDIR, f), os.path.join(assets, "fonts", f))
 subprocess.run([sys.executable, os.path.join(ROOT, "tools", "build_plugin.py")], check=True)
-print("ok:", len(fragment) // 1024, "KB; fotos:", len(imgs), "; checkout:", B.CHECKOUT)
+print("ok:", len(fragment) // 1024, "KB; fotos:", len(imgs), "; checkout:", B.CHECKOUT, "; versão:", "pós-promoção" if POS else "Black Friday")

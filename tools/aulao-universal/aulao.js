@@ -4,7 +4,7 @@
   var root = document.documentElement;
   root.classList.add("am-js");
   var END = new Date("2026-11-30T23:59:59-03:00").getTime();     // fim da venda
-  var els = document.querySelectorAll("[data-count]");
+  var els = document.querySelectorAll("[data-count]"), ended = false;
 
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
   function paint(el, ms) {
@@ -17,18 +17,17 @@
     for (i = 0; i < els.length; i++) {
       paint(els[i], END - now);
     }
-    if (now >= END) { root.classList.add("am-is-closed"); }
+    if (now >= END && !ended) {
+      ended = true;
+      // Depois de 30/11 23h59: some tudo o que é da promoção (contagem, bônus, preço de Black Friday). O preço novo vem do modelo "pós-promoção".
+      var pr = document.querySelectorAll("[data-promo]"), k;
+      for (k = 0; k < pr.length; k++) { pr[k].hidden = true; }
+      var det = document.querySelector(".am-reveal");
+      if (det) { det.open = true; }
+    }
   }
   tick();
   setInterval(tick, 1000);
-
-  // Barra de compra fixa: aparece depois que o botão do topo sai da tela.
-  var bar = document.getElementById("am-sticky"), anchor = document.getElementById("am-hero-cta");
-  if (bar && anchor && "IntersectionObserver" in window) {
-    new IntersectionObserver(function (e) {
-      bar.classList.toggle("is-on", !e[0].isIntersecting && e[0].boundingClientRect.top < 0);
-    }).observe(anchor);
-  }
 
   // Carrossel de fotos: setas, arraste no celular e rolagem automática lenta (pausa ao tocar e com movimento reduzido).
   var car = document.querySelector("[data-carousel]");

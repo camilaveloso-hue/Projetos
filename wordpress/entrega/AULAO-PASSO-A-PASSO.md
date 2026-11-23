@@ -1,82 +1,53 @@
-# Como colocar o AULÃO UNIVERSAL no site (página escondida)
+# AULÃO UNIVERSAL no site: atualização v2 (página para buscadores e IAs)
 
-Faça as etapas **na ordem**. Cada uma diz o que clicar e como saber se deu certo.
+Esta versão **substitui** a anterior. Faça as etapas **na ordem**.
 
 ## Os arquivos (pasta `wordpress/entrega/`)
 | Arquivo | Para que serve |
 |---|---|
-| `aldeia-vendas.zip` | **Plugin versão 1.4.0.** Guarda as fotos e as fontes da página do aulão. Reinstale por cima do atual. |
-| `aulao-universal-v1.json` | **Modelo do Elementor** da página. |
-| `aulao-universal-v1-colar-no-widget-html.html` | **Plano B:** o mesmo conteúdo para colar num widget HTML, se a importação do modelo falhar. |
+| `aldeia-vendas.zip` | **Plugin 1.4.1.** Fotos e fontes do aulão, e agora também o **título, a descrição e o tipo Open Graph** da página para o Yoast. Reinstale por cima do atual. |
+| `aulao-universal-v2.json` | **Modelo para a Black Friday** (R$ 70, até 30/11). Use agora. |
+| `aulao-universal-v2-pos-promocao.json` | **Modelo para depois de 30/11** (R$ 100, sem promoção). Só entra em **30/11, depois das 23h59**. |
+| `…-colar-no-widget-html.html` | Plano B de cada modelo, para colar num widget HTML. |
 
-O plugin novo **não muda** nenhuma outra página do site (Home, Sobre, professores e blog continuam iguais).
+## O que mudou na página
+1. **Sem contradição de preço.** O HTML da Black Friday só tem **R$ 70** e "A promoção acaba em: 30/11". O R$ 100 e o texto "promoção terminou" não existem mais nele. Quem lê o código (inclusive IAs) vê uma oferta só.
+2. **Definição citável** logo abaixo do título: "O AULÃO UNIVERSAL é uma aula gravada de escrita criativa para iniciantes…", com duração (cerca de 1 hora), formato, acesso de 1 ano e o que vem junto.
+3. **Títulos descritivos** (H2): "O que é o AULÃO UNIVERSAL?", "O que você aprende nas 6 partes da aula", "Para quem é…", "Para quem não é", "O que está incluído e quanto custa", "Quem é a professora: Camila Veloso", "Perguntas frequentes". As chamadas de venda ficam nos botões.
+4. **As 6 partes em H3**, cada uma com 2 a 3 linhas (com "três atos", "arco", "premissa" explicados em palavras simples).
+5. **10 perguntas frequentes** (eram 5), com respostas curtas. Os dados estruturados espelham exatamente o que está na tela.
+6. **Para quem é / Para quem não é**, com o caminho para o curso completo da Aldeia.
+7. **14 fotos com texto alternativo único**.
+8. **Datas visíveis:** "Publicado em 19/11/2026 · Atualizado em 23/11/2026".
+9. **Links internos:** página inicial da Aldeia, lista de espera, página da Camila e 3 artigos do site.
+10. **Dados estruturados:** Course (com preço e validade da oferta vigente), Person (Camila) e FAQPage. A organização "Aldeia Literária" já vem do Yoast e é só referenciada, para não duplicar.
+11. **Título, descrição e og:type** definidos pelo plugin (og:type deixa de ser "article" e vira "website").
 
-## Etapa 1: Backup
-Faça um backup do site (plugin de backup ou o da hospedagem).
+## Etapa 1: Backup do site.
 
 ## Etapa 2: Reinstalar o plugin
-1. **Plugins → Adicionar plugin → Enviar plugin** → escolha `aldeia-vendas.zip` → **Instalar agora**.
-2. Quando aparecer "o plugin já existe", clique em **Substituir o atual pelo enviado**.
-3. Confirme que está **Ativo** e que a versão é **1.4.0**.
+**Plugins → Adicionar plugin → Enviar plugin** → `aldeia-vendas.zip` → **Substituir o atual pelo enviado**. Confirme a versão **1.4.1**.
 
-## Etapa 3: Importar o modelo
-1. **Elementor → Modelos → Modelos salvos** → **Importar modelos** → envie `aulao-universal-v1.json`.
-2. Deve aparecer **ALDEIA Aulão Universal v1**.
+## Etapa 3: Trocar o conteúdo da página
+1. **Elementor → Modelos → Importar modelos** → `aulao-universal-v2.json` e `aulao-universal-v2-pos-promocao.json`. Aparecem "ALDEIA Aulão Universal v2 (Black Friday)" e "… (pós-promoção, R$ 100)".
+2. Abra a página `aulao-universal` no Elementor, apague o conteúdo e insira **ALDEIA Aulão Universal v2 (Black Friday)**. Layout **Elementor Canvas**. **Atualizar**.
+3. **WP Rocket → Limpar cache.**
 
-## Etapa 4: Criar a página (escondida)
-1. **Páginas → Adicionar nova**. Título: `AULÃO UNIVERSAL`.
-2. Em **Link permanente**, deixe o endereço **`aulao-universal`**. A página fica em `https://aaldeialiteraria.com.br/aulao-universal/`.
-3. Clique em **Editar com o Elementor**.
-4. Pasta preta → **Meus modelos** → **Inserir** o modelo **ALDEIA Aulão Universal v1**.
-5. **Engrenagem (configurações da página) → Layout da página → Elementor Canvas**. Sem isso aparece o menu do tema por cima.
-6. **Publicar**.
+## Etapa 4: Conferir (janela anônima e celular)
+- [ ] Faixa do topo: "A promoção acaba em:" com o cronômetro andando e **QUERO O AULÃO**.
+- [ ] Só aparece **R$ 70** (depois de "Ver o preço" e no cartão "Promoção"). **Não** aparece R$ 100 nem "promoção terminou".
+- [ ] Os 4 botões abrem a Kiwify.
+- [ ] No Yoast, o título é "AULÃO UNIVERSAL: aula de escrita criativa para iniciantes | Aldeia Literária" (o plugin define sozinho).
+- [ ] Em `view-source:`, procure `og:type`: deve ser **website**, e `og:description` deve ser a descrição curta, não o texto da página.
+- [ ] Teste em `search.google.com/test/rich-results` e `validator.schema.org`: devem aparecer Course, Person e FAQPage.
 
-**Para a página ficar escondida, não faça estas coisas:**
-- não coloque a página em **Aparência → Menus** nem em widgets do rodapé;
-- não coloque o endereço na Home, no blog nem em outras páginas;
-- não escolha esta página em **Configurações → Leitura**.
+## Etapa 5: Depois de 30/11 (às 23h59), troque o modelo
+1. Abra a página no Elementor, apague o conteúdo e insira **ALDEIA Aulão Universal v2 (pós-promoção, R$ 100)**. **Atualizar** e limpe o cache.
+2. **Mude o preço na Kiwify para R$ 100** (ou me mande um link novo de R$ 100, e eu gero os arquivos de novo).
+3. Se você esquecer: depois das 23h59 a página **esconde sozinha** a contagem, o bônus e o preço de R$ 70, mas fica sem preço visível até a troca.
 
-A página fica pública para quem tiver o link (use o link nas redes sociais), mas ninguém chega a ela navegando pelo site.
-
-## Etapa 5: Link de compra (já está no modelo)
-Os 4 botões de compra ("QUERO O AULÃO" na faixa do topo e "Quero o AULÃO UNIVERSAL" no começo, no cartão de oferta e na chamada final) já apontam para `https://pay.kiwify.com.br/TyiiZBm`. **Não precisa trocar nada.** Para mudar o link no futuro, use **Ctrl+F** no campo **Código HTML** do Elementor e troque todos os `https://pay.kiwify.com.br/TyiiZBm` pelo novo endereço.
-
-## Etapa 6: Título e descrição para o Google e as IAs (Yoast)
-Na página, role até a caixa do **Yoast SEO** e preencha:
-- **Título SEO:** `AULÃO UNIVERSAL: como escrever um livro | Camila Veloso`
-- **Meta descrição:** `Aula gravada de Camila Veloso, fundadora da Aldeia Literária, para quem quer escrever um livro e não sabe por onde começar. Promoção de Black Friday até 30/11.`
-- **Endereço (slug):** `aulao-universal`
-
-**Decisão sua:** em **Avançado → Permitir que mecanismos de busca mostrem esta página**, deixe **Sim** se quiser que o Google e as IAs possam recomendar a página. Escolha **Não** apenas se quiser a página **totalmente invisível** para buscadores; nesse caso as IAs não vão encontrá-la.
-
-A página já traz, no código, os dados estruturados (Curso, Oferta e Perguntas frequentes). Se o Yoast tiver a opção de desligar o schema desta página, desligue para não duplicar.
-
-## Etapa 7: Conferir (janela anônima e celular)
-- [ ] Abre no celular, sem menu do tema por cima, com o fundo creme.
-- [ ] A faixa preta no topo mostra "A promoção acaba em:" com o cronômetro andando e o botão **QUERO O AULÃO**.
-- [ ] O botão **Ver o preço** abre o preço de **R$ 70** (riscado R$ 100), o botão de compra e o bônus de R$ 70 na matrícula.
-- [ ] Os 4 botões de compra abrem a página de compra da Kiwify, com o produto e o preço certos.
-- [ ] As fotos do carrossel e as capas aparecem; as setas funcionam.
-- [ ] A página **não** aparece no menu nem na Home.
-- [ ] Se o cronômetro ficar parado em "7d 00h 00min 00s": em **WP Rocket → Otimização de arquivos**, desative o **Atraso de JavaScript** para esta página (ou exclua `data-count`), e limpe o cache.
-- [ ] Se as fotos ou as fontes não aparecerem: confirme que o plugin está na versão **1.4.0** e limpe o cache.
-
-## O que muda sozinho (sem você mexer)
-- **Até 30/11, 23h59 (horário de Brasília):** preço de **R$ 70**, riscado R$ 100, com cronômetro, e o bônus de **R$ 70 de desconto na matrícula da Aldeia Literária** para todos que comprarem.
-- **Depois de 30/11:** a página **continua no ar** e passa a mostrar **R$ 100**, sem cronômetro, sem o bônus e sem a palavra "promoção". A troca acontece no navegador de quem abre a página, então não precisa republicar nem limpar cache.
-
-## Antes de divulgar, confirme
-- [ ] **Formas de pagamento** aceitas na Kiwify e o **preço cadastrado lá (R$ 70)**. Depois de 30/11 a página mostra R$ 100, então o valor no checkout precisa mudar também.
-- [ ] **Prazo de 1 ano** de acesso e **reembolso de 7 dias** valem para o aulão.
-- [ ] **"+400 escritores"** é o número correto (seus arquivos antigos falavam em +500).
-- [ ] Todos os alunos das fotos do carrossel **autorizaram** o uso na página.
-- [ ] **Material de apoio + atividade** existem e serão entregues.
-
-## Se algo não sair como o esperado
-| Problema | O que fazer |
-|---|---|
-| Menu do tema por cima da página | Falta o layout **Elementor Canvas** (Etapa 4, passo 5) |
-| Página sem cores ou com letras comuns | Plugin sem a versão 1.4.0 ou cache. Reinstale e limpe o cache |
-| A importação do modelo deu erro | **Plano B:** crie a página, arraste **um** widget **HTML**, cole todo o conteúdo de `aulao-universal-v1-colar-no-widget-html.html` e escolha **Elementor Canvas** |
-| Faixa do topo não fica fixa | Raro. Desative temporariamente plugins de otimização de CSS e teste de novo |
-| Quero desfazer | Mande a página para a lixeira |
+## Pendências
+- **Prova social:** a página **não tem depoimentos nem livros de alunos**. Você mencionou prints de depoimentos de aulões, mas **eles não chegaram nesta conversa**. Mande os prints (com nome da pessoa e o que mudou) e eu incluo.
+- **Data "Atualizado em":** está fixa em 23/11/2026. Ao mudar a página, me peça para atualizar ou troque a data no Código HTML.
+- Confirme que valem para o aulão: **acesso de 1 ano, reembolso de 7 dias, duração de cerca de 1 hora, material de apoio + atividade**, e que ele **não inclui retorno individual sobre os textos** (está na seção "Para quem não é").
+- Autorização dos alunos que aparecem nas fotos.
