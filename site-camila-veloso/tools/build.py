@@ -24,6 +24,7 @@ SITE = {
 LINK_EDITORA = "https://www.editorafissura.com.br/produtos/o-diario-de-amelia1/"
 PRECO = "69,90"       # preço de lançamento: tem que bater com o da loja da Editora Fissura
 PRECO_DE = "69,90"
+PRECO_EBOOK = "5,99"  # preço do e-book na Amazon (aparece na página Links); confira na Amazon
 HOJE = datetime.date.today().isoformat()
 
 def _versao(caminho):
@@ -42,7 +43,7 @@ def esc(s):
 
 def preencher(html):
     return (html.replace("{{PRECO_INT}}", PRECO.split(",")[0]).replace("{{PRECO_DE}}", PRECO_DE)
-            .replace("{{PRECO}}", PRECO))
+            .replace("{{PRECO}}", PRECO).replace("{{PRECO_EBOOK}}", PRECO_EBOOK))
 
 def fragmento(nome):
     insta = SITE["instagram_fundadora"]

@@ -252,3 +252,7 @@ html{overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){.lkb__cta{animation:none}}
 .estrela b{font-size:1.3rem;line-height:1.1}
 .estrela{width:7.6rem!important;padding:.7rem}
+
+/* links: preço do e-book em destaque */
+.lkb__preco{display:block;font-family:var(--display);font-size:2.3rem;line-height:1;color:var(--vermelho);margin:.35rem 0 .1rem}
+.lkb__preco i{font-style:normal;font-family:var(--titulo);font-weight:800;font-size:.95rem;color:var(--tinta);text-transform:uppercase;letter-spacing:.08em;margin-right:.15rem}
