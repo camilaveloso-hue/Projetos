@@ -264,3 +264,6 @@ html{overflow-x:hidden}
 .lkb--ald .lkb__tag{background:var(--rosa);color:var(--tinta)}
 .lkb--ald small{opacity:.95}
 .lkb__cta--c{background:var(--amarelo);color:var(--tinta);animation:none;font-size:.95rem;line-height:1.15;padding:.6rem 1rem}
+
+/* links: título do e-book em uma linha só */
+.lkb--gg .lkb__t b{font-size:clamp(.95rem,4.6vw,1.3rem);white-space:nowrap}
