@@ -58,7 +58,7 @@ def faq_items():
         ("Preciso ter um texto pronto?",
          "Não. Basta ter vontade de escrever. Se você já tem uma ideia de história, melhor, mas não precisa de capítulos nem de rascunho.", False),
         ("Qual é a duração e o formato da aula?",
-         "É uma aula gravada de cerca de 1 hora, que você assiste pelo celular ou pelo computador. Junto vêm o checklist de 9 passos, o material de apoio e uma atividade.", False),
+         "É uma aula gravada de 55 minutos, que você assiste pelo celular ou pelo computador. Junto vêm o checklist de 9 passos, o material de apoio e uma atividade.", False),
         preco,
         ("Por quanto tempo posso assistir?",
          "O acesso dura 1 ano a partir da compra. Você assiste quando quiser e quantas vezes precisar.", False),
@@ -90,12 +90,12 @@ def jsonld():
         offer["priceValidUntil"] = "2026-11-30"
     course = {"@type": "Course", "@id": URL + "#aula", "name": "AULÃO UNIVERSAL", "alternateName": "AULÃO UNIVERSAL: tudo o que você precisa saber para conseguir escrever um livro",
               "url": URL, "inLanguage": "pt-BR",
-              "description": "Aula gravada de escrita criativa para iniciantes, de cerca de 1 hora, que ensina estrutura de três atos, premissa e um checklist de 9 passos para escrever um livro. Acesso por 1 ano, com checklist, material de apoio e atividade.",
+              "description": "Aula gravada de escrita criativa para iniciantes, de 55 minutos, que ensina estrutura de três atos, premissa e um checklist de 9 passos para escrever um livro. Acesso por 1 ano, com checklist, material de apoio e atividade.",
               "about": ["Escrita criativa", "Estrutura narrativa", "Como escrever um livro"],
               "teaches": "Estrutura de três atos e arco do personagem, checklist de 9 passos, formas de história, premissa e princípio narrativo, próximos passos para publicar.",
-              "educationalLevel": "Iniciante", "isAccessibleForFree": False, "timeRequired": "PT1H",
+              "educationalLevel": "Iniciante", "isAccessibleForFree": False, "timeRequired": "PT55M",
               "provider": org, "instructor": {"@id": person["@id"]},
-              "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT1H", "instructor": {"@id": person["@id"]}},
+              "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT55M", "instructor": {"@id": person["@id"]}},
               "offers": offer}
     faq = {"@type": "FAQPage", "@id": URL + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": plain(a)}} for q, a, _ in faq_items()]}
     data = {"@context": "https://schema.org", "@graph": [course, person, faq]}
@@ -136,7 +136,7 @@ def page():
     parts = [("Os três atos e o arco", "Os três atos dividem uma história em apresentação, confronto e resolução. O arco é a mudança do personagem ao longo deles. Você aprende a enxergar essa estrutura e a aplicá-la ao seu livro."),
              ("O checklist de 9 passos", "Um roteiro de nove etapas que leva a história do início ao fim. Ele acompanha o material de apoio e a atividade e ajuda a saber em que ponto você está e o que escrever em seguida."),
              ("Por que você lê livros", "A leitura é a base da escrita. Entender por que as histórias funcionam para quem lê ajuda você a escrever pensando no leitor."),
-             ("As formas de história", "Uma história pode ser linear, sinuosa ou explosiva, conforme organiza os caminhos do personagem. Você descobre qual forma combina com a sua ideia."),
+             ("As formas de história", "Outras formas de estruturar uma narrativa. Você descobre qual delas combina com a sua ideia."),
              ("Premissa, princípio e arco", "A premissa é a sua história resumida em uma frase. O princípio é a ideia central que a sustenta. Você aprende a transformar uma ideia solta nisso."),
              ("Próximos passos", "Como seguir depois da aula para terminar o livro e chegar à publicação, e onde a Aldeia Literária entra nesse caminho.")]
     parts_html = "".join(f"<li><div><h3>{E(t)}</h3><p>{E(d)}</p></div></li>" for t, d in parts)
@@ -172,8 +172,8 @@ def page():
 <section class="am-hero am-mtn am-mtn--light" aria-labelledby="h1"><div class="am-wrap">
   {pill}
   <h1 id="h1">AULÃO UNIVERSAL<span class="am-sr">: </span><span class="am-tag"><span class="am-hl">escrever um livro pode ser fácil.</span></span></h1>
-  <p class="am-lead am-def">O AULÃO UNIVERSAL é uma <strong>aula gravada de escrita criativa para iniciantes</strong> que ensina estrutura de três atos, premissa e um checklist de 9 passos para escrever um livro. Tem cerca de 1 hora, é dada por Camila Veloso, fundadora da Aldeia Literária, e fica disponível por 1 ano, com checklist, material de apoio e atividade.</p>
-  <ul class="am-facts" aria-label="Resumo da aula"><li>Aula gravada</li><li>Cerca de 1 hora</li><li>Acesso por 1 ano</li><li>Checklist + atividade</li></ul>
+  <p class="am-lead am-def">Aula de escrita para quem tem a ideia de um livro, mas não sabe por onde começar.</p>
+  <ul class="am-facts" aria-label="Resumo da aula"><li>Aula gravada</li><li>55 minutos</li><li>Acesso por 1 ano</li><li>Checklist + atividade</li></ul>
   <div class="am-author"><img src="{{IMG:camila-sorriso.jpg}}" alt="Camila Veloso, professora do AULÃO UNIVERSAL" width="92" height="92"><div><strong>Camila Veloso</strong><span>Fundadora da Aldeia Literária</span></div></div>
   <p class="am-dates">{dates}</p>
   <div class="am-hero__cta"><a id="am-hero-cta" class="am-btn" href="{CHECKOUT}">Quero o AULÃO UNIVERSAL {ARROW}</a></div>
@@ -209,8 +209,9 @@ def page():
   <h2 class="am-h2" id="t-oferta">O que está incluído e quanto custa</h2>
   <div class="am-offer">
     <ul class="am-list">
-      <li>{CHECK}<span>Aula gravada de cerca de 1 hora, liberada assim que o pagamento for confirmado</span></li>
+      <li>{CHECK}<span>Aula gravada de 55 minutos, liberada assim que o pagamento for confirmado</span></li>
       <li>{CHECK}<span>Metodologia única para quem está começando</span></li>
+      <li>{CHECK}<span>Conhecimento exclusivo em escrita criativa</span></li>
       <li>{CHECK}<span>Aula com a fundadora da Aldeia Literária</span></li>
       <li>{CHECK}<span>Checklist de 9 passos + material de apoio e atividade</span></li>
       <li>{CHECK}<span>Disponível por 1 ano, para assistir quantas vezes quiser</span></li>
@@ -239,7 +240,7 @@ def page():
 </div></section>
 
 <section class="am-sec am-dark am-center am-mtn am-mtn--dark" id="pessoas" aria-labelledby="t-pessoas" style="padding-bottom:clamp(36px,7vw,60px)"><div class="am-wrap">
-  <h2 class="am-h2" id="t-pessoas">Camila Veloso com alunos e leitores em encontros presenciais</h2>
+  <h2 class="am-h2" id="t-pessoas">Eu sou real. <span style="color:var(--yellow)">E eles também.</span></h2>
 </div>
 <div class="am-carousel" data-carousel>
   <ul class="am-track" aria-label="Fotos de Camila Veloso com alunos e leitores da Aldeia Literária" tabindex="0">{slides}</ul>
