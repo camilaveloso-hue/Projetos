@@ -311,8 +311,8 @@ def mountains(fills, stroke, sw=1.4):
     return 'url("data:image/svg+xml,' + urllib.parse.quote(svg, safe="/:=,'()") + '")'
 
 
-MTN_LIGHT = mountains(["#efe6fc", "#e5d8fa", "#dccbf6"], "#9b7be0")
-MTN_DARK = mountains(["rgba(255,255,255,.04)", "rgba(255,255,255,.06)", "rgba(255,255,255,.09)"], "#c9b2f2")
+MTN_LIGHT = mountains(["#e9f2fa", "#dbeaf6", "#cde0f1"], "#6f9cc4")
+MTN_DARK = mountains(["rgba(255,255,255,.04)", "rgba(255,255,255,.06)", "rgba(255,255,255,.09)"], "#9fc4e6")
 
 
 

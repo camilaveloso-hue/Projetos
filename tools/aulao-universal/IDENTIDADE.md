@@ -5,14 +5,14 @@ Prévia local: `preview/aulao-universal.html`. Para regenerar: `python3 tools/au
 
 ## Identidade (a da versão curta, baseada na OliNews)
 - Fundo creme `#fdfaec`, texto `#09090a`, seções escuras em preto.
-- Roxo `#7c3aed` / `#6d28d9` como acento (ícones, cartões em lilás `#e8dcfb`), amarelo `#ffd60a` nos botões e destaques sobre o escuro.
+- Azul escuro da Aldeia `#0D3756` nos ícones e detalhes; azul claro `#d9e8f5` nos cartões em destaque, no grifo e nas montanhas; amarelo `#ffd60a` nos botões e destaques sobre o escuro.
 - Títulos em **Playfair Display** 900; texto em **DM Sans**. Fontes em `preview/aulao-v3/fonts/`.
-- Frase-chave grifada em lilás (`.am-hl`).
+- Frase-chave grifada em azul claro (`.am-hl`).
 
 ## Relevo de montanhas
 Três cordilheiras sobrepostas, desenhadas em SVG pela função `mountains()` em `build_aulao.py` e embutidas no CSS como fundo (`{MTN_LIGHT}` e `{MTN_DARK}`).
-- Versão clara (lilás sobre creme): rodapé do topo da página.
-- Versão escura (branco translúcido e traço lilás sobre preto): seção "Na aula, 6 partes", carrossel de fotos e chamada final.
+- Versão clara (azul claro sobre creme): rodapé do topo da página.
+- Versão escura (branco translúcido e traço azul claro sobre preto): seção "Na aula, 6 partes", carrossel de fotos e chamada final.
 - Para usar em outra seção, adicione as classes `am-mtn am-mtn--light` ou `am-mtn am-mtn--dark`.
 - Para mudar o desenho, altere os parâmetros (semente, base, altura, largura) em `mountains()`.
 
