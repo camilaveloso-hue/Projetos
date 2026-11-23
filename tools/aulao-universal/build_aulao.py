@@ -212,10 +212,8 @@ def page():
       <li>{CHECK}<span>Aula gravada de 55 minutos</span></li>
       <li>{CHECK}<span>Metodologia única para iniciantes</span></li>
       <li>{CHECK}<span>Conhecimento exclusivo em escrita criativa</span></li>
-      <li>{CHECK}<span>Aula com Camila Veloso</span></li>
-      <li>{CHECK}<span>Checklist, material e atividade</span></li>
+      <li>{CHECK}<span>Material de apoio</span></li>
       <li>{CHECK}<span>Acesso por 1 ano</span></li>
-      <li>{CHECK}<span>Assista no celular ou computador</span></li>
     </ul>
     <details class="am-reveal">
       <summary class="am-btn am-btn--ghost am-btn--sm">Ver o preço <span aria-hidden="true">↓</span></summary>
