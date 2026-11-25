@@ -115,7 +115,7 @@ function aldeia_blog_header() {
 	?>
 <header class="ab-top"><div class="ab-wrap ab-top__in">
   <a class="ab-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="Aldeia Literária, página inicial"><img src="<?php echo esc_url( $logo ); ?>" alt="" width="38" height="38"></a>
-  <nav class="ab-nav" aria-label="Principal"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a><a href="<?php echo esc_url( aldeia_blog_url( '/novo-sobre/' ) ); ?>">Sobre</a><a href="<?php echo esc_url( aldeia_blog_url( '/como-escolher-curso-de-escrita-criativa/' ) ); ?>">Guia</a><a class="is-on" href="<?php echo esc_url( aldeia_blog_pagina_blog() ); ?>">Blog</a><a class="ab-nav__cta" href="https://tally.so/r/0QNWPy">Lista de espera</a></nav>
+  <nav class="ab-nav" aria-label="Principal"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a><a href="<?php echo esc_url( aldeia_blog_url( '/novo-sobre/' ) ); ?>">Sobre</a><a class="is-on" href="<?php echo esc_url( aldeia_blog_pagina_blog() ); ?>">Blog</a><a class="ab-nav__cta" href="https://tally.so/r/0QNWPy">Lista de espera</a></nav>
 </div></header>
 	<?php
 }
@@ -124,7 +124,7 @@ function aldeia_blog_header() {
 function aldeia_blog_footer() {
 	?>
 <footer class="ab-foot"><div class="ab-wrap">
-  <p><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a> · <a href="<?php echo esc_url( aldeia_blog_url( '/novo-sobre/' ) ); ?>">Sobre</a> · <a href="<?php echo esc_url( aldeia_blog_url( '/como-escolher-curso-de-escrita-criativa/' ) ); ?>">Guia</a> · <a href="https://www.instagram.com/aldeialiteraria.oficial/" target="_blank" rel="noopener noreferrer me">Instagram</a> · <a href="https://www.tiktok.com/@aldeialiteraria" target="_blank" rel="noopener noreferrer me">TikTok</a> · <a href="<?php echo esc_url( aldeia_blog_url( '/politica-de-cancelamento-e-reembolso/' ) ); ?>">Cancelamento e reembolso</a></p>
+  <p><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a> · <a href="<?php echo esc_url( aldeia_blog_url( '/novo-sobre/' ) ); ?>">Sobre</a> · <a href="https://www.instagram.com/aldeialiteraria.oficial/" target="_blank" rel="noopener noreferrer me">Instagram</a> · <a href="https://www.tiktok.com/@aldeialiteraria" target="_blank" rel="noopener noreferrer me">TikTok</a> · <a href="<?php echo esc_url( aldeia_blog_url( '/politica-de-cancelamento-e-reembolso/' ) ); ?>">Cancelamento e reembolso</a></p>
   <p class="ab-foot__small">© Aldeia Literária · CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</p>
 </div></footer>
 	<?php
