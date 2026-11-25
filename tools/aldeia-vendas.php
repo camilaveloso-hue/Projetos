@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Aldeia Literária — Página de vendas
  * Description: Estilo (CSS), comportamentos (JS), fontes e imagens das páginas da Aldeia Literária (Home, Sobre e professores). Funciona junto com os modelos de página importados no Elementor.
- * Version: 1.3.1
+ * Version: 1.4.0
  * Author: Aldeia Literária
  * Requires PHP: 7.2
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ALDEIA_VENDAS_VERSION', '1.3.1' );
+define( 'ALDEIA_VENDAS_VERSION', '1.4.0' );
 
 /* Blog da Aldeia (lista de artigos, categorias e artigo individual). */
 if ( file_exists( plugin_dir_path( __FILE__ ) . 'includes/blog.php' ) ) {
@@ -28,10 +28,6 @@ function aldeia_vendas_precisa_carregar() {
 	if ( isset( $_GET['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 		return true;
 	}
-	// Telas do blog (lista, categoria e artigo) usam o mesmo visual.
-	if ( function_exists( 'aldeia_blog_contexto' ) && '' !== aldeia_blog_contexto() ) {
-		return true;
-	}
 	if ( ! is_singular() ) {
 		return false;
 	}
@@ -43,7 +39,21 @@ function aldeia_vendas_precisa_carregar() {
 	return is_string( $data ) && false !== strpos( $data, 'av-page' );
 }
 
+/* Blog (lista, categoria e artigo): só o CSS do blog, que é pequeno e não depende do Elementor. */
+function aldeia_vendas_e_blog() {
+	return function_exists( 'aldeia_blog_contexto' ) && '' !== aldeia_blog_contexto();
+}
+
 add_action( 'wp_enqueue_scripts', function () {
+	if ( aldeia_vendas_e_blog() ) {
+		wp_enqueue_style(
+			'aldeia-blog',
+			plugins_url( 'assets/css/aldeia-blog.css', __FILE__ ),
+			array(),
+			ALDEIA_VENDAS_VERSION
+		);
+		return;
+	}
 	if ( ! aldeia_vendas_precisa_carregar() ) {
 		return;
 	}
@@ -64,7 +74,7 @@ add_action( 'wp_enqueue_scripts', function () {
 
 /* Faz o navegador baixar as fontes principais cedo (ajuda no tempo de carregamento). */
 add_action( 'wp_head', function () {
-	if ( ! aldeia_vendas_precisa_carregar() ) {
+	if ( ! aldeia_vendas_e_blog() && ! aldeia_vendas_precisa_carregar() ) {
 		return;
 	}
 	foreach ( array( 'LibreCaslonText-700-normal.woff2', 'EBGaramond-400-normal.woff2', 'Montserrat-600-normal.woff2' ) as $f ) {

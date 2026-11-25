@@ -4,10 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 the_post();
-$cats  = get_the_category();
-$cat   = $cats ? $cats[0] : null;
-$blog  = get_option( 'page_for_posts' ) ? get_permalink( (int) get_option( 'page_for_posts' ) ) : home_url( '/blog/' );
-$bio   = aldeia_blog_autor_bio();
+$bio = aldeia_blog_autor_bio();
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -15,37 +12,29 @@ $bio   = aldeia_blog_autor_bio();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
 </head>
-<body <?php body_class( 'av-page' ); ?> id="top">
+<body <?php body_class( 'ab-page' ); ?>>
 <?php wp_body_open(); ?>
 <?php aldeia_blog_header(); ?>
-<main id="topo">
-<article <?php post_class( 'av-post' ); ?>>
-<section class="av-hero av-hero--prof"><div class="av-wrap av-hero__grid" style="grid-template-columns:1fr">
-  <div class="av-reveal">
-    <p class="av-breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a> · <a href="<?php echo esc_url( $blog ); ?>">Blog</a><?php if ( $cat ) : ?> · <a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>"><?php echo esc_html( $cat->name ); ?></a><?php endif; ?></p>
-    <h1 class="av-h1"><?php the_title(); ?></h1>
-    <p class="av-post__meta">Por <?php echo esc_html( aldeia_blog_autor() ); ?> · <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'j \d\e F \d\e Y' ) ); ?></time> · <?php echo (int) aldeia_blog_tempo_leitura(); ?> min de leitura</p>
-  </div>
-</div></section>
-
-<section class="av-section av-section--tight"><div class="av-wrap">
+<main id="topo" class="ab-wrap">
+<article <?php post_class( 'ab-art' ); ?>>
+  <p class="ab-back"><a href="<?php echo esc_url( aldeia_blog_pagina_blog() ); ?>">← Blog</a></p>
+  <h1><?php the_title(); ?></h1>
+  <p class="ab-byline"><strong><?php echo esc_html( aldeia_blog_autor() ); ?></strong> · <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'j \d\e F \d\e Y' ) ); ?></time> · <?php echo (int) aldeia_blog_tempo_leitura(); ?> min de leitura</p>
 	<?php if ( has_post_thumbnail() ) : ?>
-  <figure class="av-post__cover"><?php the_post_thumbnail( 'large' ); ?></figure>
+  <figure class="ab-cover"><?php the_post_thumbnail( 'large' ); ?></figure>
 	<?php endif; ?>
-  <div class="av-prose av-post__content"><?php the_content(); ?></div>
-  <p class="av-updated">Atualizado em <?php echo esc_html( get_the_modified_date( 'j \d\e F \d\e Y' ) ); ?></p>
-  <aside class="av-author">
-    <strong><?php echo esc_html( aldeia_blog_autor() ); ?></strong>
+  <div class="ab-body"><?php the_content(); ?></div>
+  <p class="ab-updated">Atualizado em <?php echo esc_html( get_the_modified_date( 'j \d\e F \d\e Y' ) ); ?></p>
 	<?php if ( $bio ) : ?>
-    <p><?php echo esc_html( $bio ); ?></p>
+  <p class="ab-author"><strong><?php echo esc_html( aldeia_blog_autor() ); ?></strong>. <?php echo esc_html( $bio ); ?></p>
 	<?php endif; ?>
-  </aside>
-</div></section>
+</article>
 
 	<?php if ( comments_open() || get_comments_number() ) { comments_template(); } ?>
 
 	<?php
-	$rel = new WP_Query( array(
+	$cats = get_the_category();
+	$rel  = new WP_Query( array(
 		'post_type'           => 'post',
 		'posts_per_page'      => 3,
 		'post__not_in'        => array( get_the_ID() ),
@@ -54,22 +43,22 @@ $bio   = aldeia_blog_autor_bio();
 	) );
 	if ( $rel->have_posts() ) :
 		?>
-<section class="av-section av-section--soft"><div class="av-wrap">
-  <h2 class="av-h2 av-reveal">Continue lendo</h2>
-  <div class="av-posts">
+  <section class="ab-more">
+    <h2>Mais do blog</h2>
 		<?php
 		while ( $rel->have_posts() ) {
 			$rel->the_post();
-			aldeia_blog_cartao();
+			?>
+    <div class="ab-more__it"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><p class="ab-meta"><?php echo esc_html( get_the_date( 'j \d\e F \d\e Y' ) ); ?> · <?php echo (int) aldeia_blog_tempo_leitura(); ?> min de leitura</p></div>
+			<?php
 		}
 		wp_reset_postdata();
 		?>
-  </div>
-</div></section>
+  </section>
 	<?php endif; ?>
-</article>
+
+  <?php aldeia_blog_chamada(); ?>
 </main>
-<?php aldeia_blog_chamada(); ?>
 <?php aldeia_blog_footer(); ?>
 <?php wp_footer(); ?>
 </body>

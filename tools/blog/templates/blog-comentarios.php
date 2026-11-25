@@ -7,15 +7,15 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<section class="av-section av-section--soft" id="comentarios"><div class="av-wrap"><div class="av-comments">
-  <h2 class="av-h2">Comentários<?php if ( get_comments_number() ) : ?> (<?php echo (int) get_comments_number(); ?>)<?php endif; ?></h2>
+<section class="ab-comments" id="comentarios">
+  <h2>Comentários<?php if ( get_comments_number() ) : ?> (<?php echo (int) get_comments_number(); ?>)<?php endif; ?></h2>
 <?php if ( have_comments() ) : ?>
-  <ol class="av-comment-list">
+  <ol class="ab-comment-list">
 	<?php wp_list_comments( array( 'style' => 'ol', 'short_ping' => true, 'callback' => 'aldeia_blog_comentario' ) ); ?>
   </ol>
 	<?php the_comments_pagination( array( 'prev_text' => '←', 'next_text' => '→' ) ); ?>
 <?php else : ?>
-  <p class="av-lead">Ainda não há comentários. Seja a primeira pessoa a comentar.</p>
+  <p class="ab-closed">Ainda não há comentários. Seja a primeira pessoa a comentar.</p>
 <?php endif; ?>
 
 <?php if ( comments_open() ) : ?>
@@ -27,7 +27,7 @@ if ( post_password_required() ) {
 		'title_reply_to'       => 'Responder a %s',
 		'cancel_reply_link'    => 'Cancelar resposta',
 		'label_submit'         => 'Publicar comentário',
-		'class_submit'         => 'av-btn',
+		'class_submit'         => 'ab-btn',
 		'submit_button'        => '<button name="%1$s" type="submit" id="%2$s" class="%3$s">%4$s</button>',
 		'comment_notes_before' => '<p class="comment-notes">Seu e-mail não será publicado. Os campos marcados com * são obrigatórios.</p>',
 		'comment_notes_after'  => '<p class="comment-notes">Ao comentar, o seu nome e o seu comentário ficam visíveis para todos. Os comentários passam por aprovação antes de aparecer.</p>',
@@ -35,6 +35,6 @@ if ( post_password_required() ) {
 	) );
 	?>
 <?php else : ?>
-  <p class="av-lead">Os comentários deste artigo estão fechados.</p>
+  <p class="ab-closed">Os comentários deste artigo estão fechados.</p>
 <?php endif; ?>
-</div></div></section>
+</section>

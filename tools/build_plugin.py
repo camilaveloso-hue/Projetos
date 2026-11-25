@@ -36,6 +36,7 @@ if __name__ == "__main__":
     for d in ("assets/css", "assets/js", "assets/img", "assets/fonts"):
         os.makedirs(os.path.join(OUT, d))
     open(os.path.join(OUT, "assets/css/aldeia-vendas.css"), "w", encoding="utf-8").write(build_css())
+    open(os.path.join(OUT, "assets/css/aldeia-blog.css"), "w", encoding="utf-8").write("/* Aldeia Literária — Blog (plugin) — gerado por tools/build_plugin.py */\n" + fonts_css() + "\n" + rd("tools/blog/blog.css"))
     shutil.copy(os.path.join(ROOT, "wordpress/aldeia-vendas.js"), os.path.join(OUT, "assets/js/aldeia-vendas.js"))
     A = os.path.join(ROOT, "preview/assets")
     for f in os.listdir(os.path.join(A, "fonts")):

@@ -14,15 +14,16 @@ PLUGIN_BASE = SITE + "/wp-content/plugins/aldeia-vendas/assets/"
 FORM = "https://tally.so/r/0QNWPy"
 GUIA_URL = SITE + "/como-escolher-curso-de-escrita-criativa/"
 IMP_URL = SITE + "/imprensa/"
+BLOG_URL = SITE + "/blog/"
 E = html.escape
 UPD_TXT, UPD_ISO = "novembro de 2026", "2026-11-09"
 
 HEADER = f'''<header class="av-header"><div class="av-wrap">
   <a class="av-logo" href="{SITE}/"><span>Aldeia Literária</span></a>
-  <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="{SITE}/">Início</a><a href="{SITE}/novo-sobre/">Sobre</a><a href="{GUIA_URL}">Guia</a><a href="{IMP_URL}">Imprensa</a></nav>
+  <nav class="av-nav" aria-label="Principal"><a class="av-nav__keep" href="{SITE}/">Início</a><a href="{SITE}/novo-sobre/">Sobre</a><a href="{GUIA_URL}">Guia</a><a href="{BLOG_URL}">Blog</a></nav>
   <a class="av-btn" href="{FORM}">Entrar na lista de espera</a>
 </div></header>'''
-FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a> · <a href="{GUIA_URL}">Guia</a> · <a href="{IMP_URL}">Imprensa</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados · <a href="{CANC_URL}">Cancelamento e reembolso</a><br>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</footer>'''
+FOOTER = f'''<footer class="av-footer"><a href="{SITE}/">Início</a> · <a href="{SITE}/novo-sobre/">Sobre</a> · <a href="{GUIA_URL}">Guia</a> · <a href="{BLOG_URL}">Blog</a><br>© Aldeia Literária · Curso de escrita para iniciantes · Todos os direitos reservados · <a href="{CANC_URL}">Cancelamento e reembolso</a><br>CAMILA VELOSO. CO LTDA · CNPJ 47.277.682/0001-48</footer>'''
 
 def ld(d): return '<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False, separators=(",", ":")) + "</script>"
 def faq_html(items): return "".join(f'<details open><summary>{E(q)}</summary><div class="av-ans"><p>{a}</p></div></details>' for q, a in items)
