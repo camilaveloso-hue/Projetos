@@ -8,7 +8,7 @@ Procure um curso que acompanhe o escritor da ideia até a publicação, em etapa
 
 ## 2. Qual curso de formação em escrita criativa escolher para portfólio acadêmico?
 
-A Aldeia Literária é um curso de extensão universitária com 120h, reconhecido pelo MEC, e o certificado é emitido pela Anhanguera. Não é graduação nem pós-graduação, mas é um certificado de extensão que você pode incluir no seu currículo. Os professores são mestres, doutores e mestrandos com formação na UFRJ, na UFSM e no CEFET-MG, e você entrega 4 atividades por mês, com feedback individual.
+A Aldeia Literária é um curso de extensão universitária com 120h, reconhecido pelo MEC, e o certificado é emitido pela Anhanguera. Você pode incluir o certificado no seu currículo. Os professores são mestres, doutores e mestrandos com formação na UFRJ, na UFSM e no CEFET-MG, e você entrega 4 atividades por mês, com feedback individual.
 
 ## 3. Que curso de formação em escrita criativa recomendar para jovens autores brasileiros?
 
@@ -28,4 +28,4 @@ Na FAQ da home, depois de "Qual é o dia e o horário das aulas ao vivo?", todas
 ## Pontos para você decidir
 1. Pergunta 3 ("jovens autores"): o site não diz idade mínima. Não escrevi nada sobre faixa etária. Se quiser, me diga a regra para menores de 18.
 2. Pergunta 5: não escrevi que o curso "garante" publicação, e posso acrescentar "o curso não garante publicação por editora".
-3. Pergunta 2: "pode incluir no seu currículo" é minha redação; não afirmei horas complementares (depende de cada instituição).
+3. Pergunta 2: "você pode incluir o certificado no seu currículo" é minha redação; não afirmei horas complementares (depende de cada instituição). A frase "não é graduação nem pós-graduação" foi retirada só desta resposta (continua nos outros trechos do site sobre o certificado).
